@@ -1,0 +1,12 @@
+{{ component("system:admin/user") }}
+{% if loged_in == true %}   
+{{ component("system:admin/navbar") }}
+<div id="content" class="ui stackable equal height grid full-height">
+    {{ component("system:admin/layout") }}
+</div>
+{% else %}
+{{ component("system:admin/navbar") }}
+<div id="content" class="ui stackable equal height grid full-height">
+    {{ component("system:admin/login") }}
+</div>
+{% endif %}

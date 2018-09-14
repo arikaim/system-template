@@ -1,0 +1,23 @@
+<div class="ui stackable grid">    
+    <div class="ui sixteen wide column">
+        <div class="ui stackable top attached tabular menu">           
+            <a class="item tab-item active {{ buttons.view.class }}" {{ buttons.view.title|attr("title") }} component="system:admin.templates.view">
+                <i class="icon grid layout"></i>
+                {{ buttons.view.content }}   
+            </a>                 
+            <a id="details_button" class="item tab-item {{ buttons.details.class }}" {{ buttons.details.title|attr("title") }} component="system:admin.templates.template.details">
+                <i class="icon edit"></i>
+                {{ buttons.details.content }}   
+            </a>
+            <!--
+            <a id="download_button" class="item extension-tab {{ buttons.download.class }}" {{ buttons.download.title|attr("title") }} component="system:admin.extensions.store">
+                <i class="icon cloud download"></i>
+                {{ buttons.download.content }}   
+            </a>
+            -->              
+        </div>
+        <div class="ui active tab basic segment" id="tab_content">
+            {{ component("system:admin/templates/view") }}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,8 @@
+{
+    "access": {
+        "auth": "None"        
+    },
+    "include": {
+        "js": "system:confirm-dialog"
+    }
+}

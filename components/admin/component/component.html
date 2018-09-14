@@ -1,0 +1,12 @@
+<div class="ui accordion components-list">
+    {% for component in components %}
+    {% set count = count + 1 %}
+    <div class="title">
+        <i class="code icon"></i>
+        <i class="dropdown icon"></i>
+        {{ component.name }}
+    </div>
+    <div class="content" component-name="{{ component.full_name }}" id="component_{{ count }}">        
+    </div>
+    {% endfor %}
+</div>

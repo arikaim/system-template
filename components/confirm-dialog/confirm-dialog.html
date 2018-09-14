@@ -1,0 +1,26 @@
+<div class="ui tiny modal" id="confirm_dialog">
+    <div class="header">
+        <i class="icon small circular inverted question {{ dialogs.confirm.icon }}"></i>
+        <span class="confirm-dialog-title">{{ dialogs.confirm.title }}</span>
+    </div>
+    <div class="content confirm-dialog-description">
+    {{ dialogs.confirm.description }}
+    </div>
+    <div class="actions">
+        <button class="ui cancel button {{ buttons.cancel.class }}">{{ buttons.cancel.content }}</button>
+        <button class="ui approve button {{ buttons.confirm.class }}">{{ buttons.confirm.content }}</button>
+    </div>
+</div>
+<div class="ui tiny modal" id="delete_dialog">
+    <div class="header">
+        <i class="icon exclamation triangle {{ dialogs.delete.icon }}"></i>
+        <span class="confirm-dialog-title">{{ dialogs.delete.title }}</span>
+    </div>
+    <div class="content confirm-dialog-description">
+    {{ dialogs.delete.description }}
+    </div>
+    <div class="actions">
+        <button id="cancel_button" class="ui cancel button {{ buttons.cancel.class }}">{{ buttons.cancel.content }}</button>
+        <button id="confirm_button" class="ui approve button {{ buttons.delete.class }}">{{ buttons.delete.content }}</button>
+    </div>
+</div>

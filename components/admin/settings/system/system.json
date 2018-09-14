@@ -1,0 +1,27 @@
+{
+    "title": {
+        "content": "System"
+    },
+    "fields": {
+        "interval": {
+            "label": "Session Recreation interval"
+        },
+        "cors": {
+            "label": "Cross-Origin Resource Sharing"
+        },
+        "debug": {
+            "label": "Development Mode"
+        }
+    },
+    "buttons": {
+        "save": {
+            "content": "Save"
+        }
+    },
+    "labels": {
+        "min": "minutes"
+    },
+    "messages": {
+        "save": "Changes saved."
+    }
+}

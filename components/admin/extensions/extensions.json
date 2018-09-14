@@ -1,0 +1,17 @@
+{
+    "buttons": {
+        "details": {
+            "content": "Details"
+        },            
+        "view": {
+            "content": "View"
+        },
+        "downoad": {
+            "content": "Download"
+        }
+    },
+    "message": {
+        "title": "Confirm",
+        "description": "Uninstall extension '<b><% title %></b>' "
+    }
+}

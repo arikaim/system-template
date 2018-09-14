@@ -1,0 +1,11 @@
+{
+    "labels": {
+        "framework": "Front-end Framework",
+        "files": "Files",
+        "params": "Params",
+        "value": "value",
+        "name": "name",
+        "themes": "Themes",
+        "version": "Version"
+    }
+}

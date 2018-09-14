@@ -1,0 +1,19 @@
+{% import systemMacro('labels.html') as macros %}
+{% set details = executeMethod('View\\Html\\HtmlComponent','getComponentDetails',component) %}
+<div class="margin-left-3">
+    <div class="ui card">
+        <div class="content">
+            <h5 class="text bold">{{ labels.title }}</h5> 
+            <div class="ui divider"></div>          
+            <div class="text">{{ labels.auth }}</div> 
+            {% set auth = details.options.access.auth %}
+            {% if auth is empty %}
+                {% set auth = labels.none %}
+            {% endif %}
+            <div class="ui basic mini blue horizontal label">{{ auth }}</div>  
+            <div class="ui divider"></div>                   
+            <div class="">{{ labels.permissions }}</div>  
+            {{ macros.permissionsLabel(details.options.access.permissions,labels) }}                           
+        </div>
+    </div>
+</div>

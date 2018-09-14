@@ -1,0 +1,49 @@
+{%- macro item(tag_name,content,attributes) %}
+{%  set new_class = "item " ~ attributes.class %}
+{%  set item_class = { "class":new_class } %}
+{%  if attributes is iterable %}
+{%  set attributes = attributes|merge(item_class) %}
+{%  endif %}
+{{  content|tag(tag_name,attributes) }}
+{%  endmacro item %}
+
+{%- macro menuItems(items) %}
+{%  for item in items %}
+{{  _self.item("a",item.content,item) -}}    
+{%  endfor %}
+{%- endmacro menuItems -%}
+
+{# control panel menu items #}
+{%- macro adminMenuItem(extension_name,admin_menu,class) %}
+{% if admin_menu.items is iterable %}
+{% set main_link_class = '' %}
+{% else %}
+{% set main_link_class = class %}
+{% endif %}
+<div class="item {{ main_link_class }}" component="{{ admin_menu.component }}" {{ extension_name|attr('extension') }} page-icon="{{ admin_menu.page_icon }}" page-title="{{ admin_menu.page_title }}">
+    <div class="title menu-item-title">
+        <i class="left icon large blue {{ admin_menu.icon }}"></i>
+        {% if admin_menu.items is iterable %}
+            <i class="dropdown icon"></i>
+        {% endif %}
+        {{ admin_menu.title }}
+    </div>
+    {% if admin_menu.items is iterable %}
+        <div class="content">             
+            <div class="verical menu">
+                {% for item in admin_menu.items %}
+                {{ _self.adminMenuSubItem(extension_name,item,class) }}
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %} 
+</div>
+{%- endmacro adminMenuItem -%}
+
+{# control panel sub menu items #}
+{%- macro adminMenuSubItem(extension_name,item,class) %}
+<a class="item {{ class }}" component="{{ item.component }}" {{ extension_name|attr('extension') }} page-icon="{{ item.page_icon }}" page-title="{{ item.page_title }}">   
+    <i class="left icon {{ item.icon }}"></i>
+    <span class="small-text">{{ item.title }}</span>       
+</a>
+{%- endmacro adminMenuSubItem -%}

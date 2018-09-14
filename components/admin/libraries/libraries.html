@@ -1,0 +1,15 @@
+<div class="ui stackable grid">    
+    <div class="ui sixteen wide column">
+        <div class="ui stackable top attached tabular menu">           
+            <a id="view_button" class="item tab-item active {{ buttons.view.class }}" {{ buttons.view.title|attr("title") }} component="system:admin.libraries.view">
+                <i class="icon grid layout"></i>{{ buttons.view.content }}   
+            </a>
+            <a id="download_button" class="item tab-item {{ buttons.download.class }}" {{ buttons.download.title|attr("title") }} component="system:admin.libraries.download">
+                <i class="icon download"></i>{{ buttons.download.content }}   
+            </a>          
+        </div>
+        <div class="ui active tab basic segment" id="tab_content">
+            {{ component("system:admin/libraries/view") }}
+        </div>
+    </div>
+</div>

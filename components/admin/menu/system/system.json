@@ -1,0 +1,60 @@
+{
+    "menu": {
+        "extensions": {
+            "component": "system:admin.extensions",
+            "icon": "puzzle",
+            "title": "Extensions",
+            "page_icon": "puzzle",
+            "page_title": "Extensions",   
+            "sub_title": "View,Install,Update" 
+        },
+        "templates": {
+            "component": "system:admin.templates",
+            "icon": "browser",
+            "title": "Templates",
+            "page_icon": "browser",
+            "page_title": "Templates",   
+            "sub_title": "View,Change" 
+        },
+        "libraries": {
+            "component": "system:admin.libraries",
+            "icon": "info cubes",
+            "title": "UI Libraries",
+            "page_icon": "info cubes",
+            "page_title": "UI Libraries", 
+            "sub_title": "View" 
+        },
+        "languages": {
+            "component": "system:admin.languages",
+            "icon": "globe",
+            "title": "Languages",
+            "page_title": "Languages", 
+            "page_icon": "globe",
+            "sub_title": "View,Edit,Add" 
+        },
+        "settings": {           
+            "component": "system:admin.settings",
+            "icon": "sliders horizontal",
+            "title": "Settings",
+            "page_icon": "sliders horizontal",
+            "page_title": "Settings", 
+            "sub_title": "View,Edit,Add" 
+        },
+        "system": { 
+            "component": "system:admin.system",
+            "icon": "setting",
+            "title": "System",
+            "page_icon": "setting",
+            "page_title": "System",
+            "sub_title": "Settings,Update,Logs, Stats, System Info" 
+        },
+        "logout": { 
+            "component": "system:admin.logout",
+            "icon": "sign out",
+            "title": "Log out",
+            "page_icon": "sign out",
+            "page_title": "Log out",
+            "sub_title": "Exit" 
+        }   
+    }
+}

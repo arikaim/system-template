@@ -1,0 +1,42 @@
+{%- macro permissionsDropdown(selected,attributes) %}
+{% if attributes.id is empty %}
+{% set id = 'permissions_dropdown' %}
+{% else %}
+{% set id = attributes.id %}
+{% endif %}
+{% if attributes.name is empty %}
+{% set name = 'permissions' %}
+{% else %}
+{% set name = attributes.name %}
+{% endif %}
+{% set items = dbQuery("PermissionsList") %}
+<div class="ui search dropdown {{ attributes.class }}" id="{{ id }}">  
+    <input name="{{ name }}" type="hidden" value="{{ selected }}">
+    <i class="dropdown icon"></i>   
+    <div class="default text">{{ attributes.label }}</div>
+    <div class="menu">   
+        {% for item in items %}
+            <div class="item" data-value="{{ item.uuid }}">
+                {{ item.title|ifthen(null,item.name) }}                     
+            </div>      
+        {% endfor %}
+    </div>
+</div>
+{% endmacro permissionsDropdown -%}
+
+{# Show permission label #}
+{%- macro permissionLabel(name,type,attributes) %}
+{% set name = name|defaultValue(attributes.none) %}
+{% set permission_type = type|jsonDecode() %}
+<div class="ui basic label">
+    {{ name }}
+    {% if permission_type is iterable %}
+    <div class="detail">
+        {% for key,item in permission_type %}
+        {{ item }}
+        <span class="dark-color underline">{{ key }}</span>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+{%- endmacro permissionLabel -%}

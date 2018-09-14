@@ -1,0 +1,18 @@
+<div class="ui stackable centered grid">    
+    <div class="ui sixteen wide column">
+        <div class="ui stackable top attached tabular menu">           
+            <a id="view_button" class="item tab-item active {{ buttons.view.class }}" {{ buttons.view.title|attr("title") }} component="system:admin.languages.view">
+                <i class="icon grid layout"></i>{{ buttons.view.content }}   
+            </a>  
+            <a class="item tab-item {{ buttons.add.class }}" {{ buttons.add.title|attr("title") }} component="system:admin.languages.language.add">
+                <i class="icon plus"></i>{{ buttons.add.content }}   
+            </a>  
+            <a id="edit_button" class="item tab-item {{ buttons.edit.class }}" {{ buttons.edit.title|attr("title") }} component="system:admin.languages.language.edit">
+                <i class="icon edit"></i>{{ buttons.edit.content }}   
+            </a>            
+        </div>
+        <div class="ui active tab basic segment" id="tab_content">
+            {{ component("system:admin/languages/view")}}
+        </div>
+    </div>
+</div>

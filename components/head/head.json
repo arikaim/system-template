@@ -1,0 +1,11 @@
+{
+    "head": {        
+        "title" : "",
+        "description": "",
+        "keywords": "",
+        "robots": "index,follow",
+        "googlebot": "index,follow",
+        "cache_control": "no-cache",
+        "content_type": "text/html"
+    }   
+}

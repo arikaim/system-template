@@ -1,0 +1,6 @@
+{% set items = executeMethod("View\\UiLibrary","scan") %}
+<div class="ui stackable cards">
+{% for item in items %}
+    {{ component('system:admin/libraries/library',{ library: item }) }}
+{% endfor %}
+</div>

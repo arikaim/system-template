@@ -1,0 +1,62 @@
+<div class="ui card">
+    <div class="content">    
+        <i class="ui left floated cube icon"></i>   
+        <div class="right floated meta">
+            <div class="ui horizontal label">               
+                {{ labels.version }} <span class="bold">{{ library.version }}</span>
+            </div>
+        </div>        
+        <div class="header margin-left-1">
+            {{ library.name }}                
+        </div>  
+        {% if library.framework == true %}
+        <div class="ui divider"></div>
+        <div class="content">
+            <div class="ui basic fluid blue label">
+            {{ labels.framework }}
+            </div>
+        </div>
+        {% endif %}
+        <div class="description margin-top-1">
+            {{ library.description }}
+            <div class="ui divider"></div>
+            <div class="bold">{{ labels.files }}</div>
+            <div class="list">                  
+            {% for file in library.files %}
+                <div class="item">
+                    <i class="file code outline icon"></i>
+                    {{ file }}
+                </div>
+            {% endfor %}
+            </div>
+            {% if library.themes|length > 0 %}
+                <div class="ui divider"></div>
+                <div class="bold">{{ labels.themes }}</div>
+                <div class="list">                  
+                {% for name,theme in library.themes %}
+                    <div class="item">
+                        <i class="file code outline icon"></i>
+                        {{ name }}
+                    </div>
+                {% endfor %}
+                </div>
+            {% endif %}
+            {% if library.params|length > 0 %}
+            <div class="ui divider"></div>
+            <div class="bold">{{ labels.params }}</div>
+            <div class="list">
+                {% for name,param in library.params %}
+                    <div class="item">
+                        <div class="ui basic mini label">{{ labels.name }}</div>
+                        {{ name }}                            
+                    </div>
+                    <div class="item">
+                        <div class="ui basic mini label">{{ labels.value }}</div>
+                        {{ param }}
+                    </div>
+                {% endfor %}
+            </div> 
+            {% endif %}
+        </div>
+    </div>
+</div>

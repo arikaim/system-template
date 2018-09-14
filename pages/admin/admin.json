@@ -1,0 +1,12 @@
+{
+    "head": {
+        "title": "Arikaim Control Panel",
+        "description": "Content Management System",
+        "keywords": "Arikaim, Control Panel, CMS",
+        "favicons": {
+            "mini": {
+                "src": "arikaim_icon_32x32.png"
+            }
+        }
+    }
+}
