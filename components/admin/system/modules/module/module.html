@@ -1,10 +1,11 @@
 
 {% import systemMacro("list.html") as list %}
-{% set status = callStatic('Arikaim','hasModule',{ module: module.service_name }) %}
 <div class="ui card">
     <div class="content item"> 
-        {% if status == true %}
+        {% if module.status == true %}
             <i class="icon left floated checkmark olive" title="{{ labels.active }}"></i>
+        {% else %}
+            <i class="icon exclamation triangle red" title="{{ labels.error }}"></i> 
         {% endif %}       
         {{ module.title }} 
         <div class="ui right floated mini basic label">
@@ -33,11 +34,21 @@
             {{ labels.bootable }}
         </div>
         {% endif %} 
+        {% if module.facade.alias is not empty %}
+        <div class="ui label mini blue basic">
+            {{ labels.facade }}
+            <div class="detail">
+                {{ module.facade.alias }}
+            </div>
+        </div>       
+        {% endif %} 
     </div>
     <div class="extra content">
-        <div class="ui basic button" id="update_button">
-            <i class="icon refresh"></i>
-            {{ labels.update }}
-        </div>
+        {% if module.help.url is not null %}
+        <a class="ui basic mini button" href="{{ module.help.url }}" target="_blank">
+            <i class="icon info circle"></i>
+            {{ labels.help }}
+        </a>
+        {% endif %}
     </div>
 </div>

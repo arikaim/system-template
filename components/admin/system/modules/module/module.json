@@ -1,9 +1,12 @@
 {
     "labels": {
+        "error": "Module not working.",
         "active": "Active",
         "version": "Version",
         "bootable": "Bootable",
         "packages": "Composer packages",
-        "update": "Update"
+        "update": "Update",
+        "help": "Help",
+        "facade": "Facade"
     }
 }
