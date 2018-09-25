@@ -3,10 +3,19 @@
 <div class="ui card">
     <div class="content item"> 
         {% if module.status == true %}
-            <i class="icon left floated checkmark olive" title="{{ labels.active }}"></i>
+            {% if module.disabled == false %}
+                <i class="icon left floated checkmark olive" title="{{ labels.active }}"></i>
+            {% else %}
+                <i class="icon left floated checkmark grey" title="{{ labels.disabled }}"></i> 
+            {% endif %}
         {% else %}
-            <i class="icon exclamation triangle red" title="{{ labels.error }}"></i> 
-        {% endif %}       
+            <i class="icon exclamation triangle red" title="{{ messages.error }}"></i>            
+        {% endif %}
+        {% if module.disabled == true %}
+            <div class="ui left corner red mini label" title="{{ labels.disabled }}">  
+                <i class="icon exclamation" title="{{ labels.disabled }}"></i>          
+            </div>       
+        {% endif %}
         {{ module.title }} 
         <div class="ui right floated mini basic label">
             {{ labels.version }}
@@ -21,13 +30,19 @@
             <div class="item margin-top-1">
                 <i class="icon code"></i>
                 {{ module.class }}
-            </div>
+            </div>          
             <div class="item margin-top-1">
                 {{ labels.packages }}
                 <div class="margin-left-1">                      
                     {{ list.itemsList(module.requires,'archive') }}
                 </div>
             </div>            
+        </div>       
+        <div class="ui label mini blue basic">
+            {{ labels.type }}
+            <div class="detail dark-color">                    
+                {{ module.type }}
+            </div>
         </div>
         {% if module.bootable == true %}
         <div class="ui label mini blue basic">
@@ -37,11 +52,20 @@
         {% if module.facade.alias is not empty %}
         <div class="ui label mini blue basic">
             {{ labels.facade }}
-            <div class="detail">
+            <div class="detail dark-color">
                 {{ module.facade.alias }}
             </div>
         </div>       
         {% endif %} 
+        {% if module.error is not null %}
+            <br>
+            <div class="ui label mini red basic">
+                {{ labels.error }}
+                <div class="detail dark-color">
+                    {{ module.error }}
+                </div>
+            </div>  
+        {% endif %}
     </div>
     <div class="extra content">
         {% if module.help.url is not null %}

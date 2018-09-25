@@ -23,12 +23,6 @@
                     <label class="bold">{{ fields.debug.label }}</label>
                 </div>             
             </div>
-            <div class="field">
-                <div class="ui slider checkbox" id="cors_toggle">
-                    <input name="cors" type="checkbox" value="1" {{ cors_config|ifthen(true,'checked') }} >
-                    <label class="bold">{{ fields.cors.label }}</label>
-                </div>             
-            </div>
             <div class="ui horizontal divider margin-top-2"> </div>
             <button class="ui button green" id="save_button">{{ buttons.save.content }}</button>
             <div class="ui error message form-errors"></div>

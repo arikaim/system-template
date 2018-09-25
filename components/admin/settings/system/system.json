@@ -6,9 +6,6 @@
         "interval": {
             "label": "Session Recreation interval"
         },
-        "cors": {
-            "label": "Cross-Origin Resource Sharing"
-        },
         "debug": {
             "label": "Development Mode"
         }
