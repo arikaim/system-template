@@ -1,6 +1,6 @@
 {% set modules = executeMethod('Module\\ModulesManager','install') %}
 <div class="ui stackable cards" id="modules">
-    {% for module in modules %}
-        {{ component("system:admin.system.modules.module",{module: module}) }}
+    {% for module in modules %}        
+        {{ component("system:admin.system.modules.module",{module: module}) }}       
     {% endfor %}
 </div>

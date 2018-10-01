@@ -1,6 +1,9 @@
 
 {% import systemMacro("list.html") as list %}
-<div class="ui card">
+{% if module is not iterable %}
+{% set module = executeMethod('Module\\ModulesManager','getModuleDetails',{name:name}) %}
+{% endif %}
+<div class="ui card" id="{{ module.path }}">
     <div class="content item"> 
         {% if module.status == true %}
             {% if module.disabled == false %}
@@ -37,7 +40,9 @@
                     {{ list.itemsList(module.requires,'archive') }}
                 </div>
             </div>            
-        </div>       
+        </div>               
+    </div>
+    <div class="extra content">
         <div class="ui label mini blue basic">
             {{ labels.type }}
             <div class="detail dark-color">                    
@@ -57,14 +62,17 @@
             </div>
         </div>       
         {% endif %} 
+    </div>   
+    <div class="extra content">
         {% if module.error is not null %}
-            <br>
-            <div class="ui label mini red basic">
-                {{ labels.error }}
-                <div class="detail dark-color">
-                    {{ module.error }}
-                </div>
-            </div>  
+        <div class="ui label mini red basic">
+            {{ labels.error }}
+            <div class="detail dark-color">
+                {{ module.error }}
+            </div>
+        </div> 
+        {% else %}
+        <br>
         {% endif %}
     </div>
     <div class="extra content">
@@ -74,5 +82,9 @@
             {{ labels.help }}
         </a>
         {% endif %}
+        <button class="ui basic mini button install-button" name="{{ module.path }}"> 
+            <i class="icon download"></i>         
+            {{ labels.update }}
+        </button>
     </div>
 </div>
