@@ -9,11 +9,11 @@
 
 function Languages() {
     this.delete = function(uuid,onSuccess,onError) {
-        arikaim.delete('/admin/api/language/' + uuid,onSuccess,onError); 
+        arikaim.delete('/core/api/language/' + uuid,onSuccess,onError); 
     };
     
     this.setDefault = function(uuid,onSuccess,onError) {
-        arikaim.put('/admin/api/language/default/'+ uuid,null,onSuccess,onError);        
+        arikaim.put('/core/api/language/default/'+ uuid,null,onSuccess,onError);        
     };
 
     this.loadMenu = function(menu_element) {
@@ -33,7 +33,7 @@ function Languages() {
      */
     this.setStatus = function(uuid,status,onSuccess,onError) {     
         var status_text = isEmpty(status) ? 'toggle' : status;         
-        arikaim.put('/admin/api/language/status/'+ uuid + '/' + status_text,null,onSuccess,onError);      
+        arikaim.put('/core/api/language/status/'+ uuid + '/' + status_text,null,onSuccess,onError);      
     };
 
     this.load = function(uuid) {
@@ -55,7 +55,7 @@ function Languages() {
     };
 
     this.move = function(uuid,after_uuid,onSuccess,onError) {
-        arikaim.put('/admin/api/language/move/'+ uuid + '/' + after_uuid,null,onSuccess,onError);      
+        arikaim.put('/core/api/language/move/'+ uuid + '/' + after_uuid,null,onSuccess,onError);      
     };
 
     this.init = function() {

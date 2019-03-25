@@ -18,9 +18,6 @@
         "jobs": {
             "content": "Jobs Queue"
         },
-        "modules": {
-            "content": "Modules"
-        },
         "info": {
             "content": "System Info"
         },       

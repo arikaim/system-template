@@ -9,11 +9,11 @@
 
 function Update() {
     this.checkForNewVersion = function(onSuccess) {
-        arikaim.get('/admin/api/update/check',onSuccess,onError);
+        arikaim.get('/core/api/update/check',onSuccess,onError);
     };
 
     this.update = function(onSuccess,onError) {
-        arikaim.get('/admin/api/update/',onSuccess,onError);
+        arikaim.get('/core/api/update/',onSuccess,onError);
     };
 
     this.init = function() {

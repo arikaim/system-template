@@ -35,7 +35,7 @@ arikaim.page.onReady(function() {
       
     arikaim.form.onSubmit('#language_form',function() {
         $('#save_language_button').addClass('disabled loading');
-        arikaim.post('/admin/api/language/','#language_form',function(result) {
+        arikaim.post('/core/api/language/','#language_form',function(result) {
             $('#save_language_button').removeClass('disabled loading');
             $('#view_button').click();
             languages.loadMenu();

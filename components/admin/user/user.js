@@ -16,7 +16,7 @@ function ControlPanelUser() {
     };
 
     this.login = function(onSuccess,onError) {
-        arikaim.post('/admin/api/user/login/',form_element,function(result) {
+        arikaim.post('/core/api/user/login/',form_element,function(result) {
             if (isEmpty(result) == false) {
                 callFunction(onSuccess,result);  
                 arikaim.setToken(result);        
@@ -33,7 +33,7 @@ function ControlPanelUser() {
     };
 
     this.logout = function() {      
-        arikaim.get('/admin/api/user/logout/',function(result) {         
+        arikaim.get('/core/api/user/logout/',function(result) {         
             arikaim.clearToken();
             arikaim.page.reload();           
         },function(errors) {

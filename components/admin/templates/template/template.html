@@ -1,9 +1,9 @@
-{% set template = executeMethod("View\\TemplatesManager","getTemlateDetails",template_name) %}
+{% set template = execute("Packages\\Template\\TemplatesManager","getPackageProperties",{ name: template_name, full: false }) %}
 <div class="ui card" id="{{ template_name }}">    
     <div class="content">  
         <h3 class="header divider">
             {% if template_name == current_template_name %}
-            <div class="ui left corner olive mini label" title="{{ labels.current }}">
+            <div class="ui left corner olive mini label current-template" title="{{ labels.current }}" >
                 <i class="icon checkmark"></i>
             </div>     
             {% endif %} 
@@ -15,7 +15,7 @@
         <div class="image">          
         {% if template.image.src == '' %}       
             <div class="ui image fluid rounded">  
-                <img class=" opacity-2" src="{{ system_template_url }}/images/placeholder.png">                     
+                <img class="opacity-2" src="{{ system_template_url }}/images/placeholder.png">                     
             </div>  
         {% else %}
             <img class="ui image fluid rounded opacity-2" src="{{ system_template_url }}/images/{{ template.image.src }}">                 
@@ -32,10 +32,16 @@
     {% endif %}
     <div class="extra content">
         <div class="ui fluid buttons">   
-            {% if template.name != current_template_name and template.name != system_template_name %}        
-            <button class="ui button olive set-current-button" template="{{ template.name }}">{{ buttons.current.content }}</button>
-            {% elseif template.name != system_template_name %}
-            <button class="ui button basic grey update-button" template="{{ template.name }}">{{ buttons.update.content }}</button>
+            {% if template.name != current_template_name and template.name != system_template_name %}  
+            {% set hide = '' %}
+            {% set hide_update = 'display: none' %}
+            {% else %}
+            {% set hide = 'display: none' %}
+            {% set hide_update = '' %}
+            {% endif %}                  
+            {% if template.name != system_template_name %}
+            <button {{ hide|attr('style') }} class="ui button olive set-current-button" template="{{ template.name }}">{{ buttons.current.content }}</button>
+            <button {{ hide_update|attr('style') }} class="ui button basic grey update-button" template="{{ template.name }}">{{ buttons.update.content }}</button>
             {% endif %}    
             <button class="ui button basic grey details-button" template="{{ template.name }}">{{ buttons.details.content }}</button>
         </div>

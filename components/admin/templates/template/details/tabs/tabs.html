@@ -1,7 +1,8 @@
 {% import systemMacro("list.html") as list %}
 {% import systemMacro("extensions.html") as extensions %}
 {% import systemMacro("templates.html") as themes %}
-{% set template = executeMethod("View\\TemplatesManager","getTemlateDetails",template_name) %}
+
+{% set template = execute("Packages\\Template\\TemplatesManager","getPackageProperties",{ name: template_name, full: true }) %}
 <div class="ui card padded">
     <div class="content">
         <div class="header">

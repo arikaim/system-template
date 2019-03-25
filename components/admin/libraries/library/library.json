@@ -6,6 +6,7 @@
         "value": "value",
         "name": "name",
         "themes": "Themes",
-        "version": "Version"
+        "version": "Version",
+        "current": "current"
     }
 }

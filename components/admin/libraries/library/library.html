@@ -1,3 +1,5 @@
+{% set current_framework = callStatic('View\\Template','getCurrentFramework') %}
+{% set library = execute("Packages\\Library\\LibraryManager","getPackageProperties",{ name: library_name }) %}
 <div class="ui card">
     <div class="content">    
         <i class="ui left floated cube icon"></i>   
@@ -14,6 +16,12 @@
         <div class="content">
             <div class="ui basic fluid blue label">
             {{ labels.framework }}
+            {% if current_framework == library.name %}
+                <div class="detail right floated">
+                    <i class="icon check olive"></i>
+                    <span class="dark-color">{{ labels.current }}</span>
+                </div>    
+            {% endif %}
             </div>
         </div>
         {% endif %}

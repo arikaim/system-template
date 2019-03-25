@@ -1,8 +1,7 @@
 {% import systemMacro("extensions.html") as macros %}
 {% import systemMacro("list.html") as list %}
 
-{% set data = executeMethod("Extension\\ExtensionsManager","getExtensionDetails",extension_name)  %}
-{% set extension = executeMethod("Extension\\ExtensionsManager","getExtensionProperties",extension_name) %}
+{% set extension = execute("Packages\\Extension\\ExtensionsManager","getPackageProperties",{ name: extension_name, full: true }) %}
 <div class="ui header">
     <i class="left floated rounded big bordered icon {{ extension.icon }}"></i>  
     <div class="content">
@@ -43,10 +42,10 @@
     </a>        
 </div>
 <div class="ui bottom attached tab segment active {{ tabs.routes.class }}" data-tab="routes_tab">
-    {{ macros.routesList(data.routes,"linkify") }}
+    {{ macros.routesList(extension.routes,"linkify") }}
 </div>
 <div class="ui bottom attached tab segment {{ tabs.database.class }}" data-tab="database_tab">
-    {{ list.itemsList(data.database,"table") }} 
+    {{ list.itemsList(extension.database,"table") }} 
 </div>
 <div class="ui up tab {{ tabs.events.class }}" data-tab="events_tab" id="events_tab">
     <div class="ui horizontal divider"></div>
@@ -61,10 +60,10 @@
         </a>
     </div>
     <div class="ui bottom attached tab segment active {{ tabs.events.class }}" data-tab="events_tab/registered_events_tab">
-        {{ list.descriptionList(data.events,"checked calendar") }} 
+        {{ list.descriptionList(extension.events,"checked calendar") }} 
     </div>
     <div class="ui bottom attached tab segment {{ tabs.subscribers.class }}" data-tab="events_tab/subscribers_tab">
-        {{ macros.subscribersLits(data.subscribers,"code") }} 
+        {{ macros.subscribersLits(extension.subscribers,"code") }} 
     </div>
 </div>
 <div class="ui up tab {{ tabs.template.class }}" data-tab="template_tab">
@@ -84,13 +83,13 @@
         </a>                
     </div>
     <div class="ui bottom attached tab segment active {{ tabs.components.class }}" data-tab="template_tab/components_tab">
-        {{ component('system:admin.component',{ components: data.components }) }} 
+        {{ component('system:admin.component',{ components: extension.components }) }} 
     </div>
     <div class="ui bottom attached tab segment {{ tabs.pages.class }}" data-tab="template_tab/pages_tab">
-        {{ list.itemsList(data.pages,"file text outline") }} 
+        {{ list.itemsList(extension.pages,"file text outline") }} 
     </div>
     <div class="ui bottom attached tab segment {{ tabs.macros.class }}" data-tab="template_tab/macros_tab">
-        {{ list.itemsList(data.macros,"settings") }} 
+        {{ list.itemsList(extension.macros,"settings") }} 
     </div>
 </div>
 <div class="ui bottom attached tab segment {{ tabs.jobs.class }}" data-tab="jobs_tab">
@@ -109,5 +108,5 @@
     {{ component('system:admin.system.jobs.list',{ filter: [scheduled_jobs] }) }}
 </div>
 <div class="ui bottom attached tab segment {{ tabs.console.class }}" data-tab="console_tab">
-    {{ list.descriptionList(data.console_commands,"terminal","angle right") }} 
+    {{ list.descriptionList(extension.console_commands,"terminal","angle right") }} 
 </div>

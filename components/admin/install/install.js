@@ -46,7 +46,7 @@ function Install() {
                 onBeforeComplete: on_before_comlete
             });
 
-            arikaim.post('/admin/api/install/','#config_form',function(result) {  
+            arikaim.post('/core/api/install/','#config_form',function(result) {  
                 // istallation completed
                 self.status = true;
             },function(errors) {

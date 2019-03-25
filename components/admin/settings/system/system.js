@@ -40,7 +40,7 @@ function SystemSettings() {
     this.save = function(form_id,onSuccess) {
         var interval = $('#interval').val();
         settings.save('session.recreation.interval',interval,function(result) {
-            arikaim.put('/admin/api/settings/',form_id,function(result) {
+            arikaim.put('/core/api/settings/',form_id,function(result) {
                 callFunction(onSuccess,result);
             });
         });

@@ -7,42 +7,86 @@
  * 
  */
 
-arikaim.page.onReady(function() {   
-    var component = arikaim.getComponent('system:admin.extensions');
-    var uninstall_message = component.getProperty('message.description');
-    var message_title = component.getProperty('message.title');
+function ExtensionsView() {
+    var self = this;
 
-    $('.popup-button').popup({ 
-        on: 'click' 
-    });
+    this.init = function() {
+        var component = arikaim.getComponent('system:admin.extensions');
+        var uninstall_message = component.getProperty('message.description');
+        var message_title = component.getProperty('message.title');
 
-    $('.details-button').off();
-    $('.details-button').on('click',function() {     
-        var name = $(this).attr('extension');        
-        extensions.showDetails(name);
-    });
-    
-    $('.install-button').off();
-    $('.install-button').on('click',function() {             
-        var name = $(this).attr('extension');
-        extensions.install(name);        
-    });
-    
-    $('.un-install-button').off();
-    $('.un-install-button').on('click',function() {             
-        var name = $(this).attr('extension');
-        var message = arikaim.template.render(uninstall_message,{ title: name })
-        confirmDialog.show({
-            title: message_title,
-            description: message
-        },function() {
-            extensions.unInstall(name);
+        $('.popup-button').popup({ 
+            on: 'click' 
         });
-    });
-    
-    $('.change-status-button').off();
-    $('.change-status-button').on('click',function() {             
-        var name = $(this).attr('extension');
-        extensions.changeStatus(name);
-    }); 
+
+        $('.details-button').off();
+        $('.details-button').on('click',function() {     
+            var name = $(this).attr('extension');        
+            extensions.showDetails(name);
+        });
+        
+        $('.install-button').off();
+        $('.install-button').on('click',function() {             
+            var name = $(this).attr('extension');
+            $(this).addClass('disabled loading');    
+            extensions.install(name,function(result) {
+                arikaim.page.loadContent({
+                    id: name,
+                    params: { extension_name: name },
+                    component: 'system:admin.extensions.extension',
+                    replace: true
+                },function(result) {
+                    if (isObject(extensions_view) == true) {
+                        extensions_view.init();
+                    }               
+                    // reload control panel menu
+                    menu.loadSystemMenu();
+                    menu.loadExtensionsMenu();
+                }); 
+                $(this).removeClass('disabled loading');      
+            },function(error) {
+                $(this).removeClass('disabled loading'); 
+            });        
+        });
+        
+        $('.un-install-button').off();
+        $('.un-install-button').on('click',function() {             
+            var name = $(this).attr('extension');
+            var message = arikaim.template.render(uninstall_message,{ title: name });
+            confirmDialog.show({
+                title: message_title,
+                description: message
+            },function() {      
+                $(this).addClass('disabled loading');              
+                extensions.unInstall(name,function(result) {
+                    arikaim.page.loadContent({
+                        id: name,
+                        params: { extension_name: name },
+                        component: 'system:admin.extensions.extension',
+                        replace: true
+                    },function(result) {
+                        self.init();
+                        // reload control panel menu
+                        menu.loadSystemMenu();
+                        menu.loadExtensionsMenu();
+                    });
+                    $(this).removeClass('disabled loading'); 
+                },function(error) {
+                    $(this).removeClass('disabled loading'); 
+                });
+            });
+        });
+        
+        $('.change-status-button').off();
+        $('.change-status-button').on('click',function() {             
+            var name = $(this).attr('extension');
+            extensions.changeStatus(name);
+        }); 
+    };
+}
+
+var extensions_view = new ExtensionsView();
+
+arikaim.page.onReady(function() {   
+    extensions_view.init();
 });

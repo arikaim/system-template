@@ -36,7 +36,7 @@ function SystemLogs() {
     };
 
     this.clear = function(onSuccess,onError) {
-        arikaim.delete('/admin/api/logs/',onSuccess,onError);
+        arikaim.delete('/core/api/logs/',onSuccess,onError);
     }
 }
 

@@ -1,5 +1,5 @@
 {% import systemMacro("pagination.html") as pagination %}
-{% set per_page = executeMethod("Db\\Paginator","getRowsPerPage") %}
+{% set per_page = execute("Db\\Paginator","getRowsPerPage") %}
 <div class="ui stackable grid">
     <div class="sixteen wide column">
         <div class="ui stackable text menu">

@@ -1,0 +1,14 @@
+{% if param is empty %}
+    {% set modules_filter = null %}
+{% else %}
+    {% set modules_filter = { 'type': param } %}
+{% endif %}
+{% set modules = execute('Packages\\Module\\ModulesManager','getPackages',{ cached: false, filter: modules_filter }) %}
+<div class="ui stackable cards margin-top-1" id="modules">
+    {% if modules is empty %}
+        {{ labels.empty }}
+    {% endif %}
+    {% for module in modules %}      
+        {{ component("system:admin.modules.module",{ name: module }) }}       
+    {% endfor %}
+</div>

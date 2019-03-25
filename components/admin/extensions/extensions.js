@@ -13,7 +13,7 @@
  */
 function Extensions() {
     var self = this;
-
+    
     this.showDetails = function(name) {
         controlPanel.setActiveTab('#details_button');
         arikaim.page.loadContent({
@@ -27,35 +27,19 @@ function Extensions() {
         });   
     };
     
-    this.install = function(name) {
-        arikaim.put('/admin/api/extension/install/' + name,null,function(result) {           
-            arikaim.page.loadContent({
-                id: name,
-                params: { extension_name: name },
-                component: 'system:admin.extensions.extension',
-                replace: true
-            },function(result){
-                extensions.init();
-                // reload control panel menu
-                menu.loadSystemMenu();
-                menu.loadExtensionsMenu();
-            });         
+    this.install = function(name,onSuccess,onError) {
+        arikaim.put('/core/api/extension/install/' + name,null,function(result) {    
+            callFunction(onSuccess,result);                     
+        },function (error) {
+            callFunction(onError,error);
         });
     };
     
-    this.unInstall = function(name) {
-        arikaim.put('/admin/api/extension/uninstall/' + name,null,function(result) {
-            arikaim.page.loadContent({
-                id: name,
-                params: { extension_name: name },
-                component: 'system:admin.extensions.extension',
-                replace: true
-            },function(result){
-                extensions.init();
-                // reload control panel menu
-                menu.loadSystemMenu();
-                menu.loadExtensionsMenu();
-            });
+    this.unInstall = function(name,onSuccess,onError) {
+        arikaim.put('/core/api/extension/uninstall/' + name,null,function(result) {
+            callFunction(onSuccess,result);           
+        },function (error) {
+            callFunction(onError,error);
         });
     };
 
@@ -66,13 +50,12 @@ function Extensions() {
         if (status === true) status = 1;
         if (status === false) status = 0;
 
-        arikaim.put('/admin/api/extension/status/' + name + "/" + status,null,function(result) {
+        arikaim.put('/core/api/extension/status/' + name + "/" + status,null,function(result) {
             menu.loadExtensionsMenu();
         });
     };
 
     this.init = function() {
-        $('#view_button').click();
         this.initTabs();
     };
 

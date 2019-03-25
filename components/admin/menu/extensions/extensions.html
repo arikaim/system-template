@@ -1,5 +1,5 @@
 {% import systemMacro("menu.html") as menu %}
-{% set extensions = executeMethod('Extension\\ExtensionsManager','getExtensions',[status,type]) %}
+{% set extensions = execute('Packages\\Extension\\ExtensionsManager','getInstalled',{status: status, type: type}) %}
 
 {% for extension in extensions %}
 {{ menu.adminMenuItem(extension.name,extension.admin_menu,"admin-menu-link") }}

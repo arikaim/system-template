@@ -1,0 +1,16 @@
+{   
+    "buttons": {
+        "view": {
+            "content": "View"
+        },
+        "download": {
+            "content": "Download"
+        },
+        "middleware": {
+            "content": "Middleware"
+        },
+        "drivers": {
+            "content": "Drivers"
+        }
+    }
+}

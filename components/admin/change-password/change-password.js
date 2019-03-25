@@ -59,7 +59,7 @@ function ChangePassword() {
     };
 
     this.change = function(onSuccess,onError) {
-        arikaim.post('/admin/api/user/password/change/',form_id,function(result) {
+        arikaim.post('/core/api/user/password/change/',form_id,function(result) {
             callFunction(onSuccess,result);
         },function (errors) {   
             callFunction(onError,errors);  

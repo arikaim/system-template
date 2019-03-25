@@ -24,14 +24,15 @@ function Templates() {
        controlPanel.initTabItems();
     };
 
+    this.install = function(name,onSuccess) {
+        arikaim.put('/core/api/template/install/' + name,null,function(result) {
+            callFunction(onSuccess,result);           
+        });
+    };
+
     this.setCurrent = function(name,onSuccess) {
-        arikaim.put('/admin/api/template/current/' + name,null,function(result) {
-            arikaim.page.loadContent({
-                id: 'tool_content',
-                component: 'system:admin.templates'
-            },function(result) {
-                callFunction(onSuccess,result);
-            });
+        arikaim.put('/core/api/template/current/' + name,null,function(result) {
+            callFunction(onSuccess,result);
         });
     };
 }

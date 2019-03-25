@@ -1,2 +1,1 @@
-# system-template
-Arikaim Control Panel template
+# Arikaim CMS Control Panel

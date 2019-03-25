@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Monoton');
+.hide {
+  display: none;
+}
 .menu-item-title {
   font-family: 'Roboto' !important;
   font-size: 12pt!important;

@@ -20,7 +20,7 @@ function MailerSettings() {
 
     this.sendTestEmail = function() {
         settings.saveAll(form_id,function(result) {
-            arikaim.get('/admin/api/mailer/test/email',function(result) {
+            arikaim.get('/core/api/mailer/test/email',function(result) {
                 $('#send_button').removeClass('loading');
                 $('#send_button').addClass('disabled');   
                 var message = component.getProperty('messages.test');

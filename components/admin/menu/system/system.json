@@ -11,9 +11,9 @@
         "templates": {
             "component": "system:admin.templates",
             "icon": "browser",
-            "title": "Templates",
+            "title": "Themes",
             "page_icon": "browser",
-            "page_title": "Templates",   
+            "page_title": "Themes",   
             "sub_title": "View,Change" 
         },
         "libraries": {
@@ -23,6 +23,14 @@
             "page_icon": "info cubes",
             "page_title": "UI Libraries", 
             "sub_title": "View" 
+        },
+        "modules": {
+            "component": "system:admin.modules",
+            "icon": "plug",
+            "title": "Modules",
+            "page_icon": "plug",
+            "page_title": "Modules", 
+            "sub_title": "Installed" 
         },
         "languages": {
             "component": "system:admin.languages",

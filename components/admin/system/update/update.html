@@ -1,6 +1,6 @@
-{% set info = executeMethod("System\\System","getSystemInfo")  %}
-{% set core_packages = executeMethod("System\\Update","getCorePackagesList",1)  %}
-{% set core = executeMethod("System\\Update","getCoreInfo")  %}
+{% set info = execute("System\\System","getSystemInfo")  %}
+{% set core_packages = execute("System\\Update","getCorePackagesList",1)  %}
+{% set core = execute("System\\Update","getCoreInfo")  %}
 <div>
     <div class="ui header">
         Arikaim CMS

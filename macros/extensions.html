@@ -3,7 +3,7 @@
     {% for route in routes %}
     <div class="item">
         {% if route.auth > 0 %}
-        {% set title = executeMethod("Access\\Access","getAuthName",route.auth) %}
+        {% set title = execute("Access\\Access","getAuthName",route.auth) %}
         {% endif %}
         {% if title != "" %}
             <div class="right floated content" title="Authentication">
@@ -40,8 +40,8 @@
 </div>
 {%  endmacro routesList -%}
 
-{%- macro extensionsDropdown(selected)   %}
-{% set items = executeMethod("Extension\\ExtensionsManager","scan") %}
+{%- macro extensionsDropdown(selected) %}
+{% set items = execute("Packages\\Extension\\ExtensionsManager","getPackages",{ cached: true }) %}
 <div class="ui floating dropdown labeled search icon basic button" id='extensions_dropdown'>
     <input name="extensions_dropdown" type="hidden" value="{{ selected }}">
     <i class="puzzle icon"></i>

@@ -20,11 +20,11 @@ function Settings() {
             key: name,
             value: value 
         };
-        arikaim.put('/admin/api/options/',params,onSuccess,onError);
+        arikaim.put('/core/api/options/',params,onSuccess,onError);
     };
 
     this.saveAll = function(form_id,onSuccess,onError) {
-        arikaim.post('/admin/api/options/',form_id,onSuccess,onError);
+        arikaim.post('/core/api/options/',form_id,onSuccess,onError);
     };
 
     this.init = function() {
@@ -38,7 +38,7 @@ function Settings() {
      * @param {function} onSuccess - called after reuest is done 
      */
     this.get = function(name,onSuccess) {
-        arikaim.get('/admin/api/options/' + name,onSuccess);
+        arikaim.get('/core/api/options/' + name,onSuccess);
     };
 }
 

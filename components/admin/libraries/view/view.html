@@ -1,6 +1,6 @@
-{% set items = executeMethod("View\\UiLibrary","scan") %}
+{% set items = execute("Packages\\Library\\LibraryManager","getPackages") %}
 <div class="ui stackable cards">
-{% for item in items %}
-    {{ component('system:admin/libraries/library',{ library: item }) }}
+{% for library in items %}
+    {{ component('system:admin/libraries/library',{ library_name : library }) }}
 {% endfor %}
 </div>

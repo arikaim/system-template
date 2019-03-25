@@ -15,7 +15,6 @@
 {# Show language dropdown #}
 {%- macro languageDropdown(selected,attributes) %}
 {% set current_language = getLanguage() %}
-
 {% set selected = selected|defaultValue(current_language) %}
 {% set class = attributes.class|defaultValue('selection') %}
 {% set id = attributes.id|defaultValue('language_dropdown') %}

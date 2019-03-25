@@ -7,7 +7,7 @@
  * 
  */
 
-function JobsQueue() {
+function Jobs() {
 
     var self = this;
 
@@ -49,7 +49,7 @@ function JobsQueue() {
     };
 }
 
-var jobs = new JobsQueue();
+var jobs = new Jobs();
 
 arikaim.page.onReady(function() {
     jobs.init();    

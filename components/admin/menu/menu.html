@@ -1,8 +1,8 @@
-{% set user_type = getConstant('Extensions','USER') %}
 <div class="ui left fluid accordion vertical borderless pointing inverted menu admin-menu-shadow dark-background admin-menu full-height margin-top-1" id="admin_menu">      
     <div class="ui horizontal divider"></div>  
     <div id="extensions_menu">
-        {{ component("system:admin/menu/extensions",{status: 1,type: user_type}) }}
+        {# get status -1 active , type = 0 - user #}
+        {{ component("system:admin/menu/extensions",{status: 1,type: 0}) }}
     </div>
     <div class="ui horizontal divider">
         <h5 class="tiny header">

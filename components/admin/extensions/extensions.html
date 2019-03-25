@@ -9,12 +9,10 @@
                 <i class="icon edit"></i>
                 {{ buttons.details.content }}   
             </a>
-            <!--
-            <a id="download_button" class="item extension-tab {{ buttons.download.class }}" {{ buttons.download.title|attr("title") }} component="system:admin.extensions.store">
-                <i class="icon cloud download"></i>
+            <a id="download_button" class="item tab-item {{ buttons.download.class }}" {{ buttons.download.title|attr("title") }} component="system:admin.extensions.download">
+                <i class="icon olive download"></i>
                 {{ buttons.download.content }}   
-            </a>
-            -->                 
+            </a>                
         </div>
         <div class="ui active tab basic segment" id="tab_content">  
             {{ component('system:admin/extensions/view') }}          

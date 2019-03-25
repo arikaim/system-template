@@ -3,7 +3,7 @@
     {% for route in routes %}
     <div class="item">
         {% if route.auth > 0 %}
-        {% set title = executeMethod("Access\\Access","getAuthName",route.auth) %}
+        {% set title = execute("Access\\Access","getAuthName",route.auth) %}
         {% endif %}
         {% if title != "" %}
             <div class="right floated content" title="Authentication">
@@ -29,7 +29,7 @@
 {%  endmacro routesList -%}
 
 {%- macro templatesDropdown(selected)   %}
-{% set items = executeMethod("View\\TemplatesManager","scan") %}
+{% set items = execute("Packages\\Template\\TemplatesManager","getPackages",{ cached: true }) %}
 <div class="ui floating dropdown labeled search icon basic button" id='templates_dropdown'>
     <input name="templates_dropdown" type="hidden" value="{{ selected }}">
     <i class="icon browser"></i>
@@ -45,7 +45,7 @@
 {% endmacro templatesDropdown -%}
 
 {%- macro themesDropdown(selected, template)   %}
-{% set themes = executeMethod("View\\TemplatesManager","getThemes","system") %}
+{% set themes = execute("View\\TemplatesManager","getThemes","system") %}
 <div class="ui floating dropdown labeled search icon basic button" id="themes_dropdown" template="{{ template }}">
     <input name="themes_dropdown" type="hidden" value="{{ selected }}">
     <i class="icon paint brush"></i>

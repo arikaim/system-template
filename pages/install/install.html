@@ -1,4 +1,4 @@
-{% set version = executeMethod("System\\System","getVersion") %}
+{% set version = execute("System\\System","getVersion") %}
 <div class="ui top attached inverted menu borderless dark-background shadow">
     <div title="{{ brand.title }}" class="item margin-left-4">    
         {% if brand.image.src -%}

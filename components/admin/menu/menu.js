@@ -29,7 +29,7 @@ function ControlPanelMenu() {
             var id = $(this).attr('id');
             var icon = $(this).attr('page-icon');          
             var title = $(this).attr('page-title');
-           
+          
             controlPanel.setPageTitle(title);
             controlPanel.setPageIcon(icon);
             arikaim.page.loadContent({

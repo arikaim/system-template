@@ -1,5 +1,5 @@
 {% import systemMacro("logs.html") as macros %}
-{% set logs = executeMethod("Logger\\SystemLogger","readSystemLogs") %}
+{% set logs = execute("Logger\\SystemLogger","readSystemLogs") %}
 <table class="ui compact stackable striped very basic table">
     <thead>
         <tr class="borderless">                
@@ -15,14 +15,14 @@
             <td colspan="3">{{ messages.empty }}</td>
         </tr>
     {% else %}
-    {% for row in logs.rows %}
-        <tr>
-            <td class="collapsing">{{ row.timestamp|dateFormat }} {{ row.timestamp|timeFormat }}</td>
-            <td class="center aligned collapsing">{{ macros.logLabel(row.level_name) }}</td>
-            <td>{{ row.message }}</td>           
-            <td class="">{{ row.extra.details }}</td>           
-        </tr>
-    {% endfor %}
+        {% for row in logs.rows %}
+            <tr>
+                <td class="collapsing">{{ row.timestamp|dateFormat }} {{ row.timestamp|timeFormat }}</td>
+                <td class="center aligned collapsing">{{ macros.logLabel(row.level_name) }}</td>
+                <td>{{ row.message }}</td>           
+                <td class="">{{ row.extra.details }}</td>           
+            </tr>
+        {% endfor %}
     {% endif %}
     </tbody>  
 </table>

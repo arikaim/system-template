@@ -1,8 +1,5 @@
-{% set extension = executeMethod("Extension\\ExtensionsManager","getExtensionProperties",extension_name) %}
-{% if extension == false %}
-    {% set error = 1 %}
-    {% set extension = executeMethod("Extension\\ExtensionsManager","read",extension_name) %}
-{% endif %}
+{% set extension = execute("Packages\\Extension\\ExtensionsManager","getPackageProperties",{ name: extension_name }) %}
+
 <div class="ui card {{ error|ifthen(1,'red') }}" id="{{ extension.name }}">     
     <div class="content">         
         {% if extension.installed == true %}

@@ -21,7 +21,7 @@ arikaim.page.onReady(function() {
     arikaim.form.onSubmit('#user_settings_form',function() {
         
         $('#save-button').addClass('disabled loading');
-        arikaim.post('/admin/api/user/','#user_settings_form',function(result) {
+        arikaim.post('/core/api/user/','#user_settings_form',function(result) {
             // saved 
             var msg = component.getProperty('messages.save');  
             $('#save-button').removeClass('disabled loading');

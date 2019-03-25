@@ -25,14 +25,17 @@ function ControlPanel() {
         if (isEmpty(item_class) == true) {
             item_class = tab_item_class;
         }
-        if (isEmpty(params) == true) {
-            params = {};
-        }
+       
         $(item_class).off();
         $(item_class).on('click',function() {              
             $(item_class).removeClass('active');
             $(this).addClass('active');
             var component_name = $(this).attr('component');
+            var param = $(this).attr('param');
+            
+            if (isEmpty(param) == false) {
+                params = { param: param };
+            }
             arikaim.page.loadContent({
                 id: 'tab_content',
                 params: params,

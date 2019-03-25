@@ -5,11 +5,15 @@
         "bootable": "Bootable",
         "packages": "Composer packages",
         "update": "Update",
+        "install": "Install",
         "help": "Help",
-        "facade": "Facade Alias",
+        "facade": "Alias",
         "disabled": "Disabled",
         "type": "Type",
-        "error": "Error"
+        "error": "Error",
+        "disable": "Disable",
+        "enable": "Enable",
+        "service_name": "Service name"
     },
     "messages": {
         "error": "Module not working."
