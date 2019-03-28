@@ -27,6 +27,14 @@ function Extensions() {
         });   
     };
     
+    this.update = function(name,onSuccess,onError) {
+        arikaim.put('/core/api/extension/update/' + name,null,function(result) {    
+            callFunction(onSuccess,result);                     
+        },function (error) {
+            callFunction(onError,error);
+        });
+    };
+
     this.install = function(name,onSuccess,onError) {
         arikaim.put('/core/api/extension/install/' + name,null,function(result) {    
             callFunction(onSuccess,result);                     

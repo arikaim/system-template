@@ -76,6 +76,27 @@ function ExtensionsView() {
                 });
             });
         });
+
+        $('.update-button').off();
+        $('.update-button').on('click',function() {             
+            var name = $(this).attr('extension');
+            extensions.update(name,function(result) {
+                arikaim.page.loadContent({
+                    id: name,
+                    params: { extension_name: name },
+                    component: 'system:admin.extensions.extension',
+                    replace: true
+                },function(result) {
+                    self.init();
+                    // reload control panel menu
+                    menu.loadSystemMenu();
+                    menu.loadExtensionsMenu();
+                });
+                $(this).removeClass('disabled loading'); 
+            },function(error) {
+                $(this).removeClass('disabled loading'); 
+            });
+        });
         
         $('.change-status-button').off();
         $('.change-status-button').on('click',function() {             
