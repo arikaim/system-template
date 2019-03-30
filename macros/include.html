@@ -1,6 +1,5 @@
 {%- macro includeTemplateFiles() -%}
-{%- set js_files = getTemplateJsFiles() %}
-{%  set css_files = getTemplateCssFiles() %}
+{%- set files = getTemplateFiles() %}
 {%- set theme = getThemeFiles() %}
 {%- if theme %} 
     <!-- theme files -->
@@ -8,12 +7,12 @@
         <link rel="stylesheet" type="text/css" href="{{ file }}"> 
     {% endfor -%}    
 {% endif %}
-{%- if js_files or css_files %}
+{%- if files.js or files.css %}
     <!-- template files -->
-    {% for file in js_files -%}
+    {% for file in files.js -%}
         <script src="{{ file }}" type="text/javascript"></script>
     {% endfor %}
-    {% for file in css_files %}
+    {% for file in files.css %}
         <link rel="stylesheet" type="text/css" href="{{ file }}">      
     {% endfor %}
 {% endif -%}
