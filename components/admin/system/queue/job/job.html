@@ -1,0 +1,42 @@
+<div class="title">
+    {% if job.status == job.COMPLETED() %}
+        <i class="check olive icon" title="{{ label.completed }}"></i>
+    {% endif %}
+    {% if job.status == job.ACTIVE() %}
+        <i class="angle double right olive icon" title="{{ label.active }}"></i>
+    {% endif %}
+    <i class="dropdown icon"></i>
+    {% if job.due_date is not empty %}
+        <span title="{{ label.next }}">{{ job.due_date|dateTimeFormat }}</span>
+    {% endif %} 
+</div>
+<div class="content">
+    <table class="ui very basic collapsing small table">
+        <tbody>
+            <tr class="collapsing">
+                <td class="font-bold right aligned">{{ label.class }}</td>
+                <td>{{ job.handler_class }}</td>
+            </tr>
+            {% if job.schedule_time is not empty %}
+            <tr class="collapsing">
+                <td class="font-bold right aligned">{{ label.schedule }}</td>
+                <td>{{ job.schedule_time|dateTimeFormat }}</td>
+            </tr>
+            {% endif %} 
+            {% if job.date_executed is not empty %}
+            <tr class="collapsing">
+                <td class="font-bold right aligned">{{ label.executed }}</td>
+                <td>{{ job.date_executed|dateTimeFormat }}</td>
+            </tr>
+            {% endif %} 
+            <tr class="collapsing">
+                <td class="font-bold right aligned">{{ label.extension }}</td>
+                <td>{{ job.extension_name }}</td>
+            </tr>
+            <tr class="collapsing">
+                <td class="font-bold right aligned">{{ label.expression }}</td>
+                <td>{{ job.recuring_interval }}</td>
+            </tr>
+        </tbody>    
+    </table>
+</div>

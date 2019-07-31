@@ -1,0 +1,13 @@
+
+{{ component('system:mail.start') }}
+
+{% component 'system:mail.container' %}
+    {% set class = 'test class' %}
+    {% component 'system:mail.rows' %}
+        {% component 'system:mail.column' %}
+            Arikiam Control Panel Test Email
+        {% endcomponent %}
+    {% endcomponent %}
+{% endcomponent %}
+
+{{ component('system:mail.end') }}

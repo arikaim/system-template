@@ -1,0 +1,14 @@
+{% if rows is empty %}
+    <tr>
+        <td colspan="3">{{ messages.empty }}</td>
+    </tr>
+{% else %}
+    {% for row in rows %}
+        <tr>
+            <td class="collapsing">{{ row.timestamp|dateFormat }} {{ row.timestamp|timeFormat }}</td>
+            <td class="center aligned collapsing">{{ component('system:labels.log',{ name: row.level_name }) }}</td>
+            <td>{{ row.message }}</td>           
+            <td class="">{{ row.extra.details }}</td>           
+        </tr>
+    {% endfor %}
+{% endif %}

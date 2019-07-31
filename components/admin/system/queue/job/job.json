@@ -1,0 +1,12 @@
+{
+    "label": {
+        "next": "Next run time",
+        "active": "Active",
+        "completed": "Completed",
+        "class": "Class",
+        "schedule": "Schedule Time",
+        "executed": "Executed",
+        "extension": "Extension",
+        "expression": "Expression"
+    }   
+}

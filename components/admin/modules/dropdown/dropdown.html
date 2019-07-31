@@ -1,0 +1,14 @@
+{% set status = (status is empty) ? null : status %}
+{% set category = (status is empty) ? null : category %}
+{% set type = (type is empty) ? 1 : type %}
+
+{% set drivers = execute('Packages\\Module\\ModulesManager','getInstalled',{ status: status, type: type, category: category }) %}
+
+<select class="ui dropdown {{ class }}" id="modules_dropdown" name="driver" value="{{ selected }}" placeholder="{{ label }}">  
+    <option value="">{{ label }}</option>
+    {% for item in drivers %}
+        <option value="{{ item.name }}">     
+            {{ item.title }}                     
+        </option>
+    {% endfor %}
+</select>

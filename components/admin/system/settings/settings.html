@@ -1,0 +1,39 @@
+<div class="ui stackable grid">    
+    <div class="ui two columns">
+        <div class="ui tabular fluid right pointing vertical menu">           
+            <div class="item settings-item active link" {{ links.user.title|attr("title") }} component="system:admin.system.settings.user">
+                <i class="icon user"></i>
+                {{ links.user.content }}   
+            </div> 
+            <div class="item settings-item link" {{ links.date.title|attr("title") }} component="system:admin.system.settings.date-time">
+                <i class="icon calendar"></i>
+                {{ links.date.content }}   
+            </div>   
+            <div class="item settings-item link" {{ links.numbers.title|attr("title") }} component="system:admin.system.settings.numbers">
+                <i class="icon table"></i>
+                {{ links.numbers.content }}   
+            </div> 
+            <div class="item settings-item link" {{ links.mailer.title|attr("title") }} component="system:admin.system.settings.mailer">
+                <i class="icon mail outline"></i>
+                {{ links.mailer.content }}   
+            </div> 
+            <div class="item settings-item link" {{ links.logger.title|attr("title") }} component="system:admin.system.settings.logger">
+                <i class="icon tasks"></i>
+                {{ links.logger.content }}   
+            </div>  
+            <div class="item settings-item link" {{ links.theme.title|attr("title") }} component="system:admin.system.settings.theme">
+                <i class="icon paint brush"></i>
+                {{ links.theme.content }}   
+            </div>        
+            <div class="item settings-item link" {{ links.system.title|attr("title") }} component="system:admin.system.settings.system">
+                <i class="icon server alternate outline"></i>
+                {{ links.system.content }}   
+            </div>        
+        </div>
+    </div>
+    <div class="ui five wide computer fifteen wide tablet column padding-top-0"> 
+        <div class="ui segment" id="settings_content">
+            {{ component('system:admin.system.settings.user') }}
+        </div>
+    </div>
+</div>
