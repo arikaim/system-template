@@ -1,15 +1,15 @@
-{%- macro routesList(routes,icon)   %}
+{%- macro routesList(routes,icon) %}
+{% import _self as macros %}
 <div class="ui middle aligned divided list">
     {% for route in routes %}
     <div class="item">
-        {% if route.auth > 0 %}
-        {% set title = execute("Access\\Access","getAuthName",route.auth) %}
-        {% endif %}
-        {% if title != "" %}
-            <div class="right floated content" title="Authentication">
+        {% set title = (route.auth > 0) ? service("auth").getAuthName(route.auth) : "" %}
+        <div class="right floated content" title="Authentication">
+            {% if title != "" %}
                 <div class="ui tiny left pointing olive label">{{ title }}</div>
-            </div>            
-        {% endif %}    
+            {% endif %}    
+            {{ macros.routeTypeLabel(route.type) }}
+        </div>                 
         {% if route.status == 1 %}
             <i class="icon middle aligned checkmark olive"></i>
         {% else %}
@@ -38,7 +38,15 @@
         <div class="item">..</div>
     {% endif %}
 </div>
-{%  endmacro routesList -%}
+{% endmacro routesList -%}
+
+{%- macro routeTypeLabel(type) %}
+    {% if type == 1 %}
+        <div class="ui tiny left pointing label">Page</div>
+    {% elseif type == 2 %}
+        <div class="ui tiny left pointing label">Api</div>
+    {% endif %}
+{% endmacro routeTypeLabel -%}
 
 {%- macro extensionsDropdown(selected) %}
 {% set items = execute("Packages\\Extension\\ExtensionsManager","getPackages",{ cached: true }) %}
@@ -63,7 +71,7 @@
     <div class="ui middle aligned divided list">   
         {% for subscriber in list %}
         <div class="item">
-            {% set base_class = callStatic("Utils\\Utils","getBaseClassName",subscriber.handler_class) %}     
+            {% set base_class = execute("Utils\\Utils","getBaseClassName",subscriber.handler_class) %}     
             {% if subscriber.status == 1 %}
                 <i class="icon checkmark olive"></i>
             {% endif %}

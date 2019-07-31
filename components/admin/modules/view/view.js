@@ -11,45 +11,56 @@ function ModulesView() {
     var self = this;
 
     var install_button = '.install-button';
+    var update_button = '.update-button';
     var enable_button = '.enable-button';
     var disable_button = '.disable-button';
 
     this.init = function() {
-        
-        $('.module-button').off();
+      
+        arikaim.ui.button(install_button,function(element) {          
+            var name = $(element).attr('name');
 
-        $(install_button).on('click',function() {
-            $(this).addClass('disabled loading');
-            var name = $(this).attr('name');
-            modules.install(name,function(result) {
-                $(install_button).removeClass('disabled loading');
-                self.init();
-            },function(error) {
-                $(install_button).removeClass('disabled loading');
+            return modules.install(name).done(function(result) {               
+                modules.loadModuleDetails(name,function(result) {
+                    self.init();
+                });               
+            }).fail(function(error) {              
                 self.init();
             });
         });
 
-        $(enable_button).on('click',function() {
-            $(this).addClass('disabled loading');
-            var name = $(this).attr('name');
-            modules.enable(name,function(result) {
-                $(install_button).removeClass('disabled loading');
-                self.init();
-            },function(error) {
-                $(install_button).removeClass('disabled loading');
+        arikaim.ui.button(update_button,function(element) {           
+            var name = $(element).attr('name');
+
+            return modules.update(name).done(function(result) {
+                modules.loadModuleDetails(name,function(result) {
+                    self.init();
+                }); 
+            }).fail(function(error) {               
                 self.init();
             });
         });
 
-        $(disable_button).on('click',function() {
-            $(this).addClass('disabled loading');
-            var name = $(this).attr('name');
-            modules.disable(name,function(result) {
-                $(install_button).removeClass('disabled loading');
+        arikaim.ui.button(enable_button,function(element) {         
+            var name = $(element).attr('name');
+
+            return modules.enable(name).done(function(result) {              
+                modules.loadModuleDetails(name,function(result) {
+                    self.init();
+                });               
+            }).fail(function(error) {              
                 self.init();
-            },function(error) {
-                $(install_button).removeClass('disabled loading');
+            });
+        });
+
+        arikaim.ui.button(disable_button,function(element) {          
+            var name = $(element).attr('name');
+
+            return modules.disable(name).done(function(result) {              
+                modules.loadModuleDetails(name,function(result) {
+                    self.init();
+                });               
+            }).fail(function(error) {               
                 self.init();
             });
         });

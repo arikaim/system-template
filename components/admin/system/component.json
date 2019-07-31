@@ -1,9 +1,7 @@
 {
     "access": {
-        "auth": "JWT",
-        "permissions": {
-            "ControlPanel": ["read","write","delete","execute"]
-        }
+        "auth": "session",
+        "permission": "ControlPanel:full"
     },
     "include": {
         "js": "system:paginator"

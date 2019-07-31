@@ -14,7 +14,7 @@
                     PHP 
                     <div class="ui basic min label">{{ info.php_version }}</div>    
                 </div>                                     
-                <div class="content margin-left-2">
+                <div class="content ml-2">
                 {{ component("system:admin/system/info/php-info") }}
                 </div>
             </div>
@@ -25,7 +25,7 @@
             <div class="text">
                 <i class="icon database circular"></i>
                 {{ labels.database.content }} 
-                <div class="list margin-left-2">
+                <div class="list ml-2">
                     <div class="item">
                         {{ info.database.driver }}
                         <div class="ui basic mini label">{{ info.database.version }}</div>
@@ -41,7 +41,7 @@
         <div class="content">
             <div class="text">
                 <i class="icon server circular"></i>
-                {{ labels.server.content }} <span class="margin-left-1 small text">{{ info.os_name }}</span> 
+                {{ labels.server.content }} <span class="ml-1 small text">{{ info.os_name }}</span> 
                 <span class="small text">{{ info.os_version }}</span>
             </div>                             
         </div>

@@ -10,18 +10,18 @@
 function SystemLogs() {
 
     var self = this;
-    var component = arikaim.getComponent('system:admin.system.logs');
+    var component = arikaim.component.get('system:admin.system.logs');
 
     this.init = function() {
-        $('.delete-logs').off();
-        $('.delete-logs').on('click',function() {
+        arikaim.ui.button('.delete-logs',function(element) {
             var title = component.getProperty('messages.confirm.delete.title');
             var description = component.getProperty('messages.confirm.delete.description');
-            confirmDialog.confirmDelete({ 
+
+            return modal.confirmDelete({ 
                 title: title,
                 description: description 
-            },function() {                
-                self.clear(function() {           
+            }).done(function() {                
+                self.clear().done(function() {           
                     self.reload();
                 });
             });        
@@ -32,11 +32,11 @@ function SystemLogs() {
         arikaim.page.loadContent({
             id: 'tab_content',
             component: 'system:admin.system.logs'
-        })
+        });
     };
 
     this.clear = function(onSuccess,onError) {
-        arikaim.delete('/core/api/logs/',onSuccess,onError);
+        return arikaim.delete('/core/api/logs/',onSuccess,onError);
     }
 }
 

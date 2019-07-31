@@ -9,9 +9,8 @@
 
 arikaim.page.onReady(function() {
     $('#country_code').dropdown();
-    controlPanel.initCancelButton('system:admin.languages.view');
-    
-    arikaim.form.addRules("#language_form",{
+   
+    arikaim.ui.form.addRules("#language_form",{
         inline: false,
         fields: {
             code: {
@@ -32,17 +31,11 @@ arikaim.page.onReady(function() {
             }
         }
     });
-      
-    arikaim.form.onSubmit('#language_form',function() {
-        $('#save_language_button').addClass('disabled loading');
-        arikaim.post('/core/api/language/','#language_form',function(result) {
-            $('#save_language_button').removeClass('disabled loading');
-            $('#view_button').click();
-            languages.loadMenu();
-        },function(errors) {
-            $('#save_language_button').removeClass('disabled loading');
-            arikaim.form.showErrors(errors,'.form-errors');
-            arikaim.form.addFieldErrors('#language_form',errors);
-        });  
+    
+    arikaim.ui.form.onSubmit('#language_form',function(data) {      
+        return arikaim.post('/core/api/language/','#language_form');
+    }).done(function(data) {
+        $('#view_button').click();
+        languages.loadMenu();
     });
 });

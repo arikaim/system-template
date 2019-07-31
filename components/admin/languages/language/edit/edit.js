@@ -11,7 +11,7 @@ arikaim.page.onReady(function() {
     $('#language_dropdown').dropdown({
         onChange: function(uuid) {
             languages.load(uuid);
-            arikaim.form.clearErrors('#language_form');
+            arikaim.ui.form.clearErrors('#language_form');
         }
     });    
 });

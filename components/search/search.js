@@ -8,108 +8,71 @@
  */
 
 function Search() {
-
-    var search_result_element;
-    var search_filed_filter_id = "#fields_filter";
-    var search_button_element = "#search_button";
-    var search_text_field_id  = "#search_text";
-    var load_component;
     var self = this;
 
-    this.init = function(component,result_element) {
+    this.init = function(namespace, form_id, onSuccess) {
+        form_id = getDefaultValue(form_id,"#search_form");
+        
         $('.search-fields').dropdown({           
             allowAdditions: true
-        });
+        });   
+
         $('.search-actions').dropdown();
 
-        if (isEmpty(component) == true) {
-            load_component = $(search_button_element).attr('component');
-        } else {
-            load_component = component;
-        }
-        if (isEmpty(result_element) == true) {
-            search_result_element = $(search_button_element).attr('search-result');
-        } else {
-            search_result_element = result_element;
-        }
-
-        $(search_button_element).off();
-        $(search_button_element).on('click',function() {                     
-            self.run();
-        });
-        $('#search_form').off();
-        arikaim.form.onSubmit('#search_form',function() {
-            self.load();
-        });
-      
-        $('.clear-input').off();
-        $('.clear-input').on('click',function() {
-            self.clear(function() {
-                self.load();
+        arikaim.ui.button(form_id + ' .clear-form',function(element) {
+            return self.clear(namespace).done(function(result) {
+                arikaim.ui.form.clear(form_id);
+                if (isObject(onSuccess) == true) {                
+                    self.loadResult(onSuccess);
+                } else {
+                    callFunction(onSuccess,result);
+                }
             });           
         });
-    };
 
-    this.clear = function(onSuccess) {
-        $(search_text_field_id).val('');
-        arikaim.session.set('search','',function(result) {
-            callFunction(onSuccess,result);
+        arikaim.ui.form.onSubmit(form_id,function() {
+            var items = self.getSearchFields(form_id);
+            var data = { search: items };
+
+            return self.setSearch(data,namespace,function(result) {
+                if (isObject(onSuccess) == true) {                
+                    self.loadResult(onSuccess);
+                } else {
+                    callFunction(onSuccess,result);
+                }
+            });
         });
     };
 
-    this.getSearchFields = function() {
-        var all =  {"field": "all","operator": "like","statement_operator": "or"};
-        var fields = $(search_filed_filter_id);
-        if (isObject(fields) == true) {
-            fields = fields.val().split(',');
-        } else {
-            fields = [];
+    this.getSearchFields = function(form_id) {
+        var items = {};
+        $(form_id).find('.search-field').each(function(index) {
+            var name = $(this).attr('name');
+            var value = $(this).val();
+            items[name] = value;
+        });   
+        return items;
+    };
+    
+    this.clear = function(namespace, onSuccess, onError) {
+        namespace = getDefaultValue(namespace,"");
+        return arikaim.delete('/core/api/ui/search/' + namespace,onSuccess,onError);          
+    };
+
+    this.setSearch = function(search_data, namespace, onSuccess, onError) {
+        namespace = getDefaultValue(namespace,"");      
+        return arikaim.put('/core/api/ui/search/' + namespace,search_data,onSuccess,onError);           
+    };
+
+    this.loadResult = function(options, onSuccess, onError) {  
+        if (isObject(options) == false) {
+            return false;
         }       
-        if ((fields.length > 0) && (fields[0] != "")) {
-            var items = [];
-            for (var i = 0; i < fields.length; i++) {               
-                var item = {"field": fields[i],"operator": "like","statement_operator": "or"};
-                items.push(item);
-            }   
-            fields = items;
-        } else {          
-            fields = all;
-        }
-        return fields;
-    };
-
-    this.getSearchData = function() {
-        var search = $(search_text_field_id).val();
-        var fields = this.getSearchFields();
-        var data = {"search": search,"fields": fields};
-        return JSON.stringify(data);
-    };
-
-    this.run = function(onSuccess) {
-        var search_data = this.getSearchData();
-        // set session
-        arikaim.session.set('search',search_data,function(result) {
-            self.load(onSuccess)
-        });
-    };
-
-    this.load = function(onSuccess) {
-        var params = [1];
-        $('#search_input').addClass('loading');
-        arikaim.page.loadContent({
-            id: search_result_element,
-            component: load_component,
-            loader: false,
-            params: params
-        },function(result) {         
-            callFunction(onSuccess,result);
-            $('#search_input').removeClass('loading');
-        });
+        return arikaim.page.loadContent({
+            id: options.id,
+            component: options.component_name
+        },onSuccess,onError);
     };
 }
 
 var search = new Search();
-
-arikaim.page.onReady(function() {
-    search.init();
-});

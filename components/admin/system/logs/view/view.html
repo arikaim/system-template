@@ -1,4 +1,3 @@
-{% import systemMacro("logs.html") as macros %}
 {% set logs = execute("Logger\\SystemLogger","readSystemLogs") %}
 <table class="ui compact stackable striped very basic table">
     <thead>
@@ -9,23 +8,10 @@
             <th>{{ columns.details }}</th>    
         </tr>
     </thead>
-    <tbody>
-    {% if logs.rows is empty %}
-        <tr>
-            <td colspan="3">{{ messages.empty }}</td>
-        </tr>
-    {% else %}
-        {% for row in logs.rows %}
-            <tr>
-                <td class="collapsing">{{ row.timestamp|dateFormat }} {{ row.timestamp|timeFormat }}</td>
-                <td class="center aligned collapsing">{{ macros.logLabel(row.level_name) }}</td>
-                <td>{{ row.message }}</td>           
-                <td class="">{{ row.extra.details }}</td>           
-            </tr>
-        {% endfor %}
-    {% endif %}
+    <tbody id="logs_rows">
+        {{ component("system:admin.system.logs.view.rows",{ rows: logs.rows }) }}
     </tbody>  
 </table>
-<div class="margin-top-1">
+<div class="mt-1">
     {{ component("system:paginator",logs.paginator) }}
 </div>

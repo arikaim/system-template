@@ -11,29 +11,38 @@ function LanguagesView() {
     var self = this;
 
     this.init = function() {
-        var component = arikaim.getComponent('system:admin.languages');
+        var component = arikaim.component.get('system:admin.languages');
         var remove_message = component.getProperty('message.description');
         var message_title = component.getProperty('message.title');
+
+        var start_index = null;
+        var end_index = null;
+        var items = [];
 
         $('#languages_list').sortable({        
             opacity: 0.8,
             cursor: "move",
-            distance: 10,       
-            update: function(event, ui) {           
-                var prev_index = ui.item.index() - 1;       
-                var uuid = ui.item.attr('id');
-                var items = $("#languages_list").sortable("toArray");          
-                var prev_item_uuid = items[prev_index];
-                if (prev_index < 0) {
-                    prev_item_uuid = uuid;
-                } 
-                languages.move(uuid,prev_item_uuid,function(result) {
-                    languages.loadMenu();
-                });         
+            distance: 10,   
+            create: function(event, ui) {
+                items = $("#languages_list").sortable("toArray");    
+            },
+            start: function(event, ui) { 
+                start_index = ui.item.index();  
+            },   
+            stop: function(event, ui) {
+                end_index = ui.item.index();
+
+                var uuid = items[start_index];
+                var target_uuid = items[end_index];
+
+                if (uuid != target_uuid) {
+                    position.shift("Language",uuid,target_uuid,function(result) {
+                        languages.loadMenu();
+                    });     
+                }
             }
         });
     
-        $('.language-button').off();
         $('.status-button.toggle').state({
             text: {
                 active: "Disable",
@@ -41,49 +50,52 @@ function LanguagesView() {
             }
         });
           
-        $('.remove-button').on('click',function() {
-            var language = $(this).attr('language-title');
-            var uuid = $(this).attr('uuid');
-
-            var message = arikaim.template.render(remove_message,{ title: language });
-            confirmDialog.confirmDelete({
+        arikaim.ui.button('.remove-button', function(element) {
+            var language = $(element).attr('language-title');
+            var uuid = $(element).attr('uuid');
+            var message = arikaim.ui.template.render(remove_message,{ title: language });
+            
+            modal.confirmDelete({
                     title: message_title,  
                     description: message,
                     uuid: uuid
-                },
-                function(params) {
-                    languages.delete(params.uuid,function(result) {
-                        $('#view_button').click();
-                        languages.loadMenu();
-                    });
-                }
-            );        
+            }).done(function(params) {
+                return languages.delete(params.uuid).done(function(result) {
+                    $('#view_button').click();
+                    languages.loadMenu();
+                });
+            });        
         });
-            
-        $('.edit-button').on('click',function() {
-            var uuid = $(this).attr('uuid');
-            languages.edit(uuid);          
+        
+        arikaim.ui.button('.edit-button',function(element) {
+            var uuid = $(element).attr('uuid');
+            return languages.edit(uuid);          
         });
     
-        $('.change-status-button').on('click',function() {             
-            var uuid = $(this).attr('uuid');
-            languages.setStatus(uuid,'toggle',function(result) {
+        arikaim.ui.button('.change-status-button',function(element) {             
+            var uuid = $(element).attr('uuid');
+            return languages.setStatus(uuid,'toggle').done(function(result) {
                 if (result.status == 1) {
                     $('#' + uuid).addClass('green');
                 } else {
                     $('#' + uuid).removeClass('green');
                 }
                 languages.loadMenu();
+            }).fail(function(error) {
+                console.log(error);
             });  
         });
         
-        $('.set-default-button').on('click',function() {
-            var uuid = $(this).attr('uuid');
+        arikaim.ui.button('.set-default-button',function(element) {
+            var uuid = $(element).attr('uuid');            
             $('.default-language').hide();
-            languages.setDefault(uuid,function(result) {           
+
+            return languages.setDefault(uuid).done(function(result) {           
                 $('#'+ uuid).find('.default-language').removeClass('hidden').show();    
                 $('#view_button').click();  
-            });          
+            }).fail(function(error) {
+                console.log(error);
+            });        
         });
     }
 }

@@ -1,28 +1,9 @@
-{%- macro item(tag_name,content,attributes) %}
-{%  set new_class = "item " ~ attributes.class %}
-{%  set item_class = { "class":new_class } %}
-{%  if attributes is iterable %}
-{%  set attributes = attributes|merge(item_class) %}
-{%  endif %}
-{{  content|tag(tag_name,attributes) }}
-{%  endmacro item %}
-
-{%- macro menuItems(items) %}
-{%  for item in items %}
-{{  _self.item("a",item.content,item) -}}    
-{%  endfor %}
-{%- endmacro menuItems -%}
-
 {# control panel menu items #}
 {%- macro adminMenuItem(extension_name,admin_menu,class) %}
-{% if admin_menu.items is iterable %}
-{% set main_link_class = '' %}
-{% else %}
-{% set main_link_class = class %}
-{% endif %}
+{% set main_link_class = (admin_menu.items is iterable) ? '' : class %}
 <div class="item {{ main_link_class }}" component="{{ admin_menu.component }}" {{ extension_name|attr('extension') }} page-icon="{{ admin_menu.page_icon }}" page-title="{{ admin_menu.page_title }}">
     <div class="title menu-item-title">
-        <i class="left icon large blue {{ admin_menu.icon }}"></i>
+        <i class="left icon blue {{ admin_menu.icon }}"></i>
         {% if admin_menu.items is iterable %}
             <i class="dropdown icon"></i>
         {% endif %}

@@ -26,6 +26,14 @@
         }
     },
     "messages": {
-        "installed":"Arikaim is installed"
+        "installed":"Arikaim installed successfully."
+    },
+    "buttons": {
+        "install": {
+            "content": "Install"
+        },
+        "continue": {
+            "content": "Continue"
+        }
     }
 }

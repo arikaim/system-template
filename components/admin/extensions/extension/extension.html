@@ -12,19 +12,19 @@
         </div>    
         {% endif %}          
         <i class="left floated rounded big bordered icon {{ extension.icon }}"></i>           
-        <div class="header margin-left-1">{{ extension.title }}</div> 
+        <div class="header ml-1">{{ extension.title }}</div> 
 
         <div class="meta">{{ extension.short_description }}</div>
-        <div class="description padding-top-1">
+        <div class="description pt-1">
             <p>{{ extension.description }}</p>              
         </div> 
-        <div class="ui meta margin-top-1">
+        <div class="ui meta mt-1">
             <div class="ui horizontal label">               
-            {{ text.version.content }} <span class="bold">{{ extension.version }}</span>
+            {{ text.version.content }} <span class="font-bold">{{ extension.version }}</span>
             </div>
         </div>
         {% if error == 1 %}
-        <div class="ui meta margin-top-1">
+        <div class="ui meta mt-1">
             <div class="ui mini error message">
                 {{ messages.error }}
             </div>

@@ -1,8 +1,6 @@
-<div class="ui left fluid accordion vertical borderless pointing inverted menu admin-menu-shadow dark-background admin-menu full-height margin-top-1" id="admin_menu">      
-    <div class="ui horizontal divider"></div>  
-    <div id="extensions_menu">
-        {# get status -1 active , type = 0 - user #}
-        {{ component("system:admin/menu/extensions",{status: 1,type: 0}) }}
+<div class="ui left fluid accordion vertical borderless inverted pointing menu admin-menu h-full mt-1 ml-1 dark-color" id="admin_menu">          
+    <div id="extensions_menu" class="mt-8">        
+        {{ component("system:admin.menu.extensions",{ status: 1,type: 0 }) }}
     </div>
     <div class="ui horizontal divider">
         <h5 class="tiny header">
@@ -10,6 +8,6 @@
         </h5>
     </div>
     <div id="system_menu">
-        {{ component("system:admin/menu/system") }}
+        {{ component("system:admin.menu.system") }}
     </div>    
 </div>

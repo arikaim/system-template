@@ -9,29 +9,35 @@
  */
 
 function ProgressBar() {
-
-    var progress_element_id = "#progress"; 
     var self = this;
+
+    var progress_element_id = "#progress";   
     var doIncrement = null;
-    var default_interval = 20;
-    var label = "";
+    var default_interval = 20;    
     var on_complete = null;
     var on_before_complete = null;
     var on_before_complete_value = 95;
     var on_error = null;
 
-    this.hide = function() {
+    this.hide = function(placeholder) {
         this.reset();
-        $(progress_element_id).addClass('hidden');     
-        $(progress_element_id).hide();
+        if (placeholder == true) {
+            $(progress_element_id).css('opacity','0');
+        } else {
+            $(progress_element_id).addClass('hidden');     
+            $(progress_element_id).hide();
+        }
     };
 
     this.show = function() {
+        $(progress_element_id).css('opacity','1');
         $(progress_element_id).removeClass('hidden');        
         $(progress_element_id).show();
     };
 
     this.start = function(options) {
+        this.reset();
+        this.show();
         on_complete = getValue('onComplete',options,null);
         on_before_complete = getValue('onBeforeComplete',options,null);
         var interval = getValue('interval',options,default_interval);
@@ -79,6 +85,7 @@ function ProgressBar() {
             duration : 200,
             total    : 100
         });
+
     };
 }
 

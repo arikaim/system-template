@@ -8,15 +8,15 @@
         },
         "logs": {
             "content": "Logs"
-        },
-        "stats": {
-            "content": "Stats"
-        },
+        },     
         "events": {
             "content": "Events"
         },
-        "jobs": {
-            "content": "Jobs Queue"
+        "queue": {
+            "content": "Queue"
+        },
+        "cron": {
+            "content": "Cron"
         },
         "info": {
             "content": "System Info"

@@ -1,4 +1,3 @@
-{% import systemMacro("languages.html") as languages %}
 <div class="ui stackable grid">
     <div class="ui five wide computer sixteen wide tablet column segment">
         <div class="ui block header">
@@ -6,7 +5,7 @@
             <h4 class="content">{{ title.content }}</h4>
         </div>
         <div class="ui hidden divider"></div>
-        {{ languages.languages(uuid,menu) }}       
+        {{ component('system:language.list') }}      
         <div class="ui hidden divider"></div>
         <div class="ui" id="form_content"></div>       
     </div>

@@ -1,8 +1,6 @@
 {
-    "access": {
-        "auth": "None"        
-    },
     "include": {
-        "js": "system:confirm-dialog"
+        "template": "system",
+        "js": "system:modal"
     }
 }

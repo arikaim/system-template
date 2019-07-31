@@ -10,19 +10,19 @@
             {% if template_name == system_template_name %}
                 <div class="ui left ribbon blue label">{{ labels.system }}</div>                
             {% endif %}
-            <span class="margin-left-1">{{ template.title }}</span>
+            <span class="ml-1">{{ template.title }}</span>
         </h3>
         <div class="image">          
         {% if template.image.src == '' %}       
             <div class="ui image fluid rounded">  
-                <img class="opacity-2" src="{{ system_template_url }}/images/placeholder.png">                     
+                <img class="opacity-25" src="{{ system_template_url }}/images/placeholder.png">                     
             </div>  
         {% else %}
-            <img class="ui image fluid rounded opacity-2" src="{{ system_template_url }}/images/{{ template.image.src }}">                 
+            <img class="ui image fluid rounded opacity-25" src="{{ system_template_url }}/images/{{ template.image.src }}">                 
         {% endif %}                    
         </div>        
-        <div class="ui horizontal basic label margin-top-1">               
-            {{ labels.version }} <span class="bold">{{ template.version }}</span>
+        <div class="ui horizontal basic label mt-1">               
+            {{ labels.version }} <span class="font-bold">{{ template.version }}</span>
         </div>                
     </div>
     {% if template.description != "" %}

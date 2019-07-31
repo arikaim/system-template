@@ -1,4 +1,6 @@
-{% import systemMacro("languages.html") as languages %}
+{% if uuid is defined %}
+    {% set language = createModel('Language').findById(uuid) %}
+{% endif %}
 <div class="ui stackable grid">
     <div class="ui five wide computer sixteen wide tablet column segment">
         <div class="ui block header">
@@ -6,11 +8,11 @@
             <h4 class="content">{{ title.content }}</h4>
         </div>
         <div class="ui hidden divider"></div>  
-        {{ languages.languagesList(uuid,menu) }}       
+        {{ component('system:language.dropdown',{ selected: language, name: 'language', id: 'language_dropdown',class: 'fluid search selection', show_flag: 0 }) }}           
         <div class="ui hidden divider"></div>
         <div id="form_content">
-        {% if uuid != "" %}
-        {{ component('system:admin.languages.language.form',{ uuid: uuid }) }}
+        {% if uuid is defined %}
+            {{ component('system:admin.languages.language.form',{ uuid: uuid }) }}
         {% endif %}
         </div>
     </div>

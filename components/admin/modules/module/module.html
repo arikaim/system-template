@@ -25,20 +25,20 @@
             <div class="item">
                 {{ module.description }}
             </div>
-            <div class="item margin-top-1">
+            <div class="item mt-1">
                 <i class="icon code"></i>
                 {{ module.class }}
             </div>          
-            <div class="item margin-top-1">
+            <div class="item mt-1">
                 {{ labels.packages }}
-                <div class="margin-left-1">                      
-                    {{ list.itemsList(module.requires,'archive') }}
+                <div class="ml-1">                      
+                    {{ component('system:list.items',{ items:module.requires,icon:'archive' }) }}
                 </div>
             </div>           
-            <div class="item margin-top-1">
+            <div class="item mt-1">
                 {% if module.type == 'service' %}
                 {{ labels.service_name }}
-                <div class="margin-left-1 bold">                      
+                <div class="ml-1 font-bold">                      
                     <i class="icon angle right"></i>
                     {{ module.service_name }}
                 </div>
@@ -51,7 +51,7 @@
     <div class="extra content">
         <div class="ui label mini blue basic">
             {{ labels.type }}
-            <div class="detail dark-color">                    
+            <div class="detail text-gray-800">                    
                 {{ module.type }}
             </div>
         </div>
@@ -63,17 +63,17 @@
         {% if module.facade.alias is not empty %}
         <div class="ui label mini blue basic">
             {{ labels.facade }}
-            <div class="detail dark-color">
+            <div class="detail text-gray-800">
                 {{ module.facade.alias }}
             </div>
         </div>       
         {% endif %} 
     </div>   
     <div class="extra content">
-        {% if module.error is not null %}
+        {% if module.error is not empty %}
         <div class="ui label mini red basic">
             {{ labels.error }}
-            <div class="detail dark-color">
+            <div class="detail text-gray-800">
                 {{ module.error }}
             </div>
         </div> 
@@ -84,15 +84,16 @@
     <div class="extra content">
         {% if module.installed == true %}
             <button class="ui basic mini button update-button module-button" name="{{ module.name }}">     
+                <i class="sync alternate olive icon"></i>
                 {{ labels.update }}
             </button>
             {% if module.status == 1 %}
             <button class="ui basic mini button disable-button module-button red" name="{{ module.name }}"> 
-                <span class="dark-color">{{ labels.disable }}</span>
+                <span class="text-gray-800">{{ labels.disable }}</span>
             </button>
             {% else %}
             <button class="ui basic mini button enable-button module-button green" name="{{ module.name }}"> 
-                <span class="dark-color">{{ labels.enable }}</span>
+                <span class="text-gray-800">{{ labels.enable }}</span>
             </button>
             {% endif %}
         {% else %}

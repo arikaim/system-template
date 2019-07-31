@@ -15,7 +15,7 @@ function Extensions() {
     var self = this;
     
     this.showDetails = function(name) {
-        controlPanel.setActiveTab('#details_button');
+        arikaim.ui.setActiveTab('#details_button');
         arikaim.page.loadContent({
             id: 'tab_content',
             component: 'system:admin.extensions.extension.details',
@@ -27,48 +27,28 @@ function Extensions() {
         });   
     };
     
-    this.update = function(name,onSuccess,onError) {
-        arikaim.put('/core/api/extension/update/' + name,null,function(result) {    
-            callFunction(onSuccess,result);                     
-        },function (error) {
-            callFunction(onError,error);
-        });
+    this.update = function(name, onSuccess, onError) {
+        return arikaim.put('/core/api/extension/update/' + name,null,onSuccess,onError);          
     };
 
-    this.install = function(name,onSuccess,onError) {
-        arikaim.put('/core/api/extension/install/' + name,null,function(result) {    
-            callFunction(onSuccess,result);                     
-        },function (error) {
-            callFunction(onError,error);
-        });
+    this.install = function(name, onSuccess, onError) {
+        return arikaim.put('/core/api/extension/install/' + name,null,onSuccess,onError);            
     };
     
-    this.unInstall = function(name,onSuccess,onError) {
-        arikaim.put('/core/api/extension/uninstall/' + name,null,function(result) {
-            callFunction(onSuccess,result);           
-        },function (error) {
-            callFunction(onError,error);
-        });
+    this.unInstall = function(name, onSuccess, onError) {        
+        return arikaim.put('/core/api/extension/uninstall/' + name,null,onSuccess,onError);           
     };
 
-    this.changeStatus = function(name,status) {       
-        if (isEmpty(status) == true) {
-            var status = 'toggle';
-        }
+    this.changeStatus = function(name, status, onSuccess, onError) {       
+        status = getDefaultValue(status,'toggle');         
         if (status === true) status = 1;
-        if (status === false) status = 0;
+        if (status === false) status = 0; 
 
-        arikaim.put('/core/api/extension/status/' + name + "/" + status,null,function(result) {
-            menu.loadExtensionsMenu();
-        });
+        return arikaim.put('/core/api/extension/status/' + name + "/" + status,null,onSuccess,onError);           
     };
 
     this.init = function() {
-        this.initTabs();
-    };
-
-    this.initTabs = function() {
-        controlPanel.initTabItems();
+        arikaim.ui.tab();
     };
 }
 

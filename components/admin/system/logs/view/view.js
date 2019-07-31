@@ -8,5 +8,5 @@
  */
 
 arikaim.page.onReady(function() {  
-    paginator.init("system:admin.system.logs.view",'logs_view');        
+    paginator.init('logs_view',"system:admin.system.logs.view",'logs');        
 });

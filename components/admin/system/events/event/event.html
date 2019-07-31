@@ -1,5 +1,5 @@
 <div class="title">
-    <div class="item bold">
+    <div class="item font-bold">
         <i class="dropdown icon" title="{{ labels.details }}"></i>
         {% if event.status == 1 %}
         <i class="icon checkmark olive" title="{{ labels.active }}"></i>
@@ -9,12 +9,12 @@
     </div>
 </div>
 <div class="content">
-    <div class="margin-left-2">
-        <span class="text small-text">{{ event.title }}</span>
-        <div class="text small-text">
+    <div class="ml-2">
+        <span class="text">{{ event.title }}</span>
+        <div class="text">
             {{ event.description }}
         </div>
-        <div class="ui label small basic margin-top-1">
+        <div class="ui label small basic mt-1">
         {% if event.extension_name != "" %}
             {{ labels.extension }}
             <div class="detail">
@@ -32,8 +32,8 @@
             <h5 class="ui header">
                 {{ labels.subscribers }}
             </h5>
-            {% set query_filter = condition('name','=',event.name) %}
-            {% set subscribers = dbQuery("EventSubscribers",query_filter) %}  
+            {# set query_filter = condition('name','=',event.name) #}
+            {% set subscribers = [] %}  
             <div class="ui list">               
                 {% for subscriber in subscribers %}
                     {{ component("system:admin.system.events.event.subscriber",{ subscriber: subscriber }) }}

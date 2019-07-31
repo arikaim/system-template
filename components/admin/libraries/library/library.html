@@ -1,15 +1,19 @@
-{% set current_framework = callStatic('View\\Template','getCurrentFramework') %}
+{% set current_framework = execute('View\\Template','getCurrentFramework') %}
 {% set library = execute("Packages\\Library\\LibraryManager","getPackageProperties",{ name: library_name }) %}
 <div class="ui card">
     <div class="content">    
         <i class="ui left floated cube icon"></i>   
         <div class="right floated meta">
             <div class="ui horizontal label">               
-                {{ labels.version }} <span class="bold">{{ library.version }}</span>
+                {{ labels.version }} <span class="font-bold">{{ library.version }}</span>
             </div>
         </div>        
-        <div class="header margin-left-1">
-            {{ library.name }}                
+        <div class="header ml-1">
+            {% if library.title is empty %}
+                {{ library.name }}            
+            {% else %}
+                {{ library.title }}          
+            {% endif %}    
         </div>  
         {% if library.framework == true %}
         <div class="ui divider"></div>
@@ -19,16 +23,19 @@
             {% if current_framework == library.name %}
                 <div class="detail right floated">
                     <i class="icon check olive"></i>
-                    <span class="dark-color">{{ labels.current }}</span>
+                    <span class="text-gray-800">{{ labels.current }}</span>
                 </div>    
             {% endif %}
             </div>
         </div>
         {% endif %}
-        <div class="description margin-top-1">
+        <div class="description mt-1">
             {{ library.description }}
             <div class="ui divider"></div>
-            <div class="bold">{{ labels.files }}</div>
+            <div class="font-bold">{{ labels.name }}</div>
+            <div>{{ library.name }}</div>
+            <div class="ui divider"></div>
+            <div class="font-bold">{{ labels.files }}</div>
             <div class="list">                  
             {% for file in library.files %}
                 <div class="item">
@@ -39,7 +46,7 @@
             </div>
             {% if library.themes|length > 0 %}
                 <div class="ui divider"></div>
-                <div class="bold">{{ labels.themes }}</div>
+                <div class="font-bold">{{ labels.themes }}</div>
                 <div class="list">                  
                 {% for name,theme in library.themes %}
                     <div class="item">
@@ -51,7 +58,7 @@
             {% endif %}
             {% if library.params|length > 0 %}
             <div class="ui divider"></div>
-            <div class="bold">{{ labels.params }}</div>
+            <div class="font-bold">{{ labels.params }}</div>
             <div class="list">
                 {% for name,param in library.params %}
                     <div class="item">

@@ -19,49 +19,42 @@
 {% endmacro includeTemplateFiles -%}
 
 {%- macro includeComponentFiles() -%}
-{% set js_files = getComponentsJsFiles() %}
-{% set css_files = getComponentsCssFiles() %}
-{% if js_files or css_files %}
+{% set files = getComponentsFiles() %}
     <!-- component files -->
-    {% for file in js_files -%}
-        <script src="{{ file }}" type="text/javascript"></script>
+    {% for file in files.js -%}
+        <script src="{{ file.url }}" type="text/javascript"></script>
     {% endfor -%}
-    {% for file in css_files -%}
-        <link rel="stylesheet" type="text/css" href="{{ file }}">
+    {% for file in files.css -%}
+        <link rel="stylesheet" type="text/css" href="{{ file.url }}">
     {% endfor -%}
-{% endif %}
 {% endmacro includeComponentFiles %}
 
-{% macro includePageFiles() %}
-{% set js_files = getPageJsFiles() %}
-{% set css_files = getPageCssFiles() %}
-{% if js_files or css_files %}
-<!-- page files -->
-    {% for file in js_files -%}
-        <script src="{{ file }}" type="text/javascript"></script>
+{%- macro includePageFiles() -%}
+    <!-- page files -->
+    {%- set files = getPageFiles() -%}
+    {%- for file in files.js %}
+        <script src="{{ file.url }}" type="text/javascript"></script>
+    {%- endfor %}
+    {%- for file in files.css %}
+        <link rel="stylesheet" type="text/css" href="{{ file.url }}">      
     {%- endfor -%}
-    {% for file in css_files %}
-        <link rel="stylesheet" type="text/css" href="{{ file }}">      
-    {%- endfor -%}
-{% endif %}
-{%- endmacro includePageFiles %}
+{%- endmacro includePageFiles -%}
 
 {%- macro includeLibraries() -%}
 {%- set files = getLibraryFiles() -%}
 <!-- library files -->
 {%- for file in files -%} 
-  
-{% if file.params is iterable %}
-    {% set params_attributes = '' %}
-    {% for param_name,param_value in file.params %}
-        {% set params_attributes = params_attributes ~ param_name ~ '="' ~ param_value ~ '"' %}
-    {% endfor %}
-{% endif %}      
-{%- if file.type == "js" %} 
-    <script id="library_{{ file.library }}" type="text/javascript" src="{{ file.file }}" {{ params_attributes|raw }}></script>
-{%- endif %}
-{%- if file.type == "css" %} 
-    <link rel="stylesheet" type="text/css" href="{{ file.file }}">
-{%- endif -%}
+    {% if file.params is iterable %}
+        {% set params_attributes = '' %}
+        {% for param_name,param_value in file.params %}
+            {% set params_attributes = params_attributes ~ param_name ~ '="' ~ param_value ~ '"' %}
+        {% endfor %}
+    {% endif %}      
+    {%- if file.type == "js" %} 
+        <script id="library_{{ file.library }}" type="text/javascript" src="{{ file.file }}"{{ params_attributes|raw }}></script>
+    {%- endif %}
+    {%- if file.type == "css" %} 
+        <link rel="stylesheet" type="text/css" href="{{ file.file }}">
+    {%- endif -%}
 {%- endfor %}
 {%- endmacro includeLibraries -%}

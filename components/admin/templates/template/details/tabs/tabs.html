@@ -26,9 +26,9 @@
             </div>
         </div>           
     </div>      
-    <img class="ui image opacity-2" src="{{ system_template_url }}/images/{{ template.image.src|ifthen('','placeholder.png') }}">     
+    <img class="ui image opacity-25" src="{{ system_template_url }}/images/{{ template.image.src|ifthen('','placeholder.png') }}">     
     <div class="content">
-        <div class="text bold">{{ labels.requires }}</div>       
+        <div class="text font-bold">{{ labels.requires }}</div>       
         <div class="ui list">
             {% for item in template.requires.library %}
                 <div class="item">
@@ -39,7 +39,7 @@
         </div>
     </div> 
 </div>
-<div class="ui stackable top attached tabular menu margin-top-2" id="templates_details_tab">
+<div class="ui stackable top attached tabular menu mt-2" id="templates_details_tab">
     <a class="item active" data-tab="themes_tab">
         <i class="icon paint brush"></i>
         {{ tabs.themes.content }}
@@ -68,10 +68,10 @@
     {{ component('system:admin.component',{ components: template.components }) }}
 </div>
 <div class="ui bottom attached tab segment {{ tabs.themes.class }}" data-tab="macros_tab">
-    {{ list.itemsList(template.macros,"settings") }}
+    {{ component('system:list.items',{ items:template.macros, icon:"settings" }) }}
 </div>
 <div class="ui bottom attached tab segment {{ tabs.pages.class }}" data-tab="pages_tab">
-    {{ list.itemsList(template.pages,"file text outline") }}
+    {{ component('system:list.items',{ items:template.pages, icon:"file text outline" }) }}
 </div>
 <div class="ui bottom attached tab segment {{ tabs.pages.class }}" data-tab="routes_tab">
     {{ extensions.routesList(template.routes,"code") }}

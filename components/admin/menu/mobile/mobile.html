@@ -1,7 +1,8 @@
 {% set user_type = 0 %}
-{% set admin_user = createModel('Users','isLogedAdminUser') %}
+{# TODO #}
+{% set admin_user = true %}
 <div class="ui icon top left pointing dropdown big" id="admin_menu_dropdown">
-    <i class="bars white big icon"></i>
+    <i class="bars text-white big icon"></i>
     <div class="ui large menu">               
         {% if admin_user == true %}
             {{ component("system:admin/menu/extensions",{status: 1,type: user_type}) }}       

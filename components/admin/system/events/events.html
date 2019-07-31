@@ -1,4 +1,4 @@
-{% set events = dbQuery("Events") %}
+{% set events = [] %}
 {% if events is empty %}
 <div class="ui message">
     {{ messages.empty }}

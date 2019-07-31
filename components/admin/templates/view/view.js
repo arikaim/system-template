@@ -15,15 +15,10 @@
         var details_button  = '.details-button';
         var update_button   = '.update-button';
     
-        $('.popup-button').popup({
-            on: 'click'
-        });
-    
-        $(current_button).off();    
-        $(current_button).on('click',function() {  
-            var name = $(this).attr('template');
-            $(this).addClass('disabled loading');            
-            templates.setCurrent(name,function(result) {
+        arikaim.ui.button(current_button,function(element) {  
+            var name = $(element).attr('template');
+                    
+            return templates.setCurrent(name).done(function(result) {
                 $('.current-template').remove();
                 $(current_button).show();
                 $(update_button).hide();
@@ -34,16 +29,14 @@
                     replace: true
                 },function(result) {
                     self.init();
-                });
-                $(this).removeClass('disabled loading');       
+                });  
             });
         });
     
-        $(update_button).off(); 
-        $(update_button).on('click',function() {  
-            var name = $(this).attr('template');   
-            $(this).addClass('disabled loading');       
-            templates.setCurrent(name,function(result) {
+        arikaim.ui.button(update_button,function(element) {  
+            var name = $(element).attr('template');   
+          
+            return templates.setCurrent(name).done(function(result) {
                 arikaim.page.loadContent({
                     id: name,
                     params: { template_name: name },
@@ -51,15 +44,14 @@
                     replace: true
                 },function(result) {
                     self.init();
-                });
-                $(this).removeClass('disabled loading'); 
+                });               
             });
         });
     
-        $(details_button).off();
-        $(details_button).on('click',function() {  
-            var name = $(this).attr('template');          
+        arikaim.ui.button(details_button,function(element) {  
+            var name = $(element).attr('template');          
             templates.showDetailsPage(name);
+            return true;
         });
     };
 }

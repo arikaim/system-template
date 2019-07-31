@@ -1,5 +1,8 @@
-{% set query_filter = orderBy('position') %}
-{% set items = dbQueryPage("Language",query_filter) %}
+{% set language = createModel('Language') %}
+{% set language = language.orderBy('position') %}
+{% set items = paginate(language) %}
+
+{{ component("system:position") }}
 <div class="ui stackable cards" id="languages_list">
     {% for item in items.rows %}
     {{ component("system:admin/languages/language",{ language: item }) }}

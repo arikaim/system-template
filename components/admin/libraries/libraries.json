@@ -5,6 +5,9 @@
         },
         "download": {
             "content": "Download"
+        },
+        "upload": {
+            "content": "Upload"
         }
     }
 }

@@ -8,19 +8,18 @@
  */
 
 function Update() {
+    
     this.checkForNewVersion = function(onSuccess) {
-        arikaim.get('/core/api/update/check',onSuccess,onError);
+        return arikaim.get('/core/api/update/check',onSuccess,onError);
     };
 
     this.update = function(onSuccess,onError) {
-        arikaim.get('/core/api/update/',onSuccess,onError);
+        return arikaim.get('/core/api/update/',onSuccess,onError);
     };
 
     this.init = function() {
-        $('#update_button').off();
-        $('#update_button').on('click',function() {
-            update.update(function(result) {            
-            });
+        arikaim.ui.button('#update_button',function(element) {
+            return update.update();
         });
     }
 }

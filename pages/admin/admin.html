@@ -1,12 +1,9 @@
-{{ component("system:admin/user") }}
-{% if loged_in == true %}   
-{{ component("system:admin/navbar") }}
-<div id="content" class="ui stackable equal height grid full-height">
-    {{ component("system:admin/layout") }}
-</div>
-{% else %}
-{{ component("system:admin/navbar") }}
-<div id="content" class="ui stackable equal height grid full-height">
-    {{ component("system:admin/login") }}
-</div>
+{{ component("system:user") }}
+{{ component("system:admin.navbar") }}
+<div id="content" class="ui stackable equal height grid h-full min-h-full">
+{% if service('access').hasControlPanelAccess() == true %}   
+    {{ component("system:admin.layout") }}
+{% else %}   
+    {{ component("system:admin.login") }}
 {% endif %}
+</div>

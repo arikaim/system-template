@@ -1,5 +1,4 @@
-{% import systemMacro("pagination.html") as pagination %}
-{% set per_page = execute("Db\\Paginator","getRowsPerPage") %}
+{% set paginator = getPaginator('logs') %}
 <div class="ui stackable grid">
     <div class="sixteen wide column">
         <div class="ui stackable text menu">
@@ -9,11 +8,11 @@
                     {{ buttons.delete.content }}
                 </button>
             </div>
-            <div class="item">
-                {{ pagination.pageSizeMenu(per_page,page_size_menu) }}
+            <div class="item right floated">
+                {{ component('system:paginator.dropdown',{ paginator : paginator }) }}
             </div>
-        </div>  
-        <div class="ui margin-top-2" id="logs_view">
+        </div>       
+        <div class="ui mt-2" id="logs_view">
             {{ component("system:admin.system.logs.view") }}
         </div>
     </div>

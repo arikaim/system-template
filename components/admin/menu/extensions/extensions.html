@@ -2,5 +2,7 @@
 {% set extensions = execute('Packages\\Extension\\ExtensionsManager','getInstalled',{status: status, type: type}) %}
 
 {% for extension in extensions %}
-{{ menu.adminMenuItem(extension.name,extension.admin_menu,"admin-menu-link") }}
+    {% if extension.admin_menu is not empty %}
+        {{ menu.adminMenuItem(extension.name,extension.admin_menu,"admin-menu-link") }}
+    {% endif %}
 {% endfor %}

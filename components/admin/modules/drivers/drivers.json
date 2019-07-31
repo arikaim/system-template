@@ -1,16 +1,3 @@
 {
-    "labels": {
-        "update": "Update",
-        "disable": "Disable"
-    },
-    "columns": {
-        "name": "Name",
-        "type": "Type",
-        "category": "Category",
-        "title": "Title",
-        "class": "Class",
-        "help": "Help",
-        "version": "Version",
-        "action": "Action"
-    }
+    
 }

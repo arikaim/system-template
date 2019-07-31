@@ -13,29 +13,21 @@ function ControlPanelMenu() {
     
     this.init = function() {
         $('#admin_menu').accordion();
-
         $('#admin_menu_dropdown').dropdown();
-        $('#system_menu_button').off();
-        $('#system_menu_button').on('click',function() {     
+    
+        arikaim.ui.button('#system_menu_button',function(element) {     
             $('#system_menu').transition('slide down');    
         });
     
-        $('.admin-menu-link').off();
-        $('.admin-menu-link').on('click',function() {
+        arikaim.ui.button('.admin-menu-link',function(element) {
             $('.admin-menu-link').removeClass('active');     
-            $(this).addClass('active');       
-            var component_name = $(this).attr('component');
-            var extension_name = $(this).attr('extension');
-            var id = $(this).attr('id');
-            var icon = $(this).attr('page-icon');          
-            var title = $(this).attr('page-title');
-          
-            controlPanel.setPageTitle(title);
-            controlPanel.setPageIcon(icon);
-            arikaim.page.loadContent({
+            $(element).addClass('active');       
+            controlPanel.setPageTitle($(element).attr('page-title'));
+            controlPanel.setPageIcon($(element).attr('page-icon'));
+            return arikaim.page.loadContent({
                 id: 'tool_content',
-                extension: extension_name,
-                component: component_name
+                extension: $(element).attr('extension'),
+                component: $(element).attr('component')
             });
         });
     };
@@ -43,7 +35,8 @@ function ControlPanelMenu() {
     this.loadExtensionsMenu = function() {
         arikaim.page.loadContent({
             id: 'extensions_menu',           
-            component: "system:admin.menu.extensions"
+            component: "system:admin.menu.extensions",
+            params: { type: 0 }
         },function(result) {
             self.init();
         });
@@ -52,7 +45,8 @@ function ControlPanelMenu() {
     this.loadSystemMenu = function() {
         arikaim.page.loadContent({
             id: 'system_menu',           
-            component: "system:admin.menu.system"
+            component: "system:admin.menu.system",
+            params: { type: 1 }
         },function(result) {
             self.init();
         });

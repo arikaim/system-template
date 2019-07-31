@@ -1,21 +1,25 @@
 <div class="ui stackable grid">    
     <div class="ui sixteen wide column">
-        <div class="ui stackable top attached tabular menu">           
-            <a id="view_logs" class="item active tab-item" component="system:admin.system.logs">
+        <div class="ui stackable top attached tabular menu"> 
+            <a id="view_settings" class="item active tab-item" component="system:admin.system.settings">
+                <i class="icon cogs"></i>
+                {{ tabs.settings.content }}                    
+            </a>           
+            <a id="view_logs" class="item tab-item" component="system:admin.system.logs">
                 <i class="icon warning circle"></i>
                 {{ tabs.logs.content }}                    
             </a>   
-            <a class="item tab-item" component="system:admin.system.stats">
-                <i class="icon bar chart"></i>
-                {{ tabs.stats.content }}
-            </a> 
             <a class="item tab-item" component="system:admin.system.events">
                 <i class="icon calendar alternate outline"></i>
                 {{ tabs.events.content }}
             </a>  
-            <a class="item tab-item" component="system:admin.system.jobs">
+            <a class="item tab-item" component="system:admin.system.queue">
                 <i class="icon tasks"></i>
-                {{ tabs.jobs.content }}
+                {{ tabs.queue.content }}
+            </a>
+            <a class="item tab-item" component="system:admin.system.cron">
+                <i class="calendar times outline icon"></i>
+                {{ tabs.cron.content }}
             </a>
             <a class="item tab-item" component="system:admin.system.info">
                 <i class="icon info circle"></i>

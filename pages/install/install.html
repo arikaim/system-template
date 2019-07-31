@@ -5,12 +5,11 @@
         <img alt="{{ brand.image.alt }}" src="{{ system_template_url }}/images/{{ brand.image.src }}">
         {% endif -%}   
         <div class="page-title">
-            Arikaim
-            <span class="white sub-title small text megin-left-1">{{ labels.version }}
-                <span class="bold">{{ version }}</span>
-            </span>            
+            Arikaim                    
         </div>
     </div>              
 </div>
-{{ component("system:admin/install") }}
+<div id="content" class="ui">
+    {{ component("system:admin/install") }}
+</div>
 {{ component("system:footer") }}

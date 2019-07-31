@@ -8,8 +8,10 @@
  */
 
 function Libraries() {
+    var self = this;
+    
     this.init = function() {
-        controlPanel.initTabItems();
+        arikaim.ui.tab();
     };
 }
 

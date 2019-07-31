@@ -9,8 +9,8 @@
 
 function System() {
     this.init = function() {   
-        controlPanel.initTabItems();
-        $('#view_logs').click();
+        arikaim.ui.tab();
+        $('#view_settings').click();
     };
 }
 

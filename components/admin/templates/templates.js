@@ -16,24 +16,20 @@ function Templates() {
             params: { 'template_name': name }
         },function(result) {
             $('#templates_details_tab .item').tab();
-            controlPanel.setActiveTab('#details_button');
+            arikaim.ui.setActiveTab('#details_button');
         });
     };
 
-    this.init = function() {
-       controlPanel.initTabItems();
+    this.init = function() {     
+       arikaim.ui.tab();
     };
 
-    this.install = function(name,onSuccess) {
-        arikaim.put('/core/api/template/install/' + name,null,function(result) {
-            callFunction(onSuccess,result);           
-        });
+    this.install = function(name, onSuccess, onError) {
+        return arikaim.put('/core/api/template/install/' + name,null,onSuccess,onError);          
     };
 
-    this.setCurrent = function(name,onSuccess) {
-        arikaim.put('/core/api/template/current/' + name,null,function(result) {
-            callFunction(onSuccess,result);
-        });
+    this.setCurrent = function(name, onSuccess, onError) {
+        return arikaim.put('/core/api/template/current/' + name,null,onSuccess,onError);         
     };
 }
 

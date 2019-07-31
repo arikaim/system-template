@@ -8,5 +8,8 @@
  */
 
 arikaim.page.onReady(function() {
-    controlPanelUser.logout();
+    user.logout(function(result) {
+        arikaim.clearToken();
+        arikaim.page.reload();      
+    });
 });

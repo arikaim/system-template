@@ -42,10 +42,10 @@
     </a>        
 </div>
 <div class="ui bottom attached tab segment active {{ tabs.routes.class }}" data-tab="routes_tab">
-    {{ macros.routesList(extension.routes,"linkify") }}
+    {{ macros.routesList(extension.routes) }}
 </div>
 <div class="ui bottom attached tab segment {{ tabs.database.class }}" data-tab="database_tab">
-    {{ list.itemsList(extension.database,"table") }} 
+    {{ component('system:list.items',{ items: extension.database, icon: "table" }) }} 
 </div>
 <div class="ui up tab {{ tabs.events.class }}" data-tab="events_tab" id="events_tab">
     <div class="ui horizontal divider"></div>
@@ -86,10 +86,10 @@
         {{ component('system:admin.component',{ components: extension.components }) }} 
     </div>
     <div class="ui bottom attached tab segment {{ tabs.pages.class }}" data-tab="template_tab/pages_tab">
-        {{ list.itemsList(extension.pages,"file text outline") }} 
+        {{ component('system:list.items',{ items:extension.pages, icon: "file text outline" }) }} 
     </div>
     <div class="ui bottom attached tab segment {{ tabs.macros.class }}" data-tab="template_tab/macros_tab">
-        {{ list.itemsList(extension.macros,"settings") }} 
+        {{ component('system:list.items',{ items:extension.macros, icon:"settings" }) }} 
     </div>
 </div>
 <div class="ui bottom attached tab segment {{ tabs.jobs.class }}" data-tab="jobs_tab">
@@ -97,15 +97,12 @@
         <i class="icon repeat"></i>
         {{ labels.recuring }}
     </h5>
-    {% set jobs_filter = condition('extension_name','=',extension_name) %}
-    {% set recuring_jobs = condition('recuring_interval','<>','',jobs_filter) %}
-    {{ component('system:admin.system.jobs.list',{ filter: [recuring_jobs] }) }}
+    {{ component('system:admin.system.jobs.list',{ filter: [] }) }}
     <h5 class="header">
         <i class="icon wait"></i>
         {{ labels.scheduled }}
     </h5>
-    {% set scheduled_jobs = condition('schedule_time','>','0',jobs_filter) %}
-    {{ component('system:admin.system.jobs.list',{ filter: [scheduled_jobs] }) }}
+    {{ component('system:admin.system.jobs.list',{ filter: [] }) }}
 </div>
 <div class="ui bottom attached tab segment {{ tabs.console.class }}" data-tab="console_tab">
     {{ list.descriptionList(extension.console_commands,"terminal","angle right") }} 

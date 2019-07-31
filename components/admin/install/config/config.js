@@ -7,8 +7,8 @@
  * 
  */
 
-arikaim.page.onReady(function () {
-    arikaim.form.addRules("#config_form",{
+$(document).ready(function() {
+    arikaim.ui.form.addRules("#config_form",{
         inline: false,
         fields: {
             database: {
@@ -22,4 +22,35 @@ arikaim.page.onReady(function () {
             }
         }
     });
+
+    arikaim.ui.form.onSubmit('#install_form',function(element) {      
+        arikaim.ui.form.disable('#install_form');
+        progressBar.start({
+            onComplete: function() {  
+                if (install.status == true) {
+                    // installed
+                    $('#continue_button').show();
+                    $('#install_button').hide();     
+                    progressBar.hide(true);  
+                    arikaim.ui.show('#done_message');                
+                } else {
+                    // not yet installed or error 
+                    $('#continue_button').hide();
+                    $('#install_button').show();
+                }
+            }
+        });
+        return install.install('#install_form');
+    }).done(function() {
+        arikaim.ui.hide('#install_button',true);      
+        install.status = true;
+    }).fail(function() {
+        arikaim.ui.form.disable('#install_form');
+        progressBar.reset();
+        progressBar.hide(true);
+        $('#continue_button').hide();
+        $('#install_button').show();
+        install.status = false;
+    });
+  
 });  

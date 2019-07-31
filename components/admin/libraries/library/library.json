@@ -3,10 +3,10 @@
         "framework": "Front-end Framework",
         "files": "Files",
         "params": "Params",
-        "value": "value",
-        "name": "name",
+        "value": "Value",
+        "name": "Name",
         "themes": "Themes",
         "version": "Version",
-        "current": "current"
+        "current": "Current"
     }
 }

@@ -7,66 +7,134 @@
  * 
  */
 
-function Paginator(current_page) {
+function Paginator() {
+    var self = this;    
+    var options = null;
+    
 
-    var component_name = "";
-    var element_id;
-    var page = 1;
-    var self = this;
+    this.init = function(element_id, component_name, namespace) {        
+        this.setOptions(element_id,component_name, namespace);
 
-    this.init = function(component,element) {
-        
-        element_id = element;
-        self.setComponentName(component);
-        $('.page-link').off();
-        $('.page-link').on('click',function() {
-            self.setPage($(this).attr('page'));
-            self.loadRows();  
+        arikaim.ui.button('.page-link',function(element) {
+            var page = $(element).attr('page'); 
+            return self.setPage(page,self.getOptions().namespace).done(function(result) {
+                self.loadRows(self.getOptions());  
+            }); 
         });
-
-        $('.page-size-menu').off();
+       
         $('.page-size-menu').dropdown({
-            onChange: function(value) {
-                self.loadRows(value);
+            onChange: function(value) {               
+                self.setPageSize(value,self.getOptions().namespace).done(function(page_size) {
+                    self.loadRows(self.getOptions());
+                });                           
             }
         });
     };
 
-    this.setComponentName = function(component) {
-        if (isEmpty(component) == false) {
-            component_name = component;
-        }
+    this.setOptions = function(element_id, component_name, namespace) {
+        namespace = getDefaultValue(namespace,"");
+        options = { id: element_id, component: component_name, namespace: namespace };
     };
 
-    this.setPage = function(current_page) {
-        if (isEmpty(current_page) == true || current_page < 1) {
-            current_page = 1;           
-        } 
-        page = current_page;
+    this.getOptions = function() {      
+        return options;
+    }
+
+    this.getCurrentPage = function(namespace, onSuccess, onError) {
+        var deferred = new $.Deferred();
+        namespace = getDefaultValue(namespace,"");
+
+        arikaim.get('/core/api/ui/paginator/' + namespace,function(result) {
+            deferred.resolve(result.page);
+            callFunction(onSuccess,result.page); 
+        },function(error) {
+            deferred.reject(error);
+            callFunction(onError,error);  
+        });
+
+        return deferred.promise();
+    }
+
+    this.getViewType = function(namespace, onSuccess, onError) {
+        var deferred = new $.Deferred();
+        namespace = getDefaultValue(namespace,"");
+
+        arikaim.get('/core/api/ui/paginator/view/' + namespace,function(result) {
+            deferred.resolve(result.view);  
+            callFunction(onSuccess,result.view); 
+        },function(error) {
+            deferred.reject(error);
+            callFunction(onError,error);  
+        });
+
+        return deferred.promise();
+    }
+
+    this.setViewType = function(view_type, namespace, onSuccess, onError) {
+        var deferred = new $.Deferred();
+
+        view_type = (isEmpty(view_type) == true) ? 'table' : view_type;
+        namespace = getDefaultValue(namespace,"");
+
+        var data = { view: view_type };
+        arikaim.put('/core/api/ui/paginator/view/' + namespace,data,function(result) {
+            deferred.resolve(result.view);  
+            callFunction(onSuccess,result.view);      
+        },function(error) {
+            deferred.reject(error);
+            callFunction(onError,error);  
+        });
+
+        return deferred.promise();
     };
 
-    this.loadRows = function(rows_per_page) {  
-        if (isEmpty(component_name) == true) {
+    this.setPageSize = function(page_size, namespace, onSuccess, onError) {
+        var deferred = new $.Deferred();
+
+        page_size = (isEmpty(page_size) == true) ? 1 : page_size;
+        namespace = getDefaultValue(namespace,"");
+        var data = { page_size: page_size };
+
+        arikaim.put('/core/api/ui/paginator/page-size/' + namespace,data,function(result) {
+            deferred.resolve(result.page_size);  
+            callFunction(onSuccess,result.page_size);      
+        },function(error) {
+            deferred.reject(error);  
+            callFunction(onError,error);  
+        });
+
+        return deferred.promise();
+    };
+
+    this.setPage = function(page, namespace, onSuccess, onError) {
+        var deferred = new $.Deferred();
+
+        page = (isEmpty(page) == true) ? 1 : page;
+        namespace = getDefaultValue(namespace,"");
+
+        var data = { page: page };
+        arikaim.put('/core/api/ui/paginator/' + namespace,data,function(result) {
+            deferred.resolve(result.page);  
+            callFunction(onSuccess,result.page);      
+        },function(error) {
+            deferred.reject(error);  
+            callFunction(onError,error);  
+        });
+
+        return deferred.promise();
+    };
+
+    this.loadRows = function(options) { 
+
+        if (isObject(options) == false) {
             return false;
         }
-        if (isEmpty(element_id) == true) {
-            return false;
-        }
-        var params = [page];
-        if (isEmpty(rows_per_page) == false) {
-            var params = [page,rows_per_page];    
-        }
-        arikaim.page.loadContent({
-            id: element_id,
-            component: component_name,
-            params: params 
-        },function(result) {          
-            self.init();
+    
+        return arikaim.page.loadContent({
+            id: options.id,
+            component: options.component
         });
     };
-    
-    // init
-    this.setPage(current_page);
 }
 
 var paginator = new Paginator();

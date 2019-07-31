@@ -23,7 +23,7 @@ arikaim.page.onReady(function() {
 
     $('#languages_list').dropdown({
         onChange: function(code) {
-            arikaim.form.clearErrors('#language_form');
+            arikaim.ui.form.clearErrors('#language_form');
             var language = languages_list.getProperty(code);
             $('#code').val(language.code);
             $('#code_3').val(language.code_3);

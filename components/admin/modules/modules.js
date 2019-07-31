@@ -11,82 +11,36 @@ function CoreModules() {
     var self = this;
 
     this.init = function() {
-        controlPanel.initTabItems();
+        arikaim.ui.tab();
     };
 
     this.enable = function(name,onSuccess,onError) {
-        if (isEmpty(name) == true) {
-            return false;
-        }
-        arikaim.put('/core/api/module/enable/' + name,null,function(result) {
-            self.loadModuleDetails(name,function(result) {
-                callFunction(onSuccess,result); 
-            });            
-        },function(error) {
-            callFunction(onError,error);           
-        });
+        return arikaim.put('/core/api/module/enable/' + name,null,onSuccess,onError);          
     };
 
     this.disable = function(name,onSuccess,onError) {
-        if (isEmpty(name) == true) {
-            return false;
-        }
-        arikaim.put('/core/api/module/disable/' + name,null,function(result) {
-            self.loadModuleDetails(name,function(result) {
-                callFunction(onSuccess,result); 
-            });           
-        },function(error) {
-            callFunction(onError,error);   
-        });
+        return arikaim.put('/core/api/module/disable/' + name,null,onSuccess,onError);          
     };
 
-    this.loadModuleDetails = function(name,onSuccess) {      
-        arikaim.page.loadContent({
+    this.loadModuleDetails = function(name, onSuccess, onError) {      
+        return arikaim.page.loadContent({
             id: name,
             params: { name: name },
             component: 'system:admin.modules.module',
             replace: true
-        },function(result) {
-            callFunction(onSuccess,result); 
-        });
+        },onSuccess,onError);
     };
 
     this.install = function(name,onSuccess,onError) {
-        arikaim.put('/core/api/module/install/' + name,null,function(result) {
-            if (isEmpty(name) == false) {
-                self.loadModuleDetails(name,function(result) {
-                    callFunction(onSuccess,result); 
-                });       
-            } else {
-                arikaim.page.loadContent({
-                    id: 'tool_content',
-                    component: 'system:admin.modules'
-                },function(result) {
-                    callFunction(onSuccess,result); 
-                });
-            }           
-        },function (error) {
-            callFunction(onError,error);   
-        });
+        return arikaim.put('/core/api/module/install/' + name,null,onSuccess,onError);          
     };
 
     this.unInstall = function(name,onSuccess,onError) {
-        arikaim.delete('/core/api/module/uninstall/' + name,null,function(result) {
-            if (isEmpty(name) == false) {
-                self.loadModuleDetails(name,function(result) {
-                    callFunction(onSuccess,result); 
-                });       
-            } else {
-                arikaim.page.loadContent({
-                    id: 'tool_content',
-                    component: 'system:admin.modules'
-                },function(result) {
-                    callFunction(onSuccess,result); 
-                });
-            }           
-        },function (error) {
-            callFunction(onError,error);   
-        });
+        return arikaim.delete('/core/api/module/uninstall/' + name,onSuccess,onError);          
+    };
+  
+    this.update = function(name,onSuccess,onError) {
+        return arikaim.put('/core/api/module/update/' + name,null,onSuccess,onError);
     };
 }
 
