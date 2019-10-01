@@ -1,0 +1,20 @@
+{% set items = service('driver').getList(category) %}
+{% set id = id|default('drivers_dropdown') %}
+{% set name = name|default('driver') %}
+{% set selected = items.firstWhere('full_name',selected) %}
+<div class="ui selection dropdown {{ class }} drivers-dropdown" id="{{ id }}">
+    <input type="hidden" name="{{ name }}" id="{{ name }}" value="{{ selected.full_name }}">
+    <i class="dropdown icon"></i>  
+    {% if selected is not empty %}
+        <div class="text">{{ selected.title }}</div>  
+    {% else %}
+        <div class="default text">{{ labels.default }}</div>  
+    {% endif %}   
+    <div class="ui menu">       
+        {% for item in items %}            
+            <div class="item {{ item.full_name|ifthen(selected.full_name,'active') }}" data-value="{{ item.full_name }}">             
+                {{ item.title }}
+            </div>   
+        {% endfor %}           
+    </div>  
+</div>

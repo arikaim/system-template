@@ -2,8 +2,7 @@
     "labels": {
         "current": "Current",
         "system": "System",
-        "version": "Version",
-        "requires": "Requires"
+        "version": "Version"       
     },
     "buttons": {
         "details": {

@@ -10,65 +10,104 @@
 function ModulesView() {
     var self = this;
 
-    var install_button = '.install-button';
-    var update_button = '.update-button';
-    var enable_button = '.enable-button';
-    var disable_button = '.disable-button';
-
     this.init = function() {
       
-        arikaim.ui.button(install_button,function(element) {          
+        arikaim.ui.button('.install-button',function(element) {          
             var name = $(element).attr('name');
 
-            return modules.install(name).done(function(result) {               
+            return modules.install(name,function(result) {   
+                var message = result.message;            
                 modules.loadModuleDetails(name,function(result) {
                     self.init();
+                    arikaim.ui.form.showMessage({
+                        element: '#message_' + name,
+                        message: message
+                    });
                 });               
-            }).fail(function(error) {              
+            },function(error) {              
                 self.init();
+                arikaim.ui.form.showMessage({
+                    element: '#message_' + name,
+                    message: message,
+                    class: 'error',
+                    remove_class:'success'
+                });
             });
         });
 
-        arikaim.ui.button(update_button,function(element) {           
+        arikaim.ui.button('.update-button',function(element) {           
             var name = $(element).attr('name');
 
-            return modules.update(name).done(function(result) {
+            return modules.update(name,function(result) {
+                var message = result.message;    
                 modules.loadModuleDetails(name,function(result) {
                     self.init();
+                    arikaim.ui.form.showMessage({
+                        element: '#message_' + name,
+                        message: message
+                    });
                 }); 
-            }).fail(function(error) {               
+            },function(error) {               
                 self.init();
+                arikaim.ui.form.showMessage({
+                    element: '#message_' + name,
+                    message: message,
+                    class: 'error',
+                    remove_class:'success'
+                });
             });
         });
 
-        arikaim.ui.button(enable_button,function(element) {         
+        arikaim.ui.button('.enable-button',function(element) {         
             var name = $(element).attr('name');
 
-            return modules.enable(name).done(function(result) {              
+            return modules.enable(name,function(result) {     
+                var message = result.message;             
                 modules.loadModuleDetails(name,function(result) {
                     self.init();
+                    arikaim.ui.form.showMessage({
+                        element: '#message_' + name,
+                        message: message
+                    });
                 });               
-            }).fail(function(error) {              
+            },function(error) {              
                 self.init();
+                arikaim.ui.form.showMessage({
+                    element: '#message_' + name,
+                    message: message,
+                    class: 'error',
+                    remove_class:'success'
+                });
             });
         });
 
-        arikaim.ui.button(disable_button,function(element) {          
+        arikaim.ui.button('.disable-button',function(element) {          
             var name = $(element).attr('name');
 
-            return modules.disable(name).done(function(result) {              
+            return modules.disable(name,function(result) {   
+                var message = result.message;               
                 modules.loadModuleDetails(name,function(result) {
                     self.init();
+                    arikaim.ui.form.showMessage({
+                        element: '#message_' + name,
+                        message: message
+                    });
                 });               
-            }).fail(function(error) {               
+            },function(error) {               
                 self.init();
+                arikaim.ui.form.showMessage({
+                    element: '#message_' + name,
+                    message: message,
+                    class: 'error',
+                    remove_class:'success'
+                });
             });
         });
     };
 }
 
-var modules_view = new ModulesView();
+var modulesView = new ModulesView();
 
 arikaim.page.onReady(function() {   
-    modules_view.init();
+    modulesView.init();
 });

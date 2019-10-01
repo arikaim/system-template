@@ -1,6 +1,7 @@
 {
     "title": {
-        "content": "Appearance"
+        "content": "Appearance",
+        "icon": "paint brush"
     },
     "labels": {
         "theme": {

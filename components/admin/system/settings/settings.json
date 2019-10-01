@@ -4,7 +4,7 @@
             "content": "Date / Time"
         },
         "user": {
-            "content": "Control Panel User"
+            "content": "User"
         },
         "numbers": {
             "content": "Numbers"
@@ -18,8 +18,14 @@
         "theme": {
             "content": "Appearance"
         },
-        "system": {
-            "content": "System"
+        "session": {
+            "content": "Session"
+        },
+        "cache": {
+            "content": "Cache"
+        },
+        "other": {
+            "content": "Other"
         }
     }
 }

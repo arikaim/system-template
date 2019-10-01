@@ -28,23 +28,35 @@ function Extensions() {
     };
     
     this.update = function(name, onSuccess, onError) {
-        return arikaim.put('/core/api/extension/update/' + name,null,onSuccess,onError);          
+        var data = {
+            name: name
+        };
+        return arikaim.put('/core/api/extension/update',data,onSuccess,onError);          
     };
 
     this.install = function(name, onSuccess, onError) {
-        return arikaim.put('/core/api/extension/install/' + name,null,onSuccess,onError);            
+        var data = { name: name };   
+        return arikaim.put('/core/api/extension/install',data,onSuccess,onError);            
     };
     
-    this.unInstall = function(name, onSuccess, onError) {        
-        return arikaim.put('/core/api/extension/uninstall/' + name,null,onSuccess,onError);           
+    this.unInstall = function(name, onSuccess, onError) { 
+        var data = { name: name };       
+        return arikaim.put('/core/api/extension/uninstall',data,onSuccess,onError);           
     };
 
-    this.changeStatus = function(name, status, onSuccess, onError) {       
-        status = getDefaultValue(status,'toggle');         
-        if (status === true) status = 1;
-        if (status === false) status = 0; 
+    this.enable = function(name, onSuccess, onError) {    
+        var data = { name: name, status: 1 };   
+        return arikaim.put('/core/api/extension/status',data,onSuccess,onError);        
+    };
 
-        return arikaim.put('/core/api/extension/status/' + name + "/" + status,null,onSuccess,onError);           
+    this.disable = function(name, onSuccess, onError) {    
+        var data = { name: name, status: 0 };   
+        return arikaim.put('/core/api/extension/status',data,onSuccess,onError);        
+    };
+
+    this.changeStatus = function(name, status, onSuccess, onError) {         
+        var data = { name: name, status: status };
+        return arikaim.put('/core/api/extension/status',data,onSuccess,onError);           
     };
 
     this.init = function() {

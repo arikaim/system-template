@@ -7,23 +7,13 @@
  * 
  */
 
-function Session(id,recreate_interval) {
+function Session(recreate_interval) {
 
-    var session_id = id;
     var recreate_handler = null;
     var self = this;
 
     this.getInfo = function(onDone,onError) {
-        return arikaim.get('/core/api/session/',fonDone,onError);          
-    };
-
-    this.set = function(key, value, onDone, onError) {
-        var data = {'key': key,'value': value };
-        return arikaim.put('/core/api/session/',data,onDone,onError);           
-    };
-
-    this.getId = function() { 
-        return session_id;
+        return arikaim.get('/core/api/session/info',fonDone,onError);          
     };
 
     this.setRecreateInterval = function(interval) {
@@ -45,7 +35,7 @@ function Session(id,recreate_interval) {
 
     this.recreate = function(onDone, onError) {
         arikaim.log('Recreating session on server');
-        return arikaim.get('/core/api/session/restart/',onDone,onError);            
+        return arikaim.put('/core/api/session/restart',null,onDone,onError);            
     };
 
     this.getInterval = function(minutes) {
@@ -63,3 +53,5 @@ function Session(id,recreate_interval) {
         this.setRecreateInterval(recreate_interval);
     };    
 }
+
+var session = new Session();

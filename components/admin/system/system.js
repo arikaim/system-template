@@ -7,15 +7,6 @@
  * 
  */
 
-function System() {
-    this.init = function() {   
-        arikaim.ui.tab();
-        $('#view_settings').click();
-    };
-}
-
-var system = new System();
-
 arikaim.page.onReady(function() {
-    system.init();    
+    arikaim.ui.tab();   
 });

@@ -11,8 +11,7 @@ function ControlPanel() {
 
     this.setPageIcon = function(icon_class, selector) {     
         selector = getDefaultValue(selector,'#page_icon');
-        $(selector).removeClass();
-        $(selector).addClass('mini icon blue ' + icon_class);
+        $(selector).removeClass().addClass('icon blue ' + icon_class);    
     };
 
     this.setPageTitle = function(title, selector) { 
@@ -22,3 +21,7 @@ function ControlPanel() {
 }
 
 var controlPanel = new ControlPanel();
+
+$(document).ready(function() {   
+    arikaim.page.loadProperties();
+});

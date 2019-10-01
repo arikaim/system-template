@@ -1,5 +1,5 @@
 {% set items = execute("Packages\\Extension\\ExtensionsManager","getPackages") %}
-<div class="ui stackable cards">
+<div class="ui stackable six cards">
 {% for item in items %}
     {{ component("system:admin/extensions/extension",{ extension_name: item }) }}      
 {% endfor %}

@@ -10,18 +10,17 @@
  function TemplatesView() { 
     var self = this;
 
-    this.init = function() {
-        var current_button  = '.set-current-button';
-        var details_button  = '.details-button';
-        var update_button   = '.update-button';
+    this.init = function() {       
     
-        arikaim.ui.button(current_button,function(element) {  
+        arikaim.ui.button('.set-current-button',function(element) {  
             var name = $(element).attr('template');
                     
-            return templates.setCurrent(name).done(function(result) {
+            return templates.setCurrent(name,function(result) {
+                var message = result.message;
                 $('.current-template').remove();
-                $(current_button).show();
-                $(update_button).hide();
+                $(this).addClass('disabled grey').removeClass('olive');
+                $('.set-current-button').removeClass('disabled grey').addClass('olive');
+
                 arikaim.page.loadContent({
                     id: name,
                     params: { template_name: name },
@@ -29,26 +28,45 @@
                     replace: true
                 },function(result) {
                     self.init();
+                    arikaim.ui.form.showMessage({
+                        element: '#message_' + name,
+                        message: message
+                    });
                 });  
+            },function(error) {
+                arikaim.ui.form.showMessage({
+                    element: '#message_' + name,
+                    message: error
+                });
             });
         });
     
-        arikaim.ui.button(update_button,function(element) {  
+        arikaim.ui.button('.update-button',function(element) {  
             var name = $(element).attr('template');   
           
-            return templates.setCurrent(name).done(function(result) {
+            return templates.update(name,function(result) {
+                var mesasge = result.message;
                 arikaim.page.loadContent({
                     id: name,
                     params: { template_name: name },
                     component: 'system:admin.templates.template',
                     replace: true
                 },function(result) {
-                    self.init();
+                    self.init();   
+                    arikaim.ui.form.showMessage({
+                        element: '#message_' + name,
+                        message: mesasge
+                    });                 
                 });               
+            },function(error) {
+                arikaim.ui.form.showMessage({
+                    element: '#message_' + name,
+                    message: error
+                });
             });
         });
     
-        arikaim.ui.button(details_button,function(element) {  
+        arikaim.ui.button('.details-button',function(element) {  
             var name = $(element).attr('template');          
             templates.showDetailsPage(name);
             return true;
@@ -56,8 +74,8 @@
     };
 }
 
-var templates_view = new TemplatesView();
+var templatesView = new TemplatesView();
 
 arikaim.page.onReady(function() {    
-    templates_view.init();
+    templatesView.init();
 });

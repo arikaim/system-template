@@ -15,21 +15,10 @@
             "jquery-ui",   
             "arikaim",
             "arikaim-ui",
-            "semantic",
+            "fomantic",
             "filepond",
             "tailwind"
         ],
-        "loader": "system:loader"
-    },
-    "default-theme": "arikaim",
-    "themes": {
-        "default": {
-            "title": "Default",
-            "library": "semantic"
-        },
-        "arikaim": {
-            "title": "Arikaim",
-            "file": "semantic.min.css"
-        }
+        "loader": "components:loader.dimmer"
     }
 }

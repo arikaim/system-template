@@ -1,11 +1,6 @@
-{% import systemMacro("menu.html") as macro %}
 {# Extensins menu #}
-{{ component("system:admin/menu/extensions",{ status: 1,type: 1 }) }}
+{{ component("system:admin.menu.extensions",{ status: 1, type: 1 }) }}
 {# System menu #}
-{{ macro.adminMenuItem("",menu.extensions,"admin-menu-link") }}
-{{ macro.adminMenuItem("",menu.templates,"admin-menu-link") }}
-{{ macro.adminMenuItem("",menu.libraries,"admin-menu-link") }}
-{{ macro.adminMenuItem("",menu.modules,"admin-menu-link") }}
-{{ macro.adminMenuItem("",menu.languages,"admin-menu-link") }}
-{{ macro.adminMenuItem("",menu.system,"admin-menu-link") }}
-{{ macro.adminMenuItem("",menu.logout,"admin-menu-link") }}
+{% for item in menu.items %}
+    {{ component('system:admin.menu.item',{ menu: item, class: "admin-menu-link" }) }}     
+{% endfor %}

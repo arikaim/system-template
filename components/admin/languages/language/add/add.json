@@ -1,6 +1,7 @@
 {
     "title": {
-        "content": "New Language"
+        "content": "New Language",
+        "icon": "file outline"
     },
     "menu": {
         "label": "Select Language",

@@ -9,11 +9,7 @@
 
 function Position() {
     var self = this;
- 
-    this.init = function() {
-        
-    };
-
+    
     this.shift = function(model_name, uuid, target_uuid, onSuccess, onError) {
         var data = { 
             model_name: model_name,

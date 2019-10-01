@@ -1,4 +1,7 @@
 <div class="ui accordion components-list">
+    {% if components is empty %}
+        <div class="text">..</div>
+    {% endif %}
     {% for component in components %}
     {% set count = count + 1 %}
     <div class="title">

@@ -1,13 +1,13 @@
 { 
-    "buttons": {
+    "labels": {
         "details": {
             "content": "Details"
         },            
         "view": {
             "content": "View"
         },
-        "download": {
-            "content": "Download"
+        "store": {
+            "content": "Arikaim Store"
         }
     }               
 }

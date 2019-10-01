@@ -1,6 +1,7 @@
 {
     "title": {
-        "content": "Edit Numbers Format"
+        "content": "Edit Numbers Format",
+        "icon": "table"
     },
     "fields": {
         "number_format": {

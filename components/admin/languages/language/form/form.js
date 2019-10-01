@@ -8,7 +8,7 @@
  */
 
 arikaim.page.onReady(function() {
-    $('#country_code').dropdown();
+    $('#country_code').dropdown({});
    
     arikaim.ui.form.addRules("#language_form",{
         inline: false,
@@ -30,12 +30,5 @@ arikaim.page.onReady(function() {
                 }]
             }
         }
-    });
-    
-    arikaim.ui.form.onSubmit('#language_form',function(data) {      
-        return arikaim.post('/core/api/language/','#language_form');
-    }).done(function(data) {
-        $('#view_button').click();
-        languages.loadMenu();
     });
 });

@@ -7,6 +7,6 @@
  * 
  */
 
-arikaim.page.onReady(function() {
-   // $('.jobs-list').accordion();
+$(document).ready(function() {
+    $('.jobs-list').accordion();
 });

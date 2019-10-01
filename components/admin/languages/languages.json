@@ -1,17 +1,8 @@
 {
-    "buttons": {
-        "view": {
-            "content": "View",
-            "title": "View"
-        }, 
-        "add": {
-            "content": "Add",
-            "title": "Add New Language"
-        },
-        "edit": {
-            "content": "Edit",
-            "title": "Edit Language"
-        }
+    "labels": {
+        "view": "View", 
+        "add": "Add",           
+        "edit": "Edit"      
     },
     "message": {
         "title": "Confirm Delete",

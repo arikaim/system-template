@@ -24,10 +24,7 @@
     </div>                   
     <div class="field">
         <label>Country</label>
-        {{ component('system:countries.dropdown',{ selected: language.country_code, name: "country_code" }) }}
+        {{ component('components:countries.dropdown',{ selected: language.country_code, name: "country_code" }) }}
     </div>
-    <div class="ui horizontal divider"></div>
-    <button class="ui button green save-button" id="save_language_button">{{ buttons.save.content }}</button>
-    <button class="ui button basic right floated cancel-button">{{ buttons.cancel.content }}</button>
-    <div class="ui error message errors hidden"></div>
+    {{ component('components:form.footer') }}   
 </form>

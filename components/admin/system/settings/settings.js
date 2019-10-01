@@ -7,6 +7,21 @@
  * 
  */
 
+function SystemSettings() {
+    var self = this;
+
+    this.setDebug = function(value, onSuccess, onError) {
+        var data = { debug: value }
+        return arikaim.put('/core/api/settings/debug',data,onSuccess,onError);
+    };
+
+    this.init = function() {   
+        arikaim.ui.tab('.settings-item','settings_content');
+    };
+}
+
+var settings = new SystemSettings();
+
 $(document).ready(function() {
-    arikaim.ui.tab('.settings-item','settings_content');
+    settings.init();
 });

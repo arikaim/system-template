@@ -1,12 +1,7 @@
-<div class="ui stackable grid">
-    <div class="ui five wide computer sixteen wide tablet column segment">
-        <div class="ui block header">
-            <i class="icon file outline mini grey"></i>
-            <h4 class="content">{{ title.content }}</h4>
-        </div>
-        <div class="ui hidden divider"></div>
-        {{ component('system:language.list') }}      
-        <div class="ui hidden divider"></div>
-        <div class="ui" id="form_content"></div>       
-    </div>
-</div>
+{% component 'components:tabs.vertical.content' %}
+    {{ component('components:language.list') }}      
+    <div class="ui divider"></div>
+    <div class="ui" id="form_content">
+        {{ component('system:admin.languages.language.form') }}
+    </div>   
+{% endcomponent %}

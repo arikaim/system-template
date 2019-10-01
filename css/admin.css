@@ -1,29 +1,24 @@
 @import url('https://fonts.googleapis.com/css?family=Monoton');
+body > .grid {
+  height: 100%!important;
+  min-height: 100%!important;
+}
+.table-head {
+  background-color: #ebf8ff;
+  border: 2px solid #4299e1;
+}
 .menu-item-title {
-  font-family: 'Roboto' !important;
   font-size: 12pt!important;
-  font-weight: 300!important;
-}
-.margin-top-0 {
-  margin-top: 0px!important;
-}
-.padding-top-0 {
-  padding-top: 0px!important;
 }
 .borderless {
   border: none!important;
-}
-.link {
-  cursor: pointer;
-}
-.link:hover {
-  text-decoration: underline;
 }
 div.inner {
   height: inherit;
 }
 #left_space {
   padding: 0px 0px 0px 0px!important;
+  min-height: 100%!important;
 }
 .shadow {
   -webkit-box-shadow: 0px 5px 4px -4px rgba(0, 0, 0, 0.75) !important;
@@ -50,31 +45,13 @@ div.inner {
   top: 50%;
   transform: translateY(-50%);
 }
-.no-border {
-  border: none!important;
-  box-shadow: none!important;
-}
 .sortable-state-highlight {
   opacity: 0.5;
-}
-.hidden {
-  visibility: hidden!important;
-}
-.small.text {
-  font-size: 1rem !important;
-}
-.errors {
-  color: #ad2424 !important;
-}
-.sub-title {
-  font-family: 'Roboto' !important;
-  font-size: 20px;
-  font-weight: 300;
 }
 .page-title {
   font-family: 'Monoton' !important;
   font-weight: 200!important;
-  font-size: 26px!important;
+  font-size: 23px!important;
 }
 .ui.footer.segment {
   position: fixed;
@@ -83,18 +60,7 @@ div.inner {
   margin-bottom: 0;
   border: 1px solid red;
 }
-.footer {
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  width: 100%;
-  border: 1px solid red;
-}
 .ui.vertical.menu .item > i.icon.left {
   float: none;
   margin: 0em 0.35714286em 0em 0em;
-}
-.text-uppercase {
-  text-transform: uppercase;
 }

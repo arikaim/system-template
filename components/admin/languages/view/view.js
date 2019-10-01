@@ -43,13 +43,6 @@ function LanguagesView() {
             }
         });
     
-        $('.status-button.toggle').state({
-            text: {
-                active: "Disable",
-                inactive: "Enable"  
-            }
-        });
-          
         arikaim.ui.button('.remove-button', function(element) {
             var language = $(element).attr('language-title');
             var uuid = $(element).attr('uuid');
@@ -69,7 +62,12 @@ function LanguagesView() {
         
         arikaim.ui.button('.edit-button',function(element) {
             var uuid = $(element).attr('uuid');
-            return languages.edit(uuid);          
+            arikaim.ui.setActiveTab('#edit_button');
+            return arikaim.page.loadContent({
+                id: 'tab_content',
+                component: 'system:admin.languages.language.edit',
+                params: { uuid: uuid }
+            });           
         });
     
         arikaim.ui.button('.change-status-button',function(element) {             

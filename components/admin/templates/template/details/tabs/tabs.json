@@ -20,7 +20,6 @@
         "current": "Current",
         "system": "System",
         "version": "Version",
-        "requires": "Requires",
         "library": "UI Library"
     }         
 }

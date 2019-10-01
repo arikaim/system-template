@@ -1,9 +1,6 @@
 {% set logger = getOption("logger") %}
-{% set stats = getOption("logger.stats") %}
-<div class="ui block header">
-    <i class="icon tasks mini grey"></i>
-    <h4 class="content">{{ title.content }}</h4>
-</div>
+
+{% component 'components:tabs.vertical.content' %}
 <div class="ui equal width form mt-8"> 
     <div class="field">
         <div class="ui slider checkbox change-option">
@@ -13,3 +10,4 @@
         <div class="grey">{{ fields.logger.description }}</div>               
     </div>     
 </div>
+{% endcomponent %}

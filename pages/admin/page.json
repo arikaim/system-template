@@ -1,6 +1,9 @@
 {
     "include": {
-        "template": "system",
-        "js": "system:modal"
-    }
+        "components": [
+            "components:modal",
+            "components:paginator",
+            "system:user"
+        ]       
+    }   
 }

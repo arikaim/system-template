@@ -1,6 +1,7 @@
 {
     "title": {
-        "content": "Edit Language"
+        "content": "Edit Language",
+        "icon": "edit"
     },
     "menu": {
         "label": "Select Language",

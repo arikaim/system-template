@@ -1,10 +1,13 @@
 {
-    "buttons": {
+    "labels": {
         "view": {
             "content": "View"
         },
         "download": {
             "content": "Download"
+        },
+        "repository": {
+            "content": "Repository"
         },
         "upload": {
             "content": "Upload"

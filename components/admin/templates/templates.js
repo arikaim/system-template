@@ -24,12 +24,18 @@ function Templates() {
        arikaim.ui.tab();
     };
 
-    this.install = function(name, onSuccess, onError) {
-        return arikaim.put('/core/api/template/install/' + name,null,onSuccess,onError);          
+    this.update = function(name, onSuccess, onError) {
+        var data = {
+            name: name
+        };
+        return arikaim.put('/core/api/template/update',data,onSuccess,onError);          
     };
 
     this.setCurrent = function(name, onSuccess, onError) {
-        return arikaim.put('/core/api/template/current/' + name,null,onSuccess,onError);         
+        var data = {
+            name: name
+        };
+        return arikaim.put('/core/api/template/current',data,onSuccess,onError);         
     };
 }
 

@@ -1,7 +1,6 @@
-{% set logs = execute("Logger\\SystemLogger","readSystemLogs") %}
 <table class="ui compact stackable striped very basic table">
     <thead>
-        <tr class="borderless">                
+        <tr class="borderless table-head">                
             <th class="single line">{{ columns.date }}</th>
             <th>{{ columns.type }}</th>
             <th>{{ columns.message }}</th> 
@@ -9,9 +8,9 @@
         </tr>
     </thead>
     <tbody id="logs_rows">
-        {{ component("system:admin.system.logs.view.rows",{ rows: logs.rows }) }}
+        {{ component("system:admin.system.logs.view.rows",{ rows: items.rows }) }}
     </tbody>  
 </table>
 <div class="mt-1">
-    {{ component("system:paginator",logs.paginator) }}
+    {{ component("components:paginator",{ namespace: 'logs' }) }}
 </div>

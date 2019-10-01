@@ -21,6 +21,6 @@
 {% endif %}
 <div class="ui accordion jobs-list ml-1">
     {% for job in jobs %}    
-        {{ component("system:admin.system.queue.job",{ job: job }) }}   
+        {{ component("system:admin.jobs.job",{ job: job }) }}   
     {% endfor %}
 </div>

@@ -11,15 +11,23 @@ function CoreModules() {
     var self = this;
 
     this.init = function() {
-        arikaim.ui.tab();
+        arikaim.ui.tab('.tab-item','tab_content',['type']);
     };
 
     this.enable = function(name,onSuccess,onError) {
-        return arikaim.put('/core/api/module/enable/' + name,null,onSuccess,onError);          
+        var data = {
+            name: name,
+            status: 1
+        };   
+        return arikaim.put('/core/api/module/enable',data,onSuccess,onError);          
     };
 
     this.disable = function(name,onSuccess,onError) {
-        return arikaim.put('/core/api/module/disable/' + name,null,onSuccess,onError);          
+        var data = {
+            name: name,
+            status: 0
+        };  
+        return arikaim.put('/core/api/module/disable',data,onSuccess,onError);          
     };
 
     this.loadModuleDetails = function(name, onSuccess, onError) {      
@@ -32,15 +40,17 @@ function CoreModules() {
     };
 
     this.install = function(name,onSuccess,onError) {
-        return arikaim.put('/core/api/module/install/' + name,null,onSuccess,onError);          
+        var data = { name: name };
+        return arikaim.put('/core/api/module/install',data,onSuccess,onError);          
     };
 
-    this.unInstall = function(name,onSuccess,onError) {
+    this.unInstall = function(name,onSuccess,onError) {       
         return arikaim.delete('/core/api/module/uninstall/' + name,onSuccess,onError);          
     };
   
     this.update = function(name,onSuccess,onError) {
-        return arikaim.put('/core/api/module/update/' + name,null,onSuccess,onError);
+        var data = { name: name };
+        return arikaim.put('/core/api/module/update',data,onSuccess,onError);
     };
 }
 

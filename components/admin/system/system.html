@@ -1,36 +1,14 @@
-<div class="ui stackable grid">    
-    <div class="ui sixteen wide column">
-        <div class="ui stackable top attached tabular menu"> 
-            <a id="view_settings" class="item active tab-item" component="system:admin.system.settings">
-                <i class="icon cogs"></i>
-                {{ tabs.settings.content }}                    
-            </a>           
-            <a id="view_logs" class="item tab-item" component="system:admin.system.logs">
-                <i class="icon warning circle"></i>
-                {{ tabs.logs.content }}                    
-            </a>   
-            <a class="item tab-item" component="system:admin.system.events">
-                <i class="icon calendar alternate outline"></i>
-                {{ tabs.events.content }}
-            </a>  
-            <a class="item tab-item" component="system:admin.system.queue">
-                <i class="icon tasks"></i>
-                {{ tabs.queue.content }}
-            </a>
-            <a class="item tab-item" component="system:admin.system.cron">
-                <i class="calendar times outline icon"></i>
-                {{ tabs.cron.content }}
-            </a>
-            <a class="item tab-item" component="system:admin.system.info">
-                <i class="icon info circle"></i>
-                {{ tabs.info.content }}
-            </a>           
-            <a class="item tab-item" component="system:admin.system.update">
-                <i class="icon download"></i>
-                {{ tabs.update.content }}
-            </a>    
-        </div>
-        <div class="ui active tab basic segment" id="tab_content">
-        </div>
-    </div>
-</div>
+{% set items = [ 
+    { id: 'view_settings', title: labels.settings.content, component: 'system:admin.system.settings', icon: 'cogs', active: true },
+    { id: 'view_logs', title: labels.logs.content, component: 'system:admin.system.logs', icon: 'warning circle' },
+    { title: labels.events.content, component: 'system:admin.system.events', icon: 'calendar alternate outline' },
+    { title: labels.queue.content, component: 'system:admin.system.queue', icon: 'tasks' },
+    { title: labels.cron.content, component: 'system:admin.system.cron', icon: 'calendar times outline' },
+    { title: labels.info.content, component: 'system:admin.system.info', icon: 'info circle' }
+] %}
+
+{{  component('components:tabs',{ 
+        items: items,
+        content: { component: 'system:admin.system.settings' } 
+    })
+}}

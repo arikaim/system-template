@@ -1,6 +1,7 @@
 {
     "title": {
-        "content": "Logger"
+        "content": "Logger",
+        "icon": "warning circle"
     },
     "fields": {
         "logger": {

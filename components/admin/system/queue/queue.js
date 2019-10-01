@@ -10,9 +10,7 @@
 function Queue() {
     var self = this;
 
-    this.init = function() {
-        $('.jobs-list').accordion();
-        
+    this.init = function() { 
         arikaim.ui.button('#start_worker',function(element) {
             return self.startWorker().done(function(result) {
                 self.reload();

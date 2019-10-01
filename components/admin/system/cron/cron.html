@@ -1,5 +1,5 @@
 
-{% set cron = create('Queue\\Cron') %}
+{% set cron = service('queue').createScheduler() %}
 <h3 class="header">
     {% if cron.isInstalled() == true %}    
         <i class="check olive icon" title="{{ labels.installed }}"></i>

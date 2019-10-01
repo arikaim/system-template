@@ -11,16 +11,10 @@ arikaim.page.onReady(function() {
 
     var languages_list;
 
-    arikaim.component.load('system:config.languages',function(result) {
-        languages_list =  arikaim.component.get('system:config.languages');
+    arikaim.component.load('components:language',function(result) {
+        languages_list = arikaim.component.get('components:language');
     });
    
-    arikaim.page.loadContent({
-        id: 'form_content',
-        component: 'system:admin.languages.language.form',
-        loader: false
-    });
-
     $('#languages_list').dropdown({
         onChange: function(code) {
             arikaim.ui.form.clearErrors('#language_form');
@@ -34,4 +28,14 @@ arikaim.page.onReady(function() {
             }
         }
     });  
+
+    arikaim.ui.form.onSubmit('#language_form',function(data) {      
+        return arikaim.post('/core/api/language/add','#language_form');
+    },function(result) {
+        arikaim.ui.form.showMessage(result.message);
+        arikaim.ui.form.clear('#language_form');
+        languages.loadMenu();
+    },function(error) {
+        arikaim.ui.form.showMessage(error);
+    });
 });

@@ -10,21 +10,26 @@
 function Languages() {
     var self = this;
 
-    this.delete = function(uuid,onSuccess,onError) {        
+    this.delete = function(uuid, onSuccess, onError) {        
         return arikaim.delete('/core/api/language/' + uuid,onSuccess,onError); 
     };
     
-    this.setDefault = function(uuid,onSuccess,onError) {
-        return arikaim.put('/core/api/language/default/'+ uuid,null,onSuccess,onError);        
+    this.setDefault = function(uuid, onSuccess, onError) {
+        var data = { uuid: uuid };
+        return arikaim.put('/core/api/language/default',data,onSuccess,onError);        
     };
 
-    this.loadMenu = function(menu_element) {
-        if (isEmpty(menu_element) == true) {
-            var menu_element = "language-menu";
-        }
+    this.loadMenu = function(selector) {
+        selector = getDefaultValue(selector,"language_menu");        
         arikaim.page.loadContent({
-            id : menu_element,
-            component : 'system:language.dropdown'
+            id : selector,
+            component : 'components:language.dropdown'
+        },function(result) {            
+            $('#language_dropdown').dropdown({
+                onChange: function(value) {           
+                    arikaim.setLanguage(value);
+                }               
+            });
         });
     };
 
@@ -33,29 +38,22 @@ function Languages() {
      * @param string uuid 
      * @param int status  0 - disabled, 1 - active, 2 - default
      */
-    this.setStatus = function(uuid,status,onSuccess,onError) {     
-        var status_text = isEmpty(status) ? 'toggle' : status;         
-        return arikaim.put('/core/api/language/status/'+ uuid + '/' + status_text,null,onSuccess,onError);      
+    this.setStatus = function(uuid, status, onSuccess, onError) {     
+        var status = isEmpty(status) ? 'toggle' : status;     
+        var data = { uuid: uuid, status: status };    
+
+        return arikaim.put('/core/api/language/status',data,onSuccess,onError);      
     };
 
-    this.load = function(uuid) {
-        arikaim.page.loadContent({
+    this.load = function(uuid, onSuccesss, onError) {
+        return arikaim.page.loadContent({
             id : 'form_content',
             component : 'system:admin.languages.language.form',
             params: { uuid: uuid },
             loader : false
-        });
+        },onSuccesss,onError);
     };
-
-    this.edit = function(uuid) {       
-        arikaim.ui.setActiveTab('#edit_button');
-        arikaim.page.loadContent({
-            id: 'tab_content',
-            component: 'system:admin.languages.language.edit',
-            params: { uuid: uuid }
-        });  
-    };
-    
+  
     this.init = function() {
         arikaim.ui.tab();
     };

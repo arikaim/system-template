@@ -1,4 +1,4 @@
-{% set worker = create('Queue\\QueueWorker') %}
+{% set worker = service('queue').createWorker() %}
 <h3 class="header">
     {% if worker.isRunning() == true %}
         <i class="icon check olive" title="{{ labels.running }}"></i>

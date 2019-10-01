@@ -2,21 +2,24 @@
 {% set library = execute("Packages\\Library\\LibraryManager","getPackageProperties",{ name: library_name }) %}
 <div class="ui card">
     <div class="content">    
-        <i class="ui left floated cube icon"></i>   
+        <i class="ui left floated cube blue large icon"></i>   
         <div class="right floated meta">
-            <div class="ui horizontal label">               
-                {{ labels.version }} <span class="font-bold">{{ library.version }}</span>
+            <div class="ui horizontal basic mini label">               
+                {{ labels.version }} 
+                <div class="detail">{{ library.version }}</div>
             </div>
+            {% if library.help is not empty %}
+            <a class="ui horizontal basic mini  label" href="{{ library.help }}" target="_blank">  
+                <i class="question circle outline icon"></i>                            
+                <span class="ui text blue">{{ labels.help }}</span>                          
+            </a>
+            {% endif %}
         </div>        
-        <div class="header ml-1">
-            {% if library.title is empty %}
-                {{ library.name }}            
-            {% else %}
-                {{ library.title }}          
-            {% endif %}    
+        <div class="font-bold">
+            {{ library.title|default(library.name) }}             
         </div>  
-        {% if library.framework == true %}
         <div class="ui divider"></div>
+        {% if library.framework == true %}      
         <div class="content">
             <div class="ui basic fluid blue label">
             {{ labels.framework }}

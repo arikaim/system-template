@@ -1,5 +1,5 @@
 {% set version = execute("System\\System","getVersion") %}
-<div class="ui top attached inverted menu borderless dark-background shadow">
+<div class="ui top attached menu borderless inverted dark-color shadow">
     <div title="{{ brand.title }}" class="item margin-left-4">    
         {% if brand.image.src -%}
         <img alt="{{ brand.image.alt }}" src="{{ system_template_url }}/images/{{ brand.image.src }}">
@@ -9,7 +9,7 @@
         </div>
     </div>              
 </div>
-<div id="content" class="ui">
-    {{ component("system:admin/install") }}
+<div id="content" class="ui mt-20">
+    {{ component("system:admin.install") }}
 </div>
 {{ component("system:footer") }}

@@ -1,4 +1,3 @@
-{% set paginator = getPaginator('logs') %}
 <div class="ui stackable grid">
     <div class="sixteen wide column">
         <div class="ui stackable text menu">
@@ -9,7 +8,7 @@
                 </button>
             </div>
             <div class="item right floated">
-                {{ component('system:paginator.dropdown',{ paginator : paginator }) }}
+                {{ component('components:paginator.dropdown',{ namespace : 'logs' }) }}
             </div>
         </div>       
         <div class="ui mt-2" id="logs_view">
