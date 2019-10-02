@@ -71,12 +71,12 @@
 {%- for file in files -%} 
     {% if file.params is iterable %}
         {% set params_attributes = '' %}
-        {% for param_name,param_value in file.params %}
-            {% set params_attributes = params_attributes ~ param_name ~ '="' ~ param_value ~ '"' %}
+        {% for name,value in file.params %}
+            {% set params_attributes = params_attributes ~ name ~ '="' ~ value ~ '"' %}
         {% endfor %}
     {% endif %}      
     {%- if file.type == "js" %} 
-        <script id="library_{{ file.library }}" type="text/javascript" src="{{ file.file }}"{{ params_attributes|raw }}></script>
+        <script id="library_{{ file.library }}" type="text/javascript" src="{{ file.file }}" {{ params_attributes|raw }}></script>
     {%- endif %}
     {%- if file.type == "css" %} 
         <link rel="stylesheet" type="text/css" href="{{ file.file }}">
