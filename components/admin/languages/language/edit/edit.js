@@ -7,14 +7,13 @@
  * 
  */
 
-arikaim.page.onReady(function() {
-    $('#language_dropdown').dropdown({
+$(document).ready(function() {
+    $('#choose_language').dropdown({
         onChange: function(uuid) {         
             languages.load(uuid,function(result) {
                 arikaim.ui.form.clearErrors('#language_form');
                 initEditLanguageForm();
-            });
-           
+            });           
         }
     });    
 

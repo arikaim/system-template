@@ -4,17 +4,18 @@
 
 {% component 'components:tabs.vertical.content' %}
     {% if uuid is empty %}
+        <div class="mt-4">
         {{  component('components:language.dropdown',{ 
                 selected: language, 
                 name: 'language',
-                id: 'language_dropdown',
+                id: 'choose_language',
                 class: 'fluid search selection', 
                 data_type: 'uuid' 
             }) 
         }}    
-    {% endif %}       
-    <div class="ui divider"></div>
-    <div id="form_content">
+        </div>
+    {% endif %}          
+    <div class="mt-8" id="form_content">
     {% if uuid is defined %}
         {{ component('system:admin.languages.language.form',{ uuid: uuid }) }}
     {% endif %}
