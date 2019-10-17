@@ -6,8 +6,8 @@
             <th class="two column">{{ labels.relation }}</th>
         </tr>
     </thead>
-    <tbody id="relation_rows" component="system:admin.orm.relations.rows" namespace="relations">
-        {{ component('system:admin.orm.relations.rows',{ model : model, extension: extension, uuid: uuid, id: id }) }}
+    <tbody id="relation_rows" component="system:admin.orm.relations.rows" namespace="relations" model="{{ model }}" extension="{{ extension }}" uuid="{{ uuid }}" relation-id="{{ id }}">
+        {{ component('system:admin.orm.relations.rows',{ model : model, extension: extension, uuid: uuid, relation_id: id }) }}
     </tbody>
 </table>
 <div id="paginator">      

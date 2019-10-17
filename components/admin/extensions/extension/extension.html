@@ -1,4 +1,4 @@
-{% set extension = execute("Packages\\Extension\\ExtensionsManager","getPackageProperties",{ name: extension_name }) %}
+{% set extension = package('extension').getPackageProperties(extension_name) %}
 <div class="ui raised card min-h-full {{ error|ifthen(1,'red') }}" id="{{ extension.name }}">     
     <div class="content item">    
         {% if extension.type == 1 %}

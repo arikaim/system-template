@@ -1,4 +1,4 @@
-{% set module = execute('Packages\\Module\\ModulesManager','getPackageProperties',{ module_name : name, full: true}) %}
+{% set module = package('module').getPackageProperties(name,true) %}
 <div class="ui raised card min-h-full" id="{{ module.name }}">
     <div class="content item"> 
         {% if module.installed == true %}

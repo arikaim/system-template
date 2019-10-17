@@ -1,4 +1,4 @@
-{% set items = execute("Packages\\Extension\\ExtensionsManager","getPackages",{ cached: true }) %}
+{% set items = package('extension').getPackages(true) %}
 {% set selected_text = (selected is empty) ? labels.select : selected %}
 <div class="ui floated dropdown labeled search icon basic button" id='extensions_dropdown'>
     <input name="extensions_dropdown" type="hidden" value="{{ selected }}">

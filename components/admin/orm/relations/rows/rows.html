@@ -4,7 +4,7 @@
     {% set relation_model = createModel(items.getRelationModelClass(),extension).findById(uuid) %}
     {% set id = relation_model.id %}
 {% endif %}
-{% set items = items.getRows(id) %}
+{% set items = items.getRows(relation_id) %}
 {% set items = paginate(items,'relations') %}
 
 {% component 'components:view.rows' %}

@@ -1,5 +1,5 @@
 {% set filter = (type is empty) ? null : { 'type': type } %}   
-{% set modules = execute('Packages\\Module\\ModulesManager','getPackages',{ cached: false, filter: filter }) %}
+{% set modules = package('module').getPackages(false,filter) %}
 <div class="ui stackable six cards mt-1" id="modules">
     {% if modules is empty %}
         {{ labels.empty }}

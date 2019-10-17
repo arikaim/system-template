@@ -1,7 +1,7 @@
 {
     "access_tokens": {
-        "delete": "Access token deleted.",
-        "expired": "Expired access tokens deleted."
+        "delete": "Access token was deleted successfully.",
+        "expired": "Expired access tokens was deleted successfully."
     },
     "token": {
         "create": "Token was created successfully."
@@ -69,7 +69,27 @@
         "enabled": "Cache was enabled successfully.",
         "disabled": "Cache was disabled successfully."
     },
+    "orm": {
+        "relations": {
+            "delete": "Relation was deleted successfully.",
+            "add": "Relation was added successfully."           
+        },
+        "options": {
+            "save": "Options was saved successfully."            
+        },
+        "read": "Done."
+    },
     "errors": {
+        "orm": {
+            "relations": {
+                "delete": "Can't delete relation.",
+                "add": "Can't add relation."           
+            },
+            "options": {
+                "save": "Can't save options."            
+            },
+            "read": "Can't read db model."
+        },
         "access_tokens": {
             "delete": "Can't delete access token."
         },

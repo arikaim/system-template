@@ -1,5 +1,4 @@
-{% set extensions = execute('Packages\\Extension\\ExtensionsManager','getInstalled',{ status: status, type: type }) %}
-
+{% set extensions = package('extension').getInstalled(status,type) %}
 {% for extension in extensions %}
     {% if extension.admin_menu is not empty %}
         {{ component('system:admin.menu.item',{ menu: extension.admin_menu, extension_name: extension.name, class: "admin-menu-link" }) }}      

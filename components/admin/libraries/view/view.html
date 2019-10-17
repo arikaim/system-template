@@ -1,4 +1,4 @@
-{% set items = execute("Packages\\Library\\LibraryManager","getPackages") %}
+{% set items = package('library').getPackages() %}
 <div class="ui stackable cards">
 {% for library in items %}
     {{ component('system:admin/libraries/library',{ library_name : library }) }}

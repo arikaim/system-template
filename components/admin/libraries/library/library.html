@@ -1,5 +1,5 @@
 {% set current_framework = execute('View\\Template','getCurrentFramework') %}
-{% set library = execute("Packages\\Library\\LibraryManager","getPackageProperties",{ name: library_name }) %}
+{% set library = package('library').getPackageProperties(library_name) %}
 <div class="ui card">
     <div class="content">    
         <i class="ui left floated cube blue large icon"></i>   

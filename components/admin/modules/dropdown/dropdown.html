@@ -1,8 +1,7 @@
 {% set status = status|default(null) %}
 {% set category = category|default(null) %}
 {% set type = type|default(1) %}
-{% set drivers = execute('Packages\\Module\\ModulesManager','getInstalled',{ status: status, type: type, category: category }) %}
-
+{% set drivers = package('module').getInstalled(status,type,category) %}
 <select class="ui dropdown {{ class }}" id="modules_dropdown" name="driver" value="{{ selected }}" placeholder="{{ label }}">  
     <option value="">{{ label }}</option>
     {% for item in drivers %}

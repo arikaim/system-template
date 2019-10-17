@@ -3,12 +3,11 @@
         <div class="item">{{ labels.empty }}</div>
     {% endif %}
     {% for subscriber in items %}
-    <div class="item">
-        {% set base_class = execute("Utils\\Utils","getBaseClassName",subscriber.handler_class) %}  
+    <div class="item">       
         {{ component('components:status.icon',{ status : subscriber.status }) }}   
         <i class="icon grey code"></i>         
         <div class="content">
-            {{ base_class }} {{ labels.subscribed }} <div class="ui label">{{ subscriber.name }}</div>                     
+            <span class="font-bold">{{ subscriber.handler_class|baseClass }}</span> {{ labels.subscribed }} <div class="ui basic label">{{ subscriber.name }}</div>                     
         </div>                    
     </div>
     {% endfor %}

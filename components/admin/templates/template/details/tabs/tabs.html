@@ -1,4 +1,4 @@
-{% set template = execute("Packages\\Template\\TemplatesManager","getPackageProperties",{ name: template_name, full: true }) %}
+{% set template = package('template').getPackageProperties(template_name,true) %}
 {{ component('system:admin.templates.template',{ template: template, show_buttons: 0, show_requires: true }) }}
 
 <div class="ui stackable top attached tabular menu mt-2" id="templates_details_tab">
@@ -26,8 +26,8 @@
 <div class="ui bottom attached tab segment active {{ tabs.themes.class }}" data-tab="themes_tab">
     {{ component('system:admin.templates.themes.list',{ items: template.themes, icon: 'grey paint brush' }) }}    
 </div>
-<div class="ui bottom attached tab segment {{ tabs.themes.class }}" data-tab="components_tab">
-    {{ component('system:admin.component',{ components: template.components }) }}
+<div class="ui bottom attached tab segment {{ tabs.themes.class }}" data-tab="components_tab">   
+    {{ component('system:admin.component',{ components: template.components, template: template_name }) }}
 </div>
 <div class="ui bottom attached tab segment {{ tabs.themes.class }}" data-tab="macros_tab">
     {{ component('components:list.items',{ items:template.macros, icon:"settings" }) }}

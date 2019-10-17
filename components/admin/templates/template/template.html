@@ -1,5 +1,5 @@
 {% if template is empty %}
-    {% set template = execute("Packages\\Template\\TemplatesManager","getPackageProperties",{ name: template_name, full: false }) %}
+    {% set template = package('template').getPackageProperties(template_name,false) %}
 {% endif %}
 {% set show_requires = show_requires|default(false) %}
 {% set show_buttons = show_buttons|default(true) %}

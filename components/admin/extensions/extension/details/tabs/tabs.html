@@ -1,4 +1,4 @@
-{% set extension = execute("Packages\\Extension\\ExtensionsManager","getPackageProperties",{ name: extension_name, full: true }) %}
+{% set extension = package('extension').getPackageProperties(extension_name,true) %}
 <div class="ui header">
     <i class="left floated rounded big bordered blue icon {{ extension.icon }}"></i>  
     <div class="content">
@@ -80,7 +80,7 @@
         </a>                
     </div>
     <div class="ui bottom attached tab segment active {{ tabs.components.class }}" data-tab="template_tab/components_tab">
-        {{ component('system:admin.component',{ components: extension.components }) }} 
+        {{ component('system:admin.component',{ components: extension.components, extension: extension_name }) }} 
     </div>
     <div class="ui bottom attached tab segment {{ tabs.pages.class }}" data-tab="template_tab/pages_tab">
         {{ component('components:list.items',{ items:extension.pages, icon: "file text outline" }) }} 

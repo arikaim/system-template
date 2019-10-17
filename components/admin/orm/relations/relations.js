@@ -19,7 +19,18 @@ function Relations() {
     };
 
     this.init = function() {
-        paginator.init('relation_rows');  
+        var extension = $('#relation_rows').attr('extension');
+        var model = $('#relation_rows').attr('model');
+        var relation_id = $('#relation_rows').attr('relation-id');
+        
+        paginator.init('relation_rows',{ 
+            name: 'system:admin.orm.relations.rows',
+            params: {  
+                extension: extension,
+                model: model,
+                relation_id: relation_id
+            } 
+        },'relations');  
     };
 
     this.initRows = function() {
