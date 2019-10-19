@@ -44,8 +44,10 @@
 {%- macro includeComponentFiles() -%}
 {% set files = getComponentsFiles() %}
     <!-- component files -->
-    {% for file in files.js -%}
-        <script src="{{ file.url }}" type="text/javascript"></script>
+    {% for file in files.js -%}            
+        {% set async = ('async' in file.params) ? 'async' : '' -%}
+        {% set crossorigin = ('crossorigin' in file.params) ? 'crossorigin="anonymous"' : '' -%}
+        <script src="{{ file.url }}" type="text/javascript" {{ async }} {{ crossorigin }}></script>
     {% endfor -%}
     {% for file in files.css -%}
         <link rel="stylesheet" type="text/css" href="{{ file.url }}">
