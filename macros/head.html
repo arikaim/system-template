@@ -77,9 +77,9 @@
             {% set params_attributes = params_attributes ~ name ~ '="' ~ value ~ '"' %}
         {% endfor %}
     {% endif %}      
-    {%- set async = (file.async == true) ? ' async' : '' -%}
+    {%- set async = (file.async == true) ? ' async' : '' -%}  
     {%- if file.type == "js" %} 
-        <script id="library_{{ file.library }}" type="text/javascript" src="{{ file.file -}}" {{ params_attributes|raw -}} {{- async -}}></script>
+        <script id="library_{{ file.library }}" type="text/javascript" src="{{ file.file -}}" {{ params_attributes|raw -}} {{- async }} {{ file.crossorigin|attr('crossorigin') -}}></script>
     {%- endif %}
     {%- if file.type == "css" %} 
         <link rel="stylesheet" type="text/css" href="{{ file.file }}">

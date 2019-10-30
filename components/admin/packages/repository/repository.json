@@ -1,0 +1,10 @@
+{
+    "labels": {
+        "repository": "Repository",
+        "empty": "not set",
+        "version": "Version"
+    },
+    "messages": {
+        "error": ""
+    }
+}

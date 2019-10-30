@@ -1,0 +1,15 @@
+{% set package = package(type).createPackage(name) %}
+{% set repository = package.getRepository() %}
+<span>
+    {% if repository is not empty %}      
+        {{ repository.getLastVersion() }}
+    {% endif %}
+</span>
+<div class="mt-2">
+    {% if repository.getLastVersion()  is versionCompare(package.getVersion())  %}     
+        <div class="ui green button install-repository-button" package-name="{{ name }}" package-type="{{ type }}">
+            <i class="icon download"></i>
+            {{ labels.install }}
+        </div>
+    {% endif %}
+</div>

@@ -1,4 +1,4 @@
-{% set themes = execute("View\\TemplatesManager","getThemes","system") %}
+{% set themes = package('template').getThemes('system') %}
 <div class="ui floating dropdown labeled search icon basic button" id="themes_dropdown" template="{{ template }}">
     <input name="themes_dropdown" type="hidden" value="{{ selected }}">
     <i class="icon paint brush"></i>

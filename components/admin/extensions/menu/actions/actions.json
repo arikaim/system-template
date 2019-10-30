@@ -2,5 +2,6 @@
     "items": {
         "details": "Extension Details",
         "version": "Version"
-    }
+    },
+    "title": "Extension"
 }

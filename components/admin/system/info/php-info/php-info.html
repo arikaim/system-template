@@ -1,6 +1,6 @@
-{% set php_extensions = execute("System\\System","getPhpExtensions") %}
-{% set php_stream_wrappers = execute("System\\System","getStreamWrappers") %}
-{% set pdo_drivers = execute("System\\System","getPdoDrivers") %}
+{% set php_extensions = system().getPhpExtensions() %}
+{% set php_stream_wrappers = system().getStreamWrappers() %}
+{% set pdo_drivers = system().getPdoDrivers() %}
 
 <div class="small text">PDO Drivers</div>
 {% for item in pdo_drivers %}

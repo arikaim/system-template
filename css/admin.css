@@ -1,4 +1,9 @@
-@import url('https://fonts.googleapis.com/css?family=Monoton');
+@font-face {
+  font-family: 'Monoton';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Monoton'), local('Monoton-Regular'), url(https://fonts.gstatic.com/s/monoton/v9/5h1aiZUrOngCibe4TkHLRw.ttf) format('truetype');
+}
 body > .grid {
   height: 100%!important;
   min-height: 100%!important;
@@ -33,7 +38,7 @@ div.inner {
   overflow-x: hidden;
 }
 .dark-color {
-  background-color: #2d3748!important;
+  background-color: #2d3748 !important;
 }
 .hide-menu-button {
   position: relative;
@@ -63,4 +68,7 @@ div.inner {
 .ui.vertical.menu .item > i.icon.left {
   float: none;
   margin: 0em 0.35714286em 0em 0em;
+}
+.extension-repository-menu {
+  border: 1px solid red!important;
 }

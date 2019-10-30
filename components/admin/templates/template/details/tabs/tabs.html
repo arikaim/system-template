@@ -1,6 +1,14 @@
 {% set template = package('template').getPackageProperties(template_name,true) %}
-{{ component('system:admin.templates.template',{ template: template, show_buttons: 0, show_requires: true }) }}
-
+<div class="ui stackable grid">
+    <div class="row">
+        <div class="ui two wide column">
+            {{ component('system:admin.templates.template',{ template: template, show_buttons: 0, show_requires: true }) }}
+        </div>
+        <div class="ui four wide column">
+            {{ component('system:admin.packages.repository',{ type: 'template', name: template.name }) }}
+        </div>
+    </div>
+</div>
 <div class="ui stackable top attached tabular menu mt-2" id="templates_details_tab">
     <a class="item active" data-tab="themes_tab">
         <i class="icon paint blue brush"></i>

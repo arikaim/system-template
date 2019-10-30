@@ -1,6 +1,7 @@
 {    
     "title": "Control Panel",
-    "description": "",
+    "name": "system",
+    "description": "Arikaim CMS Control Panel",
     "version": "1.0.10",
     "image": {
         "src": "",

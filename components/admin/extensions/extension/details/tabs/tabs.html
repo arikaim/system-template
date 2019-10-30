@@ -1,16 +1,25 @@
 {% set extension = package('extension').getPackageProperties(extension_name,true) %}
-<div class="ui header">
-    <i class="left floated rounded big bordered blue icon {{ extension.icon }}"></i>  
-    <div class="content">
-        {{ extension.title }} 
-        <div class="ui basic mini label">
-            {{ labels.version }}
-            <div class="detail">
-                {{ extension.version }}
+<div class="ui stackable internally celled grid">
+    <div class="row">
+        <div class="ui four wide column">
+            <div class="ui header">
+                <i class="left floated rounded big bordered blue icon {{ extension.icon }}"></i>  
+                <div class="content">
+                    {{ extension.title }} 
+                    <div class="ui basic mini label">
+                        {{ labels.version }}
+                        <div class="detail">
+                            {{ extension.version }}
+                        </div>
+                    </div>
+                    <div class="sub header">{{ extension.description }}</div>
+                </div> 
             </div>
         </div>
-        <div class="sub header">{{ extension.description }}</div>
-    </div> 
+        <div class="ui four wide column">
+            {{ component('system:admin.packages.repository',{ repository: extension.repository }) }}
+        </div>
+    </div>
 </div>
 <div class="ui stackable top attached tabular menu" id="extension_details_tab">
     <a class="item active" data-tab="routes_tab">

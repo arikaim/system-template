@@ -20,10 +20,6 @@ function Extensions() {
             id: 'tab_content',
             component: 'system:admin.extensions.extension.details',
             params: { extension_name: name }
-        },function(result) {
-            $('#extension_details_tab .item').tab();
-            $('#events_tab .item').tab();
-            $('#template_tab .item').tab(); 
         });   
     };
     

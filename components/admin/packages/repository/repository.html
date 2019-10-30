@@ -1,0 +1,15 @@
+{% set package = package(type).createPackage(name) %}
+{% set repository = package.getRepository() %}
+<h4>{{ labels.repository }}</h4>
+{% if repository.getType() is empty %}
+    <div class="ui basic blue label">{{ labels.empty }}</div>            
+{% else %}
+    <div>
+        <div class="ui basic label">{{ repository.getRepositoryUrl() }}</div> 
+        <div class="mt-4" > 
+            {{ labels.version }} 
+            <span class="ml-4" id="package_version_content" package-name="{{ name }}" package-type="{{ type }}">
+            </span>
+        </div>
+    </div>
+{% endif %}

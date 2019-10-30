@@ -1,11 +1,10 @@
 <div class="ui stackable three column centered grid">
     <div class="ui two column center aligned">
-        {{ component("system:admin.extensions.dropdown",{ selected : extension_name }) }}  
+        {{ component("system:admin.extensions.dropdown",{ selected : extension }) }}  
     </div>                
 </div>    
-<div class="ui horizontal divider"></div>
-<div id="extension_details">   
-{% if extension_name != "" %}  
-    {{ component("system:admin.extensions.extension.details.tabs",{ extension_name : extension_name }) }}
+<div id="extension_details" class="mt-4">   
+{% if extension != "" %}  
+    {{ component("system:admin.extensions.extension.details.tabs",{ extension_name : extension }) }}
 {% endif %}
 </div>

@@ -9,6 +9,9 @@
         "repository": {
             "content": "Repository"
         },
+        "details": {
+            "content": "Details"
+        },
         "upload": {
             "content": "Upload"
         }
