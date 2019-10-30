@@ -1,15 +1,12 @@
 /**
  *  Arikaim
- *  
  *  @copyright  Copyright (c) Konstantin Atanasov <info@arikaim.com>
- *  @license    http://www.arikaim.com/license.html
+ *  @license    http://www.arikaim.com/license
  *  http://www.arikaim.com
- * 
  */
 
 function SystemLogs() {
     var self = this;
-
     var component = arikaim.component.get('system:admin.system.logs');
 
     this.init = function() {
@@ -35,7 +32,7 @@ function SystemLogs() {
         });
     };
 
-    this.clear = function(onSuccess,onError) {
+    this.clear = function(onSuccess, onError) {
         return arikaim.delete('/core/api/logs/clear',onSuccess,onError);
     }
 }

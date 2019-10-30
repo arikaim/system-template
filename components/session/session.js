@@ -1,15 +1,13 @@
 /**
  *  Arikaim
- *  
  *  @copyright  Copyright (c) Konstantin Atanasov <info@arikaim.com>
- *  @license    http://www.arikaim.com/license.html
+ *  @license    http://www.arikaim.com/license
  *  http://www.arikaim.com
- * 
  */
 
-function Session(recreate_interval) {
+function Session(recreateInterval) {
 
-    var recreate_handler = null;
+    var recreateHandler = null;
     var self = this;
 
     this.getInfo = function(onDone,onError) {
@@ -23,18 +21,19 @@ function Session(recreate_interval) {
         }  
         if (interval > 30000) {     
             arikaim.log('session recreate interval: ' + interval + " microseconds.");       
-            recreate_handler = setInterval(this.recreate,interval);
+            recreateHandler = setInterval(this.recreate,interval);
             return true;
         }
         return false;
     };
 
     this.removeRecreateInterval = function() {
-        clearInterval(recreate_handler);
+        clearInterval(recreateHandler);
     };
 
     this.recreate = function(onDone, onError) {
         arikaim.log('Recreating session on server');
+
         return arikaim.put('/core/api/session/restart',null,onDone,onError);            
     };
 
@@ -49,8 +48,8 @@ function Session(recreate_interval) {
         });
     };
 
-    if (isNaN(recreate_interval) == false) {
-        this.setRecreateInterval(recreate_interval);
+    if (isNaN(recreateInterval) == false) {
+        this.setRecreateInterval(recreateInterval);
     };    
 }
 

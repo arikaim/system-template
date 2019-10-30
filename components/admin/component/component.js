@@ -2,30 +2,29 @@
  *  Arikaim
  *  http://www.arikaim.com
  *  @copyright  Copyright (c) Konstantin Atanasov   <info@arikaim.com>
- *  @license    http://www.arikaim.com/license.html
- *  
+ *  @license    http://www.arikaim.com/license
  */
 
 arikaim.page.onReady(function() {
     $('.components-list').accordion({
         onOpen: function(item) {
-            var component_name = $(this).attr('component-name');
-            var element_id = $(this).attr('id');
+            var componentName = $(this).attr('component-name');
+            var elementId = $(this).attr('id');
             var extension = getDefaultValue($(this).attr('extension'),'');
             var template = getDefaultValue($(this).attr('template'),'');
 
             arikaim.page.loadContent({
-                id: element_id,
+                id: elementId,
                 component: 'system:admin.component.details',
                 params: { 
-                    component: component_name,
+                    component: componentName,
                     extension: extension,
                     template: template  
                 }
             });
         },
         onOpening: function(item) {
-            var element_id = $(this).attr('id');
+            var elementId = $(this).attr('id');
             $('#' + element_id).html("");
         }
     });

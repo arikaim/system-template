@@ -1,10 +1,8 @@
 /**
  *  Arikaim
- *  
  *  @copyright  Copyright (c) Konstantin Atanasov <info@arikaim.com>
- *  @license    http://www.arikaim.com/license.html
+ *  @license    http://www.arikaim.com/license
  *  http://www.arikaim.com
- * 
  */
 
 function Relations() {
@@ -21,20 +19,19 @@ function Relations() {
     this.init = function() {
         var extension = $('#relation_rows').attr('extension');
         var model = $('#relation_rows').attr('model');
-        var relation_id = $('#relation_rows').attr('relation-id');
+        var relationId = $('#relation_rows').attr('relation-id');
         
         paginator.init('relation_rows',{ 
             name: 'system:admin.orm.relations.rows',
             params: {  
                 extension: extension,
                 model: model,
-                relation_id: relation_id
+                relation_id: relationId
             } 
         },'relations');  
     };
 
     this.initRows = function() {
-        
         arikaim.ui.button('.model-info',function(element) {
             var uuid = $(element).attr('uuid');
             var title = $(element).attr('data-title');
@@ -52,13 +49,13 @@ function Relations() {
 
         arikaim.ui.button('.delete-relation',function(element) {
             var component = arikaim.component.get('system:admin.orm.relations');
-            var remove_message = component.getProperty('messages.remove.description');
+            var removeMessage = component.getProperty('messages.remove.description');
 
             var uuid = $(element).attr('uuid');
             var title = $(element).attr('data-title');
             var model = $(element).attr('model');
             var extension = $(element).attr('extension');
-            var message = arikaim.ui.template.render(remove_message,{ title: title });
+            var message = arikaim.ui.template.render(removeMessage,{ title: title });
         
             modal.confirmDelete({ 
                 title: component.getProperty('messages.remove.title'),

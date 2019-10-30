@@ -1,10 +1,8 @@
 /**
  *  Arikaim
- *  
  *  @copyright  Copyright (c) Konstantin Atanasov <info@arikaim.com>
- *  @license    http://www.arikaim.com/license.html
+ *  @license    http://www.arikaim.com/license
  *  http://www.arikaim.com
- * 
  */
 
 function Update() {
@@ -13,7 +11,7 @@ function Update() {
         return arikaim.get('/core/api/update/check',onSuccess,onError);
     };
 
-    this.update = function(onSuccess,onError) {
+    this.update = function(onSuccess, onError) {
         return arikaim.get('/core/api/update/',onSuccess,onError);
     };
 

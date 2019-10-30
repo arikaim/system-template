@@ -1,10 +1,8 @@
 /**
  *  Arikaim
- *  
  *  @copyright  Copyright (c) Konstantin Atanasov <info@arikaim.com>
- *  @license    http://www.arikaim.com/license.html
+ *  @license    http://www.arikaim.com/license
  *  http://www.arikaim.com
- * 
  */
 
 function DriversView() {
@@ -25,11 +23,9 @@ function DriversView() {
     };
 
     this.initView = function() {
-
         arikaim.ui.button('.driver-config',function(element) {                
             arikaim.events.emit('driver.config',element);
         });
-
         $('.status-dropdown').dropdown({
             onChange: function(status) {   
                 var uuid = $(this).attr('uuid');

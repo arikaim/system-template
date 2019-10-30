@@ -1,21 +1,12 @@
-/**
- *  Arikaim
- *  
- *  @copyright  Copyright (c) Konstantin Atanasov <info@arikaim.com>
- *  @license    http://www.arikaim.com/license.html
- *  http://www.arikaim.com
- * 
- */
-
 arikaim.page.onReady(function() {
     $('.change-option').checkbox({
         onChecked: function() {
-            var option_name = $(this).attr('name');
-            options.save(option_name,true);
+            var optionName = $(this).attr('name');
+            options.save(optionName,true);
         },
         onUnchecked: function() {
-            var option_name = $(this).attr('name');
-            options.save(option_name,false);
+            var optionName = $(this).attr('name');
+            options.save(optionName,false);
         }
     });        
 });

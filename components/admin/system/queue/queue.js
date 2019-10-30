@@ -1,10 +1,8 @@
 /**
  *  Arikaim
- *  
  *  @copyright  Copyright (c) Konstantin Atanasov <info@arikaim.com>
- *  @license    http://www.arikaim.com/license.html
+ *  @license    http://www.arikaim.com/license
  *  http://www.arikaim.com
- * 
  */
 
 function Queue() {
@@ -24,15 +22,15 @@ function Queue() {
         });
     };
 
-    this.startWorker = function(onSuccess,onError) {
+    this.startWorker = function(onSuccess, onError) {
         return arikaim.put('/core/api/queue/worker/start',null,onSuccess,onError)
     };
 
-    this.stopWorker = function(onSuccess,onError) {
+    this.stopWorker = function(onSuccess, onError) {
         return arikaim.delete('/core/api/queue/worker/stop',onSuccess,onError);           
     };
 
-    this.deleteJobs = function(onSuccess,onError) {
+    this.deleteJobs = function(onSuccess, onError) {
         return arikaim.delete('/core/api/queue/jobs',onSuccess,onError);           
     };
 

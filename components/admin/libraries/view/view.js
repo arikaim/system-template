@@ -8,8 +8,7 @@ arikaim.page.onReady(function() {
             id: 'tab_content',
             component: 'system:admin.libraries.library.details',
             params: { library_name: name }
-        },function(result) {
-           
+        },function(result) {           
             $('#library_details_tab .item').tab();           
         });   
     });

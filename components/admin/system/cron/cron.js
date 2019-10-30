@@ -1,10 +1,8 @@
 /**
  *  Arikaim
- *  
  *  @copyright  Copyright (c) Konstantin Atanasov <info@arikaim.com>
- *  @license    http://www.arikaim.com/license.html
+ *  @license    http://www.arikaim.com/license
  *  http://www.arikaim.com
- * 
  */
 
 function Cron() {
@@ -32,11 +30,11 @@ function Cron() {
         });
     };
 
-    this.install = function(onSuccess,onError) {
+    this.install = function(onSuccess, onError) {
         return arikaim.put('/core/api/queue/cron/install',{},onSuccess,onError);          
     };
 
-    this.unInstall = function(onSuccess,onError) {
+    this.unInstall = function(onSuccess, onError) {
         return arikaim.delete('/core/api/queue/cron/uninstall',onSuccess,onError);          
     };
 }

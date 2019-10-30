@@ -1,18 +1,16 @@
 /**
  *  Arikaim
- *  
  *  @copyright  Copyright (c) Konstantin Atanasov <info@arikaim.com>
- *  @license    http://www.arikaim.com/license.html
+ *  @license    http://www.arikaim.com/license
  *  http://www.arikaim.com
- * 
  */
 
 function OrderBy() {
     var self = this;
     var options = null;
 
-    this.init = function(element_id, component_name, namespace) {
-        this.setOptions(element_id,component_name, namespace);
+    this.init = function(elementId, componentName, namespace) {
+        this.setOptions(elementId,componentName, namespace);
 
         $('.order-by-link').each(function(index) {
             $(this).on('click',function() {
@@ -25,9 +23,9 @@ function OrderBy() {
         });
     };
 
-    this.setOptions = function(element_id, component_name, namespace) {
+    this.setOptions = function(elementId, componentName, namespace) {
         namespace = getDefaultValue(namespace,"");
-        options = { id: element_id, component: component_name, namespace: namespace };
+        options = { id: elementId, component: componentName, namespace: namespace };
     };
 
     this.getOptions = function() {      
@@ -44,9 +42,9 @@ function OrderBy() {
         return arikaim.delete('/core/api/ui/order/' + namespace,onSuccess,onError);           
     };
 
-    this.set = function(field_name, type, namespace, onSuccess, onError) {
+    this.set = function(fieldName, type, namespace, onSuccess, onError) {
         namespace = (isEmpty(namespace) == true) ? "" : namespace;
-        var data = { field: field_name, type: type };
+        var data = { field: fieldName, type: type };
 
         return arikaim.put('/core/api/ui/order/' + namespace,data,onSuccess,onError);          
     };

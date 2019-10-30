@@ -1,17 +1,15 @@
 /**
  *  Arikaim
- *  
  *  @copyright  Copyright (c) Konstantin Atanasov <info@arikaim.com>
  *  @license    http://www.arikaim.com/license.html
  *  http://www.arikaim.com
- * 
  */
 
 function ControlPanel() {
 
-    this.setPageIcon = function(icon_class, selector) {     
+    this.setPageIcon = function(iconClass, selector) {     
         selector = getDefaultValue(selector,'#page_icon');
-        $(selector).removeClass().addClass('icon blue ' + icon_class);    
+        $(selector).removeClass().addClass('icon blue ' + iconClass);    
     };
 
     this.setPageTitle = function(title, selector) { 

@@ -1,24 +1,21 @@
 /**
  *  Arikaim
- *  
  *  @copyright  Copyright (c) Konstantin Atanasov <info@arikaim.com>
- *  @license    http://www.arikaim.com/license.html
+ *  @license    http://www.arikaim.com/license
  *  http://www.arikaim.com
- * 
  */
 
 arikaim.page.onReady(function() {
-
-    var languages_list;
+    var languagesList;
 
     arikaim.component.load('components:language',function(result) {
-        languages_list = arikaim.component.get('components:language');
+        languagesList = arikaim.component.get('components:language');
     });
    
     $('#languages_list').dropdown({
         onChange: function(code) {
             arikaim.ui.form.clearErrors('#language_form');
-            var language = languages_list.getProperty(code);
+            var language = languagesList.getProperty(code);
             $('#code').val(language.code);
             $('#code_3').val(language.code_3);
             $('#title').val(language.title);

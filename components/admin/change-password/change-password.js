@@ -1,20 +1,17 @@
 /**
  *  Arikaim
- *  
  *  @copyright  Copyright (c) Konstantin Atanasov <info@arikaim.com>
- *  @license    http://www.arikaim.com/license.html
+ *  @license    http://www.arikaim.com/license
  *  http://www.arikaim.com
- * 
 */
 
 function ChangePassword() {
-    
     var self = this;
-    var form_id = '#change_password_form';
+    var formId = '#change_password_form';
     var component = arikaim.component.get('system:admin.change-password');
 
     this.init = function() {
-        arikaim.ui.form.addRules(form_id,{
+        arikaim.ui.form.addRules(formId,{
             inline: false,
             fields: {
                 password: {
@@ -26,7 +23,7 @@ function ChangePassword() {
             }
         });
     
-        arikaim.ui.form.onSubmit(form_id,function() {
+        arikaim.ui.form.onSubmit(formId,function() {
             return self.change();
         }).done(function() {
             self.showDoneMessage();
@@ -52,8 +49,8 @@ function ChangePassword() {
         arikaim.ui.form.showMessage(message);
     };
 
-    this.change = function(onSuccess,onError) {
-        return arikaim.post('/core/api/user/password/change/',form_id,onSuccess,onError);
+    this.change = function(onSuccess, onError) {
+        return arikaim.post('/core/api/user/password/change/',formId,onSuccess,onError);
     };
 }
 

@@ -1,10 +1,8 @@
 /**
  *  Arikaim
- *  
  *  @copyright  Copyright (c) Konstantin Atanasov <info@arikaim.com>
- *  @license    http://www.arikaim.com/license.html
+ *  @license    http://www.arikaim.com/license
  *  http://www.arikaim.com
- * 
  */
 
 $(document).ready(function() {
@@ -52,5 +50,4 @@ $(document).ready(function() {
         $('#install_button').show();
         install.status = false;
     });
-  
 });  

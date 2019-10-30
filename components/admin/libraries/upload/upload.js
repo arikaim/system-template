@@ -1,17 +1,14 @@
 /**
  *  Arikaim
- *  
  *  @copyright  Copyright (c) Konstantin Atanasov <info@arikaim.com>
- *  @license    http://www.arikaim.com/license.html
+ *  @license    http://www.arikaim.com/license
  *  http://www.arikaim.com
- * 
  */
 
 function UploadLibrary() {
     var self = this;
 
     this.init = function() {
-
         $('#library_file').filepond({          
             maxFiles: 1,
             labelIdle: "Drag & Drop UI library zip file or <span class='filepond--label-action'> Browse </span>",

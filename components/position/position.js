@@ -1,29 +1,27 @@
 /**
  *  Arikaim
- *  
  *  @copyright  Copyright (c) Konstantin Atanasov <info@arikaim.com>
- *  @license    http://www.arikaim.com/license.html
+ *  @license    http://www.arikaim.com/license
  *  http://www.arikaim.com
- * 
  */
 
 function Position() {
     var self = this;
     
-    this.shift = function(model_name, uuid, target_uuid, onSuccess, onError) {
+    this.shift = function(modelName, uuid, targetUuid, onSuccess, onError) {
         var data = { 
-            model_name: model_name,
+            model_name: modelName,
             uuid: uuid,
-            target_uuid: target_uuid 
+            target_uuid: targetUuid 
         };
         return arikaim.put('/core/api/ui/position/shift',data,onSuccess,onError);       
     };
 
-    this.swap = function(model_name, uuid, target_uuid, onSuccess, onError) {
+    this.swap = function(modelName, uuid, targetUuid, onSuccess, onError) {
         var data = { 
-            model_name: model_name,
+            model_name: modelName,
             uuid: uuid,
-            target_uuid: target_uuid 
+            target_uuid: targetUuid 
         };
         return arikaim.put('/core/api/ui/position/swap',data,onSuccess,onError);           
     };

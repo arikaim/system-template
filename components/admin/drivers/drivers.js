@@ -1,10 +1,8 @@
 /**
  *  Arikaim
- *  
  *  @copyright  Copyright (c) Konstantin Atanasov <info@arikaim.com>
- *  @license    http://www.arikaim.com/license.html
+ *  @license    http://www.arikaim.com/license
  *  http://www.arikaim.com
- * 
  */
 
 function Drivers() {
@@ -34,9 +32,9 @@ function Drivers() {
         return arikaim.put('/core/api/driver/config',config,onSuccess,onError);
     };
 
-    this.loadConfigForm = function(name, element_id, onSuccess) {
+    this.loadConfigForm = function(name, elementId, onSuccess) {
         return arikaim.page.loadContent({
-            id: element_id,
+            id: elementId,
             params: { name: name },
             component: 'system:admin.modules.drivers.config.form'
         },function(result) {                  
@@ -44,9 +42,9 @@ function Drivers() {
         });
     };
 
-    this.loadConfig = function(name, element_id, onSuccess) {
+    this.loadConfig = function(name, elementId, onSuccess) {
         return arikaim.page.loadContent({
-            id: element_id,
+            id: elementId,
             params: { driver_name: name },
             component: 'system:admin.modules.drivers.config'
         },function(result) {                  

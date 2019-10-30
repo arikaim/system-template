@@ -1,20 +1,18 @@
 /**
  *  Arikaim
- *  
  *  @copyright  Copyright (c) Konstantin Atanasov <info@arikaim.com>
- *  @license    http://www.arikaim.com/license.html
+ *  @license    http://www.arikaim.com/license
  *  http://www.arikaim.com
- * 
 */
 
 function PasswordRecovery() {
     
     var self = this;
-    var form_id = '#password_recovery_form';
+    var formId = '#password_recovery_form';
     var component = arikaim.component.get('system:admin.password-recovery');
 
     this.init = function() {
-        arikaim.ui.form.addRules(form_id,{
+        arikaim.ui.form.addRules(formId,{
             inline: false,
             fields: {
                 email: {
@@ -23,7 +21,7 @@ function PasswordRecovery() {
             }
         });
     
-        arikaim.ui.form.onSubmit(form_id,function(data) {
+        arikaim.ui.form.onSubmit(formId,function(data) {
             return self.send();
         }).done(function(result) {
             self.showDoneMessage();
@@ -50,8 +48,8 @@ function PasswordRecovery() {
         arikaim.ui.form.showMessage(message);
     };
 
-    this.send = function(onSuccess,onError) {
-        return arikaim.post('/core/api/user/password/recovery/',form_id,onSuccess,onError);         
+    this.send = function(onSuccess, onError) {
+        return arikaim.post('/core/api/user/password/recovery/',formId,onSuccess,onError);         
     };
 }
 

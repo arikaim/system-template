@@ -1,6 +1,4 @@
 $(document).ready(function() {
-    var driver_name = $('#driver_name').val();
-    
     $('.checkbox').checkbox({
         onChecked: function() {
             $(this).attr('type','checkbox');

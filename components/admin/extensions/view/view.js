@@ -1,10 +1,8 @@
 /**
  *  Arikaim
- *  
  *  @copyright  Copyright (c) Konstantin Atanasov <info@arikaim.com>
- *  @license    http://www.arikaim.com/license.html
+ *  @license    http://www.arikaim.com/license
  *  http://www.arikaim.com
- * 
  */
 
 function ExtensionsView() {
@@ -12,7 +10,7 @@ function ExtensionsView() {
 
     this.init = function() {
         var component = arikaim.component.get('system:admin.extensions');      
-        var message_title = component.getProperty('message.title');
+        var messageTitle = component.getProperty('message.title');
 
         $('.popup-button').popup({ 
             on: 'click' 
@@ -85,11 +83,11 @@ function ExtensionsView() {
        
         arikaim.ui.button('.un-install-button',function(element) {             
             var name = $(element).attr('extension');
-            var uninstall_message = component.getProperty('message.description');
-            var message = arikaim.ui.template.render(uninstall_message,{ title: name });
+            var message = component.getProperty('message.description');
+            message = arikaim.ui.template.render(message,{ title: name });
 
             modal.confirm({
-                title: message_title,
+                title: messageTitle,
                 description: message
             }).done(function() {                              
                 return extensions.unInstall(name).done(function(result) {

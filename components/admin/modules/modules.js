@@ -1,10 +1,8 @@
 /**
  *  Arikaim
- *  
  *  @copyright  Copyright (c) Konstantin Atanasov <info@arikaim.com>
- *  @license    http://www.arikaim.com/license.html
+ *  @license    http://www.arikaim.com/license
  *  http://www.arikaim.com
- * 
  */
 
 function CoreModules() {
@@ -14,7 +12,7 @@ function CoreModules() {
         arikaim.ui.tab('.tab-item','tab_content',['type']);
     };
 
-    this.enable = function(name,onSuccess,onError) {
+    this.enable = function(name, onSuccess, onError) {
         var data = {
             name: name,
             status: 1
@@ -22,7 +20,7 @@ function CoreModules() {
         return arikaim.put('/core/api/module/enable',data,onSuccess,onError);          
     };
 
-    this.disable = function(name,onSuccess,onError) {
+    this.disable = function(name, onSuccess, onError) {
         var data = {
             name: name,
             status: 0
@@ -39,16 +37,16 @@ function CoreModules() {
         },onSuccess,onError);
     };
 
-    this.install = function(name,onSuccess,onError) {
+    this.install = function(name, onSuccess, onError) {
         var data = { name: name };
         return arikaim.put('/core/api/module/install',data,onSuccess,onError);          
     };
 
-    this.unInstall = function(name,onSuccess,onError) {       
+    this.unInstall = function(name, onSuccess, onError) {       
         return arikaim.delete('/core/api/module/uninstall/' + name,onSuccess,onError);          
     };
   
-    this.update = function(name,onSuccess,onError) {
+    this.update = function(name, onSuccess, onError) {
         var data = { name: name };
         return arikaim.put('/core/api/module/update',data,onSuccess,onError);
     };

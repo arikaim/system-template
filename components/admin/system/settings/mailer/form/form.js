@@ -1,12 +1,3 @@
-/**
- *  Arikaim
- *  
- *  @copyright  Copyright (c) Konstantin Atanasov <info@arikaim.com>
- *  @license    http://www.arikaim.com/license.html
- *  http://www.arikaim.com
- * 
- */
-
 arikaim.page.onReady(function () {
     arikaim.ui.viewPasswordButton('.view-password','#password');
         
@@ -17,13 +8,13 @@ arikaim.page.onReady(function () {
         $('#use_ssl').checkbox({});
         $('#use_sendmail').checkbox({
             onChecked: function() {
-                var option_name = $(this).attr('name');
-                options.save(option_name,true);
+                var optionName = $(this).attr('name');
+                options.save(optionName,true);
                 arikaim.ui.hide('#smtp_setings_form');                
             },
             onUnchecked: function() {
-                var option_name = $(this).attr('name');
-                options.save(option_name,false);
+                var optionName = $(this).attr('name');
+                options.save(optionName,false);
                 arikaim.ui.show('#smtp_setings_form');                
             }
         }); 

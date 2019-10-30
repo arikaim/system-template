@@ -1,14 +1,4 @@
-/**
- *  Arikaim
- *  
- *  @copyright  Copyright (c) Konstantin Atanasov <info@arikaim.com>
- *  @license    http://www.arikaim.com/license.html
- *  http://www.arikaim.com
- * 
- */
-
 $(document).ready(function() {
-  
     $('#time_zone').dropdown({
         onChange: function(value, text, choice) {                 
             options.save('time.zone',value);

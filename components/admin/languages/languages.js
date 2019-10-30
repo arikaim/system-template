@@ -1,10 +1,8 @@
 /**
- *  Arikaim
- *  
+ *  Arikaim  
  *  @copyright  Copyright (c) Konstantin Atanasov <info@arikaim.com>
- *  @license    http://www.arikaim.com/license.html
+ *  @license    http://www.arikaim.com/license
  *  http://www.arikaim.com
- * 
  */
 
 function Languages() {
@@ -40,7 +38,10 @@ function Languages() {
      */
     this.setStatus = function(uuid, status, onSuccess, onError) {     
         var status = isEmpty(status) ? 'toggle' : status;     
-        var data = { uuid: uuid, status: status };    
+        var data = { 
+            uuid: uuid,
+            status: status 
+        };    
 
         return arikaim.put('/core/api/language/status',data,onSuccess,onError);      
     };
