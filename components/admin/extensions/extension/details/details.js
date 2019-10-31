@@ -12,7 +12,7 @@ arikaim.page.onReady(function() {
                 id: 'extension_details',
                 component: "system:admin.extensions.extension.details.tabs",
                 params: { extension_name : name },
-                use_header: true
+                useHeader: true
             });     
         }
     });   

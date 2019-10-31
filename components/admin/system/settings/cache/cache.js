@@ -48,16 +48,16 @@ function Cache() {
                     component: "system:admin.system.settings.cache.info"
                 },function(result) {
                     arikaim.ui.form.showMessage({
-                        element: '#message',
+                        selector: '#message',
                         message: message
                     });
                 });                             
             },function(error) {
                 arikaim.ui.form.showMessage({
-                    element: '#message',
+                    selector: '#message',
                     message: error,
                     class: 'error',
-                    remove_class:'success'
+                    removeClass: 'success'
                 });
             });
         });

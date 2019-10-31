@@ -32,13 +32,13 @@ function ExtensionsView() {
                     },function(result) {  
                         self.init();
                         arikaim.ui.form.showMessage({
-                            element: '#message_' + name,
+                            selector: '#message_' + name,
                             message: message
                         });
                     });
                 },function(error) {
                     arikaim.ui.form.showMessage({
-                        element: '#message_' + name,
+                        selector: '#message_' + name,
                         message: error
                     });
                 });     
@@ -67,16 +67,16 @@ function ExtensionsView() {
                     menu.loadSystemMenu();
                     menu.loadExtensionsMenu();
                     arikaim.ui.form.showMessage({
-                        element: '#message_' + name,
+                        selector: '#message_' + name,
                         message: message
                     });
                 });               
             },function(error) {
                 arikaim.ui.form.showMessage({
-                    element: '#message_' + name,
+                    selector: '#message_' + name,
                     message: error,
                     class: 'error',
-                    remove_class:'success'
+                    removeClass: 'success'
                 });
             });        
         });
@@ -123,13 +123,13 @@ function ExtensionsView() {
                     menu.loadSystemMenu();
                     menu.loadExtensionsMenu();
                     arikaim.ui.form.showMessage({
-                        element: '#message_' + name,
+                        selector: '#message_' + name,
                         message: message
                     });
                 });
             }).fail(function(error) {
                 arikaim.ui.form.showMessage({
-                    element: '#message_' + name,
+                    selector: '#message_' + name,
                     message: error
                 });
             });

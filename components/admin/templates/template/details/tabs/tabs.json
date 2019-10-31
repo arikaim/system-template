@@ -3,6 +3,9 @@
         "themes": {
             "content": "Themes"
         },
+        "styles": {
+            "content": "Styles"
+        },
         "components": {
             "content": "Components"
         },

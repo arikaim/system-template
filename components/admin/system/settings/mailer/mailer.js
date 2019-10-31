@@ -11,7 +11,7 @@ function MailerSettings() {
     this.sendTestEmail = function() {
         return arikaim.get('/core/api/mailer/test/email',function(result) {              
             arikaim.ui.form.showMessage({ 
-                element: '#send_msg',
+                selector: '#send_msg',
                 message: result.message                  
             });     
         },function(errors) {               

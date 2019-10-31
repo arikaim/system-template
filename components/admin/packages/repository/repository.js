@@ -27,9 +27,22 @@ function PackageRepository() {
             var name = $(element).attr('package-name');
             return packageRepository.install(name,type,function(result) {
                 // show message
-                
+                arikaim.ui.form.showMessage({
+                    selector: '#message',
+                    message: result.message,
+                    class: 'success',    
+                    removeClass: 'error',                      
+                    hide: 4000
+                });
                 callFunction(self.onInstalled,result);
             },function(error) {
+                arikaim.ui.form.showMessage({
+                    selector: '#message',
+                    message: error,
+                    class: 'error', 
+                    removeClass: 'success',                       
+                    hide: 4000
+                });
                 callFunction(self.onError,error);
             });
         });   
@@ -38,13 +51,15 @@ function PackageRepository() {
     this.init = function() {
         var type = $('#package_version_content').attr('package-type');
         var name = $('#package_version_content').attr('package-name');
-        
+        var confirm = $('#package_version_content').attr('confirm-overwrite');
+       
         arikaim.page.loadContent({
             id: 'package_version_content',
             component: 'system:admin.packages.repository.version',
             params: { 
                 name: name,
-                type: type
+                type: type,
+                confirm_overwrite: confirm
             }
         });
     };

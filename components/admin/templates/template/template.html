@@ -25,11 +25,9 @@
     <div class="content">      
         {{ component('system:admin.templates.template.image',{ src: template.image.src }) }}                            
     </div>                   
-    {% if template.description != "" %}
-    <div class="extra content">
+    <div class="extra content">&nbsp;
         {{ template.description }}
     </div>
-    {% endif %}
     <div class="p-2">
         <div class="ui success mini message opacity-0 m-2" id="message_{{ template.name }}"></div>
     </div> 

@@ -17,7 +17,7 @@ function Extensions() {
         arikaim.page.loadContent({
             id: 'tab_content',
             component: 'system:admin.extensions.extension.details',
-            params: { extension_name: name }
+            params: { extension: name }
         });   
     };
     

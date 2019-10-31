@@ -18,17 +18,17 @@ function ModulesView() {
                 modules.loadModuleDetails(name,function(result) {
                     self.init();
                     arikaim.ui.form.showMessage({
-                        element: '#message_' + name,
+                        selector: '#message_' + name,
                         message: message
                     });
                 });               
             },function(error) {              
                 self.init();
                 arikaim.ui.form.showMessage({
-                    element: '#message_' + name,
+                    selector: '#message_' + name,
                     message: message,
                     class: 'error',
-                    remove_class:'success'
+                    removeClass: 'success'
                 });
             });
         });
@@ -41,17 +41,17 @@ function ModulesView() {
                 modules.loadModuleDetails(name,function(result) {
                     self.init();
                     arikaim.ui.form.showMessage({
-                        element: '#message_' + name,
+                        selector: '#message_' + name,
                         message: message
                     });
                 }); 
             },function(error) {               
                 self.init();
                 arikaim.ui.form.showMessage({
-                    element: '#message_' + name,
+                    selector: '#message_' + name,
                     message: message,
                     class: 'error',
-                    remove_class:'success'
+                    removeClass: 'success'
                 });
             });
         });
@@ -64,17 +64,17 @@ function ModulesView() {
                 modules.loadModuleDetails(name,function(result) {
                     self.init();
                     arikaim.ui.form.showMessage({
-                        element: '#message_' + name,
+                        selector: '#message_' + name,
                         message: message
                     });
                 });               
             },function(error) {              
                 self.init();
                 arikaim.ui.form.showMessage({
-                    element: '#message_' + name,
+                    selector: '#message_' + name,
                     message: message,
                     class: 'error',
-                    remove_class:'success'
+                    removeClass: 'success'
                 });
             });
         });
@@ -87,17 +87,17 @@ function ModulesView() {
                 modules.loadModuleDetails(name,function(result) {
                     self.init();
                     arikaim.ui.form.showMessage({
-                        element: '#message_' + name,
+                        selector: '#message_' + name,
                         message: message
                     });
                 });               
             },function(error) {               
                 self.init();
                 arikaim.ui.form.showMessage({
-                    element: '#message_' + name,
+                    selector: '#message_' + name,
                     message: message,
                     class: 'error',
-                    remove_class:'success'
+                    removeClass: 'success'
                 });
             });
         });

@@ -2,5 +2,9 @@
     "labels": {
         "install": "Install",
         "version": "Version"
+    },
+    "warning": {
+        "title": "Warning",
+        "message": "Your local changes to the package files will be overwritten."
     }   
 }

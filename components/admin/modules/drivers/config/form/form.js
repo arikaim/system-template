@@ -13,8 +13,6 @@ $(document).ready(function() {
     arikaim.ui.form.onSubmit('#driver_config_form',function() {
         return drivers.saveConfig('#driver_config_form');
     },function(result) {         
-        arikaim.ui.form.showMessage({
-            message: result.message
-        });
+        arikaim.ui.form.showMessage(result.message);           
     });
 });

@@ -14,7 +14,7 @@ arikaim.page.onReady(function() {
                 id: 'template_details',
                 component: "system:admin.templates.template.details.tabs",
                 params: { template_name : name },
-                use_header: true
+                useHeader: true
             },function(result) {
                 $('#templates_details_tab .item').tab();
             });     

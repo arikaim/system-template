@@ -29,13 +29,13 @@
                 },function(result) {
                     self.init();
                     arikaim.ui.form.showMessage({
-                        element: '#message_' + name,
+                        selector: '#message_' + name,
                         message: message
                     });
                 });  
             },function(error) {
                 arikaim.ui.form.showMessage({
-                    element: '#message_' + name,
+                    selector: '#message_' + name,
                     message: error
                 });
             });
@@ -54,13 +54,13 @@
                 },function(result) {
                     self.init();   
                     arikaim.ui.form.showMessage({
-                        element: '#message_' + name,
+                        selector: '#message_' + name,
                         message: mesasge
                     });                 
                 });               
             },function(error) {
                 arikaim.ui.form.showMessage({
-                    element: '#message_' + name,
+                    selector: '#message_' + name,
                     message: error
                 });
             });

@@ -12,7 +12,7 @@ arikaim.page.onReady(function() {
                 id: 'library_details',
                 component: "system:admin.libraries.library.details.tabs",
                 params: { library_name : name },
-                use_header: true
+                useHeader: true
             },function() {
                 $('#library_details_tab .item').tab();               
             });     

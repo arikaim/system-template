@@ -1,10 +1,3 @@
-/**
- *  Arikaim
- *  @copyright  Copyright (c) Konstantin Atanasov <info@arikaim.com>
- *  @license    http://www.arikaim.com/license
- *  http://www.arikaim.com
- */
-
 $(document).ready(function() {
     arikaim.ui.form.addRules("#config_form",{
         inline: false,
