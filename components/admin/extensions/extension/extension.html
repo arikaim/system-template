@@ -6,7 +6,7 @@
                 <i class="icon exclamation"></i>
             </div>      
         {% endif %} 
-        <i class="left floated big blue icon {{ extension.icon }}"></i>  
+        <i class="left floated big blue icon {{ extension.get('admin_menu').icon }}"></i>  
         
         {% if extension.status == 1 %}
         <div class="ui left corner mini olive label" {{ labels.enabled|attr('title') }} >
@@ -45,7 +45,9 @@
                     <i class="icon trash"></i>
                     {{ buttons.uninstall.content }}
                 </button> 
+                {% if extension.type != 1 %}
                 {{ component('components:dropdown.enable',{ class: '', selected: extension.status, attributes: { extension: extension.name } }) }}
+                {% endif %}
             {% else %}
             <button class="ui button basic olive install-button {{ error|ifthen(1,'hidden') }}" extension="{{ extension.name }}">
                 <i class="icon download"></i>                    

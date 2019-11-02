@@ -23,20 +23,6 @@ function Templates() {
     this.init = function() {     
        arikaim.ui.tab();
     };
-
-    this.update = function(name, onSuccess, onError) {
-        var data = {
-            name: name
-        };
-        return arikaim.put('/core/api/template/update',data,onSuccess,onError);          
-    };
-
-    this.setCurrent = function(name, onSuccess, onError) {
-        var data = {
-            name: name
-        };
-        return arikaim.put('/core/api/template/current',data,onSuccess,onError);         
-    };
 }
 
 var templates = new Templates();

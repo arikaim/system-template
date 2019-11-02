@@ -17,7 +17,7 @@
             </div>
         </div>
         <div class="ui four wide column">
-            {{ component('system:admin.packages.repository',{ repository: extension.repository }) }}
+            {{ component('system:admin.packages.repository',{  type: 'extension', name: extension.name }) }}
         </div>
     </div>
 </div>

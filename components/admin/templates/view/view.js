@@ -15,7 +15,7 @@
         arikaim.ui.button('.set-current-button',function(element) {  
             var name = $(element).attr('template');
                     
-            return templates.setCurrent(name,function(result) {
+            return packages.setCurrent(name,'template',function(result) {
                 var message = result.message;
                 $('.current-template').remove();
                 $(this).addClass('disabled grey').removeClass('olive');
@@ -44,7 +44,7 @@
         arikaim.ui.button('.update-button',function(element) {  
             var name = $(element).attr('template');   
           
-            return templates.update(name,function(result) {
+            return packages.update(name,'template',function(result) {
                 var mesasge = result.message;
                 arikaim.page.loadContent({
                     id: name,
@@ -69,6 +69,7 @@
         arikaim.ui.button('.details-button',function(element) {  
             var name = $(element).attr('template');          
             templates.showDetailsPage(name);
+            
             return true;
         });
     };

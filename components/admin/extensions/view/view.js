@@ -19,7 +19,7 @@ function ExtensionsView() {
         $('.enable-dropdown').dropdown({
             onChange: function(value) {               
                 var name = $(this).attr('extension');
-                return extensions.changeStatus(name,value,function(result) {
+                return packages.changeStatus(name,'extension',value,function(result) {
                     menu.loadExtensionsMenu();
                     menu.loadSystemMenu();
                     var message = result.message;
@@ -53,7 +53,7 @@ function ExtensionsView() {
         arikaim.ui.button('.install-button',function(element) {
             var name = $(element).attr('extension');
          
-            return extensions.install(name,function(result) {
+            return packages.install(name,'extension',function(result) {
                 var message = result.message;
 
                 arikaim.page.loadContent({
@@ -90,7 +90,7 @@ function ExtensionsView() {
                 title: messageTitle,
                 description: message
             }).done(function() {                              
-                return extensions.unInstall(name).done(function(result) {
+                return packages.unInstall(name,'extension').done(function(result) {
                     arikaim.page.loadContent({
                         id: name,
                         params: { extension_name: name },
@@ -110,7 +110,7 @@ function ExtensionsView() {
 
         arikaim.ui.button('.update-button',function(element) {
             var name = $(element).attr('extension');
-            return extensions.update(name).done(function(result) {
+            return packages.update(name,'extension').done(function(result) {
                 var message = result.message;              
                 arikaim.page.loadContent({
                     id: name,

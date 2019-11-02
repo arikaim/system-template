@@ -16,7 +16,7 @@ function PackageRepository() {
             package: name,
             type: type           
         };
-        return arikaim.put('/core/api/packages/install',params,onSuccess,onError);
+        return arikaim.put('/core/api/packages/repository/install',params,onSuccess,onError);
     };
 
     this.installButton = function(selector, onSuccess, onError) {

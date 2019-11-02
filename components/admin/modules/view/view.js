@@ -9,11 +9,10 @@ function ModulesView() {
     var self = this;
 
     this.init = function() {
-      
         arikaim.ui.button('.install-button',function(element) {          
             var name = $(element).attr('name');
 
-            return modules.install(name,function(result) {   
+            return packages.install(name,'module',function(result) {   
                 var message = result.message;            
                 modules.loadModuleDetails(name,function(result) {
                     self.init();
@@ -36,7 +35,7 @@ function ModulesView() {
         arikaim.ui.button('.update-button',function(element) {           
             var name = $(element).attr('name');
 
-            return modules.update(name,function(result) {
+            return packages.update(name,'module',function(result) {
                 var message = result.message;    
                 modules.loadModuleDetails(name,function(result) {
                     self.init();
@@ -59,7 +58,7 @@ function ModulesView() {
         arikaim.ui.button('.enable-button',function(element) {         
             var name = $(element).attr('name');
 
-            return modules.enable(name,function(result) {     
+            return packages.enable(name,'module',function(result) {     
                 var message = result.message;             
                 modules.loadModuleDetails(name,function(result) {
                     self.init();
@@ -82,7 +81,7 @@ function ModulesView() {
         arikaim.ui.button('.disable-button',function(element) {          
             var name = $(element).attr('name');
 
-            return modules.disable(name,function(result) {   
+            return packages.disable(name,'module',function(result) {   
                 var message = result.message;               
                 modules.loadModuleDetails(name,function(result) {
                     self.init();
