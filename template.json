@@ -3,7 +3,7 @@
     "name": "system",
     "description": "Arikaim CMS Control Panel",
     "repository": "https://github.com/arikaim/system-template.git",
-    "version": "1.0.11",
+    "version": "1.0.12",
     "image": {
         "src": "",
         "alt": ""
