@@ -2,7 +2,7 @@
     "brand": {
         "title": "Arikaim",
         "image": {
-            "src": "arikaim_logo_64x64.png"
+            "src": "arikaim-logo-64x64.png"
         }   
     },
     "labels": {
@@ -17,7 +17,7 @@
         },
         "favicons": {
             "mini": {
-                "src": "arikaim_icon_32x32.png"
+                "src": "arikaim-icon-32x32.png"
             }
         }
     }
