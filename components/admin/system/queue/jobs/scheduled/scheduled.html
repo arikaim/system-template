@@ -1,5 +1,5 @@
 {% set extension = extension|default(null) %}
-{% set jobs = service('queue').getScheduledJobs(extension) %}
+{% set jobs = service('queue').getJobs({ extension_name: extension, schedule_time: '*' }) %}
 
 {% if jobs is empty %}
     <div class="ml-1">{{ labels.empty }}</div>

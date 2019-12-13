@@ -26,6 +26,9 @@
         },
         "other": {
             "content": "Other"
+        },
+        "install": {
+            "content": "Install"
         }
     }
 }

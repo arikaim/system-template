@@ -66,7 +66,7 @@ function Relations() {
                     extension: extension,
                     uuid: uuid
                 },function(result) {
-                    $('#' + uuid).remove();           
+                    arikaim.ui.table.removeRow('#' + uuid);        
                 });
             });
         });

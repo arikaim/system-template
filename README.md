@@ -1,12 +1,17 @@
-<p align="center">
-    <img src="https://img.shields.io/github/release/arikaim/system-template.svg" alt="version: 1.0.0">
-    <img src="https://img.shields.io/badge/License-GPLv3-blue.svg" alt="license: GPL3">
-</p>
-
-## Arikaim CMS Control Panel Template
+### Arikaim CMS Control Panel Template
+![Version: 1.0.0](https://img.shields.io/github/release/arikaim/system-template.svg)
+![License: GPL3](https://img.shields.io/badge/License-GPLv3-blue.svg)
 
 
-### Install
-```
+
+#### Requirements 
+  * [Arikaim CMS](https://github.com/arikaim/arikaim)
+  
+
+
+#### Install
+```bash
+
 composer require arikaim/system-template
+
 ```

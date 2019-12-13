@@ -6,7 +6,7 @@
 {% component 'components:tabs.vertical.content' %}
 {% if driver_name is empty %}
 <div class="ui field mt-8">
-    <label></label>
+    <h5>{{ labels.driver }}</h5>
     {{ component('system:admin.drivers.dropdown',{ selected: driver_name, class: 'fluid', category: category }) }}
 </div>           
 {% endif %}

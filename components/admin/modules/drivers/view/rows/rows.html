@@ -1,6 +1,5 @@
 {% component 'components:view.rows' %}
-    {% set list = createModel('Drivers') %}
-    {% set list = list.orderBy('category','asc') %}
+    {% set list = service('driver').getList() %}
     {% set paginator = paginate(list,'drivers')  %}
        
     {% for item in paginator.getItems() %}

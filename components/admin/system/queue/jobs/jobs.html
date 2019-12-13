@@ -1,6 +1,6 @@
 
 {% set queue = service('queue') %}
-{% set jobs = queue.getNotScheduledJobs() %}
+{% set jobs = queue.getJobs({ recuring_interval: null, schedule_time: '*' }) %}
 <h4 class="header">
     <i class="icon settings"></i>
     {{ labels.jobs }}

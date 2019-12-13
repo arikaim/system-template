@@ -1,13 +1,13 @@
-<div class="ui middle aligned grid full-height" id="content">
-    <div class="three column row">
-        <div class="column"></div>
-        <div class="ui raised segment column">
-            <h3 class="ui header">
-                <i class="icon orange warning sign"></i>
-                {{ title }}
-            </h3>
-            <div class="ui divider"></div>    
-            {{ message }}
+{{ component("system:navbar") }}
+<div id="content" class="ui mt-40 h-56">
+    <div class="ui middle aligned centered sixteen wide column doubling grid" id="page_content">       
+        <div class="ui five wide computer eight wide tablet column">
+            <div class="ui raised segment h-20">                
+                <h3 class="mt-2 pt-2">
+                    <i class="icon orange warning large sign"></i>
+                    <span class="pl-2">{{ message }}</span>
+                </h3>
+            </div>                   
         </div>
     </div>
 </div>

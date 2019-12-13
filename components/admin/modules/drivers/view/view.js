@@ -14,9 +14,7 @@ function DriversView() {
 
         arikaim.events.on('driver.config',function(element) {
             var name = $(element).attr('name');
-            var category = $(element).attr('category');
-            name = drivers.createFullName(name,category);
-
+          
             arikaim.ui.setActiveTab('#drivers_config','.drivers-tab-item');
             drivers.loadConfig(name,'drivers_tab');
         },'driversView',self);       
@@ -30,8 +28,6 @@ function DriversView() {
             onChange: function(status) {   
                 var uuid = $(this).attr('uuid');
                 var name = $('#' + uuid).attr('name');
-                var category = $('#' + uuid).attr('category');
-                var name = drivers.createFullName(name,category);               
                 if (status == 1) {
                     drivers.enable(name);
                 }

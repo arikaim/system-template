@@ -77,6 +77,15 @@ function Packages() {
         
         return arikaim.put('/core/api/packages/current',data,onSuccess,onError);         
     };
+
+    this.saveLibraryParams = function(name, params, onSuccess, onError) {
+        var data = {
+            name: name,
+            params: params
+        };
+        
+        return arikaim.put('/core/api/packages/library/params',data,onSuccess,onError);         
+    };
 }
 
 var packages = new Packages();

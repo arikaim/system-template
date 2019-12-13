@@ -1,4 +1,6 @@
 {% set library = package('library').getPackageProperties(library_name,true) %}
+{% set params = getOption('library.params',null) %}
+{% set library_params = (params[library_name] is empty) ? library.params : params[library_name] %}
 <div class="ui stackable internally celled grid">
     <div class="row">
         <div class="ui four wide column">
@@ -52,11 +54,11 @@
 </div>
 <div class="ui bottom attached tab segment active" data-tab="params_tab">
     <div class="ui grid">
-        <div class="two wide column">
+        <div class="four wide column">
             {% if library.get('params-readonly',false) != true %}
-                {{ component('system:admin.libraries.library.params.form',{ params: library.params }) }}
+                {{ component('system:admin.libraries.library.params.form',{ library: library_name, params: library_params }) }}
             {% else %}
-                {{ component('system:admin.libraries.library.params',{ params: library.params }) }}
+                {{ component('system:admin.libraries.library.params',{ library: library_name, params: library_params }) }}
             {% endif %}
         </div>
     </div>    

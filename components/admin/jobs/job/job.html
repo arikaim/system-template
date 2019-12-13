@@ -1,14 +1,14 @@
 {% if uuid is not empty %}
-    {% set job = service('queue').findByid(uuid) %}
+    {% set job = service('queue').getJob(uuid) %}
 {% endif %}
 <div class="title">
-    {% if job.status == job.COMPLETED() %}
+    {% if job.status == 2 %}
         <i class="check olive icon" title="{{ label.completed }}"></i>
     {% endif %}
-    {% if job.status == job.ACTIVE() %}
+    {% if job.status == 1 %}
         <i class="angle double right olive icon" title="{{ label.active }}"></i>
     {% endif %}
-    {% if job.status == job.DISABLED() %}
+    {% if job.status == 0 %}
         <i class="eye slash outline icon" title="{{ label.disabled }}"></i>        
     {% endif %}
     <i class="dropdown icon"></i>

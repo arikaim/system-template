@@ -15,7 +15,7 @@
     {% endfor %}
     </div>
 </div>
-{% set jobs = queue.getScheduledJobs() %}
+{% set jobs = queue.getJobs({ schedule_time: '*' }) %}
 <h4 class="header">
     <i class="icon wait"></i>
     {{ labels.scheduled }}

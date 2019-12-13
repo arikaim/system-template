@@ -1,11 +1,7 @@
 {
-    "labels":{
-        "version": "Version",
-        "core": "Core"
-    },
-    "buttons": {
-        "update": {
-            "content": "Update"
-        }
-    }     
+    "labels":{  
+        "core": "Core",
+        "admin": "Control Panel",
+        "ui": "UI Components"
+    }
 }

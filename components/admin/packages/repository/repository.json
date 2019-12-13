@@ -1,8 +1,8 @@
 {
     "labels": {
         "repository": "Repository",
-        "empty": "not set",
-        "version": "Version"
+        "private": "Private",
+        "empty": "not set"       
     },
     "messages": {
         "error": ""

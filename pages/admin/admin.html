@@ -1,8 +1,10 @@
-{{ component("system:navbar") }}
-<div id="content" class="ui stackable grid">
-{% if service('access').hasControlPanelAccess() == true %}   
-    {{ component("system:admin.layout") }}
+{% if access().hasControlPanelAccess() == true %}   
+    {{ component("system:admin.navbar") }}
+    <div id="content" class="ui stackable grid">
+        {{ component("system:admin.layout") }}       
 {% else %}   
-    {{ component("system:user.login") }}
+    {{ component("system:navbar") }}
+    <div id="content" class="ui stackable grid">
+        {{ component("system:user.login") }} 
 {% endif %}
 </div>

@@ -1,4 +1,4 @@
-{% set user = service('auth').getUser() %}
+{% set user = service('access').getUser() %}
 <div class="ui icon top right inline dropdown" id="user_menu_dropdown">
     <i class="icon olive circular user"></i>
     {% if user == null %}

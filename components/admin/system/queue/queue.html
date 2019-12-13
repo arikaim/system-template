@@ -1,6 +1,6 @@
-{% set worker = service('queue').createWorker() %}
+{% set info = service('queue').getQueueWorkerInfo() %}
 <h3 class="header">
-    {% if worker.isRunning() == true %}
+    {% if info.running == true %}
         <i class="icon check olive" title="{{ labels.running }}"></i>
     {% else %}
         <i class="exclamation triangle orange icon" title="{{ labels.disabled }}"></i>
@@ -8,13 +8,12 @@
     <i class="icon server"></i>
     {{ labels.worker }}
 </h3>
-{% if worker.isRunning() == false %}
+{% if info.running == false %}
     <button class="ui basic button queue-button" id="start_worker">
         <i class="play circle outline icon olive"></i>
         {{ buttons.start }}
     </button>
 {% else %}
-    {% set info = worker.getProcessInfo() %}
     <div class="ui list">
         <div class="item">
             <strong>Pid</strong> 

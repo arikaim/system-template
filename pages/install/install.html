@@ -1,14 +1,4 @@
-{% set version = system().getVersion() %}
-<div class="ui top attached menu borderless inverted dark-color shadow">
-    <div title="{{ brand.title }}" class="item margin-left-4">    
-        {% if brand.image.src -%}
-        <img alt="{{ brand.image.alt }}" src="{{ system_template_url }}/images/{{ brand.image.src }}">
-        {% endif -%}   
-        <div class="page-title">
-            Arikaim                    
-        </div>
-    </div>              
-</div>
+{{ component("system:navbar") }}
 <div id="content" class="ui mt-20">
     {{ component("system:admin.install") }}
 </div>

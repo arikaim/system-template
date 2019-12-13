@@ -12,6 +12,7 @@ function Options() {
             key: name,
             value: value 
         };
+        
         return arikaim.put('/core/api/options/',params,onSuccess,onError);
     };
 

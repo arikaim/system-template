@@ -72,3 +72,6 @@ div.inner {
 .extension-repository-menu {
   border: 1px solid red!important;
 }
+.admin-menu-link.active {
+  background-color: #2a4365 !important;
+}

@@ -1,0 +1,11 @@
+{% set disable_install_page = service('config').getByPath('settings/disableInstallPage') %}
+{% component 'components:tabs.vertical.content' %}
+<div class="mt-4">
+    <div class="field">
+        <div class="ui slider checkbox" id="install_page_toggle">
+            <input name="install_page" type="checkbox" value="1" {{ disable_install_page|ifthen(true,'checked') }} >
+            <label class="font-bold">{{ labels.disable }}</label>
+        </div>             
+    </div>  
+</div>
+{% endcomponent %}

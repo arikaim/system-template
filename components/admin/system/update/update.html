@@ -1,24 +1,22 @@
-{% set info = system().getSystemInfo()  %}
-{% set core_packages = system().getCorePackagesList(1)  %}
-<div>
-    <div class="ui header">
-        Arikaim CMS
-    </div>    
-    {{ labels.version }} <span class="ml-1 small text"> <div class="ui label">{{ info.cms_version }}</div></span> 
-    <div class="ui hidden divider"></div>
-    <div class="header">
-        {{ labels.core }}               
+<div class="ui stackable grid">
+    <div class="ui six wide column">
+        <div class="ui segment fluid">
+            {{ component('components:segment-title',{ title: 'Arikaim CMS' }) }}    
+            <div class="mt-4">
+                <h5>{{ labels.core }}</h5>
+                <div class="ui divider"></div>
+            </div>
+            {{ component('system:admin.system.update.package') }}
+            <div class="mt-4">
+                <h5>{{ labels.admin }}</h5>
+                <div class="ui divider"></div>
+            </div>
+            {{ component('system:admin.system.update.package',{ package: 'arikaim/system-template' }) }}
+            <div class="mt-4">
+                <h5>{{ labels.ui }}</h5>
+                <div class="ui divider"></div>
+            </div>
+            {{ component('system:admin.system.update.package',{ package: 'arikaim/ui-components' }) }}
+        </div>  
     </div>
-    <div>
-        <i class="icon archive"></i>
-        {% for package in core_packages %}
-            {{ package.name }} <span class="ui label">{{ package.version }}</span>   
-        {% endfor %}   
-    </div>
-    {% if hide_update_button != true %}
-    <button class="ui basic button mt-2" id="update_button" version="{{ package.version }}">
-        <i class="icon download"></i>
-        {{ buttons.update.content }}
-    </button>        
-    {% endif %}
 </div>

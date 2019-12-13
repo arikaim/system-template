@@ -1,4 +1,5 @@
-{% set extensions = package('extension').getInstalled(status,type) %}
+{% set sattus = (status is not defined) ? null : status %}
+{% set extensions = package('extension').getPackgesRegistry().getPackagesList({ status: status, type: type }) %}
 {% for extension in extensions %}
     {% if extension.admin_menu is not empty %}
         {{ component('system:admin.menu.item',{ menu: extension.admin_menu, extension_name: extension.name, class: "admin-menu-link" }) }}      

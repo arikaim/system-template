@@ -1,0 +1,9 @@
+{
+    "title": {
+        "content": "Install",
+        "icon": "server"
+    },
+    "labels": {
+        "disable": "Disable Install Page"
+    }
+}

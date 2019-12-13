@@ -1,13 +1,4 @@
 {
-    "brand": {
-        "title": "Arikaim",
-        "image": {
-            "src": "arikaim-logo-64x64.png"
-        }   
-    },
-    "labels": {
-        "version": "version"
-    },
     "head": {
         "title": "Arikaim CMS installation",
         "description": "Arikaim CMS installation page",

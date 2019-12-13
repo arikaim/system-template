@@ -1,4 +1,4 @@
-{% set user = service('auth').getUser() %}
+{% set user = service('access').getUser() %}
 <div class="ui fluid raised card mt-4">   
     <div class="content">
         <h3 class="ui dividing header">
@@ -21,9 +21,9 @@
                         <i class="eye slash outline icon"></i>
                     </a>    
                 </div>
-            </div>                        
-            <button class="ui fluid large primary button login-button">{{ buttons.login.title }}</button>     
-            <div class="ui error pt-0 pb-0 message mini errors"></div>            
+            </div>                  
+            {{ component('components:form.footer',{ button_title: buttons.login.title, button_class: 'button large primary fluid login-button' } ) }}      
+             
         </form>
     </div>    
 </div>

@@ -1,5 +1,5 @@
 {% set options = getOptions("mailer") %}
-{% set user = service('auth').getUser() %}
+{% set user = service('access').getUser() %}
 {% set use_sendmail = getOption("mailer.use.sendmail") %}
 
 <div class="ui mt-8"></div>

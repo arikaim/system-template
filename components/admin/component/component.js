@@ -25,7 +25,7 @@ arikaim.page.onReady(function() {
         },
         onOpening: function(item) {
             var elementId = $(this).attr('id');
-            $('#' + element_id).html("");
+            $('#' + elementId).html("");
         }
     });
 });

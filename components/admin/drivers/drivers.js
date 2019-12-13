@@ -50,11 +50,7 @@ function Drivers() {
         },function(result) {                  
             callFunction(onSuccess,result);
         });
-    };
-
-    this.createFullName = function(name, category) {
-        return (isEmpty(category) == false) ? name + ":" + category : name;
-    };    
+    }; 
 }
 
 var drivers = new Drivers();

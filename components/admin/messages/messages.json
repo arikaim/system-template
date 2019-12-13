@@ -25,7 +25,8 @@
         "clear": "Logs was cleared successfully."
     },
     "library": {
-        "install": "UI Library was installed successfully."
+        "install": "UI Library was installed successfully.",
+        "params": "UI Library params was saved successfully."
     },
     "module": {
         "config": "Module config was saved successfully.",
@@ -101,7 +102,8 @@
         },
         "position": "Not valid model name or id",
         "library": {
-            "install": "Can't install UI Library."
+            "install": "Can't install UI Library.",
+            "params": "Can't save library params."
         },
         "extension": {
             "update": "Can't update extension.",

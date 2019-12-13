@@ -1,6 +1,9 @@
 {
     "include": {
-        "js": "system:admin.packages.repository"
+        "js": [
+            "system:admin.packages.repository",
+            "system:admin.options"
+        ]
     },
     "access": {
         "auth": "session",
