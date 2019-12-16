@@ -4,9 +4,16 @@
 
 @import url('https://fonts.googleapis.com/css?family=Monoton');
 
-body > .grid {
-    height: 100%!important;
-    min-height: 100%!important;
+body { 
+    min-height: 100vh;
+    padding: 0px!important;
+}
+.page {
+    min-height: 100vh;
+    position: relative;
+    padding: 0px!important;
+    margin: 0px!important;
+    border: solid 1px #2d3748; 
 }
 .table-head {
     background-color: @tabel_head_bg;
@@ -23,6 +30,8 @@ div.inner {
 }
 #left_space {
     padding:0px 0px 0px 0px!important;
+}
+#content {
     min-height: 100%!important;
 }
 .shadow {          
@@ -32,10 +41,9 @@ div.inner {
     -o-box-shadow: 0px 5px 4px -4px rgba(0,0,0,0.75)!important;
 }
 .admin-menu {    
-    margin-left:12px!important;
-    border:1px solid red;
+    margin-left:12px!important;  
     overflow-y: auto;
-    overflow-x: hidden;      
+    overflow-x: hidden;     
 }
 .dark-color {
     background-color: #2d3748!important;

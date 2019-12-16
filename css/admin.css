@@ -4,9 +4,16 @@
   font-weight: 400;
   src: local('Monoton'), local('Monoton-Regular'), url(https://fonts.gstatic.com/s/monoton/v9/5h1aiZUrOngCibe4TkHLRw.ttf) format('truetype');
 }
-body > .grid {
-  height: 100%!important;
-  min-height: 100%!important;
+body {
+  min-height: 100vh;
+  padding: 0px!important;
+}
+.page {
+  min-height: 100vh;
+  position: relative;
+  padding: 0px!important;
+  margin: 0px!important;
+  border: solid 1px #2d3748;
 }
 .table-head {
   background-color: #ebf8ff;
@@ -23,6 +30,8 @@ div.inner {
 }
 #left_space {
   padding: 0px 0px 0px 0px!important;
+}
+#content {
   min-height: 100%!important;
 }
 .shadow {
@@ -33,7 +42,6 @@ div.inner {
 }
 .admin-menu {
   margin-left: 12px!important;
-  border: 1px solid red;
   overflow-y: auto;
   overflow-x: hidden;
 }

@@ -9,7 +9,7 @@ function Install() {
     var self = this;
 
     this.install = function(formId, onSuccess, onError) {
-        return arikaim.post('/core/api/install/',formId,onSuccess,onError);
+        return arikaim.post('/core/api/install',formId,onSuccess,onError);
     };
 
     this.repair = function(onSuccess, onError) {

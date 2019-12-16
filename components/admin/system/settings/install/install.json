@@ -4,6 +4,10 @@
         "icon": "server"
     },
     "labels": {
-        "disable": "Disable Install Page"
+        "disable": "Disable Install Page",
+        "repair": "Repair installation."
+    },
+    "buttons": {
+        "repair": "Repair"
     }
 }
