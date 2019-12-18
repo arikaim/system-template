@@ -2,9 +2,6 @@
     {{ component('system:admin.system.info.version',{ package: package }) }}   
 </span>          
 <div class="ui hidden divider"></div>  
-package: {{ package }}
-last ver: {{ getLastVersion(package) }}
-current ver:  {{ getVersion(package) }}
 {% if getLastVersion(package) is versionCompare(getVersion(package))  %}   
 <div class="mt-4">                
     <div class="ui message" id="new_message">
