@@ -1,3 +1,4 @@
+{% set package = package|default('arikaim/core') %}
 <span id="version_info">
     {{ component('system:admin.system.info.version',{ package: package }) }}   
 </span>          
@@ -10,7 +11,7 @@
     <div class="ui message hidden" id="install_message">
         {{ messages.install }}
     </div> 
-    <button class="ui button green update-button" id="update_button" version="{{ package.version }}">
+    <button class="ui button green update-button" id="update_button" version="{{ package.version }}" package="{{ package }}">
         <i class="icon download"></i>
         {{ buttons.update.content }}
     </button>   
