@@ -1,0 +1,32 @@
+<div class="ui raised card min-h-full">
+    <div class="content item"> 
+        {{ item.title }} 
+        <div class="ui horizontal labels right floated">     
+            {% if item.is_free == true %}   
+            <div class="ui mini basic green label">
+                {{ labels.free }}
+            </div>
+            {% endif %}
+            <div class="ui mini basic label">
+                {{ labels.version }}
+                <div class="detail package-version" uuid="{{ item.uuid }}" id="version_{{ item.uuid }}" package="{{ item.options_list.repository }}">
+                    {{ item.version }}
+                </div>
+            </div>                      
+        </div>
+    </div>
+    <div class="content">
+        {{ item.options_list.description }}
+    </div>
+    <div class="extra content">       
+        <button class="ui primary button install-package" package-type="{{ type }}">
+            {{ labels.install }}
+        </button> 
+        {{  component('components:repository.link',{ 
+                package: item.options_list.repository,
+                target: 'repository',
+                class: 'ui basic right floated icon button' 
+            }) 
+        }}
+    </div>      
+</div>

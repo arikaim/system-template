@@ -16,6 +16,7 @@ function PackageRepository() {
             package: name,
             type: type           
         };
+        
         return arikaim.put('/core/api/packages/repository/install',params,onSuccess,onError);
     };
 

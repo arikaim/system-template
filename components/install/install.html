@@ -8,7 +8,7 @@
                 <div class="item">
                     <div class="middle aligned content">
                         <i class="large icon server middle aligned"></i>   
-                        {{ component("system:admin.install.requirements",{ requirements: requirements }) }}
+                        {{ component("system:install.requirements",{ requirements: requirements }) }}
                     </div>
                 </div>
                 <div class="item">
@@ -20,7 +20,7 @@
                             <span>{{ labels.connection }}</span>
                         </div>
                         <div class="description">  
-                            {{ component("system:admin.install.form") }}
+                            {{ component("system:install.form") }}
                         </div>
                         <div class="mt-4">
                             <a class="ui button olive large mt-1 hidden" id="continue_button">{{ buttons.continue }}</a>     
