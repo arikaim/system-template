@@ -38,7 +38,7 @@ function Install() {
         $('#continue_button').hide();      
         
         arikaim.ui.button('#continue_button',function() {
-            return arikaim.loadUrl('/admin/',true); 
+            return arikaim.loadUrl('/admin',true); 
         });
     };
 }
