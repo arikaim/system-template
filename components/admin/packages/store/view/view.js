@@ -22,11 +22,29 @@ function ArikaimStoreView() {
             });
         });
         
-        arikaim.ui.button('install-package',function(element) {
+        arikaim.ui.button('.install-package',function(element) {
             var type = $(element).attr('package-type');
             var name = $(element).attr('package-name');
+
             return packageRepository.install(name,type,function(result) {
-    
+                // show message
+                $(element).hide();
+
+                arikaim.ui.form.showMessage({
+                    selector: '#message',
+                    message: result.message,
+                    class: 'success',    
+                    removeClass: 'error',                      
+                    hide: 4000
+                });
+            },function(error) {
+                arikaim.ui.form.showMessage({
+                    selector: '#message',
+                    message: error,
+                    class: 'error', 
+                    removeClass: 'success',                       
+                    hide: 4000
+                });               
             });
         });
     };
