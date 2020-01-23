@@ -2,6 +2,9 @@
     "labels": {
         "version": "Version",
         "install": "Install",
-        "free": "Free"
+        "free": "Free",
+        "installed": "Installed",
+        "update": "Update",
+        "current": "Current Version"        
     }
 }

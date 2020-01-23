@@ -20,9 +20,10 @@ function PackageRepository() {
         return arikaim.put('/core/api/packages/repository/update',params,onSuccess,onError);
     };
 
-    this.install = function(name, type, onSuccess, onError) {
+    this.install = function(name, type, repositoryType, onSuccess, onError) {
         var params = { 
             package: name,
+            repository_type: repositoryType,
             type: type           
         };
         
