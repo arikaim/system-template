@@ -4,7 +4,7 @@ $(document).ready(function() {
 
     arikaim.ui.form.onSubmit('#install_form',function(element) {              
         progressBar.start({
-            interval: 50,
+            interval: 250,
             onComplete: function() {  
                 if (install.status == true) {
                     // installed
@@ -30,7 +30,7 @@ $(document).ready(function() {
             message: result.message
         });
         arikaim.ui.form.disable('#install_form');
-        $('#continue').revoveClass('hidden');
+        $('#continue').removeClass('hidden');
         $('#continue').show();
         $('#continue_button').show();
         install.status = true;

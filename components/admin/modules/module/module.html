@@ -17,9 +17,9 @@
                 {{ labels.version }}
                 <div class="detail">{{ module.version }}</div>
             </div>  
-            {% if module.help.url is not null %}
+            {% if module.help is not null %}
             <div class="ui mini basic icon label">
-                <a class="" href="{{ module.help.url }}" target="_blank" {{ labels.help|attr('title') }}>
+                <a class="" href="{{ module.help }}" target="_blank" {{ labels.help|attr('title') }}>
                     <i class="icon info circle"></i>   
                     {{ labels.help }}        
                 </a>
