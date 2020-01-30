@@ -8,11 +8,8 @@
   * [Arikaim CMS](https://github.com/arikaim/arikaim)
   
 
-
-#### Install
+#### Installation
 
 ```sh
-
 composer require arikaim/system-template
-
 ```

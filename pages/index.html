@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
-    {{ component('components:head',{ head: head }) }}
+    {% component 'components:head' %}
+    
+    <!-- custom head content -->
+    {% endcomponent %}  
     <body id="page">
         {{ body|raw }}
     </body>

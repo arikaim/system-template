@@ -25,16 +25,20 @@ function MailerSettings() {
                 inline: false,
                 fields: {
                     user_name: {
+                        identifier: 'user_name',
                         rules: [{ type: 'minLength[2]' }]          
                     },        
                     password: {
+                        identifier: 'password',
                         rules: [{ type: 'minLength[2]' }]   
                     },
                     port: {
+                        identifier: "port",
                         rules: [{ type: 'minLength[2]' }]   
                     },
                     host: {
-                        rules: [{ type: 'minLength[5]' }]   
+                        identifier: 'host',
+                        rules: [{ type: 'empty' }]   
                     }
                 }
             });
