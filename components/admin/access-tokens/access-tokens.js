@@ -7,8 +7,8 @@
 
 function AccessTokens() {
 
-    this.delete = function(token, onSuccess, onError) {
-        return arikaim.delete('/core/api/tokens/delete/' + token,onSuccess,onError);          
+    this.delete = function(uuid, onSuccess, onError) {
+        return arikaim.delete('/core/api/tokens/delete/' + uuid,onSuccess,onError);          
     };
 
     this.deleteExpired = function(uuid, onSuccess, onError) {
