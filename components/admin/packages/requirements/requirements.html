@@ -2,8 +2,14 @@
     <h5>{{ labels.title }}</h5> 
     {% if items.composer is not empty %}       
     <div class="ml-3">
-        <b>{{ labels.composer }}</b>
-        {{ component('components:list.items',{ items: items.composer, icon:'archive' }) }}
+        <b>{{ labels.composer }}</b>             
+        {{ component('system:admin.packages.requirements.composer-packages',{ packages: items.composer, name: name }) }}
+        <div class="mt-2">
+            <button class="ui mini primary basic button module-button update-composer" name="{{ name }}">    
+                <i class="icon download"></i> 
+                {{ labels.update }}
+            </button>      
+        </div>       
     </div>           
     {% endif %}
 </div>

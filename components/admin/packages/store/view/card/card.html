@@ -24,12 +24,7 @@
                         {{ item.version }}
                     </div>
                 </div> 
-                {{  component('components:repository.link',{ 
-                        package: item.options_list.repository,
-                        target: 'repository',
-                        class: 'ui basic right floated icon mini button' 
-                    }) 
-                }}    
+                 
             {% endif %}                             
         </div>
     </div>
@@ -67,5 +62,11 @@
             {{ labels.update }}
         </button> 
         {% endif %}
+        {{  component('components:repository.link',{ 
+                package: item.options_list.repository,
+                target: 'repository',
+                class: 'ui basic right floated icon mini button' 
+            }) 
+        }}  
     </div>      
 </div>

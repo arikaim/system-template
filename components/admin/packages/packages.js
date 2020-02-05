@@ -21,6 +21,15 @@ function Packages() {
         return arikaim.put('/core/api/packages/update',data,onSuccess,onError);          
     };
 
+    this.updateComposerPackages = function(name, packageType, onSuccess, onError) {
+        var data = { 
+            name: name,
+            type: packageType 
+        };  
+
+        return arikaim.put('/core/api/packages/composer/update',data,onSuccess,onError);            
+    };
+
     this.install = function(name, packageType, onSuccess, onError) {
         var data = { 
             name: name,

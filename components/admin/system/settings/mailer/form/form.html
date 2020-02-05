@@ -10,7 +10,7 @@
     </div>
 </div> 
 <div class="mt-5"></div>    
-<form class="ui equal width form" id="mailer_settings_form">    
+<form class="ui equal width form" id="mailer_settings_form" method="POST">    
     <div class="ui segment {{ use_sendmail|ifthen(true,'hidden') }}" id="smtp_setings_form">
         <div class="float-right">
             {{ component('system:admin.system.settings.mailer.dropdown',{ class: 'mini inline' }) }}     

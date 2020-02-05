@@ -84,6 +84,9 @@
         },
         "read": "Done."
     },
+    "composer": {
+        "update": "Composer packages updated successfully."
+    },
     "errors": {
         "orm": {
             "relations": {
@@ -163,6 +166,9 @@
             "update": "Can't update Arikaim core."
         },
         "install": "Can't install Arikaim CMS.",
-        "db": "Database config not valid."
+        "db": "Database config not valid.",
+        "composer": {
+            "update": "Can't install composer packages."
+        }
     }
 }

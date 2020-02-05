@@ -1,6 +1,8 @@
 {
     "labels": {
         "title": "Requirements",
-        "composer": "Composer packages"
+        "composer": "Composer packages",
+        "update": "Update Packages",
+        "version": "version"       
     }
 }

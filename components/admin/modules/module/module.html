@@ -33,7 +33,7 @@
     <div class="content">
         <div class="ui list">
             <div class="item mt-1">
-                {{ component('system:admin.packages.requirements',{ items: module.requires }) }}
+                {{ component('system:admin.packages.requirements',{ items: module.require, name: module.name }) }}
             </div>           
             <div class="item mt-1">
                 {% if module.type == 'service' %}
@@ -100,6 +100,6 @@
                 <i class="icon download"></i> 
                 {{ labels.install }}
             </button>
-        {% endif %}      
+        {% endif %}              
     </div>
 </div>

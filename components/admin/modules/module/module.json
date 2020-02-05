@@ -11,7 +11,7 @@
         "type": "Type",
         "error": "Error",
         "disable": "Disable",
-        "enable": "Enable",
+        "enable": "Enable",      
         "service_name": "Service name"
     },
     "messages": {
