@@ -10,20 +10,18 @@ function DriversView() {
 
     this.init = function() {
         paginator.init('drivers_rows');         
-        arikaim.ui.tab('.drivers-tab-item','drivers_tab')
-
-        arikaim.events.on('driver.config',function(element) {
-            var name = $(element).attr('name');
-          
-            arikaim.ui.setActiveTab('#drivers_config','.drivers-tab-item');
-            drivers.loadConfig(name,'drivers_tab');
-        },'driversView',self);       
+        arikaim.ui.tab('.drivers-tab-item','drivers_tab')            
     };
 
     this.initView = function() {
         arikaim.ui.button('.driver-config',function(element) {                
             arikaim.events.emit('driver.config',element);
+
+            var name = $(element).attr('name');
+            arikaim.ui.setActiveTab('#drivers_config','.drivers-tab-item');
+            drivers.loadConfig(name,'drivers_tab');
         });
+       
         $('.status-dropdown').dropdown({
             onChange: function(status) {   
                 var uuid = $(this).attr('uuid');

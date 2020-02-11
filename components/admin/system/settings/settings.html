@@ -10,10 +10,10 @@
     { title: links.install.content, component: 'system:admin.system.settings.install', icon: 'server' }
 ] %}
 
-{{ component('components:tabs.vertical',{ 
+{{  component('components:tabs.vertical',{ 
         items: items, 
         menu: { id: null }, 
         item_class: 'settings-item',
         content: { id: 'settings_content', component: 'system:admin.system.settings.user' } 
-   })
+    })
 }}

@@ -14,7 +14,11 @@ function Update() {
 
     this.getLastVersion = function(packageName, onSuccess, onError) {
         packageName = getDefaultValue(packageName,'');
-        return arikaim.get('/core/api/update/last/version/' + packageName,onSuccess,onError);
+        var data = {
+            package: packageName
+        };
+
+        return arikaim.put('/core/api/update/last/version',data,onSuccess,onError);
     };
 
     this.update = function(packageName,onSuccess, onError) {
@@ -44,15 +48,7 @@ function Update() {
                 self.getLastVersion(packageName,function(result) {
                     if (result.version == currentVersion) {      
                         $(element).hide();                 
-                        $('#install_mesage').show();
-                        install.repair(function(result) {
-                            arikaim.ui.form.showMessage({
-                                selector: '#message',
-                                message: result.message,
-                                hide: 0
-                            });
-                            self.loadVersion();
-                        })
+                        $('#install_mesage').show();                       
                     }
                 })
             });
