@@ -49,15 +49,14 @@ function RelationsView() {
             var extension = $(element).attr('extension');
             var message = arikaim.ui.template.render(removeMessage,{ title: title });
         
+            console.log(uuid);
+            
             modal.confirmDelete({ 
                 title: component.getProperty('messages.remove.title'),
                 description: message
             },function() {
-                relations.delete({
-                    model: model,   
-                    extension: extension,
-                    uuid: uuid
-                },function(result) {
+                relations.delete(model,extension,uuid,
+                function(result) {
                     arikaim.ui.table.removeRow('#' + uuid);        
                 });
             });

@@ -4,16 +4,29 @@
   font-weight: 400;
   src: local('Monoton'), local('Monoton-Regular'), url(https://fonts.gstatic.com/s/monoton/v9/5h1aiZUrOngCibe4TkHLRw.ttf) format('truetype');
 }
+html {
+  height: 100%;
+  padding: 0px;
+}
 body {
-  min-height: 100vh;
-  padding: 0px!important;
+  min-height: 100%;
+  padding: 0px;
+  margin: 0px;
 }
 .page {
-  min-height: 100vh;
-  position: relative;
-  padding: 0px!important;
-  margin: 0px!important;
-  border: solid 1px #2d3748;
+  padding: 0px;
+  margin: 0px;
+}
+.content-inside {
+  padding: 0px;
+  width: 100%;
+  padding-bottom: 350px;
+}
+.page-content {
+  padding: 0px;
+  min-height: 100%;
+  border-bottom: 1px solid white;
+  margin: 0 auto -137px;
 }
 .table-head {
   background-color: #ebf8ff;
@@ -32,6 +45,7 @@ div.inner {
   padding: 0px 0px 0px 0px!important;
 }
 #content {
+  margin-top: 0px;
   min-height: 100%!important;
 }
 .shadow {

@@ -7,7 +7,6 @@ $(document).ready(function() {
             var relationId = $(this).attr('relation-id');
 
             relations.add(model,extension,value,type,relationId,function(result) {
-
             });
         },
         onRemove: function(value, text, $choice) {
@@ -16,8 +15,7 @@ $(document).ready(function() {
             var type = $(this).attr('type');           
             var relationId = $(this).attr('relation-id');
 
-            relations.delete(model,extension,value,type,relationId,function(result) {
-
+            relations.deleteRelation(model,extension,value,type,relationId,function(result) {
             });
         }
     });

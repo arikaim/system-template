@@ -4,23 +4,36 @@
 
 @import url('https://fonts.googleapis.com/css?family=Monoton');
 
+html {
+    height: 100%;
+    padding: 0px;
+}
 body { 
-    min-height: 100vh;
-    padding: 0px!important;
+    min-height: 100%;
+    padding: 0px;
+    margin: 0px; 
 }
 .page {
-    min-height: 100vh;
-    position: relative;
-    padding: 0px!important;
-    margin: 0px!important;
-    border: solid 1px #2d3748; 
+    padding: 0px;
+    margin: 0px;    
+}
+.content-inside {
+    padding: 0px;
+    width: 100%;
+    padding-bottom: 350px;
+}
+.page-content {  
+    padding: 0px;
+    min-height: 100%;
+    border-bottom:1px solid white;
+    margin: 0 auto -137px;
 }
 .table-head {
     background-color: @tabel_head_bg;
     border: 2px solid @table_head_border   
 }
 .menu-item-title {
-   font-size:12pt!important;
+   font-size: 12pt!important;
 }
 .borderless {
     border: none!important;
@@ -29,9 +42,11 @@ div.inner {
     height:inherit;
 }
 #left_space {
-    padding:0px 0px 0px 0px!important;
+    padding: 0px 0px 0px 0px!important;
+    
 }
 #content {
+    margin-top: 0px;   
     min-height: 100%!important;
 }
 .shadow {          
