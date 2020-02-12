@@ -89,3 +89,6 @@ div.inner {
 .admin-menu-link.active {
   background-color: #2a4365 !important;
 }
+.w-74 {
+  width: 30rem;
+}
