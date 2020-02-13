@@ -1,27 +1,24 @@
 {% component "components:layout" %}
     {{ component("system:navbar") }}
-    <div class="ui mt-64 h-full h-min-full">
-        <div class="ui middle aligned grid full-height mt-40">
-            <div class="three column row">
-                <div class="column"></div>
-                <div class="ui raised segment column">
-                    <h3 class="ui header">
-                        <i class="icon orange warning sign"></i>
-                        {{ title }}
-                    </h3>    
-                    <div class="ui divider"></div>       
-                    <div class="ui list">                                   
-                    {% for error in errors %}        
-                        <div clas="item">                   
-                            <div class="header">
-                                <i class="warning circle icon"></i>
-                                {{ (error.message is not empty) ?  error.message : error }}
-                            </div>
+    <div class="flex h-screen w-full justify-center">
+        <div class="flex-shrink-0 self-center w-1/2">
+            <div class="ui raised segment column">
+                <h3 class="ui header">
+                    <i class="icon orange warning sign"></i>
+                    {{ title }}
+                </h3>    
+                <div class="ui divider"></div>       
+                <div class="ui list">                                   
+                {% for error in errors %}        
+                    <div clas="item">                   
+                        <div class="header">
+                            <i class="warning circle icon"></i>
+                            {{ (error.message is not empty) ?  error.message : error }}
                         </div>
-                    {% endfor %}
                     </div>
+                {% endfor %}
                 </div>
             </div>
-        </div>
-    </div>
+        </div>        
+    </div>  
 {% endcomponent %}

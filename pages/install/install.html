@@ -1,7 +1,9 @@
 {% component "components:layout" %}
     {{ component("system:navbar") }}
-    <div id="content" class="ui mt-40">
-        {{ component("system:install") }}
+    <div class="flex h-screen w-full justify-center">
+        <div class="flex-shrink-0 self-center w-1/2">
+            {{ component("system:install") }}
+        </div>        
     </div>
     {{ component("system:footer") }}
 {% endcomponent %}
