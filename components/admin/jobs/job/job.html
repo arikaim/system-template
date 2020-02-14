@@ -14,10 +14,7 @@
     <i class="dropdown icon"></i>
     {% if job.name is not empty %}
         <span class="ml-1 ui mini horizontal basic label">{{ job.name }}</span>
-    {% endif %}
-    {% if job.due_date is not empty %}
-        <span title="{{ label.next }}">{{ job.due_date|dateTimeFormat }}</span>
-    {% endif %} 
+    {% endif %}     
 </div>
 <div class="content">
     <table class="ui very basic collapsing small table">

@@ -12,6 +12,10 @@ function Install() {
         return arikaim.post('/core/api/install',formId,onSuccess,onError);
     };
 
+    this.installExtensions = function(onSuccess, onError) {
+        return arikaim.put('/core/api/install/extensions',{},onSuccess,onError);
+    };
+
     this.repair = function(onSuccess, onError) {
         return arikaim.put('/core/api/install/repair',null,onSuccess,onError);
     };

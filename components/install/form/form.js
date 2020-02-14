@@ -21,19 +21,21 @@ $(document).ready(function() {
         return install.install('#install_form');
         
     },function(result) {
-        progressBar.reset();
-        progressBar.hide(true);
-        $('.submit-button').hide();      
-        arikaim.ui.form.showMessage({
-            selector: '#message',
-            hide: 0,
-            message: result.message
+        install.installExtensions(function(result) {
+            progressBar.reset();
+            progressBar.hide(true);
+            $('.submit-button').hide();      
+            arikaim.ui.form.showMessage({
+                selector: '#message',
+                hide: 0,
+                message: result.message
+            });
+            arikaim.ui.form.disable('#install_form');
+            $('#continue').removeClass('hidden');
+            $('#continue').show();
+            $('#continue_button').show();
+            install.status = true;
         });
-        arikaim.ui.form.disable('#install_form');
-        $('#continue').removeClass('hidden');
-        $('#continue').show();
-        $('#continue_button').show();
-        install.status = true;
     },function(error) {
         progressBar.reset();
         progressBar.hide(true);
