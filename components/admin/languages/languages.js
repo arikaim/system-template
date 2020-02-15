@@ -4,6 +4,7 @@
  *  @license    http://www.arikaim.com/license
  *  http://www.arikaim.com
  */
+"use strict";
 
 function Languages() {
     var self = this;
@@ -14,6 +15,7 @@ function Languages() {
     
     this.setDefault = function(uuid, onSuccess, onError) {
         var data = { uuid: uuid };
+        
         return arikaim.put('/core/api/language/default',data,onSuccess,onError);        
     };
 

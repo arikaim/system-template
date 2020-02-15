@@ -4,6 +4,7 @@
  *  @license    http://www.arikaim.com/license
  *  http://www.arikaim.com
  */
+"use strict";
 
 function Theme() {
 
@@ -12,7 +13,6 @@ function Theme() {
     var themesDropdownSelector = "#themes_dropdown";
 
     this.init = function() {
-       
         templateName = $(themesDropdownSelector).attr('template');
         $(themesDropdownSelector).dropdown({
             onChange: function(value) {    
@@ -28,7 +28,7 @@ function Theme() {
             theme_name: theme_name,
             template_name: templateName 
         };
-        arikaim.put("/admin/api/template/theme/current/",data,onSuccess);
+        return arikaim.put("/admin/api/template/theme/current/",data,onSuccess);
     };
 }
 

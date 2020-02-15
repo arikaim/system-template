@@ -4,20 +4,21 @@
  *  @license    http://www.arikaim.com/license
  *  http://www.arikaim.com
  */
+"use strict";
 
 function ArikaimStoreView() {
     var self = this;
 
     this.initRows = function() {
         $('.package-version').each(function(index) {
-            var package = $(this).attr('package');
+            var packageName = $(this).attr('package');
             var uuid = $(this).attr('uuid');
            
             arikaim.page.loadContent({
                 id: 'version_' + uuid,           
                 component: "components:repository.version",
                 loaderClass: 'ui active inline centered mini blue loader',
-                params: { package: package }
+                params: { package: packageName }
             });
         });
         

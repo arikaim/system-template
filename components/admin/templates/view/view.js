@@ -6,6 +6,7 @@
  *  http://www.arikaim.com
  * 
  */
+"use strict";
 
  function TemplatesView() { 
     var self = this;

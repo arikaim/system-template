@@ -1,3 +1,5 @@
+"use strict";
+
 arikaim.page.onReady(function() {
     $('.components-list').accordion({
         onOpen: function(item) {

@@ -1,3 +1,5 @@
+"use strict";
+
 $(document).ready(function() {
     $('#debug_toggle').checkbox({
         onChecked: function() {

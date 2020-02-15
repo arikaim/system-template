@@ -4,11 +4,8 @@
  *  @license    http://www.arikaim.com/license
  *  http://www.arikaim.com
  */
+"use strict";
 
-/**
- *  @class Packages 
- *  Control panel packages manager component
- */
 function Packages() {
     var self = this;
      

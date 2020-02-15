@@ -1,3 +1,4 @@
+"use strict";
 
 arikaim.page.onReady(function() {
     arikaim.ui.button('.details-button',function(element) {

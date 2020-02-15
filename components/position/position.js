@@ -4,6 +4,7 @@
  *  @license    http://www.arikaim.com/license
  *  http://www.arikaim.com
  */
+"use strict";
 
 function Position() {
     var self = this;
@@ -14,6 +15,7 @@ function Position() {
             uuid: uuid,
             target_uuid: targetUuid 
         };
+        
         return arikaim.put('/core/api/ui/position/shift',data,onSuccess,onError);       
     };
 
@@ -23,6 +25,7 @@ function Position() {
             uuid: uuid,
             target_uuid: targetUuid 
         };
+
         return arikaim.put('/core/api/ui/position/swap',data,onSuccess,onError);           
     };
 }

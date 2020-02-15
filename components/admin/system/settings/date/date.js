@@ -1,3 +1,5 @@
+"use strict";
+
 $(document).ready(function() {
     $('#time_zone').dropdown({
         onChange: function(value, text, choice) {                 

@@ -1,3 +1,5 @@
+"use strict";
+
 $(document).ready(function() {
     $('#install_page_toggle').checkbox({
         onChecked: function() {

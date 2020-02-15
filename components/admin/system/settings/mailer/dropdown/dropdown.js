@@ -1,3 +1,5 @@
+"use strict";
+
 $(document).ready(function() {
     $('#mailer_settings_dropdown').dropdown({
         onChange: function(value, text, choice) {

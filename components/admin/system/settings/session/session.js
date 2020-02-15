@@ -1,3 +1,5 @@
+"use strict";
+
 $(document).ready(function() {
     arikaim.ui.form.addRules('#session_settings_form',{
         inline: false,

@@ -4,6 +4,7 @@
  *  @license    http://www.arikaim.com/license
  *  http://www.arikaim.com
  */
+"use strict";
 
 function Jobs() {
 
@@ -12,6 +13,7 @@ function Jobs() {
             uuid: uuid,
             status: 1 
         };
+        
         return arikaim.put('/core/api/jobs/status',data,onSuccess,onError)
     };
 
@@ -20,6 +22,7 @@ function Jobs() {
             uuid: uuid,
             status: 0 
         };
+
         return arikaim.put('/core/api/jobs/status',data,onSuccess,onError);           
     };
 
@@ -35,7 +38,7 @@ function Jobs() {
         },function(result) {
             callFunction(onSuccess,result);
         },function(error) {
-            callFunction(onError,result);
+            callFunction(onError,error);
         });
     };
 }

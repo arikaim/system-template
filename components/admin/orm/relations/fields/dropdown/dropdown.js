@@ -1,3 +1,5 @@
+"use strict";
+
 $(document).ready(function() {  
     $('.relations-field-dropdown').dropdown({
         onAdd: function(value, text, $choice) {

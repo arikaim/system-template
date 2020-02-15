@@ -1,10 +1,12 @@
+"use strict";
+
 $(document).ready(function() {
     install.init();
     install.initInstallForm();
 
     arikaim.ui.form.onSubmit('#install_form',function(element) {              
         progressBar.start({
-            interval: 250,
+            interval: 270,
             onComplete: function() {  
                 if (install.status == true) {
                     // installed
@@ -21,7 +23,11 @@ $(document).ready(function() {
         return install.install('#install_form');
         
     },function(result) {
-        install.installExtensions(function(result) {
+        arikaim.ui.form.disable('#install_form');
+        $('.submit-button').addClass('disabled');    
+        $('#continue_button').hide();
+
+        install.installExtensions(function(result) {          
             progressBar.reset();
             progressBar.hide(true);
             $('.submit-button').hide();      
@@ -35,6 +41,12 @@ $(document).ready(function() {
             $('#continue').show();
             $('#continue_button').show();
             install.status = true;
+        },function(error) {
+            progressBar.reset();
+            progressBar.hide(true);
+            $('#continue_button').hide();
+            $('.submit-button').show();
+            install.status = false;
         });
     },function(error) {
         progressBar.reset();

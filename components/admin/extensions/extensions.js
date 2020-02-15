@@ -4,11 +4,8 @@
  *  @license    http://www.arikaim.com/license
  *  http://www.arikaim.com
  */
+"use strict";
 
-/**
- *  @class  Extensions 
- *  Control panel extensions manager component
- */
 function Extensions() {
     var self = this;
     

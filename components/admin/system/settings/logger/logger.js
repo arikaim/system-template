@@ -1,3 +1,5 @@
+"use strict";
+
 arikaim.page.onReady(function() {
     $('.change-option').checkbox({
         onChecked: function() {

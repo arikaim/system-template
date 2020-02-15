@@ -4,6 +4,7 @@
  *  @license    http://www.arikaim.com/license
  *  http://www.arikaim.com
  */
+"use strict";
 
 function RelationsView() {
     var self = this;
@@ -48,9 +49,7 @@ function RelationsView() {
             var model = $(element).attr('model');
             var extension = $(element).attr('extension');
             var message = arikaim.ui.template.render(removeMessage,{ title: title });
-        
-            console.log(uuid);
-            
+           
             modal.confirmDelete({ 
                 title: component.getProperty('messages.remove.title'),
                 description: message

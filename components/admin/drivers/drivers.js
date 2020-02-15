@@ -4,6 +4,7 @@
  *  @license    http://www.arikaim.com/license
  *  http://www.arikaim.com
  */
+"use strict";
 
 function Drivers() {
     var self = this;
@@ -13,6 +14,7 @@ function Drivers() {
             name: name,
             status: 1
         };
+
         return arikaim.put('/core/api/driver/status',data,onSuccess,onError);          
     };
 
@@ -21,6 +23,7 @@ function Drivers() {
             name: name,
             status: 0
         };
+        
         return arikaim.put('/core/api/driver/status',data,onSuccess,onError);          
     };
 

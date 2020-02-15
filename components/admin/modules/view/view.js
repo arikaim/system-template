@@ -4,6 +4,7 @@
  *  @license    http://www.arikaim.com/license
  *  http://www.arikaim.com
  */
+"use strict";
 
 function ModulesView() {
     var self = this;
@@ -25,7 +26,7 @@ function ModulesView() {
                 self.init();
                 arikaim.ui.form.showMessage({
                     selector: '#message_' + name,
-                    message: message,
+                    message: error,
                     class: 'error',
                     removeClass: 'success'
                 });
@@ -48,7 +49,7 @@ function ModulesView() {
                 self.init();
                 arikaim.ui.form.showMessage({
                     selector: '#message_' + name,
-                    message: message,
+                    message: error,
                     class: 'error',
                     removeClass: 'success'
                 });
@@ -71,7 +72,7 @@ function ModulesView() {
                 self.init();
                 arikaim.ui.form.showMessage({
                     selector: '#message_' + name,
-                    message: message,
+                    message: error,
                     class: 'error',
                     removeClass: 'success'
                 });
@@ -94,7 +95,7 @@ function ModulesView() {
                 self.init();
                 arikaim.ui.form.showMessage({
                     selector: '#message_' + name,
-                    message: message,
+                    message: error,
                     class: 'error',
                     removeClass: 'success'
                 });

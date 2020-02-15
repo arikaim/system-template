@@ -4,6 +4,7 @@
  *  @license    http://www.arikaim.com/license
  *  http://www.arikaim.com
  */
+"use strict";
 
 function Session(recreateInterval) {
 
@@ -24,6 +25,7 @@ function Session(recreateInterval) {
             recreateHandler = setInterval(this.recreate,interval);
             return true;
         }
+        
         return false;
     };
 

@@ -4,6 +4,7 @@
  *  @license    http://www.arikaim.com/license
  *  http://www.arikaim.com
  */
+"use strict";
 
 function LanguagesView() {
     var self = this;
@@ -29,7 +30,6 @@ function LanguagesView() {
             },   
             stop: function(event, ui) {
                 endIndex = ui.item.index();
-
                 var uuid = items[startIndex];
                 var targetUuid = items[endIndex];
 

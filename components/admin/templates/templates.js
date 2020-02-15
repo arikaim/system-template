@@ -5,6 +5,7 @@
  *  @license    http://www.arikaim.com/license
  *  
  */
+"use strict";
 
 function Templates() { 
     var self = this;
