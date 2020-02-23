@@ -15,7 +15,7 @@
             </a>
         </div>   
         <div class="item" id="language_menu">
-            {{ component("components:language.dropdown") }}
+            {{ component("components:language.dropdown",{ selected: current_language }) }}
         </div>
         <div class="ui item tablet computer only column grid" id="user_menu">
             {{ component("system:admin.user-menu") }}
