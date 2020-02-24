@@ -1,23 +1,15 @@
 "use strict";
 
-arikaim.page.onReady(function() {
-    var languagesList;
-
-    arikaim.component.load('components:language',function(result) {
-        languagesList = arikaim.component.get('components:language');
-    });
+$(document).ready(function() {
    
     $('#languages_list').dropdown({
-        onChange: function(code) {
+        onChange: function(value, text, $choice) {
             arikaim.ui.form.clearErrors('#language_form');
-            var language = languagesList.getProperty(code);
-            $('#code').val(language.code);
-            $('#code_3').val(language.code_3);
-            $('#title').val(language.title);
-            $('#native_title').val(language.native_title);
-            if (isEmpty(language.country_code) == false) {
-                $('#country_code').dropdown('set selected',language.country_code.toLowerCase());
-            }
+
+            $('#code').val(value);
+            $('#code_3').val($($choice).attr('full-code'));
+            $('#title').val($($choice).attr('data-title'));
+            $('#native_title').val($($choice).attr('native-title'));
         }
     });  
 
