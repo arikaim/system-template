@@ -1,6 +1,6 @@
 "use strict";
 
-arikaim.page.onReady(function() {
+$(document).ready(function() {
     $('#country_code').dropdown({});
     
     arikaim.ui.form.addRules("#language_form",{

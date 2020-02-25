@@ -38,7 +38,7 @@ function Drivers() {
     this.loadConfigForm = function(name, elementId, onSuccess) {
         return arikaim.page.loadContent({
             id: elementId,
-            params: { name: name },
+            params: { driver_name: name },
             component: 'system:admin.modules.drivers.config.form'
         },function(result) {                  
             callFunction(onSuccess,result);

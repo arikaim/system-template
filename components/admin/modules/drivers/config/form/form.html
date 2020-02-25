@@ -1,6 +1,7 @@
-{% set config = service('driver').getConfig(name) %}
+{% set config = service('driver').getConfig(driver_name) %}
+
 <form class="ui equal width form" id="driver_config_form">
-    <input type="hidden" name="name" id="driver_name" value="{{ name }}">  
+    <input type="hidden" name="name" id="driver_name" value="{{ driver_name }}">  
     {{ component('components:properties.fields',{ properties: config }) }}
     {{ component('components:form.footer') }}   
 </form>
