@@ -1,5 +1,5 @@
-{% set module = package('module').getPackageProperties(name,true) %}
-<div class="ui raised card min-h-full" id="{{ module.name }}">
+{% set module = package('module').getPackageProperties(module_name,true) %}
+<div class="ui raised card" id="{{ module.name }}">
     <div class="content item"> 
         {% if module.installed == true %}
             {% if module.status == 0 %}            
@@ -26,11 +26,10 @@
             </div>
             {% endif %}
         </div>
-    </div>
-    <div class="content">
-        {{ module.description }}
-    </div>
-    <div class="content">
+        <div class="ui divider"></div>
+        <div class="p-2">
+            {{ module.description }}
+        </div>     
         <div class="ui list">
             <div class="item mt-1">
                 {{ component('system:admin.packages.requirements',{ items: module.require, name: module.name }) }}
@@ -44,8 +43,8 @@
                     </div>
                 {% endif %}                   
             </div> 
-        </div>               
-    </div>
+        </div>          
+    </div>      
     <div class="extra content">
         <div class="ui label mini blue basic">
             {{ labels.type }}

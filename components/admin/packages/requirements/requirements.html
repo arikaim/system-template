@@ -12,4 +12,18 @@
         </div>       
     </div>           
     {% endif %}
+
+    {% if items.extensions is not empty %}       
+    <div class="ml-3">
+        <b>{{ labels.extensions }}</b>             
+        <div class="ui list">
+        {% for item in items.extensions %}
+            <div class="item">
+                <i class="icon puzzle blue"></i>
+                {{ item }}
+            </div>
+        {% endfor %}
+        </div>
+    </div>           
+    {% endif %}
 </div>

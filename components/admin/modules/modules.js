@@ -16,7 +16,7 @@ function CoreModules() {
     this.loadModuleDetails = function(name, onSuccess, onError) {      
         return arikaim.page.loadContent({
             id: name,
-            params: { name: name },
+            params: { module_name: name },
             component: 'system:admin.modules.module',
             replace: true
         },onSuccess,onError);
