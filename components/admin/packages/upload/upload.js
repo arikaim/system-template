@@ -20,8 +20,8 @@ $(document).ready(function() {
             $('#type').html(type);
             $('#destination').html(result.destination);
 
-            if (result.current !== false) {
-                // show warning message             
+            if (isArray(result.current) == true || isObject(result.current) == true) {
+                // show warning message                          
                 arikaim.ui.show('#upload_alert');
             }
             $('#package_info').show();
