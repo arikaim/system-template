@@ -56,7 +56,13 @@
     <div class="ui grid">
         <div class="four wide column">
             {% if library.get('params-readonly',false) != true %}
-                {{ component('system:admin.libraries.library.params.form',{ library: library_name, params: library_params }) }}
+                {{  component('system:admin.libraries.library.params.form',{ 
+                        library: library_name, 
+                        params: library_params,
+                        show_label: true, 
+                        show_value: true 
+                    }) 
+                }}
             {% else %}
                 {{ component('system:admin.libraries.library.params',{ library: library_name, params: library_params }) }}
             {% endif %}

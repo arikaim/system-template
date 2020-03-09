@@ -18,6 +18,14 @@ function Packages() {
         return arikaim.put('/core/api/packages/update',data,onSuccess,onError);          
     };
 
+    this.confirmUpload = function(packageDir, onSuccess, onError) {
+        var data = {
+            package_directory: packageDir           
+        };
+
+        return arikaim.put('/core/api/packages/upload/confirm',data,onSuccess,onError);          
+    };
+
     this.updateComposerPackages = function(name, packageType, onSuccess, onError) {
         var data = { 
             name: name,

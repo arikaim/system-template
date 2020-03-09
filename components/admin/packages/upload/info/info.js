@@ -1,0 +1,36 @@
+"use strict";
+
+$(document).ready(function() {
+   
+    initButtons();
+
+    function initButtons() {
+        arikaim.ui.button('.confirm-upload-button',function(element) {  
+            var name = $('#name').html();
+
+            return packages.confirmUpload(name,function(result) {               
+                $('#package_info').hide();
+                $('#upload_panel').hide();
+                arikaim.ui.form.showMessage({
+                    selector: "#message",
+                    message: result.message,
+                    hide: 0
+                });
+            },function(error) {
+                arikaim.page.toastMessage({
+                    class: 'error',
+                    message: error
+                });
+            });
+        });
+    
+        arikaim.ui.button('.cancel-upload-button',function(element) {  
+            return arikaim.page.loadContent({
+                id: 'tab_content',           
+                component: 'system:admin.packages.upload'
+            },function(result) {
+                initButtons();
+            });
+        });
+    }
+});

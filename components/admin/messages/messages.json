@@ -87,6 +87,9 @@
     "composer": {
         "update": "Composer packages updated successfully."
     },
+    "package": {
+        "upload": "Package uploaded successfully."
+    },
     "errors": {
         "orm": {
             "relations": {
@@ -169,6 +172,9 @@
         "db": "Database config not valid.",
         "composer": {
             "update": "Can't install composer packages."
+        },
+        "package": {
+            "upload": "Can't upload package."
         }
     }
 }

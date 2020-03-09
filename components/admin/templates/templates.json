@@ -8,6 +8,10 @@
         },
         "store": {
             "content": "Store"
+        },
+        "upload": {
+            "content": "Upload",
+            "icon": "upload"
         }
     }               
 }

@@ -1,6 +1,9 @@
 {
     "include": {
-        "js": "system:admin.packages"
+        "js": [
+            "components:upload",
+            "system:admin.packages"
+        ]   
     },
     "access": {
         "auth": "session",

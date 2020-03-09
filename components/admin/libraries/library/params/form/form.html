@@ -2,8 +2,11 @@
 <form class="ui form" id="library_config" library="{{ library }}">
     {% for name,param in params %}
     <div class="field">
-        <label>{{ name }}</label>
-        <input name="{{ name }}" value="{{ param }}" type="text">
+        {% if show_label == true %}
+            <label>{{ name }}</label>
+        {% endif %}
+        {% set value = (show_value == true) ? param : '' %}            
+        <input name="{{ name }}" value="{{ value }}" type="text">
     </div>
     {% endfor %}
     {{ component('components:form.footer') }}
