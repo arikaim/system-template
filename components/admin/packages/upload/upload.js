@@ -19,6 +19,7 @@ $(document).ready(function() {
             var type = (result.package['package-type'] == 'template') ? 'theme' : result.package['package-type'];
             $('#type').html(type);
             $('#destination').html(result.destination);
+            $('#confirm_button').attr('package-directory',result.package_directory);
 
             if (isArray(result.current) == true || isObject(result.current) == true) {
                 // show warning message                          

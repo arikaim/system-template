@@ -6,7 +6,7 @@ $(document).ready(function() {
 
     function initButtons() {
         arikaim.ui.button('.confirm-upload-button',function(element) {  
-            var name = $('#name').html();
+            var name = $(element).attr('package-directory');
 
             return packages.confirmUpload(name,function(result) {               
                 $('#package_info').hide();
