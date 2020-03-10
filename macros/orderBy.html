@@ -1,5 +1,5 @@
 {# Show order by link #}
-{%- macro orderByLink(namespace,field,title,component_name) %}
+{%- macro orderByLink(namespace,field,title) %}
 {% set order = getOrderBy(namespace) %}
 {% if order[field] == 'asc' %}
     {% set icon = 'sort down' %}
