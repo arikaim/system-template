@@ -2,7 +2,7 @@
 <div class="ui stackable grid">
     <div class="row">
         <div class="ui two wide column">
-            {{ component('system:admin.templates.template',{ template: template, show_buttons: 0, show_requires: true }) }}
+            {{ component('system:admin.templates.template',{ template_name: template_name, show_buttons: 0, show_requires: true }) }}
         </div>
         <div class="ui four wide column">
             {{ component('system:admin.packages.repository',{ type: 'template', name: template.name, confirm_overwrite: true  }) }}

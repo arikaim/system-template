@@ -2,6 +2,7 @@
     "include": {
         "js": [
             "components:upload",
+            "components:image.modal",
             "system:admin.packages"
         ]   
     },

@@ -28,7 +28,8 @@
         </div>
     </div>
     <div class="content">      
-        {{ component('system:admin.templates.template.image',{ src: template.image.src }) }}                            
+        {% set src = (template.thumbnail is not empty) ? getTemplateUrl(template_name) ~ '/images/' ~ template.thumbnail : null %}     
+        {{ component('system:admin.templates.template.image',{ src: src }) }}                            
     </div>                   
     <div class="extra content">
         <p class="text-black">

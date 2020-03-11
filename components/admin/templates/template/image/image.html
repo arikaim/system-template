@@ -5,5 +5,7 @@
         </div>  
     </div>            
 {% else %}
-    <img class="ui image fluid rounded bordered" src="{{ template_url }}/images/{{ src }}">           
+    <a class="image-preview-button" data-src="{{ src }}">
+        <img class="ui image fluid rounded bordered" src="{{ src }}">   
+    </a>           
 {% endif %} 

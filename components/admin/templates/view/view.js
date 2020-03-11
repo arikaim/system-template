@@ -1,15 +1,17 @@
 /**
  *  Arikaim
- *  
  *  @copyright  Copyright (c) Konstantin Atanasov <info@arikaim.com>
  *  @license    http://www.arikaim.com/license
  *  http://www.arikaim.com
- * 
  */
 "use strict";
 
  function TemplatesView() { 
     var self = this;
+
+    this.showImagePreview = function(options) {
+        imagePreviewModal.show(options);         
+    };
 
     this.init = function() {       
     
@@ -70,6 +72,15 @@
         arikaim.ui.button('.details-button',function(element) {  
             var name = $(element).attr('template');          
             templates.showDetailsPage(name);
+            
+            return true;
+        });
+
+        arikaim.ui.button('.image-preview-button',function(element) {  
+            var image = $(element).attr('data-src');
+            self.showImagePreview({
+                images: [image]
+            });
             
             return true;
         });
