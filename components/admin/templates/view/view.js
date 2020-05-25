@@ -79,7 +79,8 @@
         arikaim.ui.button('.image-preview-button',function(element) {  
             var image = $(element).attr('data-src');
             self.showImagePreview({
-                images: [image]
+                images: [image],
+                hideTitle: true
             });
             
             return true;

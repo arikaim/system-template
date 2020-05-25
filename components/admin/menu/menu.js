@@ -22,6 +22,7 @@ function ControlPanelMenu() {
             $(element).addClass('active');       
             controlPanel.setPageTitle($(element).attr('page-title'));
             controlPanel.setPageIcon($(element).attr('page-icon'));
+            
             return arikaim.page.loadContent({
                 id: 'tool_content',
                 extension: $(element).attr('extension'),

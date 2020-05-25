@@ -1,5 +1,5 @@
 {% set user = service('access').getUser() %}
-<div class="ui w-full raised segment">   
+<div class="ui raised card fluid">   
     <div class="content">
         <h3 class="ui dividing header">
         {{ title }}
@@ -23,20 +23,10 @@
                 </div>
             </div>                  
             {{  component('components:form.footer',{ 
-                    button_title: buttons.login.title,
+                    button_title: buttons.login.title,                   
                     button_class: 'button large primary fluid login-button'
                 })
             }}                   
         </form>
     </div>    
-</div>
-<div class="ui horizontal list">
-    {% if user.email != false %}        
-        <div class="item">            
-            <a class="inline" id="forgotten_button">
-                <i class="unlock alternate icon"></i>                
-                {{ links.forgotten }}
-            </a>
-        </div>
-    {% endif %}
 </div>

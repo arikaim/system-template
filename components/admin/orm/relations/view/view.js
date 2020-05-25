@@ -4,16 +4,19 @@
  *  @license    http://www.arikaim.com/license
  *  http://www.arikaim.com
  */
-"use strict";
+'use strict';
 
 function RelationsView() {
     var self = this;
+    this.component;
 
     this.init = function() {
         var extension = $('#relation_rows').attr('extension');
         var model = $('#relation_rows').attr('model');
         var relationId = $('#relation_rows').attr('relation-id');
         
+        this.component = arikaim.component.get('system:admin.orm.relations.view');
+
         paginator.init('relation_rows',{ 
             name: 'system:admin.orm.relations.view.rows',
             params: {  
@@ -40,10 +43,8 @@ function RelationsView() {
             });
         });
 
-        arikaim.ui.button('.delete-relation',function(element) {
-            var component = arikaim.component.get('system:admin.orm.relations.view');
-            var removeMessage = component.getProperty('messages.remove.description');
-
+        arikaim.ui.button('.delete-relation',function(element) {           
+            var removeMessage = self.component.getProperty('messages.remove.description');
             var uuid = $(element).attr('uuid');
             var title = $(element).attr('data-title');
             var model = $(element).attr('model');
@@ -51,7 +52,7 @@ function RelationsView() {
             var message = arikaim.ui.template.render(removeMessage,{ title: title });
            
             modal.confirmDelete({ 
-                title: component.getProperty('messages.remove.title'),
+                title: self.component.getProperty('messages.remove.title'),
                 description: message
             },function() {
                 relations.delete(model,extension,uuid,
