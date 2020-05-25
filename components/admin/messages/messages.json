@@ -126,7 +126,9 @@
             "status": "Can't change language status.",
             "remove": "Can't remove language.",
             "add": "Can't add language.",
-            "update": "Can't update language."
+            "update": "Can't update language.",
+            "code": "Language code exists.",
+            "code3": "Language code 3 exists."
         },
         "logs": {
             "clear": "Can't clear logs."

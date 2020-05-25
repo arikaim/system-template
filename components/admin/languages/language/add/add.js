@@ -13,13 +13,14 @@ $(document).ready(function() {
         }
     });  
 
-    arikaim.ui.form.onSubmit('#language_form',function(data) {      
+    arikaim.ui.form.addRules('#language_form');
+
+    arikaim.ui.form.onSubmit('#language_form',function() {         
         return arikaim.post('/core/api/language/add','#language_form');
-    },function(result) {
+    },function(result) {      
         arikaim.ui.form.showMessage(result.message);
         arikaim.ui.form.clear('#language_form');
         languages.loadMenu();
     },function(error) {
-        arikaim.ui.form.showMessage(error);
     });
 });

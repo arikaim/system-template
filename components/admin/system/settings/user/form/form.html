@@ -1,9 +1,9 @@
 <form class="ui equal width form mt-8" id="user_settings_form"> 
-    <div class="field">
+    <div class="required field">
         <label>{{ fields.user_name.label }}</label> 
         <div class="ui left icon input">
             <i class="icon user"></i>
-            <input type="text" name="user_name" id="user_name" {{ fields.user_name.placeholder|attr('placeholder') }} value="{{ user.user_name }}">    
+            <input rule="minLength[2]" type="text" name="user_name" id="user_name" {{ fields.user_name.placeholder|attr('placeholder') }} value="{{ user.user_name }}">    
         </div>
     </div>            
     <div class="field">

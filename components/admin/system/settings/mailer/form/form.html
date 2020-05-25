@@ -20,14 +20,14 @@
                 {{ labels.smtp }}                                                
             </div>            
         </div>
-        <div class="field">
+        <div class="required field">
             <label>{{ fields.smtp.host.label }}</label> 
-            <input type="text" id="host" name="mailer.smpt.host" value="{{ options.mailer.smpt.host }}" {{ fields.smtp.host.placeholder|attr('placeholder') }}>                   
+            <input rule="empty" type="text" id="host" name="mailer.smpt.host" value="{{ options.mailer.smpt.host }}" {{ fields.smtp.host.placeholder|attr('placeholder') }}>                   
         </div>   
         <div class="two fields">
-            <div class="field">
+            <div class="required field">
                 <label>{{ fields.smtp.port.label }}</label> 
-                <input type="text" id="port" name="mailer.smpt.port" value="{{ options.mailer.smpt.port }}" {{ fields.smtp.port.placeholder|attr('placeholder') }}>                   
+                <input rule="empty" type="text" id="port" name="mailer.smpt.port" value="{{ options.mailer.smpt.port }}" {{ fields.smtp.port.placeholder|attr('placeholder') }}>                   
             </div> 
             <div class="field">
                 <label>{{ fields.smtp.ssl.label }}</label> 
@@ -38,15 +38,15 @@
             </div> 
         </div>          
         <div class="two fields">
-            <div class="field">
+            <div class="required field">
                 <label>{{ fields.smtp.user_name.label }}</label> 
-                <input type="text" id="user_name" name="mailer.username" value="{{ options.mailer.username }}" {{ fields.smtp.user_name.placeholder|attr('placeholder') }}>                   
+                <input rule="empty" type="text" id="user_name" name="mailer.username" value="{{ options.mailer.username }}" {{ fields.smtp.user_name.placeholder|attr('placeholder') }}>                   
             </div>
-            <div class="field">
+            <div class="required field">
                 <label>{{ fields.smtp.password.label }}</label> 
                 <div class="ui left icon right action input">
                     <i class="icon lock"></i>
-                    <input id="password" type="password" name="mailer.password" value="{{ options.mailer.password }}" {{ fields.smtp.password.placeholder|attr('placeholder') }}>   
+                    <input rule="empty" id="password" type="password" name="mailer.password" value="{{ options.mailer.password }}" {{ fields.smtp.password.placeholder|attr('placeholder') }}>   
                     <a class="ui icon basic link button view-password">               
                         <i class="eye slash outline icon"></i>
                     </a>

@@ -11,13 +11,14 @@ $(document).ready(function() {
     });    
 
     function initEditLanguageForm() {
-        arikaim.ui.form.onSubmit('#language_form',function(data) {      
+        arikaim.ui.form.addRules('#language_form');
+
+        arikaim.ui.form.onSubmit('#language_form',function() {      
             return arikaim.put('/core/api/language/update','#language_form');
         },function(result) {
             arikaim.ui.form.showMessage(result.message);
             languages.loadMenu();
-        },function(error) {
-            arikaim.ui.form.showMessage(error);
+        },function(error) {            
         });
     }
 

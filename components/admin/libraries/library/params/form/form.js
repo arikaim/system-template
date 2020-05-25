@@ -3,8 +3,7 @@
 $(document).ready(function() {
     arikaim.ui.form.addRules("#library_config",{
         inline: false,
-        fields: {
-        }
+        fields: {}
     });
 
     arikaim.ui.form.onSubmit('#library_config',function(data) {  

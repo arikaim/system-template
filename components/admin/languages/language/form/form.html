@@ -6,16 +6,16 @@
     <input type="hidden" name="uuid" id="uuid" value="{{ uuid }}">  
     <div class="field">
         <label>{{ title.label }}</label>
-        <input type="text" name="title" id="title" {{ title.placeholder|attr('placeholder') }} value="{{ language.title }}">  
+        <input rule="empty" type="text" name="title" id="title" {{ title.placeholder|attr('placeholder') }} value="{{ language.title }}">  
     </div>
     <div class="fields">
         <div class="field">
             <label>{{ code.label }}</label>
-            <input type="text" name="code" id="code" {{ code.placeholder|attr('placeholder') }} value="{{ language.code }}">  
+            <input rule="exactLength[2]" type="text" name="code" id="code" {{ code.placeholder|attr('placeholder') }} value="{{ language.code }}">  
         </div>    
         <div class="field">
             <label>{{ code_3.label }}</label>
-            <input type="text" name="code_3" id="code_3" {{ code_3.placeholder|attr('placeholder') }} value="{{ language.code_3 }}">  
+            <input rule="exactLength[3]" type="text" name="code_3" id="code_3" {{ code_3.placeholder|attr('placeholder') }} value="{{ language.code_3 }}">  
         </div>             
     </div>   
     <div class="field">
