@@ -8,13 +8,18 @@
 
 function Install() {
     var self = this;
+    this.status = false;
 
     this.install = function(formId, onSuccess, onError) {
-        return arikaim.post('/core/api/install',formId,onSuccess,onError);
+        return arikaim.post('/core/api/install/',formId,onSuccess,onError);
     };
 
     this.installExtensions = function(onSuccess, onError) {
         return arikaim.put('/core/api/install/extensions',{},onSuccess,onError);
+    };
+
+    this.postInstallActions = function(onSuccess, onError) {
+        return arikaim.put('/core/api/install/actions',{},onSuccess,onError);
     };
 
     this.repair = function(onSuccess, onError) {
@@ -46,6 +51,14 @@ function Install() {
             return arikaim.loadUrl('/admin',true); 
         });
     };
+
+    this.showError = function(error) {
+        progressBar.reset();
+        progressBar.hide(true);
+        $('#continue_button').hide();
+        $('.install-button').show();
+        this.status = false;      
+    }
 }
 
 var install = new Install();

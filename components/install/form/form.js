@@ -11,48 +11,50 @@ $(document).ready(function() {
                 if (install.status == true) {
                     // installed
                     $('#continue_button').show();
-                    $('.submit-button').hide();     
+                    $('.install-button').hide();     
                     progressBar.hide(true);               
                 } else {
                     // not yet installed or error 
                     $('#continue_button').hide();
-                    $('.submit-button').show();
+                    $('.install-button').show();
                 }
             }
         });
+        $('#progress').progress('set label','Installing Core');
+        
         return install.install('#install_form');
         
     },function(result) {
         arikaim.ui.form.disable('#install_form');
-        $('.submit-button').addClass('disabled');    
+        $('.install-button').addClass('disabled');    
         $('#continue_button').hide();
+        $('#progress').progress('set label','Installing Extensions');
 
-        install.installExtensions(function(result) {          
-            progressBar.reset();
-            progressBar.hide(true);
-            $('.submit-button').hide();      
-            arikaim.ui.form.showMessage({
-                selector: '#message',
-                hide: 0,
-                message: result.message
-            });
-            arikaim.ui.form.disable('#install_form');
-            $('#continue').removeClass('hidden');
-            $('#continue').show();
-            $('#continue_button').show();
-            install.status = true;
+        install.installExtensions(function(result) {    
+            $('#progress').progress('set label','Executing post install actions');
+
+            install.postInstallActions(function(result) {
+                progressBar.reset();
+                progressBar.hide(true);
+                $('.install-button').hide();      
+                arikaim.ui.form.showMessage({
+                    selector: '#message',
+                    hide: 0,
+                    message: result.message
+                });
+                arikaim.ui.form.disable('#install_form');
+                $('#continue').removeClass('hidden');
+                $('#continue').show();
+                $('#continue_button').show();
+                install.status = true;
+            },function(error) {
+                install.showError(error);
+            })  
+           
         },function(error) {
-            progressBar.reset();
-            progressBar.hide(true);
-            $('#continue_button').hide();
-            $('.submit-button').show();
-            install.status = false;
+            install.showError(error);
         });
     },function(error) {
-        progressBar.reset();
-        progressBar.hide(true);
-        $('#continue_button').hide();
-        $('.submit-button').show();
-        install.status = false;
+        install.showError(error);
     });
 });  
