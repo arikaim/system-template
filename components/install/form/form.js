@@ -6,47 +6,26 @@ $(document).ready(function() {
 
     arikaim.ui.form.onSubmit('#install_form',function(element) {              
         progressBar.start({
-            interval: 270,
-            onComplete: function() {  
-                if (install.status == true) {
-                    // installed
-                    $('#continue_button').show();
-                    $('.install-button').hide();     
-                    progressBar.hide(true);               
-                } else {
-                    // not yet installed or error 
-                    $('#continue_button').hide();
-                    $('.install-button').show();
-                }
-            }
+            interval: 270            
         });
-        $('#progress').progress('set label','Installing Core');
+        progressBar.setLabel($('#core_label').attr('label'));
         
         return install.install('#install_form');
         
     },function(result) {
+        install.step = 2;
         arikaim.ui.form.disable('#install_form');
         $('.install-button').addClass('disabled');    
         $('#continue_button').hide();
-        $('#progress').progress('set label','Installing Extensions');
-
+        progressBar.setLabel($('#extensions_label').attr('label'));
+      
         install.installExtensions(function(result) {    
-            $('#progress').progress('set label','Executing post install actions');
+            progressBar.setLabel($('#post_label').attr('label'));
 
+            $('#progress').progress('set label',);
+            install.step = 3;
             install.postInstallActions(function(result) {
-                progressBar.reset();
-                progressBar.hide(true);
-                $('.install-button').hide();      
-                arikaim.ui.form.showMessage({
-                    selector: '#message',
-                    hide: 0,
-                    message: result.message
-                });
-                arikaim.ui.form.disable('#install_form');
-                $('#continue').removeClass('hidden');
-                $('#continue').show();
-                $('#continue_button').show();
-                install.status = true;
+                install.showComplete(result.complete);
             },function(error) {
                 install.showError(error);
             })  

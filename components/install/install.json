@@ -2,7 +2,12 @@
     "title": "Install",
     "labels": {
         "database": "Database",   
-        "connection": "Connection settings"        
+        "connection": "Connection settings",
+        "install": {
+            "core": "Installing core",
+            "extensions": "Installing extensions",
+            "post": "Executing post install actions"
+        }        
     },
     "buttons": {       
         "continue": "Continue"          

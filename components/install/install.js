@@ -9,7 +9,8 @@
 function Install() {
     var self = this;
     this.status = false;
-
+    this.step = 1;
+  
     this.install = function(formId, onSuccess, onError) {
         return arikaim.post('/core/api/install/',formId,onSuccess,onError);
     };
@@ -44,6 +45,8 @@ function Install() {
     };
 
     this.init = function() {
+        this.step = 1;
+    
         progressBar.hide(true);
         $('#continue_button').hide();      
         
@@ -58,6 +61,23 @@ function Install() {
         $('#continue_button').hide();
         $('.install-button').show();
         this.status = false;      
+    }
+
+    this.showComplete = function(message) {
+        progressBar.reset();
+        progressBar.hide(true);
+        $('.install-button').hide();      
+        arikaim.ui.form.showMessage({
+            selector: '#message',
+            hide: 0,
+            message: message
+        });
+        arikaim.ui.form.disable('#install_form');
+        $('#continue').removeClass('hidden');
+        $('#continue').show();
+        $('#continue_button').show();
+
+        this.status = true;
     }
 }
 
