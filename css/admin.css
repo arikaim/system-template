@@ -35,6 +35,12 @@ body {
 .menu-item-title {
   font-size: 12pt!important;
 }
+.menu-item-title:hover {
+  cursor: pointer;
+}
+.admin-menu-link:hover {
+  background-color: #1c314e !important;
+}
 .borderless {
   border: none!important;
 }
