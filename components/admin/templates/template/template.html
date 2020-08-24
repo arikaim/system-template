@@ -48,12 +48,12 @@
     <div class="extra content">
         <div class="ui mini fluid buttons">                              
             {% if template.name != system_template_name %}
-                <button class="ui button basic olive update-button" template="{{ template.name }}">
+                <button class="ui button basic olive update-button {{ (demo_mode == true) ? 'disabled' : ''}}" template="{{ template.name }}">
                     <i class="icon refresh"></i>
                     {{ buttons.update.content }}
                 </button>
                 {% set disabled = (template.name == primary_template) ? 'disabled' : '' %}                 
-                <button class="ui button basic set-primary {{ disabled }}" template="{{ template.name }}">
+                <button class="ui button basic set-primary {{ disabled }} {{ (demo_mode == true) ? 'disabled' : ''}}" template="{{ template.name }}">
                     <i class="icon angle double up"></i>      
                     {{ buttons.primary.content }}
                 </button>                                     

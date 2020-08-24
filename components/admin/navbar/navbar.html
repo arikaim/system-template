@@ -7,8 +7,14 @@
             <img class="pt-1 mt-1" width="28px" height="28px" alt="{{ brand.image.alt }}" src="{{ template_url }}/images/{{ brand.image.src }}">
             <span class="pb-2 align-middle text-white" style="display:inline">Arikaim</span> 
         </div>
+      
     </div>           
     <div class="ui inverted right menu mr-3 bg-gray-700 dark-color">    
+        {% if demo_mode == true %}
+        <div class="item">
+            <div class="ui red label" title="{{ labels.disabled }}"">{{ labels.demo }}</div>
+        </div>      
+        {% endif %}
         <div class="ui item tablet computer only column grid">
             <a title="{{ hint.view }}" href="{{ site_url }}" target="site">               
                 <i class="columns icon blue"></i>

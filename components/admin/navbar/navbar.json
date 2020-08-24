@@ -8,5 +8,9 @@
     },
     "hint": {
         "view": "View Site"
-    }           
+    },
+    "labels": {
+       "demo": "Demo Mode",
+       "disabled": "Some features are disabled"     
+    }         
 }

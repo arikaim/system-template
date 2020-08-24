@@ -9,7 +9,9 @@
         <input name="{{ name }}" value="{{ value }}" type="text">
     </div>
     {% endfor %}
-    {{ component('components:form.footer') }}
+    {% if demo_mode == false %}
+        {{ component('components:form.footer') }}
+    {% endif %}
 </form>
 {% else %}
 <div>..</div>

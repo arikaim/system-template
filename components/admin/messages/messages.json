@@ -63,6 +63,9 @@
         "update": "Template was updated successfully.",
         "primary": "Template was set primary successfully."
     },
+    "themes": {
+        "update": "Theme package was downloaded successfully."
+    },
     "core": {
         "update": "Arikaim core was updated successfully."
     },
@@ -174,6 +177,9 @@
         "db": "Database config not valid.",
         "composer": {
             "update": "Can't install composer packages."
+        },
+        "themes": {
+            "update": "Can't download theme package."
         },
         "package": {
             "upload": "Can't upload package."
