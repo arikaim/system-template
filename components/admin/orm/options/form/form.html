@@ -17,6 +17,10 @@
                 {{ component('system:admin.orm.options.form.fields.price',{ option: option }) }}       
             {% elseif option.type.type == option.type.TEXTAREA() %}      
                 {{ component('system:admin.orm.options.form.fields.textarea',{ option: option }) }}
+            {% elseif option.type.type == option.type.USERGROUP() %}      
+                {{ component('system:admin.orm.options.form.fields.group',{ option: option }) }}
+            {% elseif option.type.type == option.type.PERMISSION() %}      
+                {{ component('system:admin.orm.options.form.fields.permission',{ option: option }) }}
             {% endif %}
         {% endfor %}
         {{ component('components:form.footer') }}

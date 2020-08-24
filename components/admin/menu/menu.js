@@ -35,7 +35,10 @@ function ControlPanelMenu() {
         arikaim.page.loadContent({
             id: 'extensions_menu',           
             component: "system:admin.menu.extensions",
-            params: { type: 0, status: 1 }
+            params: { 
+                type: 0,
+                status: 1 
+            }
         },function(result) {
             self.init();
         });
@@ -63,6 +66,6 @@ function ControlPanelMenu() {
 
 var menu = new ControlPanelMenu();
 
-arikaim.page.onReady(function() {
+$(document).ready(function() {
     menu.init();    
 });

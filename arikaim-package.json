@@ -4,7 +4,7 @@
     "package-type": "template",
     "description": "Arikaim CMS Control Panel",
     "repository": "https://github.com/arikaim/system-template.git",
-    "version": "1.2.11",
+    "version": "1.2.12",
     "icon": "sliders horizontals",
     "image": {
         "src": "",
@@ -17,8 +17,8 @@
         "library": [
             "jquery",
             "jquery-ui",   
-            "arikaim",
-            "arikaim-ui",
+            "arikaim:admin",
+            "arikaim-ui:admin",
             "fomantic",
             "filepond",
             "markdown-editor",

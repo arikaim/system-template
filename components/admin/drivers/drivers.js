@@ -7,8 +7,7 @@
 "use strict";
 
 function Drivers() {
-    var self = this;
-  
+    
     this.enable = function(name, onSuccess, onError) {
         var data = {
             name: name,
