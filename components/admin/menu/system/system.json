@@ -44,7 +44,7 @@
                 "page-title": "System"
             },
             "logout": { 
-                "component": "system:admin.logout",
+                "component": "system:logout",
                 "icon": "sign out",
                 "title": "Log out",
                 "page-icon": "sign out",
