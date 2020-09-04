@@ -1,6 +1,6 @@
 {% set language = createModel('Language') %}
 {% set language = language.orderBy('position') %}
-{% set items = paginate(language) %}
+{% set items = paginate(language,'language') %}
 
 {% if demo_mode == true %}
     <div class="ui warning message">
