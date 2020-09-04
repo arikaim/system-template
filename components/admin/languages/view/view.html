@@ -2,6 +2,14 @@
 {% set language = language.orderBy('position') %}
 {% set items = paginate(language) %}
 
+{% if demo_mode == true %}
+    <div class="ui warning message">
+        <h4>
+            {{ labels.demo }}
+        </h4>
+    </div>
+{% endif %}
+
 {{ component("system:position") }}
 <div class="ui stackable cards" id="languages_list">
     {% for item in items.getItems() %}
