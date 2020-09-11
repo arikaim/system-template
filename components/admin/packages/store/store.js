@@ -7,8 +7,7 @@
 "use strict";
 
 function ArikaimStore() {
-    var self = this;
-    
+    var self = this;    
 }
 
 var arikaimStore = new ArikaimStore();

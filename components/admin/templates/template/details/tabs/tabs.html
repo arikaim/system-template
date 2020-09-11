@@ -29,6 +29,10 @@
     <a class="item" data-tab="routes_tab">
         <i class="icon blue linkify"></i>
         {{ tabs.routes.content }}
+    </a> 
+    <a class="item" data-tab="languages_tab">
+        <i class="icon blue globe"></i>
+        {{ tabs.languages.content }}
     </a>   
 </div>
 <div class="ui bottom attached tab segment active {{ tabs.styles.class }}" data-tab="themes_tab">
@@ -45,4 +49,7 @@
 </div>
 <div class="ui bottom attached tab segment {{ tabs.pages.class }}" data-tab="routes_tab">      
     {{ component('system:admin.extensions.extension.routes',{ routes: template.routes }) }}
+</div>
+<div class="ui bottom attached tab segment {{ tabs.languages.class }}" data-tab="languages_tab">      
+    {{ component('system:admin.templates.template.details.languages',{ languages: template.languages }) }}
 </div>

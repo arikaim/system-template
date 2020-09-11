@@ -17,6 +17,9 @@
         },
         "routes": {
             "content": "Routes"
+        },
+        "languages": {
+            "content": "Languages"
         }
     },
     "labels": {
