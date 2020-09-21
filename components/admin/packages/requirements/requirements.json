@@ -1,9 +1,0 @@
-{
-    "labels": {
-        "title": "Requirements",
-        "composer": "Composer packages",
-        "extensions": "Extensions",
-        "update": "Update Packages",
-        "version": "version"       
-    }
-}

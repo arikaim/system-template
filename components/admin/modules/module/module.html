@@ -29,11 +29,16 @@
         <div class="ui divider"></div>
         <div class="p-2">
             {{ module.description }}
-        </div>     
-        <div class="ui list">
-            <div class="item mt-1">
-                {{ component('system:admin.packages.requirements',{ items: module.require, name: module.name }) }}
-            </div>           
+        </div>                   
+        {% set package = package('module').createPackage(module_name) %}
+        {% set items = package.validator.validate() %} 
+        {% if items.count > 0 %}    
+            <div class="ui divider"></div>     
+            <div class="content mt-1">    
+                {{ component('system:admin.packages.requires',{ items: items }) }}               
+            </div> 
+        {% endif %}
+        <div class="ui list">                  
             <div class="item mt-1">
                 {% if module.type == 'service' %}
                     {{ labels.service_name }}
@@ -45,7 +50,7 @@
             </div> 
         </div>          
     </div>      
-    <div class="extra content">
+    <div class="content item">
         <div class="ui label mini blue basic">
             {{ labels.type }}
             <div class="detail text-gray-800">                    

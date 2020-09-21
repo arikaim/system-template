@@ -1,28 +1,41 @@
 {% set extension = package('extension').getPackageProperties(extension_name,true) %}
-<div class="ui stackable internally celled grid">
-    <div class="row">
+<div class="ui stackable grid">
+    <div class="stretched row">
         <div class="ui four wide column">
-            <div class="ui header">
-                <i class="left floated rounded big bordered blue icon {{ extension.get('admin_menu').icon }}"></i>  
-                <div class="content">
-                    {{ extension.title }} 
-                    <div class="ui basic mini label">
-                        {{ labels.version }}
-                        <div class="detail">
-                            {{ extension.version }}
+            <div class="ui segment">
+                <div class="ui header">
+                    <i class="left floated rounded big bordered blue icon {{ extension.get('admin_menu').icon }}"></i>  
+                    <div class="content">
+                        {{ extension.title }} 
+                        <div class="ui basic mini label">
+                            {{ labels.version }}
+                            <div class="detail">
+                                {{ extension.version }}
+                            </div>
                         </div>
-                    </div>
-                    {% if extension.primary == 1 %}     
-                    <div class="ui right floated green mini label primary-label">               
-                        {{ labels.primary }}            
-                    </div>  
-                    {% endif %}
-                    <div class="sub header">{{ extension.description }}</div>
-                </div> 
+                        {% if extension.primary == 1 %}     
+                        <div class="ui right floated green mini label primary-label">               
+                            {{ labels.primary }}            
+                        </div>  
+                        {% endif %}
+                        <div class="sub header">{{ extension.description }}</div>
+                    </div> 
+                </div>
             </div>
+            {% set package = package('extension').createPackage(extension_name) %}
+            {% set items = package.validator.validate() %}  
+            {% if items.count > 0 %}
+                <div class="mt-1">                   
+                    <div class="ui segment">
+                        {{ component('system:admin.packages.requires',{ items: items }) }}     
+                    </div>                                                        
+                </div> 
+            {% endif %}    
         </div>
-        <div class="ui four wide column">
-            {{ component('system:admin.packages.repository',{  type: 'extension', name: extension.name }) }}
+        <div class="ui twelve wide column">
+            <div class="ui segment fluid">
+                {{ component('system:admin.packages.repository',{  type: 'extension', name: extension.name }) }}
+            </div>
         </div>
     </div>
 </div>

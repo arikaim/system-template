@@ -30,30 +30,34 @@
     <div class="content">      
         {% set src = (template.thumbnail is not empty) ? getTemplateUrl(template_name) ~ '/images/' ~ template.thumbnail : null %}     
         {{ component('system:admin.templates.template.image',{ src: src }) }}                            
-    </div>                   
+    </div>              
+    {% if template.description is not empty %}     
     <div class="extra content">
         <p class="text-black">
             {{ template.description }}
         </p>                
     </div>
+    {% endif %}
     <div class="p-2">
         <div class="ui success mini message opacity-0 m-2" id="message_{{ template.name }}"></div>
     </div> 
     {% if show_requires == true %}
-    <div class="content">
-        {{ component('system:admin.templates.template.requires',{ items: template.requires.library }) }}               
+    <div class="content">       
+        {% set package = package('template').createPackage(template_name) %}
+        {% set items = package.validator.validate() %}       
+        {{ component('system:admin.packages.requires',{ items: items }) }}               
     </div> 
     {% endif %}
     {% if show_buttons == true %}
     <div class="extra content">
         <div class="ui mini fluid buttons">                              
             {% if template.name != system_template_name %}
-                <button class="ui button basic olive update-button {{ (demo_mode == true) ? 'disabled' : ''}}" template="{{ template.name }}">
+                <button class="ui button basic olive update-button {{ (demo_mode == true) ? 'disabled' : '' }}" template="{{ template.name }}">
                     <i class="icon refresh"></i>
                     {{ buttons.update.content }}
                 </button>
                 {% set disabled = (template.name == primary_template) ? 'disabled' : '' %}                 
-                <button class="ui button basic set-primary {{ disabled }} {{ (demo_mode == true) ? 'disabled' : ''}}" template="{{ template.name }}">
+                <button class="ui button basic set-primary {{ disabled }} {{ (demo_mode == true) ? 'disabled' : '' }}" template="{{ template.name }}">
                     <i class="icon angle double up"></i>      
                     {{ buttons.primary.content }}
                 </button>                                     

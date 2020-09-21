@@ -1,8 +1,13 @@
 {% if name is not empty %}
-{% set repository = package(type).getRepository(name) %}
+    {% set repository = package(type).getRepository(name) %}
 {% endif %}
 {% set confirm_overwrite = confirm_overwrite|default(false) %}
-<h4>{{ labels.repository }}</h4>
+<div class="ui header mini">
+    <i class="icon box open blue"></i>
+    <div class="content">
+        {{ labels.repository }}
+    </div>
+</div>
 {% if repository is empty %}
     <div class="ui basic blue label">{{ labels.empty }}</div>            
 {% else %}
