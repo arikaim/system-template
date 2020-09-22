@@ -12,6 +12,7 @@
         "error": "Error",
         "disable": "Disable",
         "enable": "Enable",      
+        "details": "Details",
         "service_name": "Service name"
     },
     "messages": {

@@ -45,5 +45,8 @@
         "send": {
             "content": "Send"
         }
-    }   
+    },
+    "messages": {
+        "demo": "Disabled in demo mode"
+    }  
 }

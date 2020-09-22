@@ -6,11 +6,3 @@
 {{ component('system:admin.packages.requires.items',{ title: labels.module, items: items.modules, icon: 'plug' }) }}  
 {{ component('system:admin.packages.requires.items',{ title: labels.theme, items: items.themes, icon: 'browser' }) }}    
 {{ component('system:admin.packages.requires.items',{ title: labels.composer, items: items.composer, icon: 'code' }) }}   
-{% if items.composer is not empty %}           
-    <div class="mt-2">
-        <button class="ui mini primary basic button module-button update-composer" name="{{ name }}">    
-            <i class="icon download"></i> 
-            {{ labels.update }}
-        </button>      
-    </div>                 
-{% endif %}

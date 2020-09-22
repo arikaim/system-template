@@ -29,26 +29,7 @@
         <div class="ui divider"></div>
         <div class="p-2">
             {{ module.description }}
-        </div>                   
-        {% set package = package('module').createPackage(module_name) %}
-        {% set items = package.validator.validate() %} 
-        {% if items.count > 0 %}    
-            <div class="ui divider"></div>     
-            <div class="content mt-1">    
-                {{ component('system:admin.packages.requires',{ items: items }) }}               
-            </div> 
-        {% endif %}
-        <div class="ui list">                  
-            <div class="item mt-1">
-                {% if module.type == 'service' %}
-                    {{ labels.service_name }}
-                    <div class="ml-1 font-bold">                      
-                        <i class="icon angle right"></i>
-                        {{ module.service_name }}
-                    </div>
-                {% endif %}                   
-            </div> 
-        </div>          
+        </div>                           
     </div>      
     <div class="content item">
         <div class="ui label mini blue basic">
@@ -104,6 +85,10 @@
                 <i class="icon download"></i> 
                 {{ labels.install }}
             </button>
-        {% endif %}              
+        {% endif %}    
+        <button class="ui basic mini right floated button module-button details-button" name="{{ module.name }}">    
+            <i class="icon list layout"></i> 
+            {{ labels.details }}
+        </button>          
     </div>
 </div>

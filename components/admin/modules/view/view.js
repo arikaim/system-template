@@ -10,6 +10,20 @@ function ModulesView() {
     var self = this;
 
     this.init = function() {
+    };
+
+    this.initRows = function() {
+
+        arikaim.ui.button('.details-button',function(element) {    
+            var name = $(element).attr('name');
+
+            return arikaim.page.loadContent({
+                id: 'tab_content',
+                component: 'system:admin.modules.module.details',        
+                params: { module: name }                    
+            });
+        });
+
         arikaim.ui.button('.install-button',function(element) {          
             var name = $(element).attr('name');
 
@@ -101,37 +115,11 @@ function ModulesView() {
                 });
             });
         });
-
-        arikaim.ui.button('.update-composer',function(element) {          
-            var name = $(element).attr('name');
-         
-            return packages.updateComposerPackages(name,'module',function(result) {
-                var message = result.message;  
-                arikaim.ui.form.showMessage({
-                    selector: '#message_' + name,
-                    message: message
-                });     
-                arikaim.page.loadContent({
-                    id: "composer_packages_" + name,
-                    params: { name: name },
-                    loaderClass: 'ui active inline centered mini blue loader',
-                    component: 'system:admin.packages.requirements.composer-packages',
-                    replace: true
-                });
-            },function(error) { 
-                arikaim.ui.form.showMessage({
-                    selector: '#message_' + name,
-                    message: error,
-                    class: 'error',
-                    removeClass: 'success'
-                }); 
-            });
-        });
     };
 }
 
 var modulesView = new ModulesView();
 
-arikaim.page.onReady(function() {   
-    modulesView.init();
+$(document).ready(function() {   
+    modulesView.initRows();
 });

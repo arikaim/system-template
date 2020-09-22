@@ -1,0 +1,10 @@
+<div class="ui stackable centered grid mt-4">
+    <div class="ui two wide column center aligned">
+        {{ component("system:admin.modules.dropdown",{ selected : module, class: 'fluid' }) }}  
+    </div>                
+</div>    
+<div id="module_details" class="mt-4">   
+{% if module != "" %}  
+    {{ component("system:admin.modules.module.details.tabs",{ module_name : module }) }}
+{% endif %}
+</div>

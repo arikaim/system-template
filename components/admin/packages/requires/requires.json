@@ -5,7 +5,6 @@
         "extension": "Extensions",
         "module": "Modules",
         "theme": "Themes",
-        "update": "Update Packages",
-        "composer": "Composer Packages"
+        "update": "Update Packages"        
     }
 }
