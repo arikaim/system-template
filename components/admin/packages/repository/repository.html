@@ -14,7 +14,7 @@
     <div>
         <div class="ui basic label">{{ repository.getRepositoryUrl() }}</div> 
         {% if repository.isPrivate() == true %}
-        <div class="ui basic blue label">{{ labels.private }}</div> 
+            <div class="ui basic blue label">{{ labels.private }}</div> 
         {% endif %}
         <div class="mt-4" id="package_version_content" package-name="{{ name }}" package-type="{{ type }}" confirm-overwrite="{{ confirm_overwrite }}">             
         </div>

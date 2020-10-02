@@ -3,15 +3,15 @@
 {% set data = result|jsonDecode %}
 
 {% for item in data.result.items %}           
-{% set installed = package_manager.hasPackage(item.options_list['package-name']) %}      
-{% if installed == true %}
-    {% set current_version = package_manager.createPackage(item.options_list['package-name']).getVersion() %}
-{% endif %}          
-{{  component('system:admin.packages.store.view.card',{ 
-        item: item, 
-        type: type,
-        current_version: current_version,
-        installed: package_manager.hasPackage(item.options_list['package-name']) 
-    }) 
-}}
+    {% set installed = package_manager.hasPackage(item.options_list['package-name']) %}     
+    {% if installed == true %}
+        {% set current_version = package_manager.createPackage(item.options_list['package-name']).getVersion() %}
+    {% endif %}       
+    {{  component('system:admin.packages.store.view.card',{ 
+            item: item, 
+            type: type,
+            current_version: current_version,
+            installed: package_manager.hasPackage(item.options_list['package-name']) 
+        }) 
+    }}
 {% endfor %}

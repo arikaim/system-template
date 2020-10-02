@@ -41,25 +41,27 @@
             </div>
         </div>    
     </div>
-    <div class="extra content">                       
+    <div class="extra content">                  
         {% if installed == false %}
-        <button 
-            class="ui primary button install-package" 
-            uuid="{{ item.uuid  }}" 
-            package-type="{{ type }}" 
-            package-name="{{ item.options_list.repository }}" 
-            repository-type="{{ item.options_list['repository-type'] }}">
-            {{ labels.install }}
-        </button> 
-        {% else %}      
-        <button 
-            class="ui primary button update-package" 
-            uuid="{{ item.uuid  }}" 
-            package-type="{{ type }}" 
-            package-name="{{ item.options_list['package-name'] }}" 
-            repository-type="{{ item.options_list['repository-type'] }}">
-            {{ labels.update }}
-        </button> 
+            <button 
+                class="ui primary button install-package disabled" 
+                uuid="{{ item.uuid }}" 
+                package-type="{{ type }}" 
+                package-name="{{ item.options_list.repository }}" 
+                repository-type="{{ item.options_list['repository-type'] }}"
+                id="install_button_{{ item.uuid }}">
+                {{ labels.install }}
+            </button> 
+            {% else %}      
+            <button 
+                class="ui primary button update-package disabled" 
+                uuid="{{ item.uuid }}" 
+                package-type="{{ type }}" 
+                package-name="{{ item.options_list['package-name'] }}" 
+                repository-type="{{ item.options_list['repository-type'] }}"
+                id="install_button_{{ item.uuid }}">
+                {{ labels.update }}
+            </button>            
         {% endif %}
         {{  component('components:repository.link',{ 
                 package: item.options_list.repository,

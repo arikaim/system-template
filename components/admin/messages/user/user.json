@@ -6,7 +6,7 @@
         "password": "New password and repeat password not mach.",
         "invalid": "Not valid password.",
         "username": "User name not valid.",
-        "login": "Not valid login details",
-        "email": "Email not valid"
+        "login": "Not valid login details.",
+        "email": "Email not valid."
     }
 }

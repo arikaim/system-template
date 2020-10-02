@@ -8,7 +8,7 @@
     },
     "labels": {
         "enabled": "Enabled",
-        
+        "driver": "Driver",
         "disabled": "Disabled",
         "status": "Status"           
     }

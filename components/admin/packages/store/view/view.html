@@ -1,16 +1,25 @@
-{% component 'system:admin.packages.store' %}
-    <div class="ui stackable grid">
-        <div class="sixteen wide column mt-2">                       
-        </div>
-    </div>
+<div class="ui header bg-gray-200 p-2">
+    <div class="content p-2">
+        <i class="icon box open blue"></i>            
+        {{ title }}
+    </div>    
+</div>
+{% if arikaimStore().hasCurl() == false %}
+    <div class="ui five column grid">
+        <div class="column">
+            {{ component('components:message.error',{ message: message }) }}
+        </div>        
+    </div>    
+{% else %}
     <div class="ui stackable text menu">
         <div class="item right floated">       
             {{ component('components:paginator.dropdown',{ namespace: 'packages' }) }}
         </div>
-    </div>
+    </div> 
     <div class="ui stackable six cards mt-1" id="packages_list"> 
         {{ component('system:admin.packages.store.view.rows',{ type: type }) }}
     </div>
     <div id="paginator" class="mt-1">
+        {{ component('components:paginator',{ namespace: 'packages' }) }}
     </div>
-{% endcomponent %}
+{% endif %}

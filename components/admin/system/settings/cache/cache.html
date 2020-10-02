@@ -4,6 +4,10 @@
 
 {% component 'components:tabs.vertical.content' %}
 <div class="ui equal width form mt-8">    
+    <div class="ui segment mt-2">
+        <h4>{{ labels.driver }}</h4>
+        {{ component('system:admin.system.settings.cache.driver',{ class: 'button basic' }) }}
+    </div>
     <div class="ui mt-2" id="cache_info">
         {% if status == true %}
             {{ component('system:admin.system.settings.cache.info',{ stats: stats }) }}

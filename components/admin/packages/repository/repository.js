@@ -69,7 +69,7 @@ function PackageRepository() {
             id: 'package_version_content',
             component: 'system:admin.packages.repository.version',
             params: { 
-                name: name,
+                package_name: name,
                 type: type,
                 confirm_overwrite: confirm
             }

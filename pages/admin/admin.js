@@ -20,7 +20,3 @@ function ControlPanel() {
 }
 
 var controlPanel = new ControlPanel();
-
-$(document).ready(function() {   
-    arikaim.page.loadProperties();
-});

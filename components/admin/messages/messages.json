@@ -75,6 +75,7 @@
     "cache": {
         "clear": "Cache was cleared successfully.",
         "enabled": "Cache was enabled successfully.",
+        "driver": "Cache driver was set successfully.",
         "disabled": "Cache was disabled successfully."
     },
     "orm": {
@@ -94,6 +95,8 @@
         "upload": "Package uploaded successfully."
     },
     "errors": {
+        "id": "Not valid id",
+        "class": "Not valid model class or extension name",
         "orm": {
             "relations": {
                 "delete": "Can't delete relation.",
@@ -182,7 +185,16 @@
             "update": "Can't download theme package."
         },
         "package": {
-            "upload": "Can't upload package."
+            "upload": "Can't upload package.",
+            "name": "Not valid package name.",
+            "temp": "Package temp directory not exists.",
+            "json": "Not valid or missing arikaim-package.json file."
+        },
+        "cache": {
+            "writable": "Cant't set cache dir writable!",
+            "driver": "Can't change cache driver.",
+            "disable": "Can't disable cache.",
+            "enable": "Can't enable cache."
         }
     }
 }

@@ -4,7 +4,7 @@
  *  @license    http://www.arikaim.com/license
  *  http://www.arikaim.com
  */
-"use strict";
+'use strict';
 
 function Cache() {
     var self = this;
@@ -17,11 +17,27 @@ function Cache() {
         return arikaim.put('/core/api/cache/disable',null,onSuccess,onError);
     };
 
+    this.setDriver = function(driverName, onSuccess, onError) { 
+        var data = { 
+            name: driverName
+        };
+
+        return arikaim.put('/core/api/cache/driver',data,onSuccess,onError);
+    };
+
     this.clear = function(onSuccess, onError) {      
         return arikaim.delete('/core/api/cache/clear',onSuccess,onError);
     };
 
     this.init = function() {   
+        $('#cache_driver_dropdown').dropdown({
+            onChange: function(value) {
+                self.setDriver(value,function(result) {
+                    arikaim.page.toastMessage(result.message);
+                });
+            }
+        });
+
         $('.enable-dropdown').dropdown({
             onChange: function(value) {
                 if (value == 1) {

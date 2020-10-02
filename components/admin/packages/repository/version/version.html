@@ -1,20 +1,20 @@
-{% if name is not empty %}
-    {% set repository = package(type).getRepository(name) %}
-    {% set package = package(type).createPackage(name) %}
+{% if package_name is not empty %}
+    {% set repository = package(type).getRepository(package_name) %}
+    {% set package = package(type).createPackage(package_name) %}
 {% endif %}
 {% set confirm_overwrite = confirm_overwrite|default(false) %}
-<span>
+<div class="ui basic label">
     {% if repository is not empty %}      
         {% set lastVersion = repository.getLastVersion() %}
         {% if lastVersion is not empty  %}
             {{ labels.version }} 
-            <span>{{ lastVersion }}</span>
+            <span class="ui text bold">{{ lastVersion }}</span>
         {% endif %}
     {% endif %}
-</span>
-<div class="mt-2">    
+</div>
+<div class="mt-2">      
     {% if repository.getLastVersion() is versionCompare(package.getVersion())  %}     
-        <div class="ui green button update-repository-button" package-name="{{ name }}" package-type="{{ type }}">
+        <div class="ui green button update-repository-button" package-name="{{ package_name }}" package-type="{{ type }}">
             <i class="icon download"></i>
             {{ labels.install }}
         </div>

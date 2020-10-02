@@ -10,6 +10,7 @@ function ArikaimStoreView() {
     var self = this;
 
     this.initRows = function() {
+
         $('.package-version').each(function(index) {
             var packageName = $(this).attr('package');
             var uuid = $(this).attr('uuid');
@@ -18,7 +19,18 @@ function ArikaimStoreView() {
                 id: 'version_' + uuid,           
                 component: "components:repository.version",
                 loaderClass: 'ui active inline centered mini blue loader',
-                params: { package: packageName }
+                params: { 
+                    package: packageName,
+                    class: 'version-' + uuid 
+                }
+            },function(result) {              
+                var repoVersion = $('.version-' + uuid).html().trim();
+                var verison = $('#current_' + uuid).html().trim();
+            
+                var update = arikaim.text.versionCompare(verison,repoVersion);
+                if (update == true) {
+                    $('#install_button_' + uuid).removeClass('disabled');
+                }
             });
         });
         
