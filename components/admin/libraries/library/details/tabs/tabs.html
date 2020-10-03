@@ -1,6 +1,7 @@
 {% set library = package('library').getPackageProperties(library_name,true) %}
 {% set params = getOption('library.params',null) %}
 {% set library_params = (params[library_name] is empty) ? library.params : params[library_name] %}
+
 <div class="ui stackable grid">
     <div class="stretched row">
         <div class="ui four wide column">
@@ -54,6 +55,10 @@
     <a class="item" data-tab="files_tab">
         <i class="icon blue outline file"></i>
         {{ labels.files }}
+    </a>  
+    <a class="item" data-tab="versions_tab">
+        <i class="icon blue code branch"></i>
+        {{ labels.verisons }}
     </a>     
 </div>
 <div class="ui bottom attached tab segment active" data-tab="params_tab">
@@ -75,4 +80,7 @@
 </div>
 <div class="ui bottom attached tab segment" data-tab="files_tab">
     {{ component('system:admin.libraries.library.files',{ files: library.files }) }}
+</div>
+<div class="ui bottom attached tab segment" data-tab="versions_tab">
+    {{ component('system:admin.libraries.library.versions',{ items: library.versions }) }}
 </div>

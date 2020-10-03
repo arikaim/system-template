@@ -4,7 +4,7 @@
  *  @license    http://www.arikaim.com/license
  *  http://www.arikaim.com
  */
-"use strict";
+'use strict';
 
 function Update() {
     var self = this;
@@ -45,7 +45,6 @@ function Update() {
 
             return update.update(packageName,function(result) {
                 var currentVersion = result.version;
-                var message = result.message;
                 self.getLastVersion(packageName,function(result) {
                     if (result.version == currentVersion) {      
                         $(element).hide();                 

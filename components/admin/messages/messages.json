@@ -9,6 +9,7 @@
     "install": "Arikaim CMS was installed successfully.",
     "extension": {
         "update": "Extension was updated successfully.",
+        "download": "Extension was downloaded successfully.",
         "enable": "Extension was enabled successfully.",
         "disable": "Extension was disabled successfully.",
         "uninstall": "Extension was uninstalled successfully.",
@@ -26,10 +27,12 @@
         "clear": "Logs was cleared successfully."
     },
     "library": {
+        "download": "UI Library was downloaded successfully.",
         "install": "UI Library was installed successfully.",
         "params": "UI Library params was saved successfully."
     },
     "module": {
+        "download": "Module was downloaded successfully.",
         "config": "Module config was saved successfully.",
         "uninstall": "Module was uninstalled successfully.",
         "enable": "Module was enabled successfully.",
@@ -59,9 +62,10 @@
         "save": "Settings was saved successfully."
     },
     "template": {        
-        "install": "Template was installed successfully.",
-        "update": "Template was updated successfully.",
-        "primary": "Template was set primary successfully."
+        "download": "Theme was downloaded successfully.",
+        "install": "Theme was installed successfully.",
+        "update": "Theme was updated successfully.",
+        "primary": "Theme was set primary successfully."
     },
     "themes": {
         "update": "Theme package was downloaded successfully."
@@ -116,10 +120,12 @@
         "position": "Not valid model name or id",
         "library": {
             "install": "Can't install UI Library.",
-            "params": "Can't save library params."
+            "download": "Can't download UI Library.",
+            "params": "Can't save UI library params."
         },
         "extension": {
             "update": "Can't update extension.",
+            "download": "Can't download extension.",
             "enable": "Can't enable extension.",
             "status": "Can't change extension status.",
             "disable": "Can't disable extension.",
@@ -141,6 +147,7 @@
         },
         "module": {
             "config": "Can't save module config.",
+            "download": "Can't download module.",
             "uninstall": "Can't uninstall module",
             "enable": "Can't enable module",
             "disable": "Can't disable module",
@@ -166,6 +173,7 @@
             "save": "Can't save settings."
         },
         "template": {
+            "download": "Can't download template.",
             "primary": "Can't set primary template.",
             "install": "Can't install template.",
             "update": "Can't update template."
@@ -186,6 +194,7 @@
         },
         "package": {
             "upload": "Can't upload package.",
+            "download": "Can't download package.",
             "name": "Not valid package name.",
             "temp": "Package temp directory not exists.",
             "json": "Not valid or missing arikaim-package.json file."

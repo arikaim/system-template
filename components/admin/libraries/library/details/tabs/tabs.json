@@ -2,7 +2,8 @@
     "labels": {
         "params": "Params",          
         "files": "Files",
-        "version": "Version",            
+        "version": "Version",     
+        "verisons": "Versions",       
         "framework": "Front-end Framework",
         "crossorigin": "Crossorigin"
     }

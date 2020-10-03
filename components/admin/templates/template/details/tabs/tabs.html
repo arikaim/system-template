@@ -19,11 +19,7 @@
                     }) 
                 }}
             </div>
-            <div class="ui stackable top attached tabular menu mt-2" id="templates_details_tab">
-                <a class="item active" data-tab="themes_tab">
-                    <i class="icon paint blue brush"></i>
-                    {{ tabs.styles.content }}
-                </a>    
+            <div class="ui stackable top attached tabular menu mt-2" id="templates_details_tab">                
                 <a class="item" data-tab="components_tab">
                     <i class="icon blue code"></i>
                     {{ tabs.components.content }}
@@ -44,10 +40,7 @@
                     <i class="icon blue globe"></i>
                     {{ tabs.languages.content }}
                 </a>   
-            </div>
-            <div class="ui bottom attached tab segment active {{ tabs.styles.class }}" data-tab="themes_tab">
-                {{ component('system:admin.templates.themes.list',{ items: template.themes, icon: 'grey paint brush' }) }}    
-            </div>
+            </div>            
             <div class="ui bottom attached tab segment {{ tabs.themes.class }}" data-tab="components_tab">   
                 {{ component('system:admin.component',{ components: template.components, template: template_name }) }}
             </div>

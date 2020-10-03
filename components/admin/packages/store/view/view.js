@@ -4,7 +4,7 @@
  *  @license    http://www.arikaim.com/license
  *  http://www.arikaim.com
  */
-"use strict";
+'use strict';
 
 function ArikaimStoreView() {
     var self = this;
@@ -17,7 +17,7 @@ function ArikaimStoreView() {
            
             arikaim.page.loadContent({
                 id: 'version_' + uuid,           
-                component: "components:repository.version",
+                component: 'components:repository.version',
                 loaderClass: 'ui active inline centered mini blue loader',
                 params: { 
                     package: packageName,
@@ -27,7 +27,7 @@ function ArikaimStoreView() {
                 var repoVersion = $('.version-' + uuid).html().trim();
                 var verison = $('#current_' + uuid).html().trim();
             
-                var update = arikaim.text.versionCompare(verison,repoVersion);
+                var update = arikaim.text.versionCompare(repoVersion,verison);
                 if (update == true) {
                     $('#install_button_' + uuid).removeClass('disabled');
                 }

@@ -12,11 +12,11 @@
         {% endif %}
     {% endif %}
 </div>
-<div class="mt-2">      
+<div class="mt-4">      
     {% if repository.getLastVersion() is versionCompare(package.getVersion())  %}     
-        <div class="ui green button update-repository-button" package-name="{{ package_name }}" package-type="{{ type }}">
+        <div class="ui green mini button update-repository-button" package-name="{{ package_name }}" package-type="{{ type }}">
             <i class="icon download"></i>
-            {{ labels.install }}
+            {{ labels.download }}
         </div>
         {% if confirm_overwrite == true %}
             {% component 'components:message.warning' %}  
