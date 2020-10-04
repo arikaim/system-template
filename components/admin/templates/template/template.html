@@ -26,18 +26,12 @@
                 <div class="detail">{{ template.version }}</div>
             </div>               
         </div>
+        <div class="ui divider"></div>
     </div>
-    <div class="content">      
+    <div class="mt-1">      
         {% set src = (template.thumbnail is not empty) ? getTemplateUrl(template_name) ~ '/images/' ~ template.thumbnail : null %}     
         {{ component('system:admin.templates.template.image',{ src: src }) }}                            
     </div>              
-    {% if template.description is not empty %}     
-    <div class="extra content">
-        <p class="text-black">
-            {{ template.description }}
-        </p>                
-    </div>
-    {% endif %}
     <div class="p-2">
         <div class="ui success mini message opacity-0 m-2" id="message_{{ template.name }}"></div>
     </div> 

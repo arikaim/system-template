@@ -13,8 +13,12 @@
         imagePreviewModal.show(options);         
     };
 
-    this.init = function() {       
+    this.initRows = function() {       
     
+        arikaim.ui.setEmptyImageOnError('.template-image',function(image) {
+            $(image).remove();
+        });
+
         arikaim.ui.button('.set-primary',function(element) {  
             var name = $(element).attr('template');
                     
@@ -30,7 +34,7 @@
                     component: 'system:admin.templates.template',
                     replace: true
                 },function(result) {
-                    self.init();
+                    self.initRows();
                     arikaim.ui.form.showMessage({
                         selector: '#message_' + name,
                         message: message
@@ -55,7 +59,7 @@
                     component: 'system:admin.templates.template',
                     replace: true
                 },function(result) {
-                    self.init();   
+                    self.initRows();   
                     arikaim.ui.form.showMessage({
                         selector: '#message_' + name,
                         message: mesasge
@@ -90,6 +94,6 @@
 
 var templatesView = new TemplatesView();
 
-arikaim.page.onReady(function() {    
-    templatesView.init();
+$(document).ready(function() {    
+    templatesView.initRows();
 });

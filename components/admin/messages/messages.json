@@ -68,7 +68,8 @@
         "primary": "Theme was set primary successfully."
     },
     "themes": {
-        "update": "Theme package was downloaded successfully."
+        "update": "Theme package was downloaded successfully.",
+        "download": "Theme package was downloaded successfully."
     },
     "core": {
         "update": "Arikaim core was updated successfully."

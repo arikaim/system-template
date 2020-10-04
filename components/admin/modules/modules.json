@@ -2,10 +2,7 @@
     "labels": {
         "view": {
             "content": "View"
-        },
-        "service": {
-            "content": "Service"
-        },
+        },       
         "download": {
             "content": "Download"
         },
