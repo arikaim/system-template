@@ -19,6 +19,10 @@ function Install() {
         return arikaim.put('/core/api/install/extensions',{},onSuccess,onError);
     };
 
+    this.installModules = function(onSuccess, onError) {
+        return arikaim.put('/core/api/install/modules',{},onSuccess,onError);
+    };
+
     this.postInstallActions = function(onSuccess, onError) {
         return arikaim.put('/core/api/install/actions',{},onSuccess,onError);
     };
