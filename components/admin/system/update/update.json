@@ -3,5 +3,8 @@
         "core": "Core",
         "admin": "Control Panel",
         "ui": "UI Components"
+    },
+    "messages": {
+        "demo": "Disabled in demo mode."
     }
 }
