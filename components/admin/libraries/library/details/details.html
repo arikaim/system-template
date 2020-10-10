@@ -1,5 +1,10 @@
-<div class="ui stackable three column centered grid mt-4">
-    <div class="two wide column center aligned">
+<div class="ui column grid segment">
+    <div class="one wide right aligned column">
+        <div class="font-bold pt-2">
+            {{ labels.library }}
+        </div>
+    </div>
+    <div class="two wide column">
         {{ component("system:admin.libraries.dropdown",{ selected : library_name, class: 'fluid' }) }}  
     </div>                
 </div>    

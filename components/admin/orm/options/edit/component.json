@@ -6,6 +6,7 @@
     },
     "access": {
         "auth": "session",
+        "redirect": "/admin",
         "permission": "ControlPanel:full"
     }
 }

@@ -3,11 +3,18 @@
         "version": {
             "content": "Version"
         },
+        "web": {
+            "content": "Web Server"
+        },
         "server": {
             "content": "Server"
         },
         "database": {
             "content": "Database"
-        }
+        },
+        "modules": "Modules",
+        "node": "NodeJs",
+        "installed": "Installed",
+        "notinstalled": "Not installed"
     }  
 }

@@ -40,6 +40,10 @@
                     <i class="icon blue globe"></i>
                     {{ tabs.languages.content }}
                 </a>   
+                <a class="item" data-tab="emails_tab">
+                    <i class="icon blue envelope outline"></i>
+                    {{ tabs.emails.content }}
+                </a>   
             </div>            
             <div class="ui bottom attached tab segment {{ tabs.themes.class }}" data-tab="components_tab">   
                 {{ component('system:admin.component',{ components: template.components, template: template_name }) }}
@@ -55,6 +59,9 @@
             </div>
             <div class="ui bottom attached tab segment {{ tabs.languages.class }}" data-tab="languages_tab">      
                 {{ component('system:admin.templates.template.details.languages',{ languages: template.languages }) }}
+            </div>
+            <div class="ui bottom attached tab segment {{ tabs.emails.class }}" data-tab="emails_tab">               
+                {{ component('system:admin.templates.template.details.emails',{ emails: template.emails }) }}
             </div>
         </div>
     </div>    

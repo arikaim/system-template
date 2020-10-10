@@ -18,6 +18,9 @@
         "routes": {
             "content": "Routes"
         },
+        "emails": {
+            "content": "Emails"
+        },
         "languages": {
             "content": "Languages"
         }

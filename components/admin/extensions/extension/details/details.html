@@ -1,7 +1,12 @@
-<div class="ui stackable centered grid mt-4">
-    <div class="ui two wide column center aligned">
+<div class="ui grid segment">
+    <div class="one wide right aligned column">
+        <div class="font-bold pt-2">
+            {{ labels.extension }}
+        </div>
+    </div>
+    <div class="two wide column segment basic">       
         {{ component("system:admin.extensions.dropdown",{ selected : extension, class: 'fluid' }) }}  
-    </div>                
+    </div>        
 </div>    
 <div id="extension_details" class="mt-4">   
 {% if extension != "" %}  

@@ -62,8 +62,12 @@
     </a> 
     <a class="item" data-tab="console_tab" {{ tabs.console.title|attr('title') }}>
         <i class="icon blue terminal"></i>
-        {{ tabs.console.content }}
-    </a>        
+        {{ tabs.emails.content }}
+    </a>
+    <a class="item" data-tab="emails_tab">
+        <i class="icon blue envelope outline"></i>
+        {{ tabs.emails.content }}
+    </a>          
 </div>
 <div class="ui bottom attached tab segment active {{ tabs.routes.class }}" data-tab="routes_tab">
     {{ component('system:admin.extensions.extension.routes',{ routes: extension.routes }) }}
@@ -135,4 +139,7 @@
             help_icon: "terminal" 
         }) 
     }}         
+</div>
+<div class="ui bottom attached tab segment {{ tabs.database.class }}" data-tab="emails_tab">   
+    {{ component('components:list.items',{ items: extension.emails, icon: "envelope outline" }) }} 
 </div>

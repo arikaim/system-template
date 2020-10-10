@@ -10,6 +10,14 @@
                     </div>
                 </div>     
                 <div class="item">
+                    <div class="content">                       
+                        {{ labels.web.content }}
+                        <div class="ui horizontal basic label">
+                            {{ info.apache_version }}
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
                     <div class="content">               
                         <div class="ui accordion" id="php_extensions_info">
                             <div class="title">                                       
@@ -33,6 +41,15 @@
                         </div>                             
                     </div>
                 </div>    
+                <div class="item">                 
+                    {% set node_version = system().getNodeJsVersion() %}
+                    <div class="ui basic label" title="{{ (node_version is empty) ? labels.notinstalled : labels.installed }}">
+                        {% set icon = (node_version is empty) ? 'red times' : 'olive check' %}
+                        <i class="icon {{ icon }}"></i>
+                        {{ labels.node }}
+                        <span class="pl-2 font-bold"> {{ node_version }}</span>
+                    </div>                   
+                </div>
             </div>
         </div>
     </div>

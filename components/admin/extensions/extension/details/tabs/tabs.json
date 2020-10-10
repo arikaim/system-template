@@ -21,6 +21,9 @@
         "pages": {
             "content": "Pages"
         },
+        "emails": {
+            "content": "Emails"
+        },
         "macros": {
             "content": "Macros"
         },
