@@ -1,8 +1,8 @@
 {% set disabled_class = (demo_mode == true) ? 'disabled': '' %}
-
+{% set disabled_default = (default_language == language.code) ? 'disabled' : '' %}
 <div class="ui card raised {{ language.status|ifthen([1,2],"green") }}" {{ language.uuid|attr("id") }}>        
     <div class="content item"> 
-        {% if language.default == 1 %}         
+        {% if default_language == language.code %}         
         <div class="ui left corner olive mini label" {{ default_language_icon.title|attr("title") }}>
             <i class="icon checkmark"></i>
         </div>
@@ -17,8 +17,10 @@
         
         <div class="ui right floated slider checkbox change-status-button {{ disabled_class }}" {{ language.uuid|attr("uuid") }}>
             {% if demo_mode != true %}
-            <input name="status" {{ language.status|ifthen(1,"checked") }} type="checkbox">
-            <label></label>
+                <input name="status" {{ language.status|ifthen(1,"checked") }} type="checkbox">
+                <label></label>
+            {% elseif language.status != 1 %}
+                <div clas="ui horizontal label">{{ labels.disabled }}</div>
             {% endif %}
         </div>                   
     </div>       
@@ -38,7 +40,7 @@
     </div> 
     <div class="extra content">
         <div class="ui mini fluid buttons">   
-            <button class="ui button language-button set-default-button basic grey {{ buttons.default.class }} {{ language.default|ifthen(1,'disabled') }} {{ disabled_class }}" language-title="{{ language.title }}" {{ language.uuid|attr("uuid") }} {{ buttons.default.title|attr("title") }}>                   
+            <button class="ui button language-button set-default-button basic grey {{ buttons.default.class }} {{ disabled_default }} {{ disabled_class }}" language-title="{{ language.title }}" {{ language.uuid|attr("uuid") }} {{ buttons.default.title|attr("title") }}>                   
                 {{ buttons.default.content }}    
             </button>            
             <button class="ui button language-button remove-button basic orange {{ buttons.remove.class }} {{ disabled_class }}" language-title="{{ language.title }}" {{ language.uuid|attr("uuid") }} {{ buttons.remove.title|attr("title") }}>                   

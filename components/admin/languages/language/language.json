@@ -4,7 +4,8 @@
     },
     "labels": {
         "native_name": "Native name",
-        "code": "Code"
+        "code": "Code",
+        "disabled": "Disabled"
     },
     "buttons": {
         "edit": {

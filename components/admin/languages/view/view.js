@@ -98,6 +98,6 @@ function LanguagesView() {
 
 var languagesView = new LanguagesView();
 
-arikaim.page.onReady(function() {    
+$(document).ready(function() {    
     languagesView.init();
 });

@@ -7,16 +7,7 @@
 "use strict";
 
 function SystemSettings() {
-    var self = this;
-
-    this.setDebug = function(value, onSuccess, onError) {
-        var data = { 
-            debug: value 
-        };
-        
-        return arikaim.put('/core/api/settings/debug',data,onSuccess,onError);
-    };
-
+   
     this.disableInstallPage = function(value, onSuccess, onError) {
         var data = { 
             install_page: value 

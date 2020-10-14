@@ -12,9 +12,6 @@
         "events": {
             "content": "Events"
         },
-        "queue": {
-            "content": "Queue"
-        },
         "cron": {
             "content": "Cron"
         },

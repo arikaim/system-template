@@ -7,8 +7,7 @@
 "use strict";
 
 function Languages() {
-    var self = this;
-
+   
     this.delete = function(uuid, onSuccess, onError) {        
         return arikaim.delete('/core/api/language/' + uuid,onSuccess,onError); 
     };

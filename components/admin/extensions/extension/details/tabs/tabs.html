@@ -125,12 +125,12 @@
         <i class="icon repeat"></i>
         {{ labels.recuring }}
     </h5>
-    {{ component('system:admin.system.queue.jobs.recuring',{ extension: extension_name }) }}
+    {{ component('system:admin.jobs.recuring',{ extension: extension_name }) }}
     <h5 class="header">
         <i class="icon wait"></i>
         {{ labels.scheduled }}
     </h5>
-    {{ component('system:admin.system.queue.jobs.scheduled',{ extension: extension_name }) }}
+    {{ component('system:admin.jobs.scheduled',{ extension: extension_name }) }}
 </div>
 <div class="ui bottom attached tab segment {{ tabs.console.class }}" data-tab="console_tab">  
     {{  component('components:list.description',{ 
