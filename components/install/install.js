@@ -4,10 +4,9 @@
  *  @license    http://www.arikaim.com/license
  *  http://www.arikaim.com
  */
-"use strict";
+'use strict';
 
 function Install() {
-    var self = this;
     this.status = false;
     this.step = 1;
   
