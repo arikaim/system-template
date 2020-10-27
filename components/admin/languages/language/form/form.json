@@ -19,6 +19,7 @@
         "placeholder":"Native title"
     },       
     "country": {
+        "label": "Country",
         "prompt": "Please enter country"
     },
     "buttons": {

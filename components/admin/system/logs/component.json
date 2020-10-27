@@ -1,0 +1,10 @@
+{
+    "include": {
+        "js": "components:search"
+    },
+    "access": {
+        "auth": "session",
+        "redirect": "/admin",
+        "permission": "ControlPanel:full"
+    }
+}

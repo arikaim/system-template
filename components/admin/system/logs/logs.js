@@ -4,7 +4,7 @@
  *  @license    http://www.arikaim.com/license
  *  http://www.arikaim.com
  */
-"use strict";
+'use strict';
 
 function SystemLogs() {
     var self = this;
@@ -40,6 +40,6 @@ function SystemLogs() {
 
 var systemLogs = new SystemLogs();
 
-arikaim.page.onReady(function() {
+$(document).ready(function() {
     systemLogs.init();
 });

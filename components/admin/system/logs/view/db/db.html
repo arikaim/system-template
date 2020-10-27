@@ -1,0 +1,25 @@
+{% set log_level = searchValue('level','logs') %}
+<div class="ui two column grid">    
+    <div class="row">
+        <div class="ui four computer two tablet column left aligned">
+            <i class="icon filter"></i>
+            {{ component("system:admin.system.logs.type",{ selected: log_level, show_all: true }) }}
+        </div>
+    </div>   
+</div>   
+<table class="ui compact stackable striped very basic table">
+    <thead>
+        <tr class="borderless table-head">                       
+            <th class="center aligned collapsing one wide">{{ columns.date }}</th>
+            <th>{{ columns.type }}</th>
+            <th>{{ columns.message }}</th> 
+            <th>{{ columns.details }}</th>    
+        </tr>
+    </thead>
+    <tbody id="logs_rows">
+        {{ component("system:admin.system.logs.view.db.rows") }}
+    </tbody>  
+</table>
+<div class="mt-1" id="paginator">
+    {{ component("components:paginator",{ namespace: 'logs' }) }}
+</div>

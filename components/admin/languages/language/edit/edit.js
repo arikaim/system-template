@@ -11,7 +11,7 @@ $(document).ready(function() {
     });    
 
     function initEditLanguageForm() {
-        arikaim.ui.form.addRules('#language_form');
+        arikaim.ui.form.addRules('#language_form',{});
 
         arikaim.ui.form.onSubmit('#language_form',function() {      
             return arikaim.put('/core/api/language/update','#language_form');

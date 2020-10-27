@@ -1,6 +1,17 @@
 {# Extensins menu #}
 {{ component("system:admin.menu.extensions",{ status: 1, type: 1 }) }}
 {# System menu #}
-{% for item in menu.items %}
-    {{ component('system:admin.menu.item',{ menu: item, class: "admin-menu-link" }) }}     
+{% for menu in menu.items %}
+    {% set main_link_class = (menu.items is iterable) ? '' : class %}
+    <div class="item admin-menu-link" component="{{ menu.component }}" {{ extension_name|attr('extension') }} page-icon="{{ menu['page-icon'] }}" page-title="{{ menu['page-title'] }}">
+        <div class="title menu-item-title">          
+            <i class="left icon blue {{ menu.icon }}"></i>      
+            {% if menu.items is iterable %}
+                <i class="dropdown icon"></i>
+            {% endif %}
+            <span class="sm:hidden lg:inline md:hidden">
+            {{ menu.title }}
+            </span>
+        </div>
+    </div>
 {% endfor %}

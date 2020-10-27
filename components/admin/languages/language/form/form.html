@@ -2,7 +2,7 @@
 {% if uuid is defined %}
     {% set language = language.findById(uuid) %}
 {% endif %}
-<form class="ui equal width form" id="language_form">  
+<form class="ui equal width form" id="language_form" method="POST">  
     <input type="hidden" name="uuid" id="uuid" value="{{ uuid }}">  
     <div class="field">
         <label>{{ title.label }}</label>
@@ -23,7 +23,7 @@
         <input type="text" name="native_title" id="native_title" {{ native_title.placeholder|attr('placeholder') }} value="{{ language.native_title }}">  
     </div>                   
     <div class="field">
-        <label>Country</label>
+        <label>{{ country.label }}</label>
         {{ component('components:countries.dropdown',{ selected: language.country_code, name: "country_code" }) }}
     </div>
     {{ component('components:form.footer') }}   

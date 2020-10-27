@@ -13,7 +13,7 @@ $(document).ready(function() {
         }
     });  
 
-    arikaim.ui.form.addRules('#language_form');
+    arikaim.ui.form.addRules('#language_form',{});
 
     arikaim.ui.form.onSubmit('#language_form',function() {         
         return arikaim.post('/core/api/language/add','#language_form');

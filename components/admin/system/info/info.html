@@ -10,46 +10,66 @@
                     </div>
                 </div>     
                 <div class="item">
-                    <div class="content">                       
-                        {{ labels.web.content }}
-                        <div class="ui horizontal basic label">
+                    <div class="content">    
+                        <div class="ui basic label">
+                            <i class="icon server"></i>
+                            <span class="small text">{{ info.os_name }}</span> 
+                            <span class="small text">{{ info.os_version }}</span>
+                        </div>                              
+                        <div class="ui basic label">
                             {{ info.apache_version }}
                         </div>
+                        {% set node_version = system().getNodeJsVersion() %}
+                        <div class="ui basic label" title="{{ (node_version is empty) ? labels.notinstalled : labels.installed }}">
+                            {% set icon = (node_version is empty) ? 'red times' : 'olive check' %}
+                            <i class="icon {{ icon }}"></i>
+                            {{ labels.node }}
+                            <span class="pl-2 font-bold"> {{ node_version }}</span>
+                        </div>   
                     </div>
                 </div>
                 <div class="item">
                     <div class="content">               
                         <div class="ui accordion" id="php_extensions_info">
                             <div class="title">                                       
-                                <i class="icon code circular"></i> 
+                                <i class="icon code"></i> 
                                 <i class="dropdown icon"></i>
                                 PHP 
                                 <div class="ui basic min label">{{ info.php_version }}</div>    
                             </div>                                     
                             <div class="content ml-2">
-                            {{ component("system:admin/system/info/php-info") }}
+                            {{ component("system:admin.system.info.php-info") }}
                             </div>
                         </div>
                     </div> 
                 </div> 
                 <div class="item">
-                    <div class="content">
-                        <div class="text">
-                            <i class="icon server circular"></i>
-                            {{ labels.server.content }} <span class="ml-1 small text">{{ info.os_name }}</span> 
-                            <span class="small text">{{ info.os_version }}</span>
-                        </div>                             
+                    <div class="content">                       
+                        {% set packages = system().getComposerPackages() %}
+                        <div class="ui accordion" id="composer_packages_info">
+                            <div class="title">                                       
+                                <i class="icon open box"></i> 
+                                <i class="dropdown icon"></i>
+                                {{ labels.composer }} 
+                            </div>                                     
+                            <div class="content ml-2">
+                                <div class="ui list">
+                                    {% for item in packages %}
+                                        <div class="item">
+                                            <i class="icon archive grey"></i>
+                                            <div class="content">                                               
+                                                <div class="header">{{ item.name }}</div>
+                                                <div class="description">                                                  
+                                                    {{ item.version }}
+                                                </div>
+                                            </div>                                           
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>               
                     </div>
                 </div>    
-                <div class="item">                 
-                    {% set node_version = system().getNodeJsVersion() %}
-                    <div class="ui basic label" title="{{ (node_version is empty) ? labels.notinstalled : labels.installed }}">
-                        {% set icon = (node_version is empty) ? 'red times' : 'olive check' %}
-                        <i class="icon {{ icon }}"></i>
-                        {{ labels.node }}
-                        <span class="pl-2 font-bold"> {{ node_version }}</span>
-                    </div>                   
-                </div>
             </div>
         </div>
     </div>

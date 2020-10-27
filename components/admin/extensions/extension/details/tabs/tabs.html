@@ -34,7 +34,7 @@
         </div>
         <div class="ui twelve wide column">
             <div class="ui segment fluid">
-                {{ component('system:admin.packages.repository',{  type: 'extension', name: extension.name }) }}
+                {{ component('system:admin.packages.repository',{ type: 'extension', name: extension.name }) }}
             </div>
         </div>
     </div>
@@ -62,7 +62,7 @@
     </a> 
     <a class="item" data-tab="console_tab" {{ tabs.console.title|attr('title') }}>
         <i class="icon blue terminal"></i>
-        {{ tabs.emails.content }}
+        {{ tabs.console.content }}
     </a>
     <a class="item" data-tab="emails_tab">
         <i class="icon blue envelope outline"></i>

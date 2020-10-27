@@ -1,17 +1,7 @@
 {  
     "labels": {
-        "version": {
-            "content": "Version"
-        },
-        "web": {
-            "content": "Web Server"
-        },
-        "server": {
-            "content": "Server"
-        },
-        "database": {
-            "content": "Database"
-        },
+        "version": "Version",
+        "composer": "Composer Packages",          
         "modules": "Modules",
         "node": "NodeJs",
         "installed": "Installed",
