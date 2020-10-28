@@ -1,13 +1,7 @@
 {% set handler_name = service('logger').getHandelerName() %}
 <div class="ui stackable grid">
-    <div class="row">
-        <div class="own wide colunb">
-            <div class="ui basic large fluid label">
-                {{ labels.handler }}
-                <span class="ui text blue">{{ handler_name }}</span>
-            </div> 
-        </div>
-        <div class="fifteen wide column right aligned">                     
+    <div class="row">       
+        <div class="sixteen wide column right aligned">                     
             <button class="ui aligned basic button delete-logs">
                 <i class="icon orange trash"></i>
                 {{ buttons.delete.content }}

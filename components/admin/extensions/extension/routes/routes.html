@@ -1,11 +1,17 @@
-<div class="ui middle aligned divided list">
+<div class="ui middle aligned divided list">   
     {% if routes is empty %}
         <div class="item">{{ labels.empty }}</div>
     {% endif %}
     {% for route in routes %}
-    <div class="item">     
+    <div class="item">         
         {% set title = (route.auth > 0) ? service('access').getAuthName(route.auth) : "" %}
         <div class="right floated content" title="{{ labels.auth }}">
+            {% set middlewares = route.middlewares|jsonDecode(false) %}
+            {% for middleware in middlewares %}
+                <div class="ui basic horizontal label" title="{{ labels.middleware }}">                    
+                    <span class="ui text grey">{{ middleware|baseClass }}</span>
+                </div>
+            {% endfor %}    
             {% if title != "" %}
             <div class="ui tiny left pointing primary basic label">{{ title }}</div>
             {% endif %}  

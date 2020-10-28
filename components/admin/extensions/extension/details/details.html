@@ -5,11 +5,11 @@
         </div>
     </div>
     <div class="two wide column segment basic">       
-        {{ component("system:admin.extensions.dropdown",{ selected : extension, class: 'fluid' }) }}  
+        {{ component("system:admin.extensions.dropdown",{ selected: extension, class: 'fluid' }) }}  
     </div>        
 </div>    
 <div id="extension_details" class="mt-4">   
 {% if extension != "" %}  
-    {{ component("system:admin.extensions.extension.details.tabs",{ extension_name : extension }) }}
+    {{ component("system:admin.extensions.extension.details.tabs",{ extension_name: extension }) }}
 {% endif %}
 </div>
