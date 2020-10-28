@@ -9,6 +9,8 @@
         "current": "Current",
         "async": "Async",
         "help": "Help",
+        "disable": "Disable",
+        "enable": "Enable",
         "crossorigin": "Crossorigin"
     }
 }

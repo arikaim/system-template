@@ -3,7 +3,8 @@
         "params": "Params",          
         "files": "Files",
         "version": "Version",     
-        "verisons": "Versions",       
+        "verisons": "Versions",  
+        "disabled": "Disabled",     
         "framework": "Front-end Framework",
         "crossorigin": "Crossorigin"
     }

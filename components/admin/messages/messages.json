@@ -29,6 +29,7 @@
     "library": {
         "download": "UI Library was downloaded successfully.",
         "install": "UI Library was installed successfully.",
+        "status": "UI Library status was changed successfully.",
         "params": "UI Library params was saved successfully."
     },
     "module": {

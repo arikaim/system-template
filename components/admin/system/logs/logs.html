@@ -1,4 +1,5 @@
 {% set handler_name = service('logger').getHandelerName() %}
+{% set handler_name = handler_name|default('file') %}
 <div class="ui stackable grid">
     <div class="row">       
         <div class="sixteen wide column right aligned">                     

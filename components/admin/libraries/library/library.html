@@ -1,7 +1,8 @@
 {% set library = package('library').getPackageProperties(library_name) %}
-<div class="ui card">
-    <div class="content">    
-        <i class="ui left floated cube blue large icon"></i>   
+{% set disabled = (library.disabled is empty) ? false : library.disabled %}
+
+    <div class="content">           
+        <i class="ui left floated cube large icon {{ (disabled == true) ? 'red' : 'olive' }} "></i>   
         <div class="right floated meta">
             <div class="ui horizontal basic mini label">               
                 {{ labels.version }} 
@@ -14,7 +15,7 @@
             </a>
             {% endif %}
         </div>            
-        <div class="font-bold">
+        <div class="font-bold" title="{{ (disabled == true) ? labels.disable : labels.enable }}">
             {{ library.title|default(library.name) }}             
         </div>     
         <div class="ui divider"></div>   
@@ -52,6 +53,19 @@
         {% endif %}
     </div>
     <div class="extra content">
-        <button class="ui basic button details-button" library="{{ library.name }}">{{ labels.details }}</button>
+        <button class="ui mini basic button details-button" library="{{ library.name }}">
+            <i class="icon info"></i>
+            {{ labels.details }}
+        </button>
+        {% if disabled == true %}
+        <button class="ui basic mini button status-button" library="{{ library.name }}" status="1">
+            <i class="icon check olive"></i>
+            {{ labels.enable }}
+        </button>
+        {% else %}
+        <button class="ui basic mini button status-button" library="{{ library.name }}" status="0">
+            <i class="icon times red"></i>
+            {{ labels.disable }}
+        </button>
+        {% endif %}
     </div>    
-</div>

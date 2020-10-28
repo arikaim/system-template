@@ -1,6 +1,7 @@
 {% set library = package('library').getPackageProperties(library_name,true) %}
 {% set params = getOption('library.params',null) %}
 {% set library_params = (params[library_name] is empty) ? library.params : params[library_name] %}
+{% set disabled = (library.disabled is empty) ? false : library.disabled %}
 
 <div class="ui stackable grid">
     <div class="stretched row">
@@ -36,7 +37,13 @@
                             {{ library.crossorigin }}
                         </div>
                         {% endif %}
+                        {% if disabled == true %} 
+                        <div class="ui basic orange horizontal label">
+                            {{ labels.disabled }}
+                        </div>
+                        {% endif %}
                     </div>    
+                    
                 </div>
             </div>
         </div>
