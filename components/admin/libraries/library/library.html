@@ -56,16 +56,18 @@
         <button class="ui mini basic button details-button" library="{{ library.name }}">
             <i class="icon info"></i>
             {{ labels.details }}
-        </button>
-        {% if disabled == true %}
-        <button class="ui basic mini button status-button" library="{{ library.name }}" status="1">
-            <i class="icon check olive"></i>
-            {{ labels.enable }}
-        </button>
-        {% else %}
-        <button class="ui basic mini button status-button" library="{{ library.name }}" status="0">
-            <i class="icon times red"></i>
-            {{ labels.disable }}
-        </button>
+        </button>        
+        {% if demo_mode != true %}
+            {% if disabled == true %}
+            <button class="ui basic mini button status-button" library="{{ library.name }}" status="1">
+                <i class="icon check olive"></i>
+                {{ labels.enable }}
+            </button>
+            {% else %}
+            <button class="ui basic mini button status-button" library="{{ library.name }}" status="0">
+                <i class="icon times red"></i>
+                {{ labels.disable }}
+            </button>
+            {% endif %}
         {% endif %}
     </div>    
