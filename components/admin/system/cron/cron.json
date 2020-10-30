@@ -4,6 +4,7 @@
         "title": "Scheduler",
         "disabled": "Disabled",
         "user": "User",
+        "demo": "Demo mode",
         "entry": "Entry"     
     },
     "buttons": {

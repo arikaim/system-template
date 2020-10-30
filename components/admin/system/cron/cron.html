@@ -8,29 +8,35 @@
     {% endif %}
     {{ labels.title }}
 </h3>
-{% if cron.isInstalled() == true %}    
-    <div class="ui list">
-        <div class="item">
-            <strong>{{ labels.entry }}</strong> 
-            <ul class="ui list ml-4">
-                {% for command in details.jobs %}
-                <li class="ml-8">{{ command }}</li>
-                {% endfor %}
-            </ul>          
-        </div>
-        <div class="item">
-            <strong>{{ labels.user }}</strong> {{ details.user }}
-        </div>       
+{% if demo_mdeo == true %}
+    <div class="ui warning message">
+        {{ labels.demo }}
     </div>
-    <button class="ui basic button" id="uninstall_cron">
-        <i class="icon orange trash"></i>
-        {{ buttons.uninstall }}
-    </button>
 {% else %}
-    <button class="ui basic button" id="install_cron">
-        <i class="download icon olive"></i>
-        {{ buttons.install }}
-    </button>
+    {% if cron.isInstalled() == true %}    
+        <div class="ui list">
+            <div class="item">
+                <strong>{{ labels.entry }}</strong> 
+                <ul class="ui list ml-4">
+                    {% for command in details.jobs %}
+                    <li class="ml-8">{{ command }}</li>
+                    {% endfor %}
+                </ul>          
+            </div>
+            <div class="item">
+                <strong>{{ labels.user }}</strong> {{ details.user }}
+            </div>       
+        </div>
+        <button class="ui basic button" id="uninstall_cron">
+            <i class="icon orange trash"></i>
+            {{ buttons.uninstall }}
+        </button>
+    {% else %}
+        <button class="ui basic button" id="install_cron">
+            <i class="download icon olive"></i>
+            {{ buttons.install }}
+        </button>
+    {% endif %}
 {% endif %}
 <div class="ui horizontal divider"></div>
 {{ component("system:admin.system.cron.jobs") }}
