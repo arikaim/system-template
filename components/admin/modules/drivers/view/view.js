@@ -14,7 +14,7 @@ function DriversView() {
         arikaim.ui.tab('.drivers-tab-item','drivers_tab');            
     };
 
-    this.initView = function() {
+    this.initRows = function() {
         arikaim.ui.button('.driver-config',function(element) {                
             arikaim.events.emit('driver.config',element);
 
@@ -42,4 +42,5 @@ var driversView = new DriversView();
 
 $(document).ready(function() {
     driversView.init();
+    driversView.initRows();
 });

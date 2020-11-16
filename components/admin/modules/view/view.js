@@ -13,7 +13,6 @@ function ModulesView() {
     };
 
     this.initRows = function() {
-
         arikaim.ui.button('.details-button',function(element) {    
             var name = $(element).attr('name');
 

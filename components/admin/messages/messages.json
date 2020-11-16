@@ -7,9 +7,14 @@
         "create": "Token was created successfully."
     },
     "install": "Arikaim CMS was installed successfully.",
+    "modules": {
+        "download": "Module was downloaded successfully."
+    },
+    "extensions": {
+        "download": "Extension was downloaded successfully."
+    },
     "extension": {
-        "update": "Extension was updated successfully.",
-        "download": "Extension was downloaded successfully.",
+        "update": "Extension was updated successfully.",       
         "enable": "Extension was enabled successfully.",
         "disable": "Extension was disabled successfully.",
         "uninstall": "Extension was uninstalled successfully.",

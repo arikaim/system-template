@@ -1,5 +1,7 @@
-"use strict";
+'use strict';
 
-arikaim.page.onReady(function() {  
-    driversView.initView();
-}); 
+$(document).ready(function() {     
+    safeCall('driversView',function(obj) {
+        obj.initRows();
+    },true);   
+});
