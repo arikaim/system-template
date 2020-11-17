@@ -1,10 +1,8 @@
-"use strict";
+'use strict';
 
 arikaim.page.onReady(function() {
     $('#user_menu_dropdown').dropdown({
-        onChange: function(value) {    
-            console.log(value);
-                   
+        onChange: function(value) {              
             arikaim.page.loadContent({
                 id: 'tool_content',
                 component: value

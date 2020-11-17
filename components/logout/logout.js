@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-arikaim.page.onReady(function() {
+$(document).ready(function() {
     user.logout(function(result) {
         arikaim.clearToken();
         arikaim.page.reload();      
