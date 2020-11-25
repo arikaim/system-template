@@ -4,7 +4,7 @@
     "package-type": "template",
     "description": "Arikaim CMS Control Panel",
     "repository": "https://github.com/arikaim/system-template.git",
-    "version": "1.5.9",
+    "version": "1.5.10",
     "icon": "sliders horizontals",
     "image": {
         "src": "",
@@ -30,6 +30,9 @@
     "include": {            
         "css": [
             "admin.css"
+        ],
+        "js": [
+            "control-panel.js"
         ],
         "components": [
             "components:language.translate"

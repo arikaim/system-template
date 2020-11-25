@@ -6,7 +6,7 @@ $(document).ready(function() {
 
     arikaim.ui.form.onSubmit('#install_form',function(element) {              
         progressBar.start({
-            interval: 500            
+            interval: 1000            
         });
         progressBar.setLabel($('#core_label').attr('label'));
         
