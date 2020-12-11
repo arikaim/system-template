@@ -11,13 +11,27 @@
     {% endif %}
     {% for driver in drivers %}
     <div class="item">        
-        <div class="left floated content">
-            {% if (driver.status == 1) %}
+        <div class="left floated content">           
+            {% if editable == true %}
+                {{  component('components:dropdown.enable',{ 
+                        selected: driver.status,
+                        class: 'mini inline icon basic button change-driver-status', 
+                        attributes: {
+                            driver_name: driver.name 
+                        },
+                        show_label: false
+                    }) 
+                }}                   
+            {% else %}
+                {% if (driver.status == 1) %}
                 <i class="icon olive check" title="{{ label.active }}"></i>
-            {% endif %}              
+                {% endif %}  
+            {% endif %}
+            {% if hide_config != true %}
             <a class="ui mini basic icon button driver-config" title="{{ label.settings }}" driver-name="{{ driver.name }}">
                 <i class="icon cog"></i>
             </a>
+            {% endif %}
             {% for button in buttons %}
             <a class="ui mini basic icon button {{ button.class }}" title="{{ button.title }}" driver-name="{{ driver.name }}">
                 <i class="icon {{ button.icon }}"></i>

@@ -5,6 +5,6 @@
         {{ labels.empty }}
     {% endif %}
     {% for module in modules %}      
-        {{ component("system:admin.modules.module",{ module_name: module }) }}       
+        {{ component("system:admin.modules.module",{ module_name: module, icon: 'code blue' }) }}       
     {% endfor %}
 </div>

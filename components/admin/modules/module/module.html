@@ -1,16 +1,21 @@
 {% set module = package('module').getPackageProperties(module_name,true) %}
 <div class="ui raised card" id="{{ module.name }}">
     <div class="content item"> 
-        {% if module.installed == true %}
-            {% if module.status == 0 %}            
-                <i class="icon left floated exclamation red" title="{{ labels.disabled }}"></i>                        
-            {% else %}
-                <i class="icon left floated checkmark olive" title="{{ labels.disabled }}"></i> 
+        <span>           
+            {% if module.installed == true %}
+                {% if module.status == 0 %}            
+                    <i class="icon exclamation red" title="{{ labels.disabled }}"></i>                        
+                {% else %}
+                    <i class="icon checkmark olive" title="{{ labels.active }}"></i> 
+                {% endif %}
+                {% if module.error != false %}
+                    <i class="icon exclamation triangle red" title="{{ module.error }}"></i>            
+                {% endif %}
             {% endif %}
-            {% if module.error != false %}
-                <i class="icon exclamation triangle red" title="{{ module.error }}"></i>            
+            {% if icon is not empty %}
+            <i class="icon {{ icon }}"></i>
             {% endif %}
-        {% endif %}
+        </span>
         {{ module.title }} 
         <div class="ui horizontal labels right floated">        
             <div class="ui mini basic label">

@@ -29,14 +29,14 @@ function ModulesView() {
             return packages.install(name,'module',function(result) {   
                 var message = result.message;            
                 modules.loadModuleDetails(name,function(result) {
-                    self.init();
+                    self.initRows();
                     arikaim.ui.form.showMessage({
                         selector: '#message_' + name,
                         message: message
                     });
                 });               
             },function(error) {              
-                self.init();
+                self.initRows();
                 arikaim.ui.form.showMessage({
                     selector: '#message_' + name,
                     message: error,
@@ -52,14 +52,14 @@ function ModulesView() {
             return packages.update(name,'module',function(result) {
                 var message = result.message;    
                 modules.loadModuleDetails(name,function(result) {
-                    self.init();
+                    self.initRows();
                     arikaim.ui.form.showMessage({
                         selector: '#message_' + name,
                         message: message
                     });
                 }); 
             },function(error) {               
-                self.init();
+                self.initRows();
                 arikaim.ui.form.showMessage({
                     selector: '#message_' + name,
                     message: error,
@@ -75,14 +75,14 @@ function ModulesView() {
             return packages.enable(name,'module',function(result) {     
                 var message = result.message;             
                 modules.loadModuleDetails(name,function(result) {
-                    self.init();
+                    self.initRows();
                     arikaim.ui.form.showMessage({
                         selector: '#message_' + name,
                         message: message
                     });
                 });               
             },function(error) {              
-                self.init();
+                self.initRows();
                 arikaim.ui.form.showMessage({
                     selector: '#message_' + name,
                     message: error,
@@ -98,14 +98,14 @@ function ModulesView() {
             return packages.disable(name,'module',function(result) {   
                 var message = result.message;               
                 modules.loadModuleDetails(name,function(result) {
-                    self.init();
+                    self.initRows();
                     arikaim.ui.form.showMessage({
                         selector: '#message_' + name,
                         message: message
                     });
                 });               
             },function(error) {               
-                self.init();
+                self.initRows();
                 arikaim.ui.form.showMessage({
                     selector: '#message_' + name,
                     message: error,
