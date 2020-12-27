@@ -16,6 +16,9 @@
             "label": "Type"
         }
     },
+    "labels": {
+        "core": "Installing core"
+    },
     "buttons": {
         "install": "Install"                   
     }

@@ -7,27 +7,101 @@
 'use strict';
 
 function Install() {
-    this.status = false;
-    this.step = 1;
-  
-    this.install = function(formId, onSuccess, onError) {
-        return arikaim.post('/core/api/install/',formId,onSuccess,onError);
+    var self = this;
+    this.messages = null;
+
+    this.install = function(formId, onProgress, onSuccess, onError) {
+        return taskProgress.post('/core/api/install/',formId,onProgress,onSuccess,onError);
     };
 
-    this.installExtensions = function(onSuccess, onError) {
-        return arikaim.put('/core/api/install/extensions',{},onSuccess,onError);
+    this.extensions = function(onProgress, onSuccess, onError) {
+        return taskProgress.put('/core/api/install/extensions',{},onProgress,onSuccess,onError);
     };
 
-    this.installModules = function(onSuccess, onError) {
-        return arikaim.put('/core/api/install/modules',{},onSuccess,onError);
+    this.modules = function(onProgress, onSuccess, onError) {
+        return taskProgress.put('/core/api/install/modules',{},onProgress,onSuccess,onError);
     };
 
-    this.postInstallActions = function(onSuccess, onError) {
-        return arikaim.put('/core/api/install/actions',{},onSuccess,onError);
+    this.actions = function(onProgress, onSuccess, onError) {
+        return taskProgress.put('/core/api/install/actions',{},onProgress,onSuccess,onError);
     };
 
     this.repair = function(onSuccess, onError) {
         return arikaim.put('/core/api/install/repair',null,onSuccess,onError);
+    };
+
+    this.installModules = function(onSuccess, onError) {
+        $('#install_progress').progress('reset');
+     
+        return this.modules(
+            function(result) {
+                $('#install_progress').progress('increment');
+                $('#install_progress').progress('set label',result.message);
+            },function(result) {            
+                $('#install_progress').progress('complete',true);
+                callFunction(onSuccess,result);
+            },function(error) {
+                callFunction(onError,error);
+            }
+        );
+    };
+
+    this.installCore = function(formId, onSuccess, onError) {
+        $('#install_progress').progress('reset');
+      
+        return this.install(formId,
+            function(result) {
+                $('#install_progress').progress('increment');
+                $('#install_progress').progress('set label',result.message);
+            },function(result) {            
+                $('#install_progress').progress('complete',true);
+                callFunction(onSuccess,result);
+            },function(error) {
+                callFunction(onError,error);
+            }
+        );
+    };
+
+    this.installExtensions = function(onSuccess, onError) {
+        $('#install_progress').progress('reset');
+      
+        return this.extensions(
+            function(result) {
+                $('#install_progress').progress('increment');
+                $('#install_progress').progress('set label',result.message);
+            },function(result) {            
+                $('#install_progress').progress('complete',true);
+                callFunction(onSuccess,result);
+            },function(error) {
+                callFunction(onError,error);
+            }
+        );
+    };
+
+    this.postInstallActions = function(onSuccess, onError) {
+        $('#install_progress').progress('reset');
+      
+        return this.actions(
+            function(result) {
+                $('#install_progress').progress('increment');
+                $('#install_progress').progress('set label',result.message);
+            },function(result) {            
+                $('#install_progress').progress('complete',true);
+                callFunction(onSuccess,result);
+            },function(error) {
+                callFunction(onError,error);
+            }
+        );      
+    };
+
+    this.loadMessages = function() {
+        if (isObject(this.messages) == true) {
+            return;
+        }
+
+        arikaim.component.loadProperties('system:install.messages',function(params) { 
+            self.messages = params.messages;
+        }); 
     };
 
     this.initInstallForm = function() {
@@ -48,40 +122,33 @@ function Install() {
     };
 
     this.init = function() {
-        this.step = 1;
-    
-        progressBar.hide(true);
+        this.loadMessages();
         $('#continue_button').hide();      
-        
-        arikaim.ui.button('#continue_button',function() {
-            return arikaim.loadUrl('/admin',true); 
-        });
     };
 
     this.showError = function(error) {
-        progressBar.reset();
-        progressBar.hide(true);
         $('#continue_button').hide();
         $('.install-button').show();
-        this.status = false;      
     }
 
-    this.showComplete = function(message) {
-        progressBar.reset();
-        progressBar.hide(true);
+    this.showComplete = function() {
         $('.install-button').hide();      
-        arikaim.ui.form.showMessage({
-            selector: '#message',
-            hide: 0,
-            message: message
-        });
         arikaim.ui.form.disable('#install_form');
         $('#continue').removeClass('hidden');
         $('#continue').show();
         $('#continue_button').show();
+        $('#progress_content').hide();
 
-        this.status = true;
+        arikaim.ui.form.showMessage({
+            selector: '#message',
+            hide: 0,
+            message: self.messages.done
+        });
     }
 }
 
 var install = new Install();
+
+$(document).ready(function() {
+    install.init();
+});

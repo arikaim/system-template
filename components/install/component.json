@@ -1,4 +1,9 @@
 {
+    "include": {
+        "js":[
+            "components:progress"
+        ]
+    },
     "access": {
         "auth": "none",
         "deny-request": true        

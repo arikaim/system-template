@@ -27,5 +27,16 @@
             button_title: buttons.install 
         }) 
     }}
-</form>     
-{{ component("components:progress-bar",{ class: 'indicating active success' }) }}    
+</form>    
+<div class="mt-1 hidden" id="progress_content" >
+    <div class="ui progress install-progress" data-value="0" id="main_progress">
+        <div class="blue bar">
+            <div class="progress"></div>
+        </div>
+        <div class="label">{{ labels.core }}</div>
+    </div>
+    <div class="ui progress indicating active install-progress mini" id="install_progress">
+        <div class="bar"></div>       
+        <div class="label"></div>
+    </div> 
+</div>

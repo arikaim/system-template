@@ -23,7 +23,7 @@
                             {{ component("system:install.form") }}
                         </div>
                         <div class="mt-4 hidden" id="continue">
-                            <a class="ui button olive large mt-1 hidden" id="continue_button">{{ buttons.continue }}</a>     
+                            <a href="{{ url('/admin',true) }}" class="ui button olive large mt-1 hidden" id="continue_button">{{ buttons.continue }}</a>     
                         </div>                        
                     </div>                
                 {% else %}
@@ -40,7 +40,3 @@
         </div>
     </div>
 </div>
-<div id="core_label" class="hidden" label="{{ labels.install.core }}"></div>
-<div id="extensions_label" class="hidden" label="{{ labels.install.extensions }}"></div>
-<div id="modules_label" class="hidden" label="{{ labels.install.modules }}"></div>
-<div id="post_label" class="hidden" label="{{ labels.install.post }}"></div>
