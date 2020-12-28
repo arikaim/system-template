@@ -17,7 +17,8 @@ $(document).ready(function() {
 
     arikaim.ui.form.onSubmit('#install_form',function(element) {                    
         $('#progress_content').show();
-    
+        $('#install_progress').progress('remove error');      
+
         return install.installCore('#install_form',
             function(result) {            
                 $('#main_progress').progress('increment');

@@ -56,7 +56,7 @@ function Install() {
             },function(result) {            
                 $('#install_progress').progress('complete',true);
                 callFunction(onSuccess,result);
-            },function(error) {
+            },function(error) {               
                 callFunction(onError,error);
             }
         );
@@ -86,7 +86,7 @@ function Install() {
                 $('#install_progress').progress('increment');
                 $('#install_progress').progress('set label',result.message);
             },function(result) {            
-                $('#install_progress').progress('complete',true);
+                $('#install_progress').progress('complete',true);               
                 callFunction(onSuccess,result);
             },function(error) {
                 callFunction(onError,error);
@@ -129,6 +129,9 @@ function Install() {
     this.showError = function(error) {
         $('#continue_button').hide();
         $('.install-button').show();
+        error = (isArray(error) == true) ? error[0] : error;
+     
+        $('#install_progress').progress('set error',error);      
     }
 
     this.showComplete = function() {
