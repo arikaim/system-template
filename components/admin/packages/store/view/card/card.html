@@ -11,63 +11,45 @@
     <div class="content item"> 
         <i class="blue icon {{ icon }}"></i>
         {{ item.title }} 
-        <div class="ui horizontal labels right floated">     
+        <div class="ui horizontal labels mini right floated">     
             {% if item.is_free == true %}   
-            <div class="ui mini basic green label">
-                {{ labels.free }}
+            <div class="ui basic label">
+                <span class="ui text green">{{ labels.free }}</span>
             </div>
-            {% endif %}          
-            {% if item.options_list['private-repository'] != true %}
-                <div class="ui mini basic label">
+            {% else %}
+            <div class="ui basic label">
+                <span class="ui text orange">{{ labels.premium }}</span>
+            </div>
+            {% endif %}      
+            {% if installed == true %}
+            <div class="ui basic label" id="installed_{{ item.uuid }}">
+                <span class="ui text blue">{{ labels.installed }}</span>
+                <div class="detail package-version" uuid="{{ item.uuid }}" id="version_{{ item.uuid }}" package="{{ item.options_list.repository }}">
                     {{ labels.version }}
-                    <div class="detail package-version" uuid="{{ item.uuid }}" id="version_{{ item.uuid }}" package="{{ item.options_list.repository }}">
-                        {{ item.version }}
-                    </div>
-                </div> 
-            {% endif %}                             
+                    {{ current_version }}
+                </div>                
+            </div>    
+            {% endif %}                            
         </div>
     </div>
-    <div class="content">
+    <div class="content h-32">
         {{ item.options_list.description }}
-    </div>
-    <div class="content">
-        <div class="ui basic label blue {{ installed|ifthen(false,'hidden') }}" id="installed_{{ item.uuid  }}">
-            {{ labels.installed }}
-        </div>    
-        <div class="ui basic label {{ installed|ifthen(false,'hidden') }}">
-            {{ labels.current }}
-            <div class="detail" id="current_{{ item.uuid  }}">
-                {{ current_version }}
-            </div>
-        </div>    
-    </div>
+    </div>   
     <div class="extra content">                  
         {% if installed == false %}
             <button 
-                class="ui primary button install-package disabled" 
+                class="ui primary button mini install-package" 
                 uuid="{{ item.uuid }}" 
                 package-type="{{ type }}" 
                 package-name="{{ item.options_list.repository }}" 
                 repository-type="{{ item.options_list['repository-type'] }}"
                 id="install_button_{{ item.uuid }}">
                 {{ labels.install }}
-            </button> 
-            {% else %}      
-            <button 
-                class="ui primary button update-package disabled" 
-                uuid="{{ item.uuid }}" 
-                package-type="{{ type }}" 
-                package-name="{{ item.options_list['package-name'] }}" 
-                repository-type="{{ item.options_list['repository-type'] }}"
-                id="install_button_{{ item.uuid }}">
-                {{ labels.update }}
-            </button>            
-        {% endif %}
-        {{  component('components:repository.link',{ 
-                package: item.options_list.repository,
-                target: 'repository',
-                class: 'ui basic right floated icon mini button' 
-            }) 
-        }}  
+            </button>                   
+        {% endif %}    
+        <button class="ui basic button mini package-details" uuid="{{ item.uuid }}" installed="{{ current_version }}">
+            <i class="icon blue info"></i>
+            {{ labels.details }}
+        </button>       
     </div>      
 </div>

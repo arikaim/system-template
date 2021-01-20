@@ -29,14 +29,7 @@
                 <div class="detail">
                     <span class="ui text blue">{{ library.name }}</span>                  
                 </div>                   
-            </div>  
-            {% if library.framework == true %}                              
-            <div class="ui basic label horizontal">
-                <span class="ui text blue">{{ labels.framework }}</span>
-            </div>                     
-            {% else %}
-            <div class="mt-2"> </div>
-            {% endif %}   
+            </div>            
         </div>             
         {% if library.async == true %}
         <div class="ui basic horizontal label">
@@ -59,12 +52,12 @@
         </button>        
         {% if demo_mode != true %}
             {% if disabled == true %}
-            <button class="ui basic mini button status-button" library="{{ library.name }}" status="1">
+            <button class="ui basic mini button status-button rigth floated" library="{{ library.name }}" status="1">
                 <i class="icon check olive"></i>
                 {{ labels.enable }}
             </button>
             {% else %}
-            <button class="ui basic mini button status-button" library="{{ library.name }}" status="0">
+            <button class="ui basic mini button status-button right floated" library="{{ library.name }}" status="0">
                 <i class="icon times red"></i>
                 {{ labels.disable }}
             </button>

@@ -9,31 +9,56 @@
 function ArikaimStoreView() {
     var self = this;
 
-    this.initRows = function() {
+    this.init = function() {
 
-        $('.package-version').each(function(index) {
-            var packageName = $(this).attr('package');
-            var uuid = $(this).attr('uuid');
-           
-            arikaim.page.loadContent({
-                id: 'version_' + uuid,           
-                component: 'components:repository.version',
-                loaderClass: 'ui active inline centered mini blue loader',
-                params: { 
-                    package: packageName,
-                    class: 'version-' + uuid 
-                }
-            },function(result) {              
-                var repoVersion = $('.version-' + uuid).html().trim();
-                var verison = $('#current_' + uuid).html().trim();
-            
-                var update = arikaim.text.versionCompare(repoVersion,verison);
-                if (update == true) {
-                    $('#install_button_' + uuid).removeClass('disabled');
-                }
+        arikaim.ui.button('.store-settings',function(element) {
+            $('#packages_list').html('');
+            $('#paginator').html('');
+            return arikaim.page.loadContent({
+                id: 'arikaim_store_settings',           
+                component: 'system:admin.packages.store.settings',
+                params: {}
+            },function(result) {
+               
             });
         });
-        
+
+        arikaim.ui.button('#packages_type',function(element) {
+            var type = $(element).attr('type');
+            $('#package_details_button').remove();
+            $('#arikaim_store_settings').html('');
+
+            return arikaim.page.loadContent({
+                id: 'packages_list',           
+                component: 'system:admin.packages.store.view.rows',
+                params: { 
+                    type: type                   
+                }
+            },function(result) {
+                self.initRows();
+            });
+        });
+    };
+
+    this.initRows = function() {
+        arikaim.ui.button('.package-details',function(element) {
+            var uuid = $(element).attr('uuid');
+            var installedVersion = $(element).attr('installed');
+            $('#packages_list').html('');
+            $('#paginator').html('');
+
+            return arikaim.page.loadContent({
+                id: 'arikaim_store_settings',           
+                component: 'system:admin.packages.store.details',
+                params: { 
+                    uuid: uuid,
+                    installed_version: installedVersion
+                }
+            },function(result) {
+                self.initPackageDetails();
+            });
+        });
+
         arikaim.ui.button('.install-package',function(element) {
             var type = $(element).attr('package-type');
             var name = $(element).attr('package-name');
@@ -50,6 +75,42 @@ function ArikaimStoreView() {
                     message: error[0],
                     class: 'error'
                 });                        
+            });
+        });        
+    };
+
+    this.initPackageDetails = function() {
+        var packageTitle = $('#package_details').attr('package-title');
+        var uuid = $('#package_details').attr('uuid');
+        var installedVersion = $('#package_details').attr('installed');
+
+        arikaim.page.loadContent({
+            id: 'links_path',      
+            append: true,     
+            component: 'system:admin.packages.store.details.link',
+            params: { 
+                uuid: uuid,
+                title: packageTitle,
+                installed_version: installedVersion
+            }
+        },function(result) {
+
+            arikaim.ui.button('#package_details_button',function(element) {
+                var uuid = $(element).attr('uuid');
+                var installedVersion = $(element).attr('installed-version');
+                $('#packages_list').html('');
+                $('#paginator').html('');
+                
+                return arikaim.page.loadContent({
+                    id: 'arikaim_store_settings',           
+                    component: 'system:admin.packages.store.details',
+                    params: { 
+                        uuid: uuid,
+                        installed_version: installedVersion
+                    }
+                },function(result) {
+                   
+                });
             });
         });
 
@@ -73,11 +134,12 @@ function ArikaimStoreView() {
                 });                        
             });
         });
-    };
+    }
 }
 
 var arikaimStoreView = new ArikaimStoreView();
 
 $(document).ready(function() {
+    arikaimStoreView.init();   
     arikaimStoreView.initRows();   
 });

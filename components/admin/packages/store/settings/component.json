@@ -1,11 +1,12 @@
 {
     "include": {
         "js": [
-            "system:admin.packages.repository.store"            
-        ]
+            "system:admin.packages.store"
+        ]      
     },
     "access": {
         "auth": "session",
+        "redirect": "/admin",
         "permission": "ControlPanel:full"
-    } 
+    }
 }

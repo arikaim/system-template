@@ -1,6 +1,5 @@
 {
-    "labels": {
-        "framework": "Framework",
+    "labels": {      
         "details": "Details",
         "files": "Files",   
         "name": "Name",          

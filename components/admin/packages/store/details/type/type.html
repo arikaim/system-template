@@ -1,0 +1,17 @@
+{% if type == 'extensions' %}
+    {% set icon = 'puzzle piece' %}
+    {% set title = labels.extensions %}
+{% elseif type == 'library' %}
+    {% set icon = 'cube' %}
+    {% set title = labels.library %}
+{% elseif type == 'themes' %}
+    {% set icon = 'browser' %}
+    {% set title = labels.themes %}
+{% elseif type == 'modules' %}
+    {% set icon = 'plug' %}
+    {% set title = labels.modules %}
+{% endif %}
+<i class="icon {{ icon }} {{ class }}"></i>
+{% if show_title == true %}
+<span>{{ title }}</span>
+{% endif %}

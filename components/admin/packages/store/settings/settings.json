@@ -1,0 +1,11 @@
+{
+    "labels": {
+        "product": "Product",
+        "packages": "Packages",
+        "details": "Details",
+        "account": "Account",
+        "add": "Add Product",
+        "login": "Login",
+        "logout": "Logout"
+    }
+}

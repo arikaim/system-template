@@ -1,0 +1,8 @@
+{
+    "labels": {
+        "id": "Order Id",
+        "apply": "Apply Product Order",
+        "envato": "Envato",
+        "placeholder": "Enter purchase order id"
+    }
+}

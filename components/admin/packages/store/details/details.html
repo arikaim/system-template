@@ -1,0 +1,81 @@
+{% set response = arikaimStore().fetchPackageDetails(uuid) %}
+{% set response = response|jsonDecode %}
+{% set details = response.result %}
+{% set type = details.categories[0].slug %}
+{% set repository_type = details.options_list['repository-type'] %}
+{% set private = details.options_list['private-repository'] %}
+
+{{ details|dump }}
+
+<div class="mt-2">  
+    <div class="ui three column stretched grid">
+        <div class="ui column">
+            <div class="ui segment" 
+                id="package_details" 
+                uuid="{{ uuid }}" 
+                package-title="{{ details.title }}" 
+                installed="{{ installed_version }}">              
+                {% if details.is_free == true %}
+                <div class="ui label basic top right attached green">
+                    {{ labels.free }}
+                </div>
+                {% endif %}
+                {% if installed_version is not empty %}
+                <div class="ui label basic top left attached">
+                    {{ labels.version }}
+                    <span class="ui text blue pl-1">
+                        {{ installed_version }}
+                    </span>                   
+                </div>
+                {% endif %}              
+                {% if details.is_free == true %}
+                    <div class="ui label basic top right attached">
+                        <span class="ui text olive">{{ labels.free }}</span>                                
+                    </div>
+                {% else %}
+                    <div class="ui label basic top right attached">
+                        <span class="ui text orange">{{ labels.premium }}</span>                                
+                    </div>
+                {% endif %}
+                <h3>
+                    {{ component('system:admin.packages.store.details.type',{ type: type }) }}
+                    {{ details.title }}
+                </h3>
+                <p class="mt-4">
+                    {{ details.options_list.description }}
+                </p>                                     
+                {% if private == false %}
+                <div class="ui basic bottom attached right label">
+                    {{  component('components:repository.link',{ 
+                            package: details.options_list.repository,
+                            target: 'repository',
+                            popup: labels.repository,
+                            class: 'ui basic right floated icon mini blue button show-popup' 
+                        }) 
+                    }}  
+                </div>              
+                {% endif %}
+            </div>
+        </div>
+        <div class="ui two wide column">   
+            {{ component('system:admin.packages.repository') }}
+            <!-- 
+            <div class="ui segment">    
+                <h4>{{ labels.repository }}</h4>     
+                <div class="ui basic label" 
+                    id="repository_version"
+                    package-name="{{ details.options_list.repository }}" 
+                    repository-type="{{ details.options_list['repository-type'] }}">
+                    {{ labels.version }}
+                    <span class="ui blue text" id="repository_version_value"></span>
+                </div>
+                <div class="ui divider"></div>
+                <div class="mt-8" id="package_download">
+                  
+                   
+                </div>              
+            </div>     
+            -->   
+        </div>
+    </div>
+</div>

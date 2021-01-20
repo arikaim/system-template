@@ -6,14 +6,12 @@
     {% set installed = package_manager.hasPackage(item.options_list['package-name']) %}     
     {% if installed == true %}
         {% set current_version = package_manager.createPackage(item.options_list['package-name']).getVersion() %}
-    {% else %}
-        {% set current_version = '0.0.0' %}  
-    {% endif %}       
+    {% endif %}         
     {{  component('system:admin.packages.store.view.card',{ 
-            item: item, 
+            item: item,          
             type: type,
-            current_version: (current_version is empty) ? '0.0.0' : current_version,
-            installed: package_manager.hasPackage(item.options_list['package-name']) 
+            current_version: current_version,
+            installed: installed 
         }) 
     }}
 {% endfor %}

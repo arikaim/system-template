@@ -1,0 +1,60 @@
+{% set product = arikaimStore().getProduct() %}
+{% set packages = arikaimStore().getPackages() %}
+<div class="ui stretched grid">
+    <!-- 
+    <div class="ui card">
+        <div class="content">
+            <h4>
+                <i class="icon blue user"></i>
+                {{ labels.account }}
+            </h4>
+        </div>
+        <div class="content">
+            ..
+        </div>   
+        {% if arikaimStore.isLogged() == true %}
+            <button class="ui mini basic button account-logout">
+                {{ labels.logout }}
+            </button>
+        {% else %}
+            <button class="ui mini basic button account-login">
+                {{ labels.login }}
+            </button>
+        {% endif %}   
+    </div>
+    -->
+    <div class="ui six wide column">
+        <div class="ui segment">
+            <div class="content">
+                <h4>
+                    <i class="icon blue list"></i>
+                    {{ labels.product }}
+                </h4>
+            </div>
+            <div class="content" id="store_product_content">      
+                {% if product|length == 0 %}
+                    {{ component('system:admin.packages.store.settings.product') }}
+                {% else %}
+                //  details
+                {% endif %}       
+            </div>           
+        </div>
+    </div>
+    <div class="ui six wide column">
+        <div class="ui segment">
+            <div class="content">
+                <h4>
+                    <i class="icon blue box"></i>
+                    {{ labels.packages }}
+                </h4>
+            </div>
+            <div class="content">
+                <div class="ui list">
+                    {% if packages|length == 0 %}
+                        <div class="item">..</div>
+                    {% endif %}
+                </div>
+            </div>               
+        </div>
+    </div>
+</div>

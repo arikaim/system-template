@@ -7,15 +7,15 @@
 'use strict';
 
 function RelationsView() {
-    var self = this;
-    this.component;
+    var self = this;  
+    this.messages = null;
 
     this.init = function() {
         var extension = $('#relation_rows').attr('extension');
         var model = $('#relation_rows').attr('model');
         var relationId = $('#relation_rows').attr('relation-id');
         
-        this.component = arikaim.component.get('system:admin.orm.relations.view');
+        this.loadMessages();
 
         paginator.init('relation_rows',{ 
             name: 'system:admin.orm.relations.view.rows',
@@ -25,6 +25,16 @@ function RelationsView() {
                 relation_id: relationId
             } 
         },'relations');  
+    };
+
+    this.loadMessages = function() {
+        if (isObject(this.messages) == true) {
+            return;
+        }
+
+        arikaim.component.loadProperties('system:admin.orm.relations.view',function(params) { 
+            self.messages = params.messages;
+        }); 
     };
 
     this.initRows = function() {
@@ -43,16 +53,15 @@ function RelationsView() {
             });
         });
 
-        arikaim.ui.button('.delete-relation',function(element) {           
-            var removeMessage = self.component.getProperty('messages.remove.description');
+        arikaim.ui.button('.delete-relation',function(element) {                    
             var uuid = $(element).attr('uuid');
             var title = $(element).attr('data-title');
             var model = $(element).attr('model');
             var extension = $(element).attr('extension');
-            var message = arikaim.ui.template.render(removeMessage,{ title: title });
+            var message = arikaim.ui.template.render(self.messages.remove.description,{ title: title });
            
             modal.confirmDelete({ 
-                title: self.component.getProperty('messages.remove.title'),
+                title: self.messages.remove.title,
                 description: message
             },function() {
                 relations.delete(model,extension,uuid,
