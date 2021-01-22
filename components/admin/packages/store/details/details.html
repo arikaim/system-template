@@ -25,7 +25,20 @@
                         {{ installed_version }}
                     </span>                   
                 </div>
-                {% endif %}              
+                {% endif %}          
+                {% if private == false %}
+                <div class="ui basic bottom right attached right label">
+                    <div class="ui right floated">
+                        {{  component('components:repository.link',{ 
+                                package: details.options_list.repository,
+                                target: 'repository',
+                                popup: labels.repository,
+                                class: 'ui basic right floated icon mini blue button show-popup' 
+                            }) 
+                        }}  
+                    </div>                   
+                </div>              
+                {% endif %}    
                 {% if details.is_free == true %}
                     <div class="ui label basic top right attached">
                         <span class="ui text olive">{{ labels.free }}</span>                                
@@ -39,28 +52,18 @@
                     {{ component('system:admin.packages.store.details.type',{ type: type }) }}
                     {{ details.title }}
                 </h3>
-                <p class="mt-4">
+                <div class="mt-4">
                     {{ details.options_list.description }}
-                </p>                                     
-                {% if private == false %}
-                <div class="ui basic bottom attached right label">
-                    {{  component('components:repository.link',{ 
-                            package: details.options_list.repository,
-                            target: 'repository',
-                            popup: labels.repository,
-                            class: 'ui basic right floated icon mini blue button show-popup' 
-                        }) 
-                    }}  
-                </div>              
-                {% endif %}
+                </div>                                                  
             </div>
         </div>
         <div class="ui two wide column">   
-            <div class="ui segment">   
+            <div class="ui segment">        
             {{  component('system:admin.packages.repository',{ 
                     type: type, 
                     package_name: package_name,
                     installed_version: installed_version,
+                    repository_type: repository_type,
                     repository_name: details.options_list.repository 
                 }) 
             }}           

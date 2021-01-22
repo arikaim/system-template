@@ -9,24 +9,25 @@
 function PackageRepository() {
     var self = this;
 
-    this.download = function(name, type, repository, onSuccess, onError) {
+    this.download = function(name, type, repository, repoType, onSuccess, onError) {
         var data = { 
             package: name,
             type: type,
-            repository: repository                     
+            repository: repository,
+            repository_type: repoType                     
         };
         
         return arikaim.put('/core/api/packages/repository/download',data,onSuccess,onError);
     };
 
     this.init = function() {
-
         arikaim.ui.button('.download-package',function(element) {
             var type = $(element).attr('package-type');
             var name = $(element).attr('package-name');
             var repository = $(element).attr('repository');
+            var repoType = $(element).attr('repository-type');
 
-            return self.download(name,type,repository,function(result) {
+            return self.download(name,type,repository,repoType,function(result) {
                 // show message
                 arikaim.ui.toastMessage({                   
                     message: result.message,
@@ -44,6 +45,6 @@ function PackageRepository() {
 
 var packageRepository = new PackageRepository();
 
-$(document).ready(function() {
-  //  packageRepository.init();
+$(document).ready(function() {  
+    packageRepository.init();
 })

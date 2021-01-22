@@ -22,9 +22,13 @@
             {{ repository.getPackageName() }}
         </div>    
         <div class="ui divider"></div>
-        <div class="mt-4" id="download_package_content">          
+        <div class="mt-4" id="download_package_content">           
             {% if installed_version is versionCompare(repo_version)  %}
-            <button class="ui labeled icon blue mini button download-package">
+            <button class="ui labeled icon blue mini button download-package"
+                package-type="{{ type }}"
+                package-name="{{ package_name }}"
+                repository="{{ repository.getRepositoryUrl() }}"
+                repository-type="{{ repository_type }}">
                 <i class="icon download"></i>
                 {{ labels.download }}
             </button>
