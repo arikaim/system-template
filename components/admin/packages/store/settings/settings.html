@@ -1,28 +1,8 @@
-{% set product = arikaimStore().getProduct() %}
-{% set packages = arikaimStore().getPackages() %}
+{% set store = arikaimStore() %}
+{{ store.getConfig().reloadConfig() }}
+{% set product = store.getProduct() %}
+{% set packages = store.getPackages() %}
 <div class="ui stretched grid">
-    <!-- 
-    <div class="ui card">
-        <div class="content">
-            <h4>
-                <i class="icon blue user"></i>
-                {{ labels.account }}
-            </h4>
-        </div>
-        <div class="content">
-            ..
-        </div>   
-        {% if arikaimStore.isLogged() == true %}
-            <button class="ui mini basic button account-logout">
-                {{ labels.logout }}
-            </button>
-        {% else %}
-            <button class="ui mini basic button account-login">
-                {{ labels.login }}
-            </button>
-        {% endif %}   
-    </div>
-    -->
     <div class="ui six wide column">
         <div class="ui segment">
             <div class="content">
@@ -31,12 +11,8 @@
                     {{ labels.product }}
                 </h4>
             </div>
-            <div class="content" id="store_product_content">      
-                {% if product|length == 0 %}
-                    {{ component('system:admin.packages.store.settings.product') }}
-                {% else %}
-                //  details
-                {% endif %}       
+            <div class="content" id="store_product_content"> 
+                {{ component('system:admin.packages.store.settings.product',{ product: product }) }}                 
             </div>           
         </div>
     </div>
@@ -44,16 +20,12 @@
         <div class="ui segment">
             <div class="content">
                 <h4>
-                    <i class="icon blue box"></i>
+                    <i class="icon blue archive"></i>
                     {{ labels.packages }}
                 </h4>
             </div>
-            <div class="content">
-                <div class="ui list">
-                    {% if packages|length == 0 %}
-                        <div class="item">..</div>
-                    {% endif %}
-                </div>
+            <div class="mt-8 pl-4" id="store_packages_content">
+                {{ component('system:admin.packages.store.settings.packages',{ packages: packages }) }}    
             </div>               
         </div>
     </div>

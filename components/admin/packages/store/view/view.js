@@ -14,13 +14,7 @@ function ArikaimStoreView() {
         arikaim.ui.button('.store-settings',function(element) {
             $('#packages_list').html('');
             $('#paginator').html('');
-            return arikaim.page.loadContent({
-                id: 'arikaim_store_settings',           
-                component: 'system:admin.packages.store.settings',
-                params: {}
-            },function(result) {
-               
-            });
+            return self.loadSettings();
         });
 
         arikaim.ui.button('#packages_type',function(element) {
@@ -40,10 +34,19 @@ function ArikaimStoreView() {
         });
     };
 
+    this.loadSettings = function() {
+        return arikaim.page.loadContent({
+            id: 'arikaim_store_settings',           
+            component: 'system:admin.packages.store.settings',
+            params: {}
+        });
+    };
+
     this.initRows = function() {
         arikaim.ui.button('.package-details',function(element) {
             var uuid = $(element).attr('uuid');
             var installedVersion = $(element).attr('installed');
+            var packageName =  $(element).attr('package-name');
             $('#packages_list').html('');
             $('#paginator').html('');
 
@@ -52,31 +55,13 @@ function ArikaimStoreView() {
                 component: 'system:admin.packages.store.details',
                 params: { 
                     uuid: uuid,
-                    installed_version: installedVersion
+                    installed_version: installedVersion,
+                    package_name: packageName
                 }
             },function(result) {
                 self.initPackageDetails();
             });
         });
-
-        arikaim.ui.button('.install-package',function(element) {
-            var type = $(element).attr('package-type');
-            var name = $(element).attr('package-name');
-            var repositoryType = $(element).attr('repository-type');
-            var uuid = $(element).attr('uuid');
-
-            return packageRepository.install(name,type,repositoryType,function(result) {
-                // show message
-                $(element).hide();
-                arikaim.page.toastMessage(result.message);
-                arikaim.ui.show('#installed_' + uuid);             
-            },function(error) {
-                arikaim.page.toastMessage({
-                    message: error[0],
-                    class: 'error'
-                });                        
-            });
-        });        
     };
 
     this.initPackageDetails = function() {
@@ -112,28 +97,7 @@ function ArikaimStoreView() {
                    
                 });
             });
-        });
-
-        arikaim.ui.button('.update-package',function(element) {
-            var type = $(element).attr('package-type');
-            var name = $(element).attr('package-name');
-            var uuid = $(element).attr('uuid');
-
-            return packageRepository.update(name,type,function(result) {
-                // show message
-                $(element).hide();
-                arikaim.page.toastMessage(result.message);
-                arikaim.ui.show('#installed_' + uuid);    
-                if (isEmpty(result.version) == false) {
-                    $('#current_' + uuid).html(result.version);    
-                }                    
-            },function(error) {
-                arikaim.page.toastMessage({
-                    message: error[0],
-                    class: 'error'
-                });                        
-            });
-        });
+        });       
     }
 }
 

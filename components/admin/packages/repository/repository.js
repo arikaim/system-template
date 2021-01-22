@@ -9,76 +9,41 @@
 function PackageRepository() {
     var self = this;
 
-    this.onInstalled;
-    this.onError;
-
-    this.update = function(name, type, onSuccess, onError) {
-        var params = { 
+    this.download = function(name, type, repository, onSuccess, onError) {
+        var data = { 
             package: name,
-            type: type           
+            type: type,
+            repository: repository                     
         };
         
-        return arikaim.put('/core/api/packages/repository/update',params,onSuccess,onError);
-    };
-
-    this.install = function(name, type, repositoryType, onSuccess, onError) {
-        var params = { 
-            package: name,
-            repository_type: repositoryType,
-            type: type           
-        };
-        
-        return arikaim.put('/core/api/packages/repository/install',params,onSuccess,onError);
-    };
-
-    this.updateButton = function(selector, onSuccess, onError) {
-        selector = getDefaultValue(selector,'.update-repository-button');
-
-        arikaim.ui.button(selector,function(element) {
-            var type = $(element).attr('package-type');
-            var name = $(element).attr('package-name');
-            return packageRepository.update(name,type,function(result) {
-                // show message
-                arikaim.ui.form.showMessage({
-                    selector: '#message',
-                    message: result.message,
-                    class: 'success',    
-                    removeClass: 'error',                      
-                    hide: 4000
-                });
-                callFunction(self.onInstalled,result);
-            },function(error) {
-                arikaim.ui.form.showMessage({
-                    selector: '#message',
-                    message: error,
-                    class: 'error', 
-                    removeClass: 'success',                       
-                    hide: 4000
-                });
-                callFunction(self.onError,error);
-            });
-        });   
+        return arikaim.put('/core/api/packages/repository/download',data,onSuccess,onError);
     };
 
     this.init = function() {
-        var type = $('#package_version_content').attr('package-type');
-        var name = $('#package_version_content').attr('package-name');
-        var confirm = $('#package_version_content').attr('confirm-overwrite');
-       
-        arikaim.page.loadContent({
-            id: 'package_version_content',
-            component: 'system:admin.packages.repository.version',
-            params: { 
-                package_name: name,
-                type: type,
-                confirm_overwrite: confirm
-            }
-        });
+
+        arikaim.ui.button('.download-package',function(element) {
+            var type = $(element).attr('package-type');
+            var name = $(element).attr('package-name');
+            var repository = $(element).attr('repository');
+
+            return self.download(name,type,repository,function(result) {
+                // show message
+                arikaim.ui.toastMessage({                   
+                    message: result.message,
+                    class: 'success'                    
+                });
+            },function(error) {
+                arikaim.ui.toastMessage({                  
+                    message: error,
+                    class: 'error'                                           
+                });
+            });
+        });   
     };
 }
 
 var packageRepository = new PackageRepository();
 
 $(document).ready(function() {
-    packageRepository.init();
+  //  packageRepository.init();
 })

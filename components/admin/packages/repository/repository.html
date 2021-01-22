@@ -1,27 +1,34 @@
-{% if name is not empty %}
-    {% set repository = package(type).getRepository(name) %}
-{% endif %}
 {% set confirm_overwrite = confirm_overwrite|default(false) %}
+{% set manager = package(type) %}
+{% if package_name is not empty %}
+    {% set repository = manager.getRepository(package_name) %}
+{% endif %}
+{% if repository is empty %}
+    {% set repo_key = arikaimStore().getPackageKye(repository_name) %}
+    {% set repository = manager.createRepository(repository_name,repo_key) %}
+{% endif %}
+{% set repo_version = repository.getLastVersion() %}
 <div class="ui header mini">
     <i class="icon box open blue"></i>
-    <div class="content">
+    <div class="content w-full">
         {{ labels.repository }}
-    </div>
-</div>
-{% if repository is empty %}
-    <div class="ui basic blue label">{{ labels.empty }}</div>            
-{% else %}
-    <div>
-        <div class="ui basic label">{{ repository.getRepositoryUrl() }}</div> 
-        {% if repository.isPrivate() == true %}
-            <div class="ui basic blue label">{{ labels.private }}</div> 
-        {% endif %}
-        <div 
-            class="mt-4" 
-            id="package_version_content" 
-            package-name="{{ name }}" 
-            package-type="{{ type }}" 
-            confirm-overwrite="{{ confirm_overwrite }}">             
+        <div class="ui basic label">
+            <span>{{ labels.version }}</span>
+            {{ repo_version }}
         </div>
     </div>
-{% endif %}
+    <div class="mt-4 text-center">              
+        <div class="ui basic horizontal label">
+            {{ repository.getPackageName() }}
+        </div>    
+        <div class="ui divider"></div>
+        <div class="mt-4" id="download_package_content">          
+            {% if installed_version is versionCompare(repo_version)  %}
+            <button class="ui labeled icon blue mini button download-package">
+                <i class="icon download"></i>
+                {{ labels.download }}
+            </button>
+            {% endif %}
+        </div>       
+    </div>
+</div>

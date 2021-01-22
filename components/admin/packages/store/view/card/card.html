@@ -35,19 +35,11 @@
     <div class="content h-32">
         {{ item.options_list.description }}
     </div>   
-    <div class="extra content">                  
-        {% if installed == false %}
-            <button 
-                class="ui primary button mini install-package" 
-                uuid="{{ item.uuid }}" 
-                package-type="{{ type }}" 
-                package-name="{{ item.options_list.repository }}" 
-                repository-type="{{ item.options_list['repository-type'] }}"
-                id="install_button_{{ item.uuid }}">
-                {{ labels.install }}
-            </button>                   
-        {% endif %}    
-        <button class="ui basic button mini package-details" uuid="{{ item.uuid }}" installed="{{ current_version }}">
+    <div class="extra content">                     
+        <button class="ui basic button mini package-details" 
+            uuid="{{ item.uuid }}" 
+            installed="{{ current_version }}"
+            package-name="{{ package_name }}">
             <i class="icon blue info"></i>
             {{ labels.details }}
         </button>       

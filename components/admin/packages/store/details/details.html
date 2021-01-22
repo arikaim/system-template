@@ -5,8 +5,6 @@
 {% set repository_type = details.options_list['repository-type'] %}
 {% set private = details.options_list['private-repository'] %}
 
-{{ details|dump }}
-
 <div class="mt-2">  
     <div class="ui three column stretched grid">
         <div class="ui column">
@@ -58,24 +56,15 @@
             </div>
         </div>
         <div class="ui two wide column">   
-            {{ component('system:admin.packages.repository') }}
-            <!-- 
-            <div class="ui segment">    
-                <h4>{{ labels.repository }}</h4>     
-                <div class="ui basic label" 
-                    id="repository_version"
-                    package-name="{{ details.options_list.repository }}" 
-                    repository-type="{{ details.options_list['repository-type'] }}">
-                    {{ labels.version }}
-                    <span class="ui blue text" id="repository_version_value"></span>
-                </div>
-                <div class="ui divider"></div>
-                <div class="mt-8" id="package_download">
-                  
-                   
-                </div>              
-            </div>     
-            -->   
+            <div class="ui segment">   
+            {{  component('system:admin.packages.repository',{ 
+                    type: type, 
+                    package_name: package_name,
+                    installed_version: installed_version,
+                    repository_name: details.options_list.repository 
+                }) 
+            }}           
+            </div> 
         </div>
     </div>
 </div>
