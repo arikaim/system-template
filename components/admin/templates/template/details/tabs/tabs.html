@@ -14,8 +14,9 @@
             <div class="ui segment">
                 {{  component('system:admin.packages.repository',{ 
                         type: 'template',
-                        name: template.name,
-                        confirm_overwrite: true  
+                        package_name: template.name,
+                        confirm_overwrite: true,
+                        installed_version: template.version   
                     }) 
                 }}
             </div>

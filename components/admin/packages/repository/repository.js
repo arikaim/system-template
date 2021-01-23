@@ -33,6 +33,7 @@ function PackageRepository() {
                     message: result.message,
                     class: 'success'                    
                 });
+                $(element).hide();
             },function(error) {
                 arikaim.page.toastMessage({                  
                     message: error,

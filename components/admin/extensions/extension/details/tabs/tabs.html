@@ -32,11 +32,17 @@
                 </div> 
             {% endif %}    
         </div>
-        <div class="ui twelve wide column">
-            <div class="ui segment fluid">
-                {{ component('system:admin.packages.repository',{ type: 'extension', name: extension.name }) }}
+        <div class="ui four wide column">
+            <div class="ui segment">
+                {{  component('system:admin.packages.repository',{ 
+                        type: 'extension', 
+                        package_name: extension.name,
+                        installed_version: extension.version 
+                    }) 
+                }}
             </div>
         </div>
+
     </div>
 </div>
 <div class="ui stackable top attached tabular menu" id="extension_details_tab">

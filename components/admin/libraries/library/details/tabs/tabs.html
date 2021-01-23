@@ -49,7 +49,12 @@
         </div>
         <div class="ui twelve wide column">
             <div class="ui segment">
-                {{ component('system:admin.packages.repository',{ type: 'library', name: library.name }) }}
+                {{  component('system:admin.packages.repository',{ 
+                        type: 'library', 
+                        package_name: library.name, 
+                        installed_version: library.version   
+                    }) 
+                }}                             
             </div>
         </div>
     </div>

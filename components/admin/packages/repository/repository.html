@@ -19,21 +19,27 @@
             {{ repo_version }}
         </div>
     </div>
-    <div class="mt-4 text-center">              
+    <div class="mt-4 ">              
         <div class="ui basic horizontal label">
             {{ repository.getPackageName() }}
         </div>    
         <div class="ui divider"></div>
         <div class="mt-4" id="download_package_content">           
-            {% if installed_version is versionCompare(repo_version)  %}
-            <button class="ui labeled icon blue mini button download-package"
-                package-type="{{ type }}"
-                package-name="{{ package_name }}"
-                repository="{{ repository.getRepositoryUrl() }}"
-                repository-type="{{ repository_type }}">
-                <i class="icon download"></i>
-                {{ labels.download }}
-            </button>
+            {% if installed_version is versionCompare(repo_version) %}
+                {% if repository.isPvivate() == true and repo_key is empty %}
+                <div class="ui warning message">
+                    <h4>{{ labels.license }}</h4>
+                </div>
+                {% else %}
+                <button class="ui labeled icon blue mini button download-package"
+                    package-type="{{ type }}"
+                    package-name="{{ package_name }}"
+                    repository="{{ repository.getRepositoryUrl() }}"
+                    repository-type="{{ repository_type }}">
+                    <i class="icon download"></i>
+                    {{ labels.download }}
+                </button>
+                {% endif %}
             {% endif %}
         </div>       
     </div>

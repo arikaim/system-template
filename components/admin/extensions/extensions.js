@@ -4,10 +4,9 @@
  *  @license    http://www.arikaim.com/license
  *  http://www.arikaim.com
  */
-"use strict";
+'use strict';
 
 function Extensions() {
-    var self = this;
     
     this.showDetails = function(name) {
         arikaim.ui.setActiveTab('#details_button');

@@ -4,6 +4,7 @@
         "private": "Private",
         "version": "Version",
         "download": "Download",
+        "license": "Missing package license key.",
         "empty": "not set"       
     },
     "messages": {

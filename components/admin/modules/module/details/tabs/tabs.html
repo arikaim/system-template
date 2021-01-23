@@ -50,7 +50,10 @@
             {% set items = package.validator.validate() %}  
             {% if items.count > 0 %}                              
                 <div class="ui segment">
-                    {{ component('system:admin.packages.requires',{ items: items }) }}     
+                    {{  component('system:admin.packages.requires',{ 
+                            items: items                          
+                        }) 
+                    }}     
                 </div>    
                 {% if items.composer is not empty %}           
                 <div class="ui segment ">
@@ -64,7 +67,12 @@
         </div>
         <div class="ui twelve wide column">
             <div class="ui segment fluid">
-                {{ component('system:admin.packages.repository',{ type: 'module', name: module.name }) }}
+                {{  component('system:admin.packages.repository',{ 
+                        type: 'module',                    
+                        package_name: module.name, 
+                        installed_version: module.version           
+                    }) 
+                }}
             </div>
             <div class="ui segment fluid">
                 <div class="ui stackable top attached tabular menu" id="module_details_tab">
