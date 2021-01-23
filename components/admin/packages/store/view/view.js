@@ -68,6 +68,7 @@ function ArikaimStoreView() {
         var packageTitle = $('#package_details').attr('package-title');
         var uuid = $('#package_details').attr('uuid');
         var installedVersion = $('#package_details').attr('installed');
+        var packageName = $('#package_details').attr('package-name');
 
         arikaim.page.loadContent({
             id: 'links_path',      
@@ -76,13 +77,15 @@ function ArikaimStoreView() {
             params: { 
                 uuid: uuid,
                 title: packageTitle,
+                package_name: packageName,
                 installed_version: installedVersion
             }
         },function(result) {
-
             arikaim.ui.button('#package_details_button',function(element) {
                 var uuid = $(element).attr('uuid');
                 var installedVersion = $(element).attr('installed-version');
+                var packageName = $(element).attr('package-name');
+               
                 $('#packages_list').html('');
                 $('#paginator').html('');
                 
@@ -91,10 +94,10 @@ function ArikaimStoreView() {
                     component: 'system:admin.packages.store.details',
                     params: { 
                         uuid: uuid,
+                        package_name: packageName,
                         installed_version: installedVersion
                     }
-                },function(result) {
-                   
+                },function(result) {                   
                 });
             });
         });       

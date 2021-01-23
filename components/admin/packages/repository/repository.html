@@ -1,10 +1,11 @@
+{% set installed_version = installed_version|default('0.0.0') %}
 {% set confirm_overwrite = confirm_overwrite|default(false) %}
 {% set manager = package(type) %}
 {% if package_name is not empty %}
-    {% set repository = manager.getRepository(package_name) %}
+    {% set repository = manager.getRepository(package_name) %}  
 {% endif %}
 {% if repository is empty %}
-    {% set repo_key = arikaimStore().getPackageKye(repository_name) %}
+    {% set repo_key = arikaimStore().getPackageKey(repository_name) %}
     {% set repository = manager.createRepository(repository_name,repo_key) %}
 {% endif %}
 {% set repo_version = repository.getLastVersion() %}

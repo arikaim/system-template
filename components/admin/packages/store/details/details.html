@@ -12,7 +12,8 @@
                 id="package_details" 
                 uuid="{{ uuid }}" 
                 package-title="{{ details.title }}" 
-                installed="{{ installed_version }}">              
+                installed="{{ installed_version }}"
+                package-name="{{ package_name }}">              
                 {% if details.is_free == true %}
                 <div class="ui label basic top right attached green">
                     {{ labels.free }}
