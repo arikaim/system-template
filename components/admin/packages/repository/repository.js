@@ -29,12 +29,12 @@ function PackageRepository() {
 
             return self.download(name,type,repository,repoType,function(result) {
                 // show message
-                arikaim.ui.toastMessage({                   
+                arikaim.page.toastMessage({                   
                     message: result.message,
                     class: 'success'                    
                 });
             },function(error) {
-                arikaim.ui.toastMessage({                  
+                arikaim.page.toastMessage({                  
                     message: error,
                     class: 'error'                                           
                 });
