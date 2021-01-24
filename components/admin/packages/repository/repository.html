@@ -26,9 +26,9 @@
         <div class="ui divider"></div>
         <div class="mt-4" id="download_package_content">           
             {% if installed_version is versionCompare(repo_version) %}
-                {% if repository.isPvivate() == true and repo_key is empty %}
+                {% if repository.isPrivate() == true and repo_key is empty %}
                 <div class="ui warning message">
-                    <h4>{{ labels.license }}</h4>
+                    {{ labels.license }}
                 </div>
                 {% else %}
                 <button class="ui labeled icon blue mini button download-package"
