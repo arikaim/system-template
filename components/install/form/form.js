@@ -3,6 +3,11 @@
 $(document).ready(function() {
     install.initInstallForm();
 
+    arikaim.ui.button('.edit-host-button',function(element) {          
+        $('#host_input').removeClass('disabled');
+        $('#host').removeClass('disabled');
+    });
+
     $('#main_progress').progress({
         duration : 600,
         total    : 4

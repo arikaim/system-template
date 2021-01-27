@@ -108,14 +108,17 @@ function Install() {
         arikaim.ui.form.addRules("#install_form",{
             inline: false,
             fields: {
+                host: {
+                    rules: [{ type: "minLength[2]" }]
+                },
                 database: {
-                    rules: [{ type: "minLength[3]" }]
+                    rules: [{ type: "minLength[2]" }]
                 },
                 username: {
-                    rules: [{ type: "minLength[3]" }]
+                    rules: [{ type: "minLength[2]" }]
                 },
                 password: {
-                    rules: [{ type: "minLength[3]" }]
+                    rules: [{ type: "minLength[2]" }]
                 }
             }
         });

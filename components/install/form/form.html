@@ -1,23 +1,34 @@
 {% set data = installConfig() %}
 <form class="ui segment form" id='install_form'>
-    <div class="field">
-        <label>{{ fields.host.label }}</label>
-        {{ data.db.host }}
-    </div>
-    <div class="field">
-        <label>{{ fields.type.label }}</label>
-        {{ data.db.driver }}
-    </div>
-    <div class="field">
-        <label>{{ fields.database.label }}</label>
-        <input type="text" name="database" id="database" value="{{ data.db.database }}">
-    </div>
     <div class="two fields">
         <div class="field">
+            <label>{{ fields.host.label }}</label>
+            <div class="ui action input disabled" id="host_input">
+                <input type="text" id="host" name="host" value="{{ data.db.host }}">
+                <a class="ui basic right icon button edit-host-button">
+                    <i class="edit blue icon"></i>                 
+                </a>
+            </div>          
+        </div>
+        <div class="field">
+            <label>{{ fields.type.label }}</label>
+            <div class="ui basic big label">
+                {{ data.db.driver }}
+            </div>
+        </div>
+    </div>
+    <div class="two fields">
+        <div class="required field">
+            <label>{{ fields.database.label }}</label>
+            <input type="text" name="database" id="database" value="{{ data.db.database }}">
+        </div>        
+    </div>  
+    <div class="two fields">
+        <div class="required field">
             <label>{{ fields.user.label }}</label>
             <input type="text" name="username" id="username" value="">
         </div>
-        <div class="field">
+        <div class="required field">
             <label>{{ fields.password.label }}</label>
             <input type="text" name="password" id="password" value="">
         </div>

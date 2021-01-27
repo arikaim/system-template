@@ -5,10 +5,10 @@
     {% if job.status == 2 %}
         <i class="check olive icon" title="{{ label.completed }}"></i>
     {% endif %}
-    {% if job.status == 1 %}
+    {% if job.status == 1 or job.status == 0 %}
         <i class="angle double right olive icon" title="{{ label.active }}"></i>
     {% endif %}
-    {% if job.status == 0 %}
+    {% if job.status == 5 %}
         <i class="eye slash outline icon" title="{{ label.disabled }}"></i>        
     {% endif %}
     <i class="dropdown icon"></i>
