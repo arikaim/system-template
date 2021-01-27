@@ -26,10 +26,6 @@ function Drivers() {
         return arikaim.put('/core/api/driver/status',data,onSuccess,onError);          
     };
 
-    this.getConfig = function(name, onSuccess, onError) {
-        return arikaim.get('/core/api/driver/config/' + name,onSuccess,onError);
-    };
-
     this.saveConfig = function(config, onSuccess, onError) {
         return arikaim.put('/core/api/driver/config',config,onSuccess,onError);
     };

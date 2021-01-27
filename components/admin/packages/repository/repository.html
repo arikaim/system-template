@@ -24,7 +24,8 @@
             {{ repository.getPackageName() }}
         </div>    
         <div class="ui divider"></div>
-        <div class="mt-4" id="download_package_content">           
+        <div class="mt-4" id="download_package_content">  
+            {% set repo_version = repo_version|default('0.0.0') %}         
             {% if installed_version is versionCompare(repo_version) %}
                 {% if repository.isPrivate() == true and repo_key is empty %}
                 <div class="ui warning message">

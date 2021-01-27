@@ -37,6 +37,8 @@
                 {{  component('system:admin.packages.repository',{ 
                         type: 'extension', 
                         package_name: extension.name,
+                        repository_name: extension.get('repository'),
+                        repository_type: extension.get('repository-type',null),
                         installed_version: extension.version 
                     }) 
                 }}

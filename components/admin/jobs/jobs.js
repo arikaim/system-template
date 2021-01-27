@@ -20,7 +20,7 @@ function Jobs() {
     this.disable = function(uuid, onSuccess, onError) {
         var data = { 
             uuid: uuid,
-            status: 0 
+            status: 5 // Suspended 
         };
 
         return arikaim.put('/core/api/jobs/status',data,onSuccess,onError);           
@@ -30,6 +30,10 @@ function Jobs() {
         return arikaim.delete('/core/api/jobs/delete/'+ uuid,onSuccess,onError);           
     };
 
+    this.saveConfig = function(formId, onSuccess, onError) {
+        return arikaim.put('/core/api/jobs/config',formId,onSuccess,onError);      
+    }
+   
     this.load = function(uuid, selector, onSuccess, onError) {
         arikaim.page.loadContent({
             id: selector,           

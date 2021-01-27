@@ -52,6 +52,8 @@
                 {{  component('system:admin.packages.repository',{ 
                         type: 'library', 
                         package_name: library.name, 
+                        repository_name: library.get('repository'),
+                        repository_type: library.get('repository-type',null),
                         installed_version: library.version   
                     }) 
                 }}                             

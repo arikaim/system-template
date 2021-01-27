@@ -70,6 +70,8 @@
                 {{  component('system:admin.packages.repository',{ 
                         type: 'module',                    
                         package_name: module.name, 
+                        repository_name: module.get('repository'),
+                        repository_type: module.get('repository-type',null),
                         installed_version: module.version           
                     }) 
                 }}
