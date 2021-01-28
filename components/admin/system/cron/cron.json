@@ -4,6 +4,7 @@
         "title": "Scheduler",
         "disabled": "Disabled",
         "user": "User",
+        "command": "Command",
         "demo": "Demo mode",
         "entry": "Entry"     
     },

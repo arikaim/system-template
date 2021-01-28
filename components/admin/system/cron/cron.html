@@ -1,13 +1,28 @@
 {% set cron = service('queue').createScheduler() %}
-<h3 class="header">
-    {% if cron.isInstalled() == true %}    
-        <i class="check olive icon" title="{{ labels.installed }}"></i>
-        {% set details = cron.getServiceDetails() %}
-    {% else %}  
-        <i class="exclamation triangle orange icon" title="{{ labels.disabled }}"></i>
-    {% endif %}
-    {{ labels.title }}
-</h3>
+<div class="ui segment">
+    <div class="ui grid">
+        <div class="two wide column">
+            <h3 class="header">
+                {% if cron.isInstalled() == true %}    
+                    <i class="check olive icon" title="{{ labels.installed }}"></i>
+                    {% set details = cron.getServiceDetails() %}
+                {% else %}  
+                    <i class="exclamation triangle orange icon" title="{{ labels.disabled }}"></i>
+                {% endif %}
+                {{ labels.title }}
+            </h3>
+        </div>
+        <div class="five wide column">
+            <div class="ui basic label">
+                <span class="ui blue text">{{ labels.command }}</span>
+                <span class="pl-4">
+                    {{ cron.getCronCommand() }}
+                </span>
+            </div>        
+        </div>
+    </div> 
+</div>
+
 {% if demo_mode == true %}
     <div class="ui warning message">
         {{ labels.demo }}
