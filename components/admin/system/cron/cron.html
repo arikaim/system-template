@@ -1,7 +1,7 @@
 {% set cron = service('queue').createScheduler() %}
 <div class="ui segment">
-    <div class="ui grid">
-        <div class="two wide column">
+    <div class="ui divided grid">
+        <div class="six wide column">
             <h3 class="header">
                 {% if cron.isInstalled() == true %}    
                     <i class="check olive icon" title="{{ labels.installed }}"></i>
@@ -11,8 +11,41 @@
                 {% endif %}
                 {{ labels.title }}
             </h3>
+            {% if demo_mode == true %}
+                <div class="ui warning message">
+                    {{ labels.demo }}
+                </div>
+            {% else %}
+                {% if cron.isInstalled() == true %}    
+                    <div class="ui list">
+                        <div class="item">
+                            <strong>{{ labels.entry }}</strong> 
+                            <ul class="ui list ml-4">
+                                {% for command in details.jobs %}
+                                <li class="ml-8">{{ command }}</li>
+                                {% endfor %}
+                            </ul>          
+                        </div>
+                        <div class="item">
+                            <strong>{{ labels.user }}</strong> 
+                            <div class="ui basic label">
+                                {{ details.user }}
+                            </div>
+                        </div>       
+                    </div>
+                    <button class="ui basic button" id="uninstall_cron">
+                        <i class="icon orange trash"></i>
+                        {{ buttons.uninstall }}
+                    </button>
+                {% else %}
+                    <button class="ui basic button" id="install_cron">
+                        <i class="download icon olive"></i>
+                        {{ buttons.install }}
+                    </button>
+                {% endif %}
+            {% endif %}
         </div>
-        <div class="five wide column">
+        <div class="ten wide column">
             <div class="ui basic label">
                 <span class="ui blue text">{{ labels.command }}</span>
                 <span class="pl-4">
@@ -22,36 +55,6 @@
         </div>
     </div> 
 </div>
-
-{% if demo_mode == true %}
-    <div class="ui warning message">
-        {{ labels.demo }}
-    </div>
-{% else %}
-    {% if cron.isInstalled() == true %}    
-        <div class="ui list">
-            <div class="item">
-                <strong>{{ labels.entry }}</strong> 
-                <ul class="ui list ml-4">
-                    {% for command in details.jobs %}
-                    <li class="ml-8">{{ command }}</li>
-                    {% endfor %}
-                </ul>          
-            </div>
-            <div class="item">
-                <strong>{{ labels.user }}</strong> {{ details.user }}
-            </div>       
-        </div>
-        <button class="ui basic button" id="uninstall_cron">
-            <i class="icon orange trash"></i>
-            {{ buttons.uninstall }}
-        </button>
-    {% else %}
-        <button class="ui basic button" id="install_cron">
-            <i class="download icon olive"></i>
-            {{ buttons.install }}
-        </button>
-    {% endif %}
-{% endif %}
-<div class="ui horizontal divider"></div>
-{{ component("system:admin.system.cron.jobs") }}
+<div class="ui segment">
+    {{ component("system:admin.system.cron.jobs") }}
+</div>

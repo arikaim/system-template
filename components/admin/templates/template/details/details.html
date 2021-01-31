@@ -1,11 +1,11 @@
 <div class="ui grid segment">
-    <div class="one wide right aligned column">
-        <div class="font-bold pt-2">
-            {{ labels.theme }}
-        </div>
-    </div>
-    <div class="two wide column">       
-       {{ component('system:admin.templates.dropdown',{ selected: template_name, class: 'fluid' }) }}
+    <div class="four wide column">
+        <div class="flex">
+            <div class="font-bold p-2">
+                {{ labels.theme }}
+            </div>
+            {{ component('system:admin.templates.dropdown',{ selected: template_name, class: 'fluid' }) }}
+        </div>    
     </div>                
 </div>    
 <div class="ui horizontal divider"></div>

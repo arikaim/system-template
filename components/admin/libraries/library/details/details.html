@@ -1,11 +1,11 @@
-<div class="ui column grid segment">
-    <div class="one wide right aligned column">
-        <div class="font-bold pt-2">
-            {{ labels.library }}
-        </div>
-    </div>
-    <div class="two wide column">
-        {{ component("system:admin.libraries.dropdown",{ selected : library_name, class: 'fluid' }) }}  
+<div class="ui column grid segment">   
+    <div class="four wide column">
+        <div class="flex">
+            <div class="font-bold p-2">
+                {{ labels.library }}
+            </div>
+            {{ component("system:admin.libraries.dropdown",{ selected : library_name, class: 'fluid' }) }}  
+        </div>        
     </div>                
 </div>    
 <div id="library_details" class="mt-8">   
