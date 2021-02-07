@@ -4,13 +4,12 @@
  *  @license    http://www.arikaim.com/license
  *  http://www.arikaim.com
  */
-"use strict";
+'use strict';
 
 function DriversView() {
-    var self = this;
-
+   
     this.init = function() {
-        paginator.init('drivers_rows');         
+        paginator.init('drivers_rows');               
         arikaim.ui.tab('.drivers-tab-item','drivers_tab');            
     };
 

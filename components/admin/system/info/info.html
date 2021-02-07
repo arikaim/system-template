@@ -42,34 +42,7 @@
                             </div>
                         </div>
                     </div> 
-                </div> 
-                <div class="item">
-                    <div class="content">                       
-                        {% set packages = system().getComposerPackages() %}
-                        <div class="ui accordion" id="composer_packages_info">
-                            <div class="title">                                       
-                                <i class="icon open box"></i> 
-                                <i class="dropdown icon"></i>
-                                {{ labels.composer }} 
-                            </div>                                     
-                            <div class="content ml-2">
-                                <div class="ui list">
-                                    {% for item in packages %}
-                                        <div class="item">
-                                            <i class="icon archive grey"></i>
-                                            <div class="content">                                               
-                                                <div class="header">{{ item.name }}</div>
-                                                <div class="description">                                                  
-                                                    {{ item.version }}
-                                                </div>
-                                            </div>                                           
-                                        </div>
-                                    {% endfor %}
-                                </div>
-                            </div>
-                        </div>               
-                    </div>
-                </div>    
+                </div>                
             </div>
         </div>
     </div>

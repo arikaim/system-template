@@ -87,9 +87,9 @@
                         {{ tabs.console.content }}
                     </a>        
                 </div>
-                <div class="ui bottom attached tab segment active {{ tabs.routes.class }}" data-tab="drivers_tab">                  
+                <div class="ui bottom attached tab segment active {{ tabs.routes.class }}" data-tab="drivers_tab">                                     
                     {{  component('components:list.items',{ 
-                            items: module.drivers,
+                            items: package.getDrivers(),
                             icon: "code",
                             help_icon: "terminal" 
                         }) 

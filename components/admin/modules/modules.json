@@ -17,6 +17,9 @@
         },
         "drivers": {
             "content": "Drivers"
+        },
+        "composer": {
+            "content": "Composer"
         }
     }
 }

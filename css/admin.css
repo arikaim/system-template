@@ -2,7 +2,7 @@
   font-family: 'Monoton';
   font-style: normal;
   font-weight: 400;
-  src: local('Monoton'), local('Monoton-Regular'), url(https://fonts.gstatic.com/s/monoton/v9/5h1aiZUrOngCibe4TkHLRw.ttf) format('truetype');
+  src: url(https://fonts.gstatic.com/s/monoton/v10/5h1aiZUrOngCibe4TkHLRw.ttf) format('truetype');
 }
 html {
   height: 100%;
@@ -12,6 +12,7 @@ body {
   min-height: 100%;
   padding: 0px;
   margin: 0px;
+  height: 100%;
 }
 .page {
   padding: 0px;
