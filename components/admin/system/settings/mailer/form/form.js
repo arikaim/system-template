@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 arikaim.page.onReady(function () {
     arikaim.ui.viewPasswordButton('.view-password','#password');

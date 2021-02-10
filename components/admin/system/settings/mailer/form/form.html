@@ -34,12 +34,15 @@
                     <label>{{ fields.smtp.port.label }}</label> 
                     <input rule="empty" type="text" id="port" name="mailer.smpt.port" value="{{ options.mailer.smpt.port }}" {{ fields.smtp.port.placeholder|attr('placeholder') }}>                   
                 </div> 
-                <div class="field">
-                    <label>{{ fields.smtp.ssl.label }}</label> 
-                    <div class="ui checkbox" id="use_ssl">
-                        <input id="ssl" name="mailer.smpt.ssl" value="1" type="checkbox" {{ options.mailer.smpt.ssl|attr('checked') }}> 
-                        <label>{{ fields.smtp.ssl.description }}</label>   
-                    </div>                
+                <div class="field">                   
+                    {{  component('components:form.fields.checkbox',{
+                            field_label: fields.smtp.ssl.label,
+                            name: 'mailer.smpt.ssl',
+                            id: 'ssl',
+                            value: options.mailer.smpt.ssl,
+                            label: fields.smtp.ssl.description
+                        }) 
+                    }}                                 
                 </div> 
             </div>          
             <div class="two fields">
