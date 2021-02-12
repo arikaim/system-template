@@ -3,7 +3,7 @@
 {% endif %}
 {% set show_requires = show_requires|default(false) %}
 {% set show_buttons = show_buttons|default(true) %}
-{% set primary_template = getOption('primary.template') %}
+{% set primary_template = service('view').getPrimaryTemplate() %}
 <div class="ui card raised {{ class }} " id="{{ template_name }}">    
     <div class="content item">              
         <div class="font-bold mt-1 pl-1">
