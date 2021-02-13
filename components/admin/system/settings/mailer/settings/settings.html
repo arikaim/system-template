@@ -1,0 +1,24 @@
+{% set options = getOptions("mailer") %}
+{% if demo_mode == true %}
+    <div class="ui warning message">
+        {{ messages.demo }}
+    </div>
+{% else %}
+<div class="ui segment">
+    <h4>{{ title }}</h4>
+    <form class="ui equal width form" id="mailer_settings_form" method="POST">                                      
+        <h4 class="ui dividing header">{{ labels.from }}</h4>
+        <div class="two fields">
+            <div class="field">
+                <label>{{ fields.from.email.label }}</label> 
+                <input rule="email" id="from_email" name="mailer.from.email" value="{{ options.mailer.from.email }}" {{ fields.from.email.placeholder|attr('placeholder') }}>                   
+            </div> 
+            <div class="field">
+                <label>{{ fields.from.name.label }}</label> 
+                <input id="from_name" name="mailer.from.name" value="{{ options.mailer.from.name }}" {{ fields.from.name.placeholder|attr('placeholder') }}>                   
+            </div>  
+        </div>
+        {{ component('components:form.footer') }}        
+    </form>      
+</div> 
+{% endif %}

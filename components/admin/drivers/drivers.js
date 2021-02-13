@@ -40,10 +40,13 @@ function Drivers() {
         });
     };
 
-    this.loadConfig = function(name, elementId, onSuccess) {
+    this.loadConfig = function(name, elementId, onSuccess, columnClass) {
         return arikaim.page.loadContent({
             id: elementId,
-            params: { driver_name: name },
+            params: { 
+                driver_name: name, 
+                column_class: columnClass
+            },
             component: 'system:admin.modules.drivers.config'
         },function(result) {                  
             callFunction(onSuccess,result);

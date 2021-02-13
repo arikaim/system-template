@@ -1,0 +1,19 @@
+{
+    "title": "From Email Settings",
+    "fields": {       
+        "from": {
+            "email": {
+                "label": "Email",
+                "placeholder": "Enter Email"
+            },
+            "name": {
+                "label": "Name",
+                "placeholder": "Enter Name"
+            }
+        }
+    },
+   
+    "messages": {
+        "demo": "Disabled in demo mode"
+    }  
+}

@@ -4,11 +4,33 @@
  *  @license    http://www.arikaim.com/license
  *  http://www.arikaim.com
  */
-"use strict";
+'use strict';
 
 function MailerSettings() {
-    var self = this;
-  
+   
+    this.init = function() {
+        $('#drivers_dropdown').dropdown({
+            onChange: function(value) {                    
+                options.save('mailer.driver',value);
+            }
+        });
+
+        arikaim.ui.button('.mailer-settings-button',function() {
+            return arikaim.page.loadContent({
+                id: 'mailer_config',
+                component: 'system:admin.system.settings.mailer.settings',  
+            });
+        });
+
+        arikaim.events.on('driver.config',function(element,name,category) {      
+            drivers.loadConfig(name,'mailer_config',null,'sixteen wide');
+        },'driversList',self)
+
+        arikaim.ui.button('#send_button',function() {
+            return mailerSettings.sendTestEmail();
+        });
+    };
+
     this.sendTestEmail = function() {
         return arikaim.get('/core/api/mailer/test/email',function(result) {              
             arikaim.ui.form.showMessage({ 
@@ -19,37 +41,10 @@ function MailerSettings() {
            arikaim.ui.form.showErrors(errors);
         });
     };
-
-    this.initSettingsForm = function(useSmtp) {
-        if (useSmtp == true) {
-            arikaim.ui.form.addRules('#mailer_settings_form',{
-                inline: false,
-                fields: {
-                    user_name: {
-                        identifier: 'user_name',
-                        rules: [{ type: 'minLength[2]' }]          
-                    },        
-                    password: {
-                        identifier: 'password',
-                        rules: [{ type: 'minLength[2]' }]   
-                    },
-                    port: {
-                        identifier: "port",
-                        rules: [{ type: 'minLength[2]' }]   
-                    },
-                    host: {
-                        identifier: 'host',
-                        rules: [{ type: 'empty' }]   
-                    }
-                }
-            });
-        } else {
-            arikaim.ui.form.addRules('#mailer_settings_form',{
-                inline: false,
-                fields: {}
-            });
-        }
-    };
 }
 
 var mailerSettings = new MailerSettings();
+
+$(document).ready(function () {
+    mailerSettings.init();
+});

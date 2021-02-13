@@ -2,5 +2,17 @@
     "title": {
         "content": "Mailer",
         "icon": "mail outline"
-    }    
+    },
+    "labels": {
+        "current": "Use driver",
+        "settings": "Edit",
+        "test": "Send test email to ",
+        "from": "From Email",
+        "drivers": "Drivers"
+    }, 
+    "buttons": {
+        "send": {
+            "content": "Send"
+        }
+    }
 }

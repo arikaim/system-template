@@ -1,3 +1,54 @@
-{% component 'components:tabs.vertical.content' %}
-    {{ component('system:admin.system.settings.mailer.form') }}
-{% endcomponent %}
+{{ component('components:segment-title',{ title: title.content, icon: title.icon }) }}
+{% set mailer_driver = getOption('mailer.driver',null) %}
+{% set from_email = getOption('mailer.from.email',null) %}
+{% set user = service('access').getUser() %}
+<div class="mt-4">
+    <div class="ui stackable stretched grid">
+        <div class="six wide column">
+            <div class="ui segment">
+                <h4>{{ labels.drivers }}</h4>
+                {{ component('system:admin.drivers.list',{ category: 'mailers', empty: '..' }) }}
+                <div class="ui divider"></div>
+                <div class="mt-4">
+                    <h4>{{ labels.current }}</h4>
+                    {{  component('system:admin.drivers.dropdown',{ 
+                            selected: mailer_driver, 
+                            category: 'mailers', 
+                            calss: 'fluid' 
+                        }) 
+                    }}     
+                </div>
+            </div>        
+            <div class="ui segment">
+                <div class="ui two column grid">
+                    <div class="column">
+                        <h4 class="header">
+                            {{ labels.from }}      
+                            <div class='ui label basic text font-bold'>{{ from_email }}</div>                                            
+                        </h4>  
+                        <div class="ui icon labeled basic button mailer-settings-button">
+                            <i class="icon blue cog"></i>    
+                            {{ labels.settings }}              
+                        </div>
+                    </div>
+                    <div class="column">
+                        {% if user.email is not empty %}
+                        <h4 class="header">
+                            {{ labels.test }}
+                            <div class='ui label basic text font-bold'>{{ user.email }}</div>                            
+                        </h4>      
+                        <div class="ui icon labeled basic button" id="send_button">
+                            <i class="icon blue mail outline"></i>
+                            {{ buttons.send.content }}
+                        </div>
+                        <div class="ui positive hidden message" id="send_msg">
+                        </div> 
+                        {% endif %}          
+                    </div>
+                </div>                                                             
+            </div>     
+        </div>    
+        <div class="eight wide column" id="mailer_config">          
+        </div>            
+    </div>
+</div>

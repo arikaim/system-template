@@ -1,6 +1,6 @@
 {% set example_number = example_number|default(100000.254) %}
 {% set id = id|default('number_format') %}
-{% set items = getOption('number.format.items') %}
+{% set items = loadConfig('number-format.json') %}
 
 <div class="ui mini search selection dropdown {{ class }}" id="{{ id }}">   
     <i class="icon table"></i>
@@ -12,11 +12,8 @@
     {% endif %}   
     <div class="menu">   
         {% for key, item in items %}
-            <div class="item {{ item.name|ifthen(selected,'active') }}" data-value="{{ key }}">
-                {{ example_number|numberFormat(key) }}
-                <div class="description">
-                    {{ key }}            
-                </div>
+            <div class="item {{ item.name|ifthen(selected,'active') }}" data-value="{{ key }}">              
+                {{ example_number|numberFormat(item) }}               
             </div>      
         {% endfor %}
     </div>
