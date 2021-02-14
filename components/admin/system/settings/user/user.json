@@ -1,6 +1,10 @@
 {
     "title": {
-        "content": "Edit User Details",
+        "content": "User",
         "icon": "user"
+    },
+    "links": {
+        "details": "Details",
+        "password": "Password"
     }
 }

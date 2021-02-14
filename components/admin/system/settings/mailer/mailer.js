@@ -32,13 +32,21 @@ function MailerSettings() {
     };
 
     this.sendTestEmail = function() {
-        return arikaim.get('/core/api/mailer/test/email',function(result) {              
-            arikaim.ui.form.showMessage({ 
-                selector: '#send_msg',
-                message: result.message                  
-            });     
-        },function(errors) {               
-           arikaim.ui.form.showErrors(errors);
+        $('#mailer_config').html('');
+
+        return arikaim.get('/core/api/mailer/test/email',function(result) {     
+            return arikaim.page.loadContent({
+                id: 'mailer_config',
+                params: {
+                    message: result.message           
+                },
+                component: 'system:admin.system.settings.mailer.test',  
+            });  
+        },function(errors) {    
+            return arikaim.page.loadContent({
+                id: 'mailer_config',             
+                component: 'system:admin.system.settings.mailer.test',  
+            });                               
         });
     };
 }

@@ -1,0 +1,11 @@
+{
+    "title": "Details",
+    "fields": {
+        "user_name": {
+            "label": "Username"
+        },
+        "email": {
+            "label": "Email"
+        }  
+    }
+}

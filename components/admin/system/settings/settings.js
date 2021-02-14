@@ -8,6 +8,14 @@
 
 function SystemSettings() {
    
+    this.changeUserDetails = function(formId, onSuccess, onError) {
+        return arikaim.post('/core/api/user/details',formId,onSuccess,onError);
+    };
+
+    this.changeUserPassword = function(formId, onSuccess, onError) {
+        return arikaim.post('/core/api/user/password',formId,onSuccess,onError);
+    };
+
     this.disableInstallPage = function(value, onSuccess, onError) {
         var data = { 
             install_page: value 

@@ -1,6 +1,17 @@
-{% set user = access().getUser() %}
-{% if 'ControlPanel' is access %}
-    {% component 'components:tabs.vertical.content' %}
-        {{ component('system:admin.system.settings.user.form',{ user: user }) }}
-    {% endcomponent %}
-{% endif %}
+{{ component('components:segment-title',{ title: title.content, icon: title.icon }) }}
+
+<div class="mt-4">
+    {% set items = [ 
+        { title: links.details, component: 'system:admin.system.settings.user.details', icon: 'user', active: true },
+        { title: links.password, component: 'system:admin.system.settings.user.password', icon: 'lock ' }
+    ] %}
+    
+    {{  component('components:tabs.vertical',{ 
+            items: items, 
+            menu: { id: null }, 
+            item_class: 'user-settings-item',
+            class:  'ten wide', 
+            content: { id: 'user_settings_content', component: 'system:admin.system.settings.user.details' } 
+        })
+    }}
+</div>
