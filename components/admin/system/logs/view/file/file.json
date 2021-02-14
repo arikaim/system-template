@@ -11,5 +11,10 @@
     },
     "messages": {
         "empty": "..."
+    },
+    "buttons": {
+        "delete": {
+            "content": "Delete"
+        }
     }
 }

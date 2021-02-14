@@ -1,5 +1,5 @@
 'use strict';
 
-arikaim.page.onReady(function() {  
+$(document).ready(function() {  
     paginator.init('logs_view',"system:admin.system.logs.view",'logs');        
 });

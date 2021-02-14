@@ -1,24 +1,10 @@
 {% set handler_name = service('logger').getHandelerName() %}
 {% set handler_name = handler_name|default('file') %}
-<div class="ui stackable grid">
-    <div class="row">       
-        <div class="sixteen wide column right aligned">                     
-            <button class="ui aligned basic button delete-logs">
-                <i class="icon orange trash"></i>
-                {{ buttons.delete.content }}
-            </button>
-            <span class="pl-2"> 
-                {{ component('components:paginator.dropdown',{ namespace: 'logs' }) }}
-            </span>                                       
-        </div>
-    </div>
-    <div class="row">
-        <div class="sixteen wide column" id="logs_view">
-            {% if handler_name == 'file' %}
-                {{ component("system:admin.system.logs.view.file") }}
-            {% elseif handler_name == 'db' %}
-                {{ component("system:admin.system.logs.view.db") }}
-            {% endif %}
-        </div>
-    </div>
-</div>
+
+<div class="mt-2" id="logs_view">
+    {% if handler_name == 'file' %}
+        {{ component("system:admin.system.logs.view.file") }}
+    {% elseif handler_name == 'db' %}
+        {{ component("system:admin.system.logs.view.db") }}
+    {% endif %}
+</div>           

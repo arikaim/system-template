@@ -1,18 +1,22 @@
 {
-    "title": "From Email Settings",
+    "title": "Settings",
     "fields": {       
         "from": {
             "email": {
-                "label": "Email",
-                "placeholder": "Enter Email"
+                "label": "From Email",
+                "placeholder": "Enter email"
             },
             "name": {
-                "label": "Name",
-                "placeholder": "Enter Name"
+                "label": "From Name",
+                "placeholder": "Enter name"
             }
         }
     },
-   
+    "labels": {
+        "logs": "Logs",
+        "info": "Log message for each email send.",
+        "error": "Log email send errors."
+    },
     "messages": {
         "demo": "Disabled in demo mode"
     }  

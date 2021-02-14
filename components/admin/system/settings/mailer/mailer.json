@@ -5,7 +5,7 @@
     },
     "labels": {
         "current": "Use driver",
-        "settings": "Edit",
+        "settings": "Settings",
         "test": "Send test email to ",
         "from": "From Email",
         "drivers": "Drivers"

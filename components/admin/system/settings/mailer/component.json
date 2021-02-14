@@ -1,6 +1,9 @@
 {
     "include": {
-        "js": "system:admin.drivers"
+        "js": [
+            "system:admin.drivers",
+            "system:admin.options"
+        ]
     },
     "access": {
         "auth": "session",

@@ -10,10 +10,5 @@
     },
     "labels": {
         "handler": "Handler Type"
-    },
-    "buttons": {
-        "delete": {
-            "content": "Delete"
-        }
     }
 }
