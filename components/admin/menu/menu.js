@@ -4,7 +4,7 @@
  *  @license    http://www.arikaim.com/license
  *  http://www.arikaim.com
  */
-"use strict";
+'use strict';
 
 function ControlPanelMenu() {
     var self = this;
@@ -66,6 +66,6 @@ function ControlPanelMenu() {
 
 var menu = new ControlPanelMenu();
 
-$(document).ready(function() {
+arikaim.component.onLoaded(function() {    
     menu.init();    
 });

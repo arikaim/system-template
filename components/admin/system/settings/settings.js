@@ -4,7 +4,7 @@
  *  @license    http://www.arikaim.com/license
  *  http://www.arikaim.com
  */
-"use strict";
+'use strict';
 
 function SystemSettings() {
    
@@ -31,6 +31,6 @@ function SystemSettings() {
 
 var settings = new SystemSettings();
 
-$(document).ready(function() {
+arikaim.component.onLoaded(function() {    
     settings.init();
 });

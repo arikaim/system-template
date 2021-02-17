@@ -6,6 +6,6 @@
  */
 'use strict';
 
-$(document).ready(function() {
+arikaim.component.onLoaded(function() {    
     arikaimStore.initRegisterOrderForm();
 }); 

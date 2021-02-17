@@ -6,7 +6,7 @@
  */
 'use strict';
 
-$(document).ready(function() {
+arikaim.component.onLoaded(function() {    
     arikaim.ui.button('.remove-poroduct-order',function(element) {
         return arikaimStore.removeOrder(function(result) {         
             arikaim.page.loadContent({

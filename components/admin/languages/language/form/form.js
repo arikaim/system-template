@@ -1,5 +1,4 @@
 'use strict';
 
-$(document).ready(function() {
-    //$('#country_code').dropdown({});
+arikaim.component.onLoaded(function() {    
 });

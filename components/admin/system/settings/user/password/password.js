@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-$(document).ready(function() {
+arikaim.component.onLoaded(function() {    
     arikaim.ui.form.addRules("#user_password_form");
 
     arikaim.ui.form.onSubmit('#user_password_form',function() {

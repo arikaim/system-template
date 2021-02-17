@@ -1,6 +1,6 @@
 'use strict';
 
-$(document).ready(function() {
+arikaim.component.onLoaded(function() {    
     arikaim.ui.form.addRules('#driver_config_form',{});
 
     arikaim.ui.form.onSubmit('#driver_config_form',function() {

@@ -53,6 +53,6 @@ function MailerSettings() {
 
 var mailerSettings = new MailerSettings();
 
-$(document).ready(function () {
+arikaim.component.onLoaded(function() {    
     mailerSettings.init();
 });

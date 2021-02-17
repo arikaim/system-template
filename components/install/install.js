@@ -155,6 +155,6 @@ function Install() {
 
 var install = new Install();
 
-$(document).ready(function() {
+arikaim.component.onLoaded(function() {    
     install.init();
 });

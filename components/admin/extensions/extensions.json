@@ -10,8 +10,10 @@
             "content": "Repository"
         }
     },
-    "message": {
-        "title": "Confirm",
-        "description": "Uninstall extension '<b><% title %></b>' "
+    "messages": {
+        "uninstall": {
+            "title": "Confirm",
+            "description": "Uninstall extension '<b><% title %></b>' "
+        }  
     }
 }

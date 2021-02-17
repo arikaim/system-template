@@ -4,7 +4,7 @@
  *  @license    http://www.arikaim.com/license
  *  http://www.arikaim.com
  */
-"use strict";
+'use strict';
 
 function MobileMenu() {
     var self = this;
@@ -16,6 +16,6 @@ function MobileMenu() {
 
 var mobileMenu = new MobileMenu();
 
-arikaim.page.onReady(function() {
+arikaim.component.onLoaded(function() {  
     mobileMenu.init();    
 });

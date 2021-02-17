@@ -44,7 +44,7 @@ function DbLogsView() {
 
 var dbLogsView = new DbLogsView();
 
-$(document).ready(function() {
+arikaim.component.onLoaded(function() {    
     dbLogsView.init();
     dbLogsView.initRows();
 });

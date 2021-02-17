@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-$(document).ready(function() {
+arikaim.component.onLoaded(function() {
     $('#choose_language').dropdown({
         onChange: function(uuid) {         
             languages.load(uuid,function(result) {

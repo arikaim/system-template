@@ -8,15 +8,14 @@
 
 function RelationsView() {
     var self = this;  
-    this.messages = null;
-
+  
     this.init = function() {
+        this.setMessagesComponent('system:admin.orm.relations.view');
+
         var extension = $('#relation_rows').attr('extension');
         var model = $('#relation_rows').attr('model');
         var relationId = $('#relation_rows').attr('relation-id');
         
-        this.loadMessages();
-
         paginator.init('relation_rows',{ 
             name: 'system:admin.orm.relations.view.rows',
             params: {  
@@ -25,16 +24,6 @@ function RelationsView() {
                 relation_id: relationId
             } 
         },'relations');  
-    };
-
-    this.loadMessages = function() {
-        if (isObject(this.messages) == true) {
-            return;
-        }
-
-        arikaim.component.loadProperties('system:admin.orm.relations.view',function(params) { 
-            self.messages = params.messages;
-        }); 
     };
 
     this.initRows = function() {
@@ -58,10 +47,10 @@ function RelationsView() {
             var title = $(element).attr('data-title');
             var model = $(element).attr('model');
             var extension = $(element).attr('extension');
-            var message = arikaim.ui.template.render(self.messages.remove.description,{ title: title });
+            var message = arikaim.ui.template.render(self.getMessage('remove.description'),{ title: title });
            
             modal.confirmDelete({ 
-                title: self.messages.remove.title,
+                title: self.getMessage('remove.title'),
                 description: message
             },function() {
                 relations.delete(model,extension,uuid,
@@ -73,8 +62,8 @@ function RelationsView() {
     };
 }
 
-var relationsView = new RelationsView();
+var relationsView = createObject(RelationsView,ControlPanelView);
 
-$(document).ready(function() {  
+arikaim.component.onLoaded(function() {    
     relationsView.init();
 }); 

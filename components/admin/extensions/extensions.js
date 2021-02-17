@@ -24,6 +24,6 @@ function Extensions() {
 
 var extensions = new Extensions();
 
-arikaim.page.onReady(function() {       
+arikaim.component.onLoaded(function() {       
     extensions.init();    
 });

@@ -1,6 +1,6 @@
 'use strict';
 
-$(document).ready(function() {
+arikaim.component.onLoaded(function() {    
     install.initInstallForm();
 
     arikaim.ui.button('.edit-host-button',function(element) {          

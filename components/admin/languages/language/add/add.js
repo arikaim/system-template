@@ -1,7 +1,6 @@
-"use strict";
+'use strict';
 
-$(document).ready(function() {
-   
+arikaim.component.onLoaded(function() {
     $('#languages_list').dropdown({
         onChange: function(value, text, $choice) {
             arikaim.ui.form.clearErrors('#language_form');

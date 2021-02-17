@@ -83,6 +83,6 @@ function Cache() {
 
 var cache = new Cache();
 
-$(document).ready(function() {
+arikaim.component.onLoaded(function() {    
     cache.init();
 });

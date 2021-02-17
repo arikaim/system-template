@@ -4,7 +4,7 @@
  *  @license    http://www.arikaim.com/license
  *  http://www.arikaim.com
  */
-"use strict";
+'use strict';
 
 function ModulesView() {
     var self = this;
@@ -119,6 +119,6 @@ function ModulesView() {
 
 var modulesView = new ModulesView();
 
-$(document).ready(function() {   
+arikaim.component.onLoaded(function() {    
     modulesView.initRows();
 });

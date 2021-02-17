@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-arikaim.page.onReady(function() {
+arikaim.component.onLoaded(function() {  
     $('#module_details_tab .item').tab();
 
     arikaim.ui.button('.update-composer',function(element) {          

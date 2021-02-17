@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-$(document).ready(function() {
+arikaim.component.onLoaded(function() {    
     arikaim.ui.form.addRules("#library_config",{
         inline: false,
         fields: {}

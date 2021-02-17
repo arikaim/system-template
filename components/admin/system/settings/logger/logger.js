@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-arikaim.page.onReady(function() {
+arikaim.component.onLoaded(function() {  
     $('.change-option').checkbox({
         onChecked: function() {
             var optionName = $(this).attr('name');

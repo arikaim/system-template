@@ -1,5 +1,5 @@
 'use strict';
 
-$(document).ready(function() {     
+arikaim.component.onLoaded(function() {      
     paginator.init('composer_rows');         
 });

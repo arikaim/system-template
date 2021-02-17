@@ -4,7 +4,7 @@
  *  @license    http://www.arikaim.com/license
  *  http://www.arikaim.com
  */
-"use strict";
+'use strict';
 
 function Languages() {
    
@@ -63,6 +63,6 @@ function Languages() {
 
 var languages = new Languages();
 
-arikaim.page.onReady(function() {
+arikaim.component.onLoaded(function() {  
     languages.init();
 });

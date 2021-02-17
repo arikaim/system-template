@@ -47,6 +47,6 @@ function Libraries() {
 
 var libraries = new Libraries();
 
-arikaim.page.onReady(function() {
+arikaim.component.onLoaded(function() {  
     libraries.init();
 });

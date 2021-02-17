@@ -1,5 +1,5 @@
-"use strict";
+'use strict';
 
-arikaim.page.onReady(function() {
+arikaim.component.onLoaded(function() {  
     $('.events-list').accordion();
 });

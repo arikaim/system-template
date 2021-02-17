@@ -1,6 +1,6 @@
 'use strict';
 
-$(document).ready(function() {     
+arikaim.component.onLoaded(function() {    
     safeCall('driversView',function(obj) {
         obj.initRows();
     },true);   

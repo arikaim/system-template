@@ -4,14 +4,13 @@
  *  @license    http://www.arikaim.com/license
  *  http://www.arikaim.com
  */
-"use strict";
+'use strict';
 
 function ExtensionsView() {
     var self = this;
 
-    this.init = function() {
-        var component = arikaim.component.get('system:admin.extensions');      
-        var messageTitle = component.getProperty('message.title');
+    this.init = function() {        
+        this.loadMessages('system:admin.extensions');
 
         $('.popup-button').popup({ 
             on: 'click' 
@@ -84,12 +83,11 @@ function ExtensionsView() {
         });
        
         arikaim.ui.button('.un-install-button',function(element) {             
-            var name = $(element).attr('extension');
-            var message = component.getProperty('message.description');
-            message = arikaim.ui.template.render(message,{ title: name });
+            var name = $(element).attr('extension');          
+            message = arikaim.ui.template.render(self.getMessage('uninstall.content'),{ title: name });
 
             modal.confirm({
-                title: messageTitle,
+                title: self.getMessage('uninstall.title'),
                 description: message
             }).done(function() {                              
                 return packages.unInstall(name,'extension').done(function(result) {
@@ -179,8 +177,8 @@ function ExtensionsView() {
     };
 }
 
-var extensionsView = new ExtensionsView();
+var extensionsView = new createObject(ExtensionsView,ControlPanelView);
 
-arikaim.page.onReady(function() {   
+arikaim.component.onLoaded(function() {  
     extensionsView.init();
 });

@@ -1,7 +1,6 @@
 'use strict';
 
-$(document).ready(function() {  
-
+arikaim.component.onLoaded(function() {
     $('.change-driver-status').dropdown({
         onChange: function(value) {
             var driverName = $(this).attr('driver_name');

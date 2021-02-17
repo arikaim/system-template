@@ -58,6 +58,6 @@ function Update() {
 
 var update = new Update();
 
-arikaim.page.onReady(function() {
+arikaim.component.onLoaded(function() {  
     update.init();
 });

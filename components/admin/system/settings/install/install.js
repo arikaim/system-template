@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-$(document).ready(function() {
+arikaim.component.onLoaded(function() {    
     $('#install_page_toggle').checkbox({
         onChecked: function() {
             settings.disableInstallPage(true);         

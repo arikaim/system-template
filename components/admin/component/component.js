@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-arikaim.page.onReady(function() {
+arikaim.component.onLoaded(function() {  
     $('.components-list').accordion({
         onOpen: function(item) {
             var componentName = $(this).attr('component-name');

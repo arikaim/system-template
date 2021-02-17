@@ -46,6 +46,6 @@ function PackageRepository() {
 
 var packageRepository = new PackageRepository();
 
-$(document).ready(function() {  
+arikaim.component.onLoaded(function() {    
     packageRepository.init();
 })

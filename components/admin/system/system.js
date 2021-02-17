@@ -1,5 +1,5 @@
 'use strict';
 
-arikaim.page.onReady(function() {
+arikaim.component.onLoaded(function() {  
     arikaim.ui.tab();   
 });

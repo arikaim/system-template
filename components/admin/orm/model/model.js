@@ -4,10 +4,9 @@
  *  @license    http://www.arikaim.com/license
  *  http://www.arikaim.com
  */
-"use strict";
+'use strict';
 
 function Orm() {
-    var self = this;
     
     this.loadModel = function(selector, name, extension, uuid) {
         return arikaim.page.loadContent({

@@ -1,6 +1,6 @@
 'use strict';
 
-$(document).ready(function () {
+arikaim.component.onLoaded(function() {    
     arikaim.ui.form.addRules('#mailer_settings_form');
 
     arikaim.ui.form.onSubmit('#mailer_settings_form',function(data) {         

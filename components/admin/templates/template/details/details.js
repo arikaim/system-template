@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-arikaim.page.onReady(function() {
+arikaim.component.onLoaded(function() {  
     $('#templates_dropdown').dropdown({
         onChange: function(name) {
             arikaim.page.loadContent({

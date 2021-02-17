@@ -8,16 +8,14 @@
 
 function SystemLogs() {
     var self = this;
-    var component = arikaim.component.get('system:admin.system.logs');
-
+  
     this.init = function() {
-        arikaim.ui.button('.delete-logs',function(element) {
-            var title = component.getProperty('messages.confirm.delete.title');
-            var description = component.getProperty('messages.confirm.delete.description');
+        this.loadMessages('system:admin.system.logs');
 
+        arikaim.ui.button('.delete-logs',function(element) {
             return modal.confirmDelete({ 
-                title: title,
-                description: description 
+                title: self.getMessage('confirm.title'),
+                description: self.getMessage('confirm.description') 
             }).done(function() {                
                 self.clear().done(function() {           
                     self.reload();
@@ -38,8 +36,8 @@ function SystemLogs() {
     }
 }
 
-var systemLogs = new SystemLogs();
+var systemLogs = new createObject(SystemLogs,ControlPanelView);
 
-$(document).ready(function() {
+arikaim.component.onLoaded(function() {    
     systemLogs.init();
 });

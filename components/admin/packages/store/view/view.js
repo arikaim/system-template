@@ -106,7 +106,7 @@ function ArikaimStoreView() {
 
 var arikaimStoreView = new ArikaimStoreView();
 
-$(document).ready(function() {
+arikaim.component.onLoaded(function() {    
     arikaimStoreView.init();   
     arikaimStoreView.initRows();   
 });

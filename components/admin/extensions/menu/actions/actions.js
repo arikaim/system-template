@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-$(document).ready(function() {  
+arikaim.component.onLoaded(function() {
     $('#extension_actions_dropdown').dropdown({
         onChange: function(value) {
             var extension = $(this).attr('extension');

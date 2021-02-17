@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-$(document).ready(function() {  
+arikaim.component.onLoaded(function() {    
     arikaim.ui.button('.image-preview-button',function(element) {  
         var image = $(element).attr('data-src');
         templatesView.showImagePreview({

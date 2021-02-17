@@ -4,11 +4,10 @@
  *  @license    http://www.arikaim.com/license
  *  http://www.arikaim.com
  */
-"use strict";
+'use strict';
 
 function Relations() {
-    var self = this;
-
+   
     this.deleteRelation = function(model, extension, id, type, relationId, onSuccess, onError) {
         var data = {
             model: model, 

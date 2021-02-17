@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-$(document).ready(function() {
+arikaim.component.onLoaded(function() {    
     $('.checkbox').checkbox({
         onChecked: function() {
             $(this).closest('.checkbox').find('.option-field').val(1);          

@@ -34,9 +34,8 @@ function LibrariesView() {
     }
 }
 
-
 var librariesView = new LibrariesView();
 
-arikaim.page.onReady(function() {
+arikaim.component.onLoaded(function() {  
     librariesView.initRows();
 });

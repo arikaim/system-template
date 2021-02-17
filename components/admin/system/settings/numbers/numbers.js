@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-arikaim.page.onReady(function() {
+arikaim.component.onLoaded(function() {  
     $('#number_format').dropdown({
         onChange: function(value) {          
             options.save('number.format',value);

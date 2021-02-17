@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-$(document).ready(function() {
+arikaim.component.onLoaded(function() {    
     var fileUpload = new FileUpload('#package_upload_form',{
         url: '/core/api/packages/upload',
         maxFiles: 1,

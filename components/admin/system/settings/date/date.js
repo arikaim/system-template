@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-$(document).ready(function() {
+arikaim.component.onLoaded(function() {    
     $('#time_zone').dropdown({
         onChange: function(value, text, choice) {                 
             options.save('time.zone',value);

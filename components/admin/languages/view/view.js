@@ -4,15 +4,13 @@
  *  @license    http://www.arikaim.com/license
  *  http://www.arikaim.com
  */
-"use strict";
+'use strict';
 
 function LanguagesView() {
     var self = this;
 
     this.init = function() {
-        var component = arikaim.component.get('system:admin.languages');
-        var removeMessage = component.getProperty('message.description');
-        var messageTitle = component.getProperty('message.title');
+        this.loadMessages('system:admin.languages');
 
         var startIndex = null;
         var endIndex = null;
@@ -40,14 +38,16 @@ function LanguagesView() {
                 }
             }
         });
-    
+    };
+
+    this.initRows = function() {
         arikaim.ui.button('.remove-button', function(element) {
             var language = $(element).attr('language-title');
             var uuid = $(element).attr('uuid');
-            var message = arikaim.ui.template.render(removeMessage,{ title: language });
+            var message = arikaim.ui.template.render(self.getMessage('description'),{ title: language });
             
             modal.confirmDelete({
-                    title: messageTitle,  
+                    title: self.getMessage('title'),  
                     description: message,
                     uuid: uuid
             }).done(function(params) {
@@ -96,8 +96,9 @@ function LanguagesView() {
     }
 }
 
-var languagesView = new LanguagesView();
+var languagesView = new createObject(LanguagesView,ControlPanelView);
 
-$(document).ready(function() {    
+arikaim.component.onLoaded(function() {    
     languagesView.init();
+    languagesView.initRows();
 });

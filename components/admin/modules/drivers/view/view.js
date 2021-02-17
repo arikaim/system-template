@@ -39,7 +39,7 @@ function DriversView() {
 
 var driversView = new DriversView();
 
-$(document).ready(function() {
+arikaim.component.onLoaded(function() {    
     driversView.init();
     driversView.initRows();
 });

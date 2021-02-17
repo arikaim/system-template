@@ -7,7 +7,6 @@
 'use strict';
 
 function Packages() {
-    var self = this;
      
     this.update = function(name, packageType, onSuccess, onError) {
         var data = {
