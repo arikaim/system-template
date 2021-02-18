@@ -10,7 +10,6 @@ function ArikaimStoreView() {
     var self = this;
 
     this.init = function() {
-
         arikaim.ui.button('.store-settings',function(element) {
             $('#packages_list').html('');
             $('#paginator').html('');
@@ -70,6 +69,8 @@ function ArikaimStoreView() {
         var installedVersion = $('#package_details').attr('installed');
         var packageName = $('#package_details').attr('package-name');
 
+        $('#package_details_link_button').remove();
+
         arikaim.page.loadContent({
             id: 'links_path',      
             append: true,     
@@ -81,7 +82,7 @@ function ArikaimStoreView() {
                 installed_version: installedVersion
             }
         },function(result) {
-            arikaim.ui.button('#package_details_button',function(element) {
+            arikaim.ui.button('#package_details_link_button',function(element) {
                 var uuid = $(element).attr('uuid');
                 var installedVersion = $(element).attr('installed-version');
                 var packageName = $(element).attr('package-name');

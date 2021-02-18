@@ -1,8 +1,8 @@
-{   
+{
     "include": {
         "js": [
-            "system:admin.drivers"
-        ]
+            "system:admin.packages.store"
+        ]      
     },
     "access": {
         "auth": "session",
