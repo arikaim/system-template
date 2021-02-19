@@ -84,7 +84,7 @@ function ExtensionsView() {
        
         arikaim.ui.button('.un-install-button',function(element) {             
             var name = $(element).attr('extension');          
-            message = arikaim.ui.template.render(self.getMessage('uninstall.content'),{ title: name });
+            var message = arikaim.ui.template.render(self.getMessage('uninstall.description'),{ title: name });
 
             modal.confirm({
                 title: self.getMessage('uninstall.title'),
@@ -116,6 +116,7 @@ function ExtensionsView() {
 
         arikaim.ui.button('.update-button',function(element) {
             var name = $(element).attr('extension');
+
             return packages.update(name,'extension').done(function(result) {
                 var message = result.message;              
                 arikaim.page.loadContent({
@@ -177,7 +178,7 @@ function ExtensionsView() {
     };
 }
 
-var extensionsView = new createObject(ExtensionsView,ControlPanelView);
+var extensionsView = createObject(ExtensionsView,ControlPanelView);
 
 arikaim.component.onLoaded(function() {  
     extensionsView.init();
