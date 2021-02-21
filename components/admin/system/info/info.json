@@ -3,6 +3,7 @@
         "version": "Version",
         "composer": "Composer Packages",          
         "modules": "Modules",
+        "console": "PHP Console Version",
         "node": "NodeJs",
         "installed": "Installed",
         "notinstalled": "Not installed"
