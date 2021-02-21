@@ -51,7 +51,15 @@
                 <span class="pl-4">
                     {{ cron.getCronCommand() }}
                 </span>
-            </div>        
+            </div>  
+            <div class="mt-8">
+                <button class="ui mini basic icon labeled button run-cron">
+                    <i class="icon play"></i>
+                    {{ buttons.run }}
+                </button>
+            </div>      
+            <div class="mt-4" id="cron_run_result">
+            </div>
         </div>
     </div> 
 </div>

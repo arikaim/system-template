@@ -29,6 +29,19 @@ function Cron() {
                 });
             });
         });
+
+        arikaim.ui.button('.run-cron',function(element) {
+            $('#cron_run_result').html('');
+            return self.runCron(function(result) {
+                $('#cron_run_result').html(result.output);
+            },function(error) {
+                $('#cron_run_result').html(error);
+            });
+        });
+    };
+
+    this.runCron = function(onSuccess, onError) {
+        return arikaim.put('/core/api/queue/cron/run',{},onSuccess,onError);       
     };
 
     this.install = function(onSuccess, onError) {

@@ -17,7 +17,8 @@
         }
     },
     "labels": {
-        "core": "Installing core"
+        "core": "Installing core",
+        "disabled": "Install page is disabled!"
     },
     "buttons": {
         "install": "Install"                   

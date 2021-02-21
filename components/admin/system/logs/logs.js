@@ -14,8 +14,8 @@ function SystemLogs() {
 
         arikaim.ui.button('.delete-logs',function(element) {
             return modal.confirmDelete({ 
-                title: self.getMessage('confirm.title'),
-                description: self.getMessage('confirm.description') 
+                title: self.getMessage('confirm.delete.title'),
+                description: self.getMessage('confirm.delete.description') 
             }).done(function() {                
                 self.clear().done(function() {           
                     self.reload();
@@ -36,7 +36,7 @@ function SystemLogs() {
     }
 }
 
-var systemLogs = new createObject(SystemLogs,ControlPanelView);
+var systemLogs = createObject(SystemLogs,ControlPanelView);
 
 arikaim.component.onLoaded(function() {    
     systemLogs.init();

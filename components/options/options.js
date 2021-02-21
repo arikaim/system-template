@@ -17,6 +17,16 @@ function Options() {
         return arikaim.put('/core/api/options/',params,onSuccess,onError);
     };
 
+    this.saveConfigOption = function(name, value, onSuccess, onError) {
+        var params = { 
+            key: name,
+            type: typeof(value),
+            value: value 
+        };
+        
+        return arikaim.put('/core/api/settings/update/option',params,onSuccess,onError);
+    };
+
     this.saveAll = function(formId, onSuccess, onError) {
         return arikaim.post('/core/api/options/',formId,onSuccess,onError);
     };

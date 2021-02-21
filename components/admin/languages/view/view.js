@@ -96,7 +96,7 @@ function LanguagesView() {
     }
 }
 
-var languagesView = new createObject(LanguagesView,ControlPanelView);
+var languagesView = createObject(LanguagesView,ControlPanelView);
 
 arikaim.component.onLoaded(function() {    
     languagesView.init();

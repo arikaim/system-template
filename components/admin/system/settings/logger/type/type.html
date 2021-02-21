@@ -1,6 +1,6 @@
 {% set items = service('logger').getHandlerNames() %}
 {% set id = id|default('logger_type_dropdown') %}
-{% set selected = getOption('logger.handler') %}
+{% set selected = getConfigOption('settings/loggerHandler') %}
 <div class="ui button basic dropdown logger-type-dropdown {{ class }}" id="{{ id }}">
     {% if selected is not empty %}
         <div class="text">{{ handlers[selected] }}</div>  
@@ -10,7 +10,7 @@
     <i class="dropdown icon"></i>  
     <div class="ui menu">       
         {% for item in items %}            
-            <div class="item " data-value="{{ item }}">             
+            <div class="item" data-value="{{ item }}">             
                 {{ handlers[item] }}
             </div>   
         {% endfor %}           

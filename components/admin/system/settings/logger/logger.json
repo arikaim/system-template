@@ -3,11 +3,15 @@
         "content": "Logger",
         "icon": "warning circle"
     },
-    "fields": {
+    "labels": {
         "logger": {
             "label": "System Logger",
             "description": "Logs errors, warrnigs and system messages."              
         },        
-        "type": "Handler Type"
+        "type": "Storage Type",
+        "console": "Console",
+        "console_log": "Log console command",
+        "console_errors":"Log console errors",
+        "settings": "settings"
     }
 }

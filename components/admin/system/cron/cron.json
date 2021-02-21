@@ -10,6 +10,7 @@
     },
     "buttons": {
         "install": "Install",
+        "run": "Run",
         "uninstall": "Uninstall"
     }
 }
