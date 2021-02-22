@@ -11,6 +11,9 @@
         },
         "upload": {
             "content": "Upload"
+        },
+        "components": {
+            "content": "Components"
         }
     }
 }

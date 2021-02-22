@@ -1,0 +1,29 @@
+{% set library = package('components').getPackageProperties(library_name) %}
+<div class="ui card" id="library_{{ library_name }}">  
+    <div class="content">           
+        <i class="ui left floated blue cubes large icon"></i>  
+        {{ library.title }} 
+        <div class="right floated meta">
+            <div class="ui horizontal basic mini label">               
+                {{ labels.version }} 
+                <div class="detail">{{ library.version }}</div>
+            </div>
+            {% if library.help is not empty %}
+            <a class="ui horizontal basic mini label" href="{{ library.help }}" target="_blank">  
+                <i class="question circle outline icon"></i>                            
+                <span class="ui text blue">{{ labels.help }}</span>                          
+            </a>
+            {% endif %}
+        </div> 
+    </div>
+    <div class="content">   
+        {{ library.description }}  
+    </div>
+    <div class="extra content">
+        {% if library.repository is not empty %}
+        <a class="ui mini basic icon button" href="{{ library.repository }}" target="_blank">
+            <i class="icon blue github"></i>           
+        </a>   
+        {% endif %}     
+    </div>    
+</div>
