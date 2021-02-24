@@ -1,3 +1,16 @@
+{# Store link #}
+<div class="item admin-menu-link" 
+    component="system:admin.packages.sore" 
+    page-icon="{{ menu['page-icon'] }}" 
+    page-title="{{ menu['page-title'] }}">
+    <div class="title menu-item-title">          
+        <i class="left icon blue {{ menu.icon }}"></i>      
+        <span class="sm:hidden lg:inline md:hidden">
+        {{ menu.title }}
+        </span>
+    </div>
+</div>
+
 {# Extensins menu #}
 {{ component("system:admin.menu.extensions",{ status: 1, type: 1 }) }}
 {# System menu #}
