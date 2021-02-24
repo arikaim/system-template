@@ -1,5 +1,7 @@
 'use strict';
 
-arikaim.component.onLoaded(function() {      
-    paginator.init('composer_rows');         
+arikaim.component.onLoaded(function() {
+    safeCall('composerPackages',function(obj) {
+        obj.initRows();
+    },true); 
 });

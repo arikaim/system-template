@@ -4,7 +4,7 @@
 {% set logs = logs.logsLevelQuery(log_level) %}
 {% endif %}
 {% set logs = logs.orderBy('date_created','desc') %}
-{% set paginator = paginate(logs,'logs') %}
+{% set paginator = paginate(logs,'events') %}
 {% if paginator.getItems()|length == 0 %}
 <tr>
     <td>..</td>

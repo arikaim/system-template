@@ -13,7 +13,7 @@ function ComponentsLibraryView() {
     }
 }
 
-var componentsLibraryView = ComponentsLibraryView();
+var componentsLibraryView = createObject(ComponentsLibraryView,ControlPanelView);
 
 arikaim.component.onLoaded(function() {  
     componentsLibraryView.initRows();

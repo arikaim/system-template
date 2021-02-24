@@ -1,0 +1,13 @@
+{
+    "labels": {
+        "id": "Id",
+        "subscribers": "Subscribers",
+        "name": "Name",     
+        "extension": "Extension",
+        "status": "Status",   
+        "priority": "Priority",
+        "created": "Created in",     
+        "description": "Description"
+    },
+    "title": "Details"
+}

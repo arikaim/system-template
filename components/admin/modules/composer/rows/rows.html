@@ -22,7 +22,9 @@
     </div>
     <div class="content">
         <i class="icon code"></i>
-        {{ package.name }}        
+        <a class="ui link package-details" package-name="{{ package.name }}">
+            {{ package.name }}        
+        </a>
     </div>
 </div>
 {% endfor %}

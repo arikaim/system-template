@@ -1,0 +1,10 @@
+{
+    "title": "Details",
+    "labels": {
+        "name": "Name",
+        "version": "Version",
+        "source": "Source",
+        "description": "Description",
+        "requires": "Requires"
+    }
+}

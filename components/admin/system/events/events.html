@@ -1,12 +1,26 @@
-{% set events = createModel('Events').whereNull('extension_name').get() %}
-{% if events is empty %}
-    <div class="ui message">
-        {{ messages.empty }}
-    </div>
-{% else %}
-<div class="ui accordion events-list">
-    {% for event in events %}
-        {{ component("system:admin.system.events.event",{ event: event }) }}
-    {% endfor %}
+<div class="ui segment">
+    <div class="ui grid two column">
+        <div class="column">                      
+        </div>
+        <div class="column right aligned">
+            {{ component('components:paginator.dropdown',{ namespace: 'events' }) }}
+        </div>
+    </div>    
 </div>
-{% endif %}
+<div class="ui segment">
+    <div class="ui streched divided two column grid">
+        <div class="column">
+            <div class="ui header">
+                {{ title }}
+            </div>  
+            <div class="ui list" id="events_rows">
+                {{ component('system:admin.system.events.rows',{}) }}
+            </div>
+            <div class="mt-1" id="paginator">
+                {{ component("components:paginator",{ namespace: 'events' }) }}
+            </div>
+        </div>
+        <div class="column" id="event_details">        
+        </div>    
+    </div>
+</div>
