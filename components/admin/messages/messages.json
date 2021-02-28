@@ -105,7 +105,8 @@
         "read": "Done."
     },
     "composer": {
-        "update": "Composer packages updated successfully."
+        "update": "Composer packages updated successfully.",
+        "install": "Composer package was updated successfully."
     },
     "package": {
         "upload": "Package uploaded successfully."

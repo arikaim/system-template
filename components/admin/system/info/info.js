@@ -10,4 +10,11 @@ arikaim.component.onLoaded(function() {
             component: 'system:admin.system.info.console'
         });
     });
+
+    arikaim.ui.button('.node-info',function(element) {
+        arikaim.page.loadContent({
+            id: 'node_content',
+            component: 'system:admin.system.info.node'
+        });
+    });
 });

@@ -4,8 +4,6 @@
         "composer": "Composer Packages",          
         "modules": "Modules",
         "console": "Console",
-        "node": "NodeJs",       
-        "installed": "Installed",
-        "notinstalled": "Not installed"
+        "node": "NodeJs Info"       
     }  
 }
