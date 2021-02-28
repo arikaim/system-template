@@ -6,9 +6,9 @@
     {% set repository = manager.getRepository(package_name) %}  
 {% endif %}
 {% if repository is empty %}
-    {% set repo_key = arikaimStore().getPackageKey(repository_name) %}
     {% set repository = manager.createRepository(repository_name,repo_key,repository_type) %}
 {% endif %}
+{% set repo_key = arikaimStore().getPackageKey(repository_name) %}
 {% set repo_version = repository.getLastVersion() %}
 <div class="ui header mini">  
     <i class="icon box open blue"></i>
@@ -22,8 +22,24 @@
     <div class="mt-4 ">              
         <div class="ui basic horizontal label">
             {{ repository.getPackageName() }}
-        </div>    
+        </div>  
+        {% if repository.isPrivate() == true %}
+        <div class="ui basic orange horizontal label rigth floated">
+            {{ labels.premium }}
+        </div>
+        {% endif %}  
         <div class="ui divider"></div>
+        {% if repo_key is not empty %}
+        <div class="ui header mini">
+            <i class="icon blue lock"></i>
+            <div class="content">               
+                {{ labels.key }}
+                <div class="ui sub header">
+                    {{ repo_key }}
+                </div>
+            </div>
+        </div>
+        {% endif %}
         <div class="mt-4" id="download_package_content">  
             {% set repo_version = repo_version|default('0.0.0') %}         
             {% if installed_version is versionCompare(repo_version) %}
