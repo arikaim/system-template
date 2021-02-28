@@ -50,6 +50,13 @@
                 "page-icon": "sign out",
                 "page-title": "Log out"
             }   
-        }
+        },
+        "store": { 
+            "component": "system:admin.packages.store",
+            "icon": "store",
+            "title": "Arikaim Store",
+            "page-icon": "store",
+            "page-title": "Arikaim Store"
+        }  
     }
 }

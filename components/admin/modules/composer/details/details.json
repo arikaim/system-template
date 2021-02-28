@@ -5,6 +5,7 @@
         "version": "Version",
         "source": "Source",
         "description": "Description",
-        "requires": "Requires"
+        "requires": "Requires",
+        "update": "Update"
     }
 }
