@@ -5,8 +5,15 @@
             <div class="ui items">
                 <div class="item">
                     <div class="content">
-                        {{ component('components:segment-title',{ title: 'Arikaim CMS' }) }}   
-                        {{ component('system:admin.system.info.version') }}                   
+                        {{ component('components:segment-title',{ title: 'Arikaim CMS' }) }}                           
+                        <div class="mt-4">
+                            {{ labels.version }} 
+                            <span class="ml-1 small text">
+                                <div class="ui label basic blue">
+                                    {{ info.core }}
+                                </div>
+                            </span>
+                        </div>                   
                     </div>
                 </div>     
                 <div class="item">
