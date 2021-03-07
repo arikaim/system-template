@@ -20,8 +20,12 @@
         {{ library.description }}  
     </div>
     <div class="extra content">
+        <button class="ui basic mini button icon labeled components-details" library-name="{{ library.name }}">
+            <i class="icon info blue"></i>
+            {{ labels.details }}
+        </button>
         {% if library.repository is not empty %}
-        <a class="ui mini basic icon button" href="{{ library.repository }}" target="_blank">
+        <a class="ui mini basic icon button right floated" href="{{ library.repository }}" target="_blank">
             <i class="icon blue github"></i>           
         </a>   
         {% endif %}     
