@@ -1,11 +1,11 @@
-{% set cron = service('queue').createScheduler() %}
+{% set cron = service('queue').createWorkerManager() %}
 <div class="ui segment">
     <div class="ui divided grid">
         <div class="six wide column">
             <h3 class="header">
-                {% if cron.isInstalled() == true %}    
+                {% if cron.isRunning() == true %}    
                     <i class="check olive icon" title="{{ labels.installed }}"></i>
-                    {% set details = cron.getServiceDetails() %}
+                    {% set details = cron.getDetails() %}
                 {% else %}  
                     <i class="exclamation triangle orange icon" title="{{ labels.disabled }}"></i>
                 {% endif %}
@@ -16,16 +16,8 @@
                     {{ labels.demo }}
                 </div>
             {% else %}
-                {% if cron.isInstalled() == true %}    
-                    <div class="ui list">
-                        <div class="item">
-                            <strong>{{ labels.entry }}</strong> 
-                            <ul class="ui list ml-4">
-                                {% for command in details.jobs %}
-                                <li class="ml-8">{{ command }}</li>
-                                {% endfor %}
-                            </ul>          
-                        </div>
+                {% if cron.isRunning() == true %}    
+                    <div class="ui list">                
                         <div class="item">
                             <strong>{{ labels.user }}</strong> 
                             <div class="ui basic label">
