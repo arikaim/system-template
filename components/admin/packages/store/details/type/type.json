@@ -1,8 +1,12 @@
 {
     "labels": {
         "extensions": "Extensions",
+        "extension": "Extension",
         "library": "UI Libraries",
+        "lib": "Librarary",
         "modules": "Modules",
-        "themes": "Themes"
+        "module": "Module",
+        "themes": "Themes",
+        "theme": "Theme"
     }
 }
