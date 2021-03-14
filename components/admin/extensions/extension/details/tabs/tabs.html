@@ -78,7 +78,7 @@
     </a>          
 </div>
 <div class="ui bottom attached tab segment active {{ tabs.routes.class }}" data-tab="routes_tab">
-    {{ component('system:admin.extensions.extension.routes',{ routes: extension.routes }) }}
+    {{ component('system:admin.routes',{ routes: extension.routes }) }}
 </div>
 <div class="ui bottom attached tab segment {{ tabs.database.class }}" data-tab="database_tab">
     {{ component('components:list.items',{ items: extension.database, icon: "table" }) }} 
