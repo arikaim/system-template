@@ -6,7 +6,7 @@
 <div class="ui equal width form mt-8"> 
     <div class="field">
         <div class="ui slider checkbox change-option">
-            <input name="logger" type="checkbox" value="1" {{ logger|ifthen(true,'checked') }}>
+            <input name="settings/logger" type="checkbox" value="1" {{ logger|ifthen(true,'checked') }}>
             <label class="font-bold">{{ labels.logger.label }}</label>
         </div>
     </div>     
