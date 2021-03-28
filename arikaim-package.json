@@ -36,7 +36,8 @@
             "control-panel.js"
         ],
         "components": [
-            "components:language.translate"
+            "components:language.translate",
+            "components:modal"    
         ],
         "library": [
             "jquery",

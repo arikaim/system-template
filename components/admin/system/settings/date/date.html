@@ -1,6 +1,6 @@
-{% set time_zone = getOption("time.zone") %}
-{% set date_format = getOption("date.format") %}
-{% set time_format = getOption("time.format") %}
+{% set time_zone = getConfigOption("settings/timeZone") %}
+{% set date_format = getConfigOption("settings/dateFormat") %}
+{% set time_format = getConfigOption("settings/timeFormat") %}
 
 {% component 'components:tabs.vertical.content' %}
 <div class="ui equal width form mt-8">   

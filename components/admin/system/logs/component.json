@@ -1,6 +1,8 @@
 {
     "include": {
-        "js": "components:search"
+        "js": [
+            "components:search"
+        ]
     },
     "access": {
         "auth": "session",

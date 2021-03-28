@@ -1,6 +1,6 @@
 {
     "include": {
-        "js":[
+        "js": [
             "components:progress"
         ]
     },

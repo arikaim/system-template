@@ -1,6 +1,8 @@
 {
     "include": {
-        "js": "system:admin.orm.relations"
+        "js": [
+            "system:admin.orm.relations"
+        ]
     },
     "access": {
         "auth": "session",

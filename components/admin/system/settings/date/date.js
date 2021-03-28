@@ -2,20 +2,20 @@
 
 arikaim.component.onLoaded(function() {    
     $('#time_zone').dropdown({
-        onChange: function(value, text, choice) {                 
-            options.save('time.zone',value);
+        onChange: function(value, text, choice) {   
+            options.saveConfigOption('settings/timeZone',value);           
         }
     });
 
     $('#date_format').dropdown({
-        onChange: function(value) {          
-            options.save('date.format',value);
+        onChange: function(value) {    
+            options.saveConfigOption('settings/dateFormat',value);                         
         }
     });
 
     $('#time_format').dropdown({
-        onChange: function(value) {          
-            options.save('time.format',value);
+        onChange: function(value) {         
+            options.saveConfigOption('settings/timeFormat',value);                
         }
     });
 });

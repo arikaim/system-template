@@ -1,5 +1,5 @@
 {% set name = (extension is empty) ? template ~ ':' ~ component : extension ~ '::' ~ component %}
-{% set options = service('page').createHtmlComponent(name).getOptions() %}
+{% set options = service('page').renderHtmlComponent(name).getOptions() %}
 <div class="ml-3">
     <div class="ui card">
         <div class="content">
