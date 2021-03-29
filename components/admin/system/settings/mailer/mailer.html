@@ -4,20 +4,30 @@
 {% set user = service('access').getUser() %}
 <div class="mt-4">
     <div class="ui stackable stretched grid">
-        <div class="six wide column">
+        <div class="eight wide column">
             <div class="ui segment">
                 <h4>{{ labels.drivers }}</h4>
                 {{ component('system:admin.drivers.list',{ category: 'mailers', empty: '..' }) }}
                 <div class="ui divider"></div>
-                <div class="mt-4">
-                    <h4>{{ labels.current }}</h4>
-                    {{  component('system:admin.drivers.dropdown',{ 
-                            selected: mailer_driver, 
-                            category: 'mailers', 
-                            calss: 'fluid' 
-                        }) 
-                    }}     
-                </div>
+                <div class="ui two column grid">
+                    <div class="column">
+                        <h4>{{ labels.current }}</h4>
+                        {{  component('system:admin.drivers.dropdown',{ 
+                                selected: mailer_driver, 
+                                category: 'mailers', 
+                                calss: 'fluid' 
+                            }) 
+                        }} 
+                    </div>
+                    <div class="column">   
+                        <h4>{{ labels.transports }}</h4>                                         
+                        {% for item in system().getStreamTransports() %}
+                        <div class="ui basic label mini horizontal">
+                            {{ item }}
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>                               
             </div>        
             <div class="ui segment">
                 <div class="ui two column grid">

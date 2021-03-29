@@ -4,6 +4,7 @@
         "icon": "mail outline"
     },
     "labels": {
+        "transports": "Socket transports",
         "current": "Use driver",
         "settings": "Settings",
         "test": "Send test email to ",
