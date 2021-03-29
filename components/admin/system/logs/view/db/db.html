@@ -25,7 +25,7 @@
             <th>{{ columns.details }}</th>    
         </tr>
     </thead>
-    <tbody id="logs_rows">
+    <tbody id="logs_rows" component="system:admin.system.logs.view.db.rows" namespace="logs">
         {{ component("system:admin.system.logs.view.db.rows") }}
     </tbody>  
 </table>

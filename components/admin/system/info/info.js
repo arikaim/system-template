@@ -13,7 +13,7 @@ arikaim.component.onLoaded(function() {
 
     arikaim.ui.button('.node-info',function(element) {
         arikaim.page.loadContent({
-            id: 'node_content',
+            id: 'console_content',
             component: 'system:admin.system.info.node'
         });
     });

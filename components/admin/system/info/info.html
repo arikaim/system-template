@@ -6,8 +6,7 @@
                 <div class="item">
                     <div class="content">
                         {{ component('components:segment-title',{ title: 'Arikaim CMS' }) }}                           
-                        <div class="mt-4">
-                            {{ labels.version }} 
+                        <div class="mt-4">                           
                             <span class="ml-1 small text">
                                 <div class="ui label basic blue">
                                     {{ info.core }}
@@ -43,22 +42,23 @@
                         </div>
                     </div> 
                 </div>     
-                <div class="item">
-                    <div class="content" id="console_content">       
-                        <button class="ui basic button mini check-console">
-                            <i class="icon blue code"></i>
-                            {{ labels.console }}
-                        </button>                                             
+                <div class="ui divider horizontal"></div>              
+                <div class="ui two column grid">
+                    <div class="column">
+                        <div class="buttons right aligned floated">
+                            <button class="ui basic button mini check-console">
+                                <i class="icon blue code"></i>
+                                {{ labels.console }}
+                            </button>   
+                            <button class="ui basic button mini node-info">
+                                <i class="icon blue code"></i>
+                                {{ labels.node }}
+                            </button>   
+                        </div>
                     </div>
-                </div>
-                <div class="item">
-                    <div class="content" id="node_content">
-                        <button class="ui basic button mini node-info">
-                            <i class="icon blue code"></i>
-                            {{ labels.node }}
-                        </button>                     
-                    </div>
-                </div>
+                    <div class="column right aligned" id="console_content">                                                                        
+                    </div>    
+                </div>                                                                                                             
             </div>
         </div>
     </div>

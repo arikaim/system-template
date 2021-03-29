@@ -42,7 +42,7 @@ function DbLogsView() {
     };
 }
 
-var dbLogsView = new DbLogsView();
+var dbLogsView = createObject(DbLogsView,ControlPanelView);
 
 arikaim.component.onLoaded(function() {    
     dbLogsView.init();
