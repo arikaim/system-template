@@ -1,8 +1,8 @@
 {% set routes = service('routes').getRoutes({ extension_name: extension_name, type: 2 }) %}
 {% set items = paginate(routes,'routes.api') %}
 {% for route in items.getItems() %}
-    {% set docs = service('docs').getControllerInfo(route.handler_class,route.handler_method) %}  
-    {% set auth_title = (route.auth > 0) ? service('access').getAuthName(route.auth) : labels.none %}      
+    {% set docs = service('docs').getControllerInfo(route.handler_class,route.handler_method) %}     
+    {% set auth = (route.auth > 0) ? service('access').getAuthNames(route.auth) : null %}   
     <div class="item">
         <div class="content ui segment">
             <p class="p-4">              
@@ -21,9 +21,17 @@
                     <span class="p-1 font-bold">
                         {{ labels.auth }}
                     </span>
-                    <div class="ui label {{ (route.auth > 0) ? 'green' : 'basic' }}">
-                        {{ auth_title }}
-                    </div>
+                    {% if auth is iterable %}
+                        {% for item in auth %}
+                        <div class="ui label basic green">
+                            {{ item }}
+                        </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="ui label">
+                            {{ labels.none }}
+                        </div>
+                    {% endif %}                      
                 </div>                
             </div>
             <div class="mt-4 w-full">

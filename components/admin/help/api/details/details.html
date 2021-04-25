@@ -2,7 +2,7 @@
     {% set route = service('routes').getRouteDetails(uuid) %}
 {% endif %}
 {% set docs = service('docs').getControllerInfo(route.handler_class,route.handler_method) %}  
-{% set auth_title = (route.auth > 0) ? service('access').getAuthName(route.auth) : labels.none %}   
+{% set auth = (route.auth > 0) ? service('access').getAuthNames(route.auth) : null %}   
 <div class="ui segment">
     <h4>{{ title }}</h4>
     <p class="mt-4 p-4">              
@@ -31,9 +31,17 @@
             <tr>
                 <td class="right aligned">{{ labels.auth }}</td>
                 <td>
-                    <div class="ui label {{ (route.auth > 0) ? 'green' : 'basic' }}">
-                        {{ auth_title }}
-                    </div>
+                    {% if auth is iterable %}
+                        {% for item in auth %}
+                        <div class="ui label basic">
+                            {{ item }}
+                        </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="ui label">
+                            {{ labels.none }}
+                        </div>
+                    {% endif %}                                   
                 </td>
             </tr>
         </tbody>

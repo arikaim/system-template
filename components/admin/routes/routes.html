@@ -4,7 +4,7 @@
     {% endif %}
     {% for route in routes %}
     <div class="item">         
-        {% set title = (route.auth > 0) ? service('access').getAuthName(route.auth) : "" %}
+        {% set auth_names = (route.auth is not empty) ? service('access').getAuthNames(route.auth) : '' %}
         <div class="right floated content" title="{{ labels.auth }}">
             {% set middlewares = route.middlewares|jsonDecode(false) %}
             {% for middleware in middlewares %}
@@ -12,9 +12,11 @@
                     <span class="ui text grey">{{ middleware|baseClass }}</span>
                 </div>
             {% endfor %}    
-            {% if title != "" %}
-            <div class="ui tiny left pointing primary basic label">{{ title }}</div>
-            {% endif %}  
+            {% if auth_names is iterable %}
+                {% for item in auth_names %}
+                    <div class="ui tiny left pointing primary basic label">{{ item }}</div>
+                {% endfor %}
+            {% endif %}           
             {{ component('components:labels.route-type',{ type: route.type }) }}                            
         </div>          
         {{ component('components:status.icon',{ status: route.status }) }}               
