@@ -21,12 +21,14 @@
         </div>      
         <p>{{ message }}</p>
         <div>
+            {% if hide_button != true %}
             <button 
                 class="ui mini basic primary button open-package-download" 
                 content-id="{{ content_id }}" 
                 package-type="{{ package_type }}">
                 {{ labels.view }}
             </button>
+            {% endif %}
         </div>
     </div>
 </div>
