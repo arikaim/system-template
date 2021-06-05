@@ -1,5 +1,7 @@
 {% set library = package('library').getPackageProperties(library_name) %}
-{% set disabled = (library.disabled is empty) ? false : library.disabled %}
+{% set params = package('library').createPackage(library_name).getLibraryParams() %}
+
+{% set disabled = (params.disabled is empty) ? false : params.disabled %}
     <div class="content">           
         <i class="ui left floated cube large icon {{ (disabled == true) ? 'red' : 'olive' }} "></i>   
         <div class="right floated meta">

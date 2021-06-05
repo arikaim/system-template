@@ -10,7 +10,7 @@ function ExtensionsView() {
     var self = this;
 
     this.init = function() {        
-      //  this.loadMessages('system:admin.extensions');
+        this.loadMessages('system:admin.extensions');
 
         $('.popup-button').popup({ 
             on: 'click' 

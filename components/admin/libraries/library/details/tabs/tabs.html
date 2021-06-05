@@ -1,6 +1,6 @@
 {% set library = package('library').getPackageProperties(library_name,true) %}
-{% set params = getOption('library.params',null) %}
-{% set library_params = (params[library_name] is empty) ? library.params : params[library_name] %}
+{% set package = package('library').createPackage(library_name) %}
+{% set params = package.getLibraryParams() %}
 {% set disabled = (library.disabled is empty) ? false : library.disabled %}
 
 <div class="ui stackable grid">
@@ -81,13 +81,13 @@
             {% if library.get('params-readonly',false) != true %}
                 {{  component('system:admin.libraries.library.params.form',{ 
                         library: library_name, 
-                        params: library_params,
+                        params: params.params,
                         show_label: true, 
                         show_value: true 
                     }) 
                 }}
             {% else %}
-                {{ component('system:admin.libraries.library.params',{ library: library_name, params: library_params }) }}
+                {{ component('system:admin.libraries.library.params',{ library: library_name, params: params.params }) }}
             {% endif %}
         </div>
     </div>    

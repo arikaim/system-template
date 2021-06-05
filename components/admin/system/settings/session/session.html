@@ -1,4 +1,4 @@
-{% set interval = getOption('session.recreation.interval',"0") %}
+{% set interval = getConfigOption('settings/sessionInterval',0) %}
 
 {% component 'components:tabs.vertical.content' %}
 <form class="ui equal width form mt-8" id="session_settings_form"> 

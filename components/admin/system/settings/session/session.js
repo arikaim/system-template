@@ -17,7 +17,7 @@ arikaim.component.onLoaded(function() {
     arikaim.ui.form.onSubmit('#session_settings_form',function() {                     
         var interval = $('#interval').val();
         interval = getDefaultValue(interval,0);
-        return options.save('session.recreation.interval',interval);
+        return options.saveConfigOption('settings/sessionInterval',interval);       
     },function(result) {
         arikaim.ui.form.showMessage(result.message);
     });

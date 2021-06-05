@@ -1,18 +1,18 @@
 {% if params|length > 0 %}
-<form class="ui form" id="library_config" library="{{ library }}">
-    {% for name,param in params %}
-    <div class="field">
-        {% if show_label == true %}
-            <label>{{ name }}</label>
+    <form class="ui form" id="library_config" library="{{ library }}">
+        {% for name,param in params %}
+        <div class="field">
+            {% if show_label == true %}
+                <label>{{ name }}</label>
+            {% endif %}
+            {% set value = (show_value == true) ? param : '' %}            
+            <input name="{{ name }}" value="{{ value }}" type="text">
+        </div>
+        {% endfor %}
+        {% if demo_mode == false %}
+            {{ component('components:form.footer') }}
         {% endif %}
-        {% set value = (show_value == true) ? param : '' %}            
-        <input name="{{ name }}" value="{{ value }}" type="text">
-    </div>
-    {% endfor %}
-    {% if demo_mode == false %}
-        {{ component('components:form.footer') }}
-    {% endif %}
-</form>
+    </form>
 {% else %}
-<div>..</div>
+    <div>..</div>
 {% endif %}

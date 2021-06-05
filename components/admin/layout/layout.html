@@ -9,10 +9,14 @@
                 {{ labels.dashboard }}
             </div>
         </div>
-        <div class="pl-2 h-full" id="tool_content">
-            {% if hasExtension('dashboard') == true %}
-                {{ component('dashboard::admin.dashboard') }}
-            {% endif %}
-        </div>                
-    </div>    
+        <div class="flex flex-row h-full">
+            <div class="pl-2 flex-grow" id="tool_content">
+                {% if hasExtension('dashboard') == true %}
+                    {{ component('dashboard::admin.dashboard') }}
+                {% endif %}
+            </div>   
+            <div class="p-1 right-sidebar" id="right_sidebar">            
+            </div> 
+        </div>             
+    </div>          
 </div>
