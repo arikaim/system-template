@@ -1,7 +1,7 @@
 {% if params|length > 0 %}
     <form class="ui form" id="library_config" library="{{ library }}">
         {% for name,param in params %}
-        <div class="field">
+        <div class="field">          
             {% if show_label == true %}
                 <label>{{ name }}</label>
             {% endif %}
