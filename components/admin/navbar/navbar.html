@@ -1,28 +1,25 @@
-<div class="ui mini fixed inverted menu borderless dark-color shadow">  
-    <div class="ui item tablet mobile only column grid" id="mobile_menu">
-        {{ component("system:admin.menu.mobile") }}
-    </div> 
-    <div {{ brand.title|attr('title') }} class="pl-0 ml-0">           
-        <div class="page-title ml-3 align-middle">
-            <img class="pt-1 mt-1 pl-1" width="28px" height="28px" alt="{{ brand.image.alt }}" src="{{ template_url }}/images/{{ brand.image.src }}">
-            <span class="pb-2 align-middle text-white pl-3" style="display:inline">Arikaim</span> 
+<div class="p-3 bg-gradient-to-r from-indigo-900 to-gray-900 w-full flex flex-row justify-between shadow fixed z-50">    
+    <div {{ brand.title|attr('title') }} class="w-56">           
+        <div class="page-title flex flex-row items-center">
+            <img class="" width="28px" height="28px" alt="{{ brand.image.alt }}" src="{{ template_url }}/images/{{ brand.image.src }}">
+            <span class="align-middle text-white px-2" style="display:inline">Arikaim</span> 
         </div>      
-    </div>           
-    <div class="ui inverted right menu mr-3 bg-gray-700 dark-color">    
+    </div>            
+    <div class="flex flex-row items-center place-self-end menu mr-3 bg-gray-800 rounded-lg">         
         {% if demo_mode == true %}
-        <div class="item">
+        <div class="p-1">
             <div class="ui red label" title="{{ labels.disabled }}">{{ labels.demo }}</div>
         </div>      
         {% endif %}
-        <div class="ui item tablet computer only column grid">
-            <a title="{{ hint.view }}" href="{{ site_url }}" target="site">               
+        <div class="px-4">
+            <a class="popup" title="{{ hint.view }}" href="{{ site_url }}" target="site">               
                 <i class="columns icon blue"></i>
             </a>
         </div>   
-        <div class="item" id="language_menu">
+        <div class="popup px-4" id="language_menu">
             {{ component("components:language.dropdown",{ selected: current_language }) }}
         </div>
-        <div class="ui item tablet computer only column grid" id="user_menu">
+        <div class="px-4" id="user_menu">
             {{ component("system:admin.user-menu") }}
         </div>                             
     </div>    

@@ -4,8 +4,7 @@
         "files": "Files",
         "version": "Version",     
         "verisons": "Versions",  
-        "disabled": "Disabled",     
-        "framework": "Front-end Framework",
+        "disabled": "Disabled",            
         "crossorigin": "Crossorigin"
     }
 }

@@ -4,7 +4,7 @@
     {% if user == null %}
         <a class="link {{ login.class }} text-white" href="{{ url() }}">{{ login.content }}</a> 
     {% else %}
-    {{ user.user_name }}
+    <span class="text-gray-200">{{ user.user_name }}</span>
     <div class="ui vertical menu">
         <div class="item" data-value="system:admin.system.settings">
             <i class="icon setting"></i>

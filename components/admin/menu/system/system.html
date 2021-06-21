@@ -1,11 +1,11 @@
 {# Store link #}
-<div class="item admin-menu-link" 
+<div class="admin-menu-link" 
     component="{{ menu.store.component }}" 
     page-icon="{{ menu.store['page-icon'] }}" 
     page-title="{{ menu.store['page-title'] }}">
-    <div class="title menu-item-title">          
+    <div class="pl-5 p-3 flex flex-row items-center menu-item-title border-0 border-b-2 border-gray-900 border-solid">          
         <i class="left icon orange store"></i>      
-        <span class="sm:hidden lg:inline md:hidden">
+        <span class="text-xl tracking-wide pl-2 text-gray-400 sm:hidden lg:inline md:hidden">
         {{ menu.store.title }}
         </span>
     </div>
@@ -15,14 +15,14 @@
 {# System menu #}
 {% for menu in menu.items %}
     {% set main_link_class = (menu.items is iterable) ? '' : class %}
-    <div class="item admin-menu-link" component="{{ menu.component }}" {{ extension_name|attr('extension') }} page-icon="{{ menu['page-icon'] }}" page-title="{{ menu['page-title'] }}">
-        <div class="title menu-item-title">          
+    <div class="admin-menu-link" component="{{ menu.component }}" {{ extension_name|attr('extension') }} page-icon="{{ menu['page-icon'] }}" page-title="{{ menu['page-title'] }}">
+        <div class="pl-5 p-3 flex flex-row items-center menu-item-title border-0 border-b-2 border-gray-900 border-solid">          
             <i class="left icon blue {{ menu.icon }}"></i>      
             {% if menu.items is iterable %}
                 <i class="dropdown icon"></i>
             {% endif %}
-            <span class="sm:hidden lg:inline md:hidden">
-            {{ menu.title }}
+            <span class="text-xl tracking-wide pl-2 text-gray-400 sm:hidden lg:inline md:hidden">
+                {{ menu.title }}
             </span>
         </div>
     </div>

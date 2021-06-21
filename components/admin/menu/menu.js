@@ -9,8 +9,11 @@
 function ControlPanelMenu() {
     var self = this;
     
-    this.init = function() {
-        $('#admin_menu').accordion();
+    this.init = function() {     
+        $('.popup').popup();
+
+        console.log('init');
+        
         $('#admin_menu_dropdown').dropdown();
     
         arikaim.ui.button('#system_menu_button',function(element) {     

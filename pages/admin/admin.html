@@ -1,5 +1,4 @@
-{% if access().hasControlPanelAccess() == true %}  
-    {{ component("system:admin.navbar") }}
+{% if access().hasControlPanelAccess() == true %}     
     {{ component("system:admin.layout") }}       
 {% else %}      
     {{ component("system:navbar") }}
