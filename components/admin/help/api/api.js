@@ -6,9 +6,7 @@
  */
 'use strict';
 
-function ApiDocsView() {
-    var self = this;
-       
+function ApiDocsView() {   
     this.init = function() {
         paginator.init('api_rotes_list',"system:admin.help.api.items",'help.api');             
     };
