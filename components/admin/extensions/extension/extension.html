@@ -1,5 +1,6 @@
 {% set extension = package('extension').getPackageProperties(extension_name) %}
 {% set primary_style = (extension.primary == 1) ? 'green' : '' %}
+{% set thumbnail_src = (extension.thumbnail is not empty) ? getExtensionViewUrl(extension_name,'/images/' ~ extension.thumbnail) : null %}  
 <div class="ui raised card min-h-full {{ error|ifthen(1,'red') }} {{ primary_style }}" id="{{ extension.name }}">     
     <div class="content item">           
         <i class="left floated big blue icon {{ extension.get('admin-menu').icon }}"></i>          
@@ -24,7 +25,7 @@
         {% endif %} 
         <div class="font-bold mt-1 pl-4">{{ extension.title }}</div>    
     </div>
-    <div class="content">     
+    <div class="content">           
         <p>{{ extension.description }}</p>                     
         {% if error == 1 %}
         <div class="ui meta mt-1">
