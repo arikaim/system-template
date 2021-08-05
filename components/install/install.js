@@ -10,6 +10,10 @@ function Install() {
     var self = this;
     this.messages = null;
 
+    this.prepare = function(formId, onSuccess, onError) {
+        return arikaim.post('/core/api/install/prepare',formId,onSuccess,onError);
+    };
+
     this.install = function(formId, onProgress, onSuccess, onError) {
         return taskProgress.post('/core/api/install/',formId,onProgress,onSuccess,onError);
     };

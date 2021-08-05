@@ -23,42 +23,48 @@ arikaim.component.onLoaded(function() {
     arikaim.ui.form.onSubmit('#install_form',function(element) {                    
         $('#progress_content').show();
         $('#install_progress').progress('remove error');      
+        arikaim.ui.disableButton(submitButton);   
+        
+        install.prepare('#install_form',function(result) {
+            return install.installCore('#install_form',
+                function(result) {            
+                    $('#main_progress').progress('increment');
+                    $('#main_progress').progress('set label','Installing Modules');
+                    arikaim.ui.disableButton(submitButton);   
 
-        return install.installCore('#install_form',
-            function(result) {            
-                $('#main_progress').progress('increment');
-                $('#main_progress').progress('set label','Installing Modules');
-                arikaim.ui.disableButton(submitButton);   
-
-                $('#install_progress').progress('complete',true);
-                install.installModules(
-                    function(result) {      
-                        $('#main_progress').progress('increment');
-                        $('#main_progress').progress('set label','Installing Extensions');     
-                        arikaim.ui.disableButton(submitButton);   
-
-                        install.installExtensions(function(result) {
+                    $('#install_progress').progress('complete',true);
+                    install.installModules(
+                        function(result) {      
                             $('#main_progress').progress('increment');
-                            $('#main_progress').progress('set label','Post install actions');      
+                            $('#main_progress').progress('set label','Installing Extensions');     
                             arikaim.ui.disableButton(submitButton);   
 
-                            install.postInstallActions(function(result) {
-                                install.showComplete();
-                            },function(error) {
-                                install.showError(error);
-                                arikaim.ui.enableButton(submitButton);   
+                            install.installExtensions(function(result) {
+                                $('#main_progress').progress('increment');
+                                $('#main_progress').progress('set label','Post install actions');      
+                                arikaim.ui.disableButton(submitButton);   
+
+                                install.postInstallActions(function(result) {
+                                    install.showComplete();
+                                },function(error) {
+                                    install.showError(error);
+                                    arikaim.ui.enableButton(submitButton);   
+                                });
                             });
-                        });
-                    },function(error) {
-                        install.showError(error);
-                        arikaim.ui.enableButton(submitButton);   
-                    }
-                );
-            },
-            function(error) {                     
-                install.showError(error);
-                arikaim.ui.enableButton(submitButton);   
-            }
-        );        
+                        },function(error) {
+                            install.showError(error);
+                            arikaim.ui.enableButton(submitButton);   
+                        }
+                    );
+                },
+                function(error) {                     
+                    install.showError(error);
+                    arikaim.ui.enableButton(submitButton);   
+            });
+        },        
+        function(error) {                     
+            install.showError(error);
+            arikaim.ui.enableButton(submitButton);   
+        });
     });
 });  
