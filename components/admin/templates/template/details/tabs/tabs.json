@@ -21,6 +21,12 @@
         "emails": {
             "content": "Emails"
         },
+        "css": {
+            "content": "Css Files"
+        },
+        "js": {
+            "content": "Js Files"
+        },
         "languages": {
             "content": "Languages"
         }

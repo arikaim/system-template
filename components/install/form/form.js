@@ -22,10 +22,12 @@ arikaim.component.onLoaded(function() {
 
     arikaim.ui.form.onSubmit('#install_form',function(element) {                    
         $('#progress_content').show();
-        $('#install_progress').progress('remove error');      
+        $('#install_progress').progress('remove error');         
         arikaim.ui.disableButton(submitButton);   
         
         install.prepare('#install_form',function(result) {
+            arikaim.ui.disableButton(submitButton);   
+
             return install.installCore('#install_form',
                 function(result) {            
                     $('#main_progress').progress('increment');
