@@ -1,6 +1,6 @@
 {% set items = package('extension').getPackages(true) %}
 {% set selected_text = (selected is empty) ? labels.select : selected %}
-<div class="ui dropdown {{ class|default('floated labeled search icon basic button') }}" id='extensions_dropdown'>
+<div class="ui dropdown floating labeled search icon basic button {{ class }}" id='extensions_dropdown'>
     <input name="extensions_dropdown" type="hidden" value="{{ selected }}">
     <i class="puzzle icon"></i>
     <span class="text">{{ selected_text }}</span>
