@@ -2,12 +2,7 @@
     "access_tokens": {
         "delete": "Access token was deleted successfully.",
         "expired": "Expired access tokens was deleted successfully."
-    },
-    "jobs": {
-        "delete": "Job was deleted successfully.",
-        "status": "Job status was changed successfully.",
-        "config": "Job config was saved successfully."  
-    },
+    },   
     "token": {
         "create": "Token was created successfully."
     },
@@ -217,11 +212,6 @@
             "driver": "Can't change cache driver.",
             "disable": "Can't disable cache.",
             "enable": "Can't enable cache."
-        },
-        "jobs": {
-            "delete": "Can't delete job.",
-            "status": "Can't change job status.",
-            "update": "Can't save job config."  
-        }
+        }       
     }
 }

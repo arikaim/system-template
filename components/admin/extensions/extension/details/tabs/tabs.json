@@ -26,10 +26,7 @@
         },
         "macros": {
             "content": "Macros"
-        },
-        "jobs": {
-            "content": "Jobs"
-        },
+        },       
         "console": {
             "content": "Console",
             "title": "Console Commands"

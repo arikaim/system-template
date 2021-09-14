@@ -63,11 +63,7 @@
     <a class="item" data-tab="template_tab">
         <i class="icon blue browser"></i>
         {{ tabs.view.content }}
-    </a>
-    <a class="item" data-tab="jobs_tab">
-        <i class="icon blue repeat"></i>
-        {{ tabs.jobs.content }}
-    </a> 
+    </a>   
     <a class="item" data-tab="console_tab" {{ tabs.console.title|attr('title') }}>
         <i class="icon blue terminal"></i>
         {{ tabs.console.content }}
@@ -127,18 +123,6 @@
     <div class="ui bottom attached tab segment {{ tabs.macros.class }}" data-tab="template_tab/macros_tab">
         {{ component('components:list.items',{ items: extension.macros, icon:"settings" }) }} 
     </div>
-</div>
-<div class="ui bottom attached tab segment {{ tabs.jobs.class }}" data-tab="jobs_tab">
-    <h5 class="header">
-        <i class="icon repeat"></i>
-        {{ labels.recuring }}
-    </h5>
-    {{ component('system:admin.jobs.recuring',{ extension: extension_name }) }}
-    <h5 class="header">
-        <i class="icon wait"></i>
-        {{ labels.scheduled }}
-    </h5>
-    {{ component('system:admin.jobs.scheduled',{ extension: extension_name }) }}
 </div>
 <div class="ui bottom attached tab segment {{ tabs.console.class }}" data-tab="console_tab">  
     {{  component('components:list.description',{ 

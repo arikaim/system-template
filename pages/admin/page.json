@@ -1,5 +1,8 @@
 {
     "include": {
+        "js": [
+            "test.js"
+        ],
         "components": [        
             "components:paginator",
             "system:user"
