@@ -1,7 +1,7 @@
 {% set language = createModel('Language') %}
 {% set language = language.orderBy('position') %}
 {% set items = paginate(language,'language') %}
-{% set default_language = getOption('default.language') %}
+{% set default_language = getConfigOption('settings/defaultLanguage') %}
 {% if demo_mode == true %}
     <div class="ui warning message">
         <h4>
