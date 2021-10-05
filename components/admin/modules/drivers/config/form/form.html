@@ -2,6 +2,6 @@
 
 <form class="ui equal width form" id="driver_config_form">
     <input type="hidden" name="name" id="driver_name" value="{{ driver_name }}">  
-    {{ component('components:properties.fields',{ properties: config }) }}
+    {{ component('components:properties.fields',{ properties: config, update: update }) }}
     {{ component('components:form.footer') }}   
 </form>

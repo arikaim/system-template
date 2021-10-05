@@ -6,8 +6,11 @@
  */
 'use strict';
 
-function Drivers() {
-    
+function Drivers() {    
+    this.currentConfigDriver = null;
+    this.currentConfigElementId = null;
+    this.currentConfigColumnClass = null;
+
     this.enable = function(name, onSuccess, onError) {
         var data = {
             name: name,
@@ -31,6 +34,9 @@ function Drivers() {
     };
 
     this.loadConfigForm = function(name, elementId, onSuccess) {
+        this.currentConfigDriver = name;
+        this.currentConfigElementId = elementId;
+
         return arikaim.page.loadContent({
             id: elementId,
             params: { driver_name: name },
@@ -40,7 +46,29 @@ function Drivers() {
         });
     };
 
+    this.reloadConfig = function(onSuccess) {
+        if (isEmpty(this.currentConfigDriver) == true || isEmpty(this.currentConfigElementId) == true) {
+            return false;
+        }
+
+        return arikaim.page.loadContent({
+            id: this.currentConfigElementId,
+            params: { 
+                update: true,
+                driver_name: this.currentConfigDriver, 
+                column_class: this.currentConfigColumnClass
+            },
+            component: 'system:admin.modules.drivers.config'
+        },function(result) {                  
+            callFunction(onSuccess,result);
+        });
+    };
+
     this.loadConfig = function(name, elementId, onSuccess, columnClass) {
+        this.currentConfigDriver = name;
+        this.currentConfigElementId = elementId;
+        this.currentConfigColumnClass = columnClass;
+
         return arikaim.page.loadContent({
             id: elementId,
             params: { 

@@ -13,7 +13,7 @@
 {% endif %}
 <div id="driver_config" class="mt-8">              
     {% if driver_name is not empty %}
-        {{ component('system:admin.modules.drivers.config.form',{ driver_name: driver_name }) }}    
+        {{ component('system:admin.modules.drivers.config.form',{ driver_name: driver_name, update: update }) }}    
     {% endif %}
 </div>           
 {% endcomponent %}
