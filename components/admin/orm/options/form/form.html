@@ -21,6 +21,8 @@
                 {{ component('system:admin.orm.options.form.fields.group',{ option: option }) }}
             {% elseif option.type.type == option.type.PERMISSION() %}      
                 {{ component('system:admin.orm.options.form.fields.permission',{ option: option }) }}
+            {% elseif option.type.type == option.type.TIME_INTERVAL() %}
+                {{ component('system:admin.orm.options.form.fields.interval',{ option: option }) }}
             {% endif %}
         {% endfor %}
         {{ component('components:form.footer') }}

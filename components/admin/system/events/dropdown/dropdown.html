@@ -1,0 +1,18 @@
+{% set events = createModel('Events').orderBy('name').get() %}
+{% set selected_text = (selected is empty) ? labels.select : selected %}
+<div class="ui dropdown system-events-dropdown {{ class|default('search basic button') }}" id='system_events_dropdown'>
+    <input name="{{ name|default('event_name') }}" type="hidden" value="{{ selected }}" id="{{ id|default(name) }}">    
+    <span class="text">{{ selected_text }}</span>
+    <div class="menu">
+        {% if all == true %}
+            <div class="vertical item" data-value="*">  
+                {{ labels.all }}               
+            </div>
+        {% endif %}
+        {% for item in events %}            
+            <div class="vertical item" data-value="{{ item.name }}" title="Event name {{ item.name }}">                                
+               {{ item.title|default(item.name) }}                
+            </div>
+        {% endfor %}
+    </div>
+</div>
