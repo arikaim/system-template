@@ -3,7 +3,7 @@
     <div class="ui horizontal list">
         {% for code in languages %}
         <div class="item">
-            {{ component('components:language.label',{ model: model, language: code, class: 'basic' }) }}
+            {{ component('semantic~language.label',{ model: model, language: code, class: 'basic' }) }}
         </div>
         {% endfor %}
     </div>

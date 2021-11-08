@@ -77,7 +77,7 @@
     {{ component('system:admin.routes',{ routes: extension.routes }) }}
 </div>
 <div class="ui bottom attached tab segment {{ tabs.database.class }}" data-tab="database_tab">
-    {{ component('components:list.items',{ items: extension.database, icon: "table" }) }} 
+    {{ component('semantic~list.items',{ items: extension.database, icon: "table" }) }} 
 </div>
 <div class="ui up tab {{ tabs.events.class }}" data-tab="events_tab" id="events_tab">
     <div class="ui horizontal divider"></div>
@@ -92,7 +92,7 @@
         </a>
     </div>
     <div class="ui bottom attached tab segment active {{ tabs.events.class }}" data-tab="events_tab/registered_events_tab">
-        {{ component('components:list.description',{ items: extension.events, icon: "checked calendar" }) }}      
+        {{ component('semantic~list.description',{ items: extension.events, icon: "checked calendar" }) }}      
     </div>
     <div class="ui bottom attached tab segment {{ tabs.subscribers.class }}" data-tab="events_tab/subscribers_tab">
         {{ component('system:admin.extensions.extension.subscribers',{ items: extension.subscribers }) }}
@@ -118,14 +118,14 @@
         {{ component('system:admin.component',{ components: extension.components, extension: extension_name }) }} 
     </div>
     <div class="ui bottom attached tab segment {{ tabs.pages.class }}" data-tab="template_tab/pages_tab">
-        {{ component('components:list.items',{ items: extension.pages, icon: "file text outline" }) }} 
+        {{ component('semantic~list.items',{ items: extension.pages, icon: "file text outline" }) }} 
     </div>
     <div class="ui bottom attached tab segment {{ tabs.macros.class }}" data-tab="template_tab/macros_tab">
-        {{ component('components:list.items',{ items: extension.macros, icon:"settings" }) }} 
+        {{ component('semantic~list.items',{ items: extension.macros, icon:"settings" }) }} 
     </div>
 </div>
 <div class="ui bottom attached tab segment {{ tabs.console.class }}" data-tab="console_tab">  
-    {{  component('components:list.description',{ 
+    {{  component('semantic~list.description',{ 
             items: extension.console_commands,
             icon: "angle right",
             help_icon: "terminal" 
@@ -133,5 +133,5 @@
     }}         
 </div>
 <div class="ui bottom attached tab segment {{ tabs.database.class }}" data-tab="emails_tab">   
-    {{ component('components:list.items',{ items: extension.emails, icon: "envelope outline" }) }} 
+    {{ component('semantic~list.items',{ items: extension.emails, icon: "envelope outline" }) }} 
 </div>

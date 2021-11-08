@@ -88,7 +88,7 @@
                     </a>        
                 </div>
                 <div class="ui bottom attached tab segment active {{ tabs.routes.class }}" data-tab="drivers_tab">                                     
-                    {{  component('components:list.items',{ 
+                    {{  component('semantic~list.items',{ 
                             items: package.getDrivers(),
                             icon: "code",
                             help_icon: "terminal" 
@@ -96,7 +96,7 @@
                     }}    
                 </div>
                 <div class="ui bottom attached tab segment {{ tabs.console.class }}" data-tab="console_tab">
-                    {{  component('components:list.description',{ 
+                    {{  component('semantic~list.description',{ 
                             items: module.console_commands,
                             icon: "angle right",
                             help_icon: "terminal" 

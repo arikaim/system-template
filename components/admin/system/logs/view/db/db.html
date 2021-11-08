@@ -11,7 +11,7 @@
                 {{ buttons.delete.content }}
             </button>
             <span class="pl-2">
-                {{ component('components:paginator.dropdown',{ namespace: 'logs' }) }}
+                {{ component('semantic~paginator.dropdown',{ namespace: 'logs' }) }}
             </span>           
         </div>
     </div>   
@@ -30,5 +30,5 @@
     </tbody>  
 </table>
 <div class="mt-1" id="paginator">
-    {{ component("components:paginator",{ namespace: 'logs' }) }}
+    {{ component("semantic~paginator",{ namespace: 'logs' }) }}
 </div>

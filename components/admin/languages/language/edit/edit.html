@@ -2,10 +2,10 @@
     {% set language = createModel('Language').findById(uuid) %}
 {% endif %}
 
-{% component 'components:tabs.vertical.content' %}
+{% component 'semantic~tabs.vertical.content' %}
     {% if uuid is empty %}
         <div class="mt-4">
-        {{  component('components:language.dropdown',{ 
+        {{  component('semantic~language.dropdown',{ 
                 selected: language, 
                 name: 'language',
                 id: 'choose_language',

@@ -9,7 +9,7 @@
         </button>           
     </td>
     <td>
-        {{ component('components:status.dropdown',{ status: item.status, uuid: item.uuid, skip: [2,3,4,5] }) }}  
+        {{ component('semantic~status.dropdown',{ status: item.status, uuid: item.uuid, skip: [2,3,4,5] }) }}  
     </td>
     <td>{{ item.name }}</td>
     <td>{{ item.category }}</td>
@@ -20,6 +20,6 @@
 {% endfor %}
 <tr>
     <td colspan="8">
-        {{ component("components:paginator",items.paginator) }}
+        {{ component("semantic~paginator",items.paginator) }}
     </td> 
 </tr>

@@ -1,4 +1,4 @@
-{{ component('components:segment-title',{ title: title.content, icon: title.icon }) }}
+{{ component('semantic~segment-title',{ title: title.content, icon: title.icon }) }}
 {% set mailer_driver = getOption('mailer.driver',null) %}
 {% set from_email = getOption('mailer.from.email',null) %}
 {% set user = service('access').getUser() %}

@@ -22,7 +22,7 @@ function Languages() {
         selector = getDefaultValue(selector,"language_menu");        
         arikaim.page.loadContent({
             id : selector,
-            component : 'components:language.dropdown'
+            component : 'semantic~language.dropdown'
         },function(result) {            
             $('#language_dropdown').dropdown({
                 onChange: function(value) {           

@@ -4,7 +4,7 @@
     {% endif %}
     {% for subscriber in items %}
     <div class="item">       
-        {{ component('components:status.icon',{ status: subscriber.status }) }}      
+        {{ component('semantic~status.icon',{ status: subscriber.status }) }}      
         <div class="content">
             <i class="icon grey code"></i> 
             <span class="font-bold">{{ subscriber.handler_class|baseClass }}</span> {{ labels.subscribed }} <div class="ui basic label">{{ subscriber.name }}</div>                     

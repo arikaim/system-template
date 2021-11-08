@@ -6,7 +6,7 @@
     { id: 'repository_button', title: labels.repository.content, component: 'system:admin.modules.repository', icon: 'open box' }
 ] %}
 
-{{  component('components:tabs',{ 
+{{  component('semantic~tabs',{ 
         items: items,
         content: { component: 'system:admin.modules.view', params: { type: 'package' } } 
     })

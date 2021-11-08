@@ -17,9 +17,9 @@
                     <div class="ui tiny left pointing primary basic label">{{ item }}</div>
                 {% endfor %}
             {% endif %}           
-            {{ component('components:labels.route-type',{ type: route.type }) }}                            
+            {{ component('semantic~labels.route-type',{ type: route.type }) }}                            
         </div>          
-        {{ component('components:status.icon',{ status: route.status }) }}               
+        {{ component('semantic~status.icon',{ status: route.status }) }}               
         {% if icon is defined %} 
             <i class="icon grey middle aligned {{ icon }}"></i>
         {% endif %} 

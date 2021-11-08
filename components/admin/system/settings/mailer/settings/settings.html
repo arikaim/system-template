@@ -21,7 +21,7 @@
                 <input id="from_name" name="mailer.from.name" value="{{ from_name }}" {{ fields.from.name.placeholder|attr('placeholder') }}>                   
             </div>  
         </div>
-        {{ component('components:form.footer') }}        
+        {{ component('semantic~form.footer') }}        
     </form>    
     <div class="ui horizontal section divider">
         {{ labels.logs }}
@@ -29,7 +29,7 @@
     <div class="mt-2">
         <div class="ui two column grid">
             <div class="column">
-                {{  component('components:option.checkbox',{
+                {{  component('semantic~option.checkbox',{
                         class: 'toggle',
                         label: labels.info,
                         name: 'mailer.log',
@@ -38,7 +38,7 @@
                 }}
             </div>
             <div class="column">
-                {{  component('components:option.checkbox',{
+                {{  component('semantic~option.checkbox',{
                         class: 'toggle',
                         label: labels.error,
                         name: 'mailer.log.error',

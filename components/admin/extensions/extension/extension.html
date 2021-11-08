@@ -60,7 +60,7 @@
                     {{ buttons.primary.content }}
                 </button>              
                 {% if extension.type != 1 %}
-                {{  component('components:dropdown.enable',{ 
+                {{  component('semantic~dropdown.enable',{ 
                         class: '',
                         selected: extension.status,
                         attributes: { extension: extension.name },

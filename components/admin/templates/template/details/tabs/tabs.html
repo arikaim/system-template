@@ -60,10 +60,10 @@
                 {{ component('system:admin.component',{ components: template.components, template: template_name }) }}
             </div>
             <div class="ui bottom attached tab segment {{ tabs.themes.class }}" data-tab="macros_tab">
-                {{ component('components:list.items',{ items:template.macros, icon:"settings" }) }}
+                {{ component('semantic~list.items',{ items:template.macros, icon:"settings" }) }}
             </div>
             <div class="ui bottom attached tab segment {{ tabs.pages.class }}" data-tab="pages_tab">
-                {{ component('components:list.items',{ items:template.pages, icon:"file text outline" }) }}
+                {{ component('semantic~list.items',{ items:template.pages, icon:"file text outline" }) }}
             </div>
             <div class="ui bottom attached tab segment {{ tabs.pages.class }}" data-tab="routes_tab">      
                 {{ component('system:admin.routes',{ routes: template.routes }) }}

@@ -18,7 +18,7 @@
         </div>
         <div class="ten wide right aligned column">
             <span class="pl-2">
-                {{ component('components:paginator.dropdown',{ namespace: 'routes.api' }) }}
+                {{ component('semantic~paginator.dropdown',{ namespace: 'routes.api' }) }}
             </span> 
         </div>
     </div>
@@ -30,7 +30,7 @@
                 {{ component('system:admin.help.api.items',{ extension_name: extension_name }) }}
             </div>
             <div id="paginator">
-                {{ component("components:paginator",{ namespace: 'help.api' }) }}
+                {{ component("semantic~paginator",{ namespace: 'help.api' }) }}
             </div>
         </div>
         <div class="column" id="api_details_content">

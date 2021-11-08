@@ -5,7 +5,7 @@
     { id: 'upload_button', title: labels.upload.content, component: 'system:admin.packages.upload', icon: 'upload', params: { title: labels.upload } }
 ] %}
 
-{{  component('components:tabs',{ 
+{{  component('semantic~tabs',{ 
         items: items,
         content: { component: 'system:admin.templates.view' } 
     })

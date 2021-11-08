@@ -1,4 +1,4 @@
-{% component 'components:tabs.vertical.content' %}    
+{% component 'semantic~tabs.vertical.content' %}    
     <div class="mt-4">   
         <div class="ui success message hidden" id="message">            
         </div>
@@ -8,7 +8,7 @@
                     <label>{{ labels.file }}</label>
                     <input name="file" id="file" type="file" accept="application/zip, application/x-zip-compressed, application/octet-stream">                                          
                 </div>             
-                {{ component('components:form.footer',{ button_title: labels.upload }) }}
+                {{ component('semantic~form.footer',{ button_title: labels.upload }) }}
             </form>
         </div>     
         <div class="ui hidden" id="package_info">

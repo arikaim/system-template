@@ -1,11 +1,11 @@
-{{ component('components:segment-title',{ title: title.content, icon: title.icon }) }}
+{{ component('semantic~segment-title',{ title: title.content, icon: title.icon }) }}
 <div class="mt-4">
     {% set items = [ 
         { title: links.details, component: 'system:admin.system.settings.user.details', icon: 'user', active: true },
         { title: links.password, component: 'system:admin.system.settings.user.password', icon: 'lock ' }
     ] %}
     
-    {{  component('components:tabs.vertical',{ 
+    {{  component('semantic~tabs.vertical',{ 
             items: items, 
             menu: { id: null }, 
             item_class: 'user-settings-item',

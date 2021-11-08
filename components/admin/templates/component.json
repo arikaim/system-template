@@ -1,8 +1,8 @@
 {
     "include": {
         "js": [
-            "components:upload",
-            "components:image.modal",
+            "semantic~upload",
+            "semantic~image.modal",
             "system:admin.packages"
         ]   
     },
