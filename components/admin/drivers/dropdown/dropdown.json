@@ -1,5 +1,6 @@
 {
     "labels": {
-        "default": "Choose Driver"            
+        "default": "Choose Driver",
+        "all": "All"            
     }   
 }

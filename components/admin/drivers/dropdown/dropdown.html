@@ -13,7 +13,12 @@
         <div class="default text">{{ empty_label }}</div>  
     {% endif %}   
     <i class="dropdown icon"></i>  
-    <div class="ui menu">       
+    <div class="ui menu">      
+        {% if with_all == true %}
+        <div class="item {{ (selected is empty) ? 'active' : '' }}" data-value="">             
+            {{ labels.all }}
+        </div> 
+        {% endif %} 
         {% for item in items %}            
             <div class="item {{ item.name|ifthen(selected.name,'active') }}" data-value="{{ item.name }}">             
                 {{ item.title }}
