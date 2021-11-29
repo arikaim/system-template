@@ -14,11 +14,11 @@
         <div class="two fields">
             <div class="field">
                 <label>{{ fields.from.email.label }}</label> 
-                <input rule="email" id="from_email" name="mailer.from.email" value="{{ from_email }}" {{ fields.from.email.placeholder|attr('placeholder') }}>                   
+                <input rule="email" optional="true" id="from_email" name="mailer.from.email" value="{{ from_email }}" {{ fields.from.email.placeholder|attr('placeholder') }}>                   
             </div> 
             <div class="field">
                 <label>{{ fields.from.name.label }}</label> 
-                <input id="from_name" name="mailer.from.name" value="{{ from_name }}" {{ fields.from.name.placeholder|attr('placeholder') }}>                   
+                <input id="from_name" optional="true" name="mailer.from.name" value="{{ from_name }}" {{ fields.from.name.placeholder|attr('placeholder') }}>                   
             </div>  
         </div>
         {{ component('semantic~form.footer') }}        
