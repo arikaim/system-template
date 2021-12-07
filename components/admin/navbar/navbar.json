@@ -11,6 +11,7 @@
     },
     "labels": {
        "demo": "Demo Mode",
+       "dashboard": "Dashboard",
        "disabled": "Some features are disabled"     
     }         
 }

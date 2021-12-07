@@ -35,8 +35,9 @@ body {
   margin: 0 auto -137px;
 }
 .table-head {
-  background-color: #f1f6f8;
-  border: 2px solid #4299e1;
+  background-color: #EEF2FF;
+  border: 2px solid #C7D2FE;
+  border-radius: 0.5rem !important;
 }
 .menu-item-title {
   font-size: 12pt!important;
@@ -95,6 +96,12 @@ div.inner {
   float: none;
   margin: 0em 0.35714286em 0em 0em;
 }
+.ui.menu .item.active {
+  background-color: #F3F4F6 !important;
+}
+.ui.vertical.menu .item.active {
+  background-color: #EEF2FF !important;
+}
 .extension-repository-menu {
   border: 1px solid red!important;
 }
@@ -103,4 +110,14 @@ div.inner {
 }
 .w-74 {
   width: 30rem;
+}
+.w-96 {
+  width: 24rem;
+}
+.mt-28 {
+  margin-top: 7rem;
+}
+.rounded-b-full {
+  border-bottom-right-radius: 9999px;
+  border-bottom-left-radius: 9999px;
 }

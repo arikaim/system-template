@@ -1,13 +1,7 @@
 {{ component("system:admin.navbar") }}
 <div class="flex flex-row flex-grow items-stretch h-auto min-h-full">       
     {{ component("system:admin.menu",{ class: 'w-56 h-auto min-h-full pt-16' }) }}        
-    <div class="w-full pt-20 flex flex-col flex-grow">                        
-        <div class="ui horizontal divider header">
-            <i class="icon blue dashboard" id="page_icon"></i>
-            <div class="content" id="page_title">
-                {{ labels.dashboard }}
-            </div>
-        </div>
+    <div class="w-full mt-28 flex flex-col flex-grow">                                
         <div class="pl-2" id="tool_content">
             {% if hasExtension('dashboard') == true %}
                 {{ component('dashboard::admin.dashboard') }}

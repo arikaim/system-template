@@ -10,7 +10,7 @@ function ControlPanel() {
 
     this.setPageIcon = function(iconClass, selector) {     
         selector = getDefaultValue(selector,'#page_icon');
-        $(selector).removeClass().addClass('icon blue ' + iconClass);    
+        $(selector).removeClass().addClass('icon inverted pl-6 ' + iconClass);    
     };
 
     this.setPageTitle = function(title, selector) { 

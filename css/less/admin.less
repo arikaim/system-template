@@ -1,5 +1,5 @@
-@tabel_head_bg: #f1f6f8;
-@table_head_border: #4299e1;
+@tabel_head_bg: #EEF2FF;
+@table_head_border: #C7D2FE;
 @small: 1rem;
 
 @import url('https://fonts.googleapis.com/css?family=Monoton');
@@ -36,8 +36,10 @@ body {
 }
 .table-head {
     background-color: @tabel_head_bg;
-    border: 2px solid @table_head_border   
+    border: 2px solid @table_head_border;   
+    border-radius: 0.5rem!important;
 }
+
 .menu-item-title {
    font-size: 12pt!important;
 }
@@ -95,12 +97,29 @@ div.inner {
     float: none;
     margin: 0em 0.35714286em 0em 0em;
 }
+.ui.menu .item.active {
+    background-color: #F3F4F6!important;
+}
+.ui.vertical.menu .item.active {
+    background-color: #EEF2FF!important;
+}
 .extension-repository-menu {
     border:1px solid red!important;
 }
 .admin-menu-link.active {
     background-color: #2a4365!important;
 }
+
 .w-74 {
     width: 30rem;
+}
+.w-96 {
+    width: 24rem;
+}
+.mt-28{
+    margin-top: 7rem;
+}
+.rounded-b-full {
+    border-bottom-right-radius: 9999px;
+    border-bottom-left-radius: 9999px;
 }
