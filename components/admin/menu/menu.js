@@ -13,8 +13,17 @@ function ControlPanelMenu() {
         $('.popup').popup();   
         $('#admin_menu_dropdown').dropdown();
     
-        arikaim.ui.button('#system_menu_button',function(element) {     
-            $('#system_menu').transition('slide down');    
+        arikaim.ui.button('#system_menu_button',function(element) {   
+            var status = $(element).attr('status');
+            if (status == 'true' || status == true) {                
+                $(element).attr('status',false);
+                $('#system_menu').fadeOut(500);                   
+                options.save('admin.menu.button',false);              
+            } else {               
+                $(element).attr('status',true);
+                $('#system_menu').fadeIn(500);                  
+                options.save('admin.menu.button',true);
+            }           
         });
     
         arikaim.ui.button('.admin-menu-link',function(element) {
