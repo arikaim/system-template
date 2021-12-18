@@ -11,7 +11,7 @@ function MailerSettings() {
     this.init = function() {
         $('#drivers_dropdown').dropdown({
             onChange: function(value) {                    
-                options.save('mailer.driver',value);
+                options.saveConfigOption('settings/mailerDriver',value);
             }
         });
 

@@ -1,5 +1,5 @@
 {{ component('semantic~segment-title',{ title: title.content, icon: title.icon }) }}
-{% set mailer_driver = getOption('mailer.driver',null) %}
+{% set mailer_driver = getConfigOption('settings/mailerDriver',null) %}
 {% set from_email = getOption('mailer.from.email',null) %}
 {% set user = service('access').getUser() %}
 <div class="mt-4">
