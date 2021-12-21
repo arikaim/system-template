@@ -1,4 +1,8 @@
-<div class="header">{{ labels.requirements }}</div>
+<div class="ui segment">  
+    <div class="ui header">
+        <i class="icon server "></i>   
+        {{ labels.requirements }}
+    </div>
     <div class="description ml-2">
         <div class="ui list">
         {% for item in requirements.items %}
@@ -13,5 +17,6 @@
                 {{ item.message }}
             </div>
         {% endfor %}
+        </div>
     </div>
 </div>

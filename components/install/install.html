@@ -2,23 +2,22 @@
 <div class="ui container stackable grid">
     <div class="ui one column">
         <div class="ui very padded segment raised">
-            <h2 class="ui header">{{ title }}</h2>
-            <div class="ui divider"></div>
-            <div class="ui items">
-                <div class="item">
-                    <div class="middle aligned content">
-                        <i class="large icon server middle aligned"></i>   
-                        {{ component("system:install.requirements",{ requirements: requirements }) }}
-                    </div>
+            <h2 class="ui header">{{ title }}</h2>           
+            <div class="flex flex-row w-full">
+                <div class="w-1/2">                                                           
+                    {{ component("system:install.requirements",{ requirements: requirements }) }}                                                                                
                 </div>
-                <div class="item">
-                {% if (requirements.errors is empty) %}               
-                    <i class="large icon database middle aligned"></i>
+                <div class="w-1/2 ml-4">
+                    {{ component("system:install.info",{ system: system }) }}  
+                </div>
+            </div>                                                                             
+            <div class="p-1 mt-8">
+                {% if (requirements.errors is empty) %}                            
                     <div class="middle aligned content">
-                        <div class="header">{{ labels.database }}</div>
-                        <div class="meta">
-                            <span>{{ labels.connection }}</span>
-                        </div>
+                        <div class="ui header" title="{{ labels.connection }}">
+                            <i class="icon database"></i>
+                            {{ labels.database }}
+                        </div>                 
                         <div class="description">  
                             {{ component("system:install.form") }}
                         </div>
@@ -35,8 +34,7 @@
                         </ul>          
                     </div>   
                 {% endif %}  
-                </div>      
-            </div>                                                  
+            </div>            
         </div>
     </div>
 </div>
