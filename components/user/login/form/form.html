@@ -9,14 +9,14 @@
                 <label>{{ user_name.label }}</label>
                 <div class="ui left icon input">
                     <i class="icon user"></i>
-                    <input type="text" name="user_name" id="user_name" {{ user_name.placeholder|attr("placeholder") }}>    
+                    <input rule="empty" type="text" name="user_name" id="user_name" {{ user_name.placeholder|attr("placeholder") }}>    
                 </div>
             </div>
             <div class="field">
                 <label>{{ password.label }}</label>
                 <div class="ui left icon right action input">
                     <i class="icon lock"></i>
-                    <input type="password" name="password" id="password" {{ password.placeholder|attr("placeholder") }}>  
+                    <input rule="empty" type="password" name="password" id="password" {{ password.placeholder|attr("placeholder") }}>  
                     <a class="ui icon basic link button view-password">               
                         <i class="eye slash outline icon"></i>
                     </a>    
