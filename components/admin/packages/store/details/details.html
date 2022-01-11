@@ -6,8 +6,8 @@
 {% set private = details.options_list['private-repository'] %}
 
 <div class="mt-2">  
-    <div class="ui three column stretched grid">
-        <div class="ui column">
+    <div class="ui stretched grid">
+        <div class="ten wide column">
             <div class="ui segment" 
                 id="package_details" 
                 uuid="{{ uuid }}" 
@@ -58,7 +58,7 @@
                 </div>                                                  
             </div>
         </div>
-        <div class="ui two wide column">   
+        <div class="six wide column">   
             <div class="ui segment">               
             {{  component('system:admin.packages.repository',{ 
                     type: type, 

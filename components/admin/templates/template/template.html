@@ -40,15 +40,15 @@
     {% endif %}
     {% if show_buttons == true %}
     <div class="pt-2">
-        <div class="ui mini bottom attached buttons">                              
+        <div class="ui mini bottom basic attached buttons">                              
             {% if template.name != system_template_name %}
                 <button class="ui button olive update-button {{ (demo_mode == true) ? 'disabled' : '' }}" template="{{ template.name }}">
-                    <i class="icon refresh"></i>
+                    <i class="icon green refresh"></i>
                     {{ buttons.update.content }}
                 </button>
                 {% set disabled = (template.name == primary_template) ? 'disabled' : '' %}                 
                 <button class="ui button set-primary {{ disabled }} {{ (demo_mode == true) ? 'disabled' : '' }}" template="{{ template.name }}">
-                    <i class="icon angle double up"></i>      
+                    <i class="icon blue angle double up"></i>      
                     {{ buttons.primary.content }}
                 </button>                                     
             {% endif %}    
@@ -56,7 +56,7 @@
                 class="ui icon button details-button" 
                 template="{{ template.name }}" 
                 title="{{ buttons.details.content }}">
-                <i class="icon list layout"></i>                
+                <i class="icon list blue layout"></i>                
             </button>
         </div>
     </div>

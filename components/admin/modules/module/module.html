@@ -91,9 +91,11 @@
                 {{ labels.install }}
             </button>
         {% endif %}    
-        <button class="ui basic mini right floated button module-button details-button" name="{{ module.name }}">    
-            <i class="icon list layout"></i> 
-            {{ labels.details }}
+        <button 
+            class="ui icon basic mini right floated button module-button details-button" 
+            name="{{ module.name }}"
+            title="{{ labels.details }}">    
+            <i class="icon list layout"></i>            
         </button>          
     </div>
 </div>

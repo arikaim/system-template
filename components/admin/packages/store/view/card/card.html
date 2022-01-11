@@ -10,8 +10,13 @@
 <div class="ui raised card min-h-full">
     <div class="content item"> 
         <i class="blue icon {{ icon }}"></i>
-        {{ item.title }} 
-        <div class="ui horizontal labels mini right floated">     
+        {{ item.title }}         
+    </div>
+    <div class="content h-32">
+        {{ item.options_list.description }}
+    </div>   
+    <div class="extra content"> 
+        <div class="ui horizontal labels mini">                                                         
             {% if item.is_free == true %}   
             <div class="ui basic label">
                 <span class="ui text green">{{ labels.free }}</span>
@@ -20,7 +25,8 @@
             <div class="ui basic label">
                 <span class="ui text orange">{{ labels.premium }}</span>
             </div>
-            {% endif %}      
+            {% endif %}   
+
             {% if installed == true %}
             <div class="ui basic label" id="installed_{{ item.uuid }}">
                 <span class="ui text blue">{{ labels.installed }}</span>
@@ -29,12 +35,9 @@
                     {{ current_version }}
                 </div>                
             </div>    
-            {% endif %}                            
-        </div>
+            {% endif %}   
+        </div>      
     </div>
-    <div class="content h-32">
-        {{ item.options_list.description }}
-    </div>   
     <div class="extra content">                     
         <button class="ui basic button mini package-details" 
             uuid="{{ item.uuid }}" 

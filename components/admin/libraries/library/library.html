@@ -31,20 +31,23 @@
                     <span class="ui text blue">{{ library.name }}</span>                  
                 </div>                   
             </div>            
-        </div>             
-        {% if library.async == true %}
-        <div class="ui basic horizontal label">
-            <span class="ui blue text">{{ labels.async }}</span>
+        </div>          
+        <div class="ui divider"></div>     
+        <div class="ui labels">
+            {% if library.async == true %}     
+                <div class="ui basic horizontal label">
+                    <span class="ui blue text">{{ labels.async }}</span>
+                </div>                          
+            {% endif %}
+            {% if library.crossorigin is not empty %}          
+                <div class="ui basic horizontal label">
+                    <span class="ui text blue">
+                        {{ labels.crossorigin }}
+                    </span>    
+                    {{ library.crossorigin }}
+                </div>                   
+            {% endif %}
         </div>
-        {% endif %}
-        {% if library.crossorigin is not empty %}
-        <div class="ui basic horizontal label">
-            <span class="ui text blue">
-                {{ labels.crossorigin }}
-            </span>    
-            {{ library.crossorigin }}
-        </div>
-        {% endif %}
     </div>
     <div class="extra content">
         <button class="ui mini basic button details-button" library="{{ library.name }}">
