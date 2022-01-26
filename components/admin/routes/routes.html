@@ -4,7 +4,7 @@
     {% endif %}
     {% for route in routes %}
     <div class="item">         
-        {% set auth_names = (route.auth is not empty) ? service('access').getAuthNames(route.auth) : '' %}
+        {% set auth_names = (route.auth is not empty) ? route.auth|split(',') : '' %}
         <div class="right floated content" title="{{ labels.auth }}">
             {% set middlewares = route.middlewares|jsonDecode(false) %}
             {% for middleware in middlewares %}

@@ -10,12 +10,12 @@
             {{ extension.title }}
         </div>   
         {% if extension.primary == 1 %}     
-        <div class="ui horizontal right floated green mini label primary-label">               
+        <div class="ui horizontal green mini label primary-label">               
             {{ labels.primary }}            
         </div>  
         {% endif %}
         {% if extension.type == 1 %}
-        <div class="ui horizontal right floated blue mini label">
+        <div class="ui horizontal  blue mini label">
             {{ labels.system }}      
         </div>      
         {% endif %}   
@@ -50,7 +50,7 @@
         </div>
     </div>   
     <div class="extra content">
-        <div class="flex flex-row items-center"> 
+        <div class="flex flex-row items-center px-1"> 
             {% if extension.installed == true %}        
                 {% if error != 1 %}  
                 <button class="ui mini fluid button basic green icon labeled update-button {{ (demo_mode == true) ? 'disabled' : ''}}" extension="{{ extension.name }}">
@@ -84,10 +84,10 @@
                     <i class="icon angle double up"></i>                                       
                 </button>    
             {% else %}
-            <button class="ui basic button basic mini icon labeled green install-button {{ error|ifthen(1,'hidden') }} {{ (demo_mode == true) ? 'disabled' : ''}}" extension="{{ extension.name }}">
-                <i class="icon download"></i>                    
-                {{ buttons.install.content }}
-            </button> 
+                <button class="ui basic button basic mini icon labeled green install-button {{ error|ifthen(1,'hidden') }} {{ (demo_mode == true) ? 'disabled' : ''}}" extension="{{ extension.name }}">
+                    <i class="icon download"></i>                    
+                    {{ buttons.install.content }}
+                </button> 
             {% endif %}           
         </div>
     </div>
