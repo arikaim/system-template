@@ -1,3 +1,5 @@
 {
-    "label": "Choose"
+    "labels": {
+        "select": "Select"
+    }
 }

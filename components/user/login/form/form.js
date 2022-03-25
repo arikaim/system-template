@@ -12,10 +12,14 @@ arikaim.component.onLoaded(function() {
     });
     
     arikaim.ui.form.onSubmit('#login_form',function() {
-        return user.login('#login_form',function(result) {              
-            arikaim.ui.form.disable('#login_form');
-            arikaim.ui.disableButton('.login-button');
+        arikaim.ui.form.disable('#login_form');
+        arikaim.ui.disableButton('.login-button');
+        
+        return user.login('#login_form',function(result) {                 
             arikaim.page.reload();   
+        },function(error) {
+            arikaim.ui.form.enable('#login_form');
+            arikaim.ui.enableButton('.login-button');
         });
     });
 });

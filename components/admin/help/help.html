@@ -1,8 +1,4 @@
-{%  set params = { extension_name: extension_name } %}
-{%  set items = [ 
-        { title: labels.api, component: 'system:admin.help.api', icon: 'code', active: true, params }        
-    ] 
-%}
+{% set params = { extension_name: extension_name } %}
 <div class="p-8" id="help_content">
     {% if hasModule('docs') == false %}
         {{  component('system:admin.packages.store.package-message',{ 
@@ -13,7 +9,9 @@
         }}
     {% else %}
         {{  component('semantic~tabs.vertical',{ 
-                items: items, 
+                items: [ 
+                    { title: labels.api, component: 'system:admin.help.api', icon: 'code', active: true, params }        
+                ], 
                 menu: { id: 'help_menu_tab' }, 
                 item_class: 'help-tab-item',
                 content: {
