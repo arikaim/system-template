@@ -11,6 +11,10 @@ function Drivers() {
     this.currentConfigElementId = null;
     this.currentConfigColumnClass = null;
 
+    this.uninstall = function(name, onSuccess, onError) {
+        return arikaim.delete('/core/api/driver/uninstall/' + name,onSuccess,onError);      
+    };
+
     this.enable = function(name, onSuccess, onError) {
         var data = {
             name: name,

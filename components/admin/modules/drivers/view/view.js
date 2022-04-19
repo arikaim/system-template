@@ -14,6 +14,20 @@ function DriversView() {
     };
 
     this.initRows = function() {
+        arikaim.ui.button('.driver-uninstall',function(element) {                           
+            var name = $(element).attr('name');
+            var uuid = $(element).attr('uuid');
+            
+            return modal.confirmDelete({ 
+                title: 'Confirm',
+                description: 'Confirm Uninstall Driver'
+            },function() {
+                drivers.uninstall(name,function(result) {
+                    $('#' + uuid).remove();
+                });
+            });
+        });
+
         arikaim.ui.button('.driver-config',function(element) {                
             arikaim.events.emit('driver.config',element);
 

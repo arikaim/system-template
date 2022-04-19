@@ -3,10 +3,24 @@
     
 {% for item in paginator.getItems() %}
 <tr id="{{ item.uuid }}" class="row" name="{{ item.name }}" category="{{ item.category }}">        
-    <td>
-        <button class="ui icon mini basic button driver-config" name="{{ item.name }}" category="{{ item.category }}">
+    <td class="one wide">
+        <button 
+            class="ui icon mini basic button driver-config" 
+            title="{{ labels.config }}"
+            name="{{ item.name }}" 
+            category="{{ item.category }}">
             <i class="icon cogs"></i>
-        </button>           
+        </button>
+        {% if hide_uninstall != true %} 
+        <button 
+            class="ui icon mini basic button driver-uninstall" 
+            title="{{ labels.uninstall }}"
+            name="{{ item.name }}" 
+            uuid="{{ item.uuid }}"
+            category="{{ item.category }}">
+            <i class="icon orange trash"></i>
+        </button>       
+        {% endif %}    
     </td>
     <td>
         {{ component('semantic~status.dropdown',{ status: item.status, uuid: item.uuid, skip: [2,3,4,5] }) }}  

@@ -1,5 +1,9 @@
 {
     "messages": {
         "empty": "No drivers installed." 
-    }   
+    },
+    "labels": {
+        "config": "Driver config",
+        "uninstall": "Uninstall driver"
+    } 
 }
