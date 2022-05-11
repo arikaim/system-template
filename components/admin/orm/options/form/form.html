@@ -1,9 +1,9 @@
-{% set options = createModel(model,extension).getOptions(id) %}
+{% set options = createModel(model,extension).getOptions(model_id) %}
 {% if options.toArray()|length > 0  %}
     <form class="ui form" id="options_form">   
         <input type="hidden" value="{{ extension }}" name="extension">
         <input type="hidden" value="{{ model }}" name="model">
-        <input type="hidden" value="{{ id }}" name="id">
+        <input type="hidden" value="{{ model_id }}" name="id">
         {% for option in options %}            
             {% if option.type.type == option.type.TEXT() %}
                 {{ component('system:admin.orm.options.form.fields.text',{ option: option }) }}
