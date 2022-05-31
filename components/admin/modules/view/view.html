@@ -2,7 +2,9 @@
 {% set modules = package('module').getPackages(false,package_filter) %}
 <div class="ui stackable six cards mt-1" id="modules">
     {% if modules is empty %}
-        {{ labels.empty }}
+        <div class="p-2 px-4 font-bold">
+            {{ labels.empty }}
+        </div>
     {% endif %}
     {% for module in modules %}      
         {{ component("system:admin.modules.module",{ module_name: module, icon: 'code blue' }) }}       
