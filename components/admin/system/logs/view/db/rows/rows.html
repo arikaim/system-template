@@ -29,7 +29,9 @@
                 {% for key, value in row.context %}
                     <div class="ui label">
                         {{ key }}
-                        <span class="ui blue text pl-1">{{ value }}</span>
+                        <span class="ui blue text pl-1">
+                            {{ (value is iterable) ? value|dump : value }}
+                        </span>
                     </div>
                 {% endfor %}
                 </div>
