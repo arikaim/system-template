@@ -1,9 +1,8 @@
 {% set items = service('cache').getSupportedDrivers() %}
-{% set driver_name = service('cache').getDriverName() %}
+{% set driver_name = getConfigOption('settings/cacheDriver') %}
 {% set selected = items[driver_name]|split('\\')|last %}
 {% set empty_label = empty_label|default(text.status) %}
 {% set class = class|default('inline') %}
-
 <div class="ui dropdown {{ class }}" uuid="{{ uuid }}" id="cache_driver_dropdown">
     <i class="icon code blue"></i>
     <div class="text">

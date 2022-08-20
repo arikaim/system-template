@@ -1,6 +1,6 @@
 {% set cache = service('cache') %}
 {% set stats = cache.getStats() %}
-{% set status = cache.getStatus() %}
+{% set status = getConfigOption('settings/cache') %}
 
 {% component 'semantic~tabs.vertical.content' %}
 <div class="ui equal width form mt-8">    
