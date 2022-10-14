@@ -1,24 +1,12 @@
 <table class="ui very basic padded table">
     <tbody>
+        {% for key, value in stats %}
         <tr>
-            <td class="collapsing font-bold">{{ labels.uptime }}</td>
-            <td>{{ stats.uptime|default(0) }}</td>
-        </tr>  
-        <tr>
-            <td class="collapsing font-bold">{{ labels.misses }}</td>
-            <td>{{ stats.misses|default(0) }}</td>
-        </tr>   
-        <tr>
-            <td class="collapsing font-bold">{{ labels.hits }}</td>
-            <td>{{ stats.hits|default(0) }}</td>
-        </tr>                     
-        <tr>
-            <td class="collapsing font-bold">{{ labels.usage }}</td>
-            <td>{{ stats.memory_usage|fileSize }}</td>
+            <td class="collapsing font-bold">{{ key }}</td>
+            <td>              
+                {{ (value is iterable) ? value|dump : value }}
+            </td>
         </tr>
-        <tr>
-            <td class="collapsing font-bold">{{ labels.available }}</td>
-            <td class="left aligned">{{ stats.memory_available|fileSize }}</td>
-        </tr>
+        {% endfor %}        
     </tbody>    
 </table>   
