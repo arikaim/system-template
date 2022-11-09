@@ -39,14 +39,10 @@ function Libraries() {
             callFunction(onSuccess,result);             
         });     
     }
-
-    this.init = function() {
-        arikaim.ui.tab();
-    };
 }
 
 var libraries = new Libraries();
 
 arikaim.component.onLoaded(function() {  
-    libraries.init();
+    arikaim.ui.tab();
 });

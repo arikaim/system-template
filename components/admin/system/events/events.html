@@ -1,15 +1,15 @@
-<div class="ui segment">
-    <div class="ui grid two column">
-        <div class="column">                      
+<div class="ui streched two column grid">
+    <div class="column">
+        <div class="ui segment">
+            <div class="ui grid two column">
+                <div class="column">                      
+                </div>
+                <div class="column right aligned">
+                    {{ component('semantic~paginator.dropdown',{ namespace: 'events' }) }}
+                </div>
+            </div>    
         </div>
-        <div class="column right aligned">
-            {{ component('semantic~paginator.dropdown',{ namespace: 'events' }) }}
-        </div>
-    </div>    
-</div>
-<div class="ui segment">
-    <div class="ui streched divided two column grid">
-        <div class="column">
+        <div class="ui segment">
             <div class="ui header">
                 {{ title }}
             </div>  
@@ -20,7 +20,7 @@
                 {{ component("semantic~paginator",{ namespace: 'events' }) }}
             </div>
         </div>
-        <div class="column" id="event_details">        
-        </div>    
     </div>
+    <div class="column" id="event_details">        
+    </div>    
 </div>

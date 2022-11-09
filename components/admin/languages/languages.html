@@ -1,11 +1,9 @@
-{% set items = [ 
-    { id: 'view_button', title: labels.view, component: 'system:admin.languages.view', icon: 'grid layout', active: true },
-    { title: labels.add, component: 'system:admin.languages.language.add', icon: 'plus' },
-    { id: 'edit_button', title: labels.edit, component: 'system:admin.languages.language.edit', icon: 'edit' }
-] %}
-
 {{  component('semantic~tabs',{ 
-        items: items,
+        items:  [ 
+            { id: 'view_button', title: labels.view, component: 'system:admin.languages.view', icon: 'grid layout', active: true },
+            { title: labels.add, component: 'system:admin.languages.language.add', icon: 'plus' },
+            { id: 'edit_button', title: labels.edit, component: 'system:admin.languages.language.edit', icon: 'edit' }
+        ],
         content: { component: 'system:admin.languages.view' } 
     })
 }}

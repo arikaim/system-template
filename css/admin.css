@@ -2,7 +2,7 @@
   font-family: 'Monoton';
   font-style: normal;
   font-weight: 400;
-  src: url(https://fonts.gstatic.com/s/monoton/v13/5h1aiZUrOngCibe4TkHLRw.ttf) format('truetype');
+  src: url(https://fonts.gstatic.com/s/monoton/v15/5h1aiZUrOngCibe4TkHLRw.ttf) format('truetype');
 }
 html {
   height: 100%;
@@ -42,9 +42,7 @@ body {
   margin: 0 auto -137px;
 }
 .table-head {
-  background-color: #EEF2FF;
-  border: 2px solid #C7D2FE;
-  border-radius: 0.5rem !important;
+  font-weight: bold!important;
 }
 .menu-item-title {
   font-size: 12pt!important;
@@ -120,6 +118,9 @@ div.inner {
 }
 .w-96 {
   width: 24rem;
+}
+.w-panel {
+  width: 34rem;
 }
 .mt-28 {
   margin-top: 7rem;

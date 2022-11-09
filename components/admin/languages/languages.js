@@ -55,14 +55,10 @@ function Languages() {
             loader : false
         },onSuccesss,onError);
     };
-  
-    this.init = function() {
-        arikaim.ui.tab();
-    };
 }
 
 var languages = new Languages();
 
 arikaim.component.onLoaded(function() {  
-    languages.init();
+    arikaim.ui.tab();
 });

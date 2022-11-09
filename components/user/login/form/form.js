@@ -15,7 +15,8 @@ arikaim.component.onLoaded(function() {
         arikaim.ui.form.disable('#login_form');
         arikaim.ui.disableButton('.login-button');
         
-        return user.login('#login_form',function(result) {                    
+        return user.login('#login_form',function(result) {   
+            arikaim.ui.form.disable('#login_form');                 
             arikaim.page.reload();   
         },function(error) {
             arikaim.ui.form.enable('#login_form');

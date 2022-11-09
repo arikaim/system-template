@@ -1,7 +1,6 @@
 {% set handler_name =  service('logger').getHandelerName() %}
 {% set handler_name = handler_name|default('file') %}
-
-<div class="mt-2" id="logs_view">
+<div id="logs_view">
     {% if handler_name == 'file' %}
         {{ component("system:admin.system.logs.view.file") }}
     {% elseif handler_name == 'db' %}

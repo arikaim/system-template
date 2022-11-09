@@ -38,22 +38,22 @@
         {{ component('system:admin.packages.requires',{ items: items }) }}               
     </div> 
     {% endif %}
-    {% if show_buttons == true %}
-    <div class="pt-2">
-        <div class="ui mini bottom basic attached buttons">                              
+    {% if show_buttons == true %}  
+    <div class="extra content">
+        <div class="flex flex-row items-center px-1">                             
             {% if template.name != system_template_name %}
-                <button class="ui button olive update-button {{ (demo_mode == true) ? 'disabled' : '' }}" template="{{ template.name }}">
+                <button class="ui mini basic button olive update-button {{ (demo_mode == true) ? 'disabled' : '' }}" template="{{ template.name }}">
                     <i class="icon green refresh"></i>
                     {{ buttons.update.content }}
                 </button>
                 {% set disabled = (template.name == primary_template) ? 'disabled' : '' %}                 
-                <button class="ui button set-primary {{ disabled }} {{ (demo_mode == true) ? 'disabled' : '' }}" template="{{ template.name }}">
+                <button class="ui mini basic button set-primary {{ disabled }} {{ (demo_mode == true) ? 'disabled' : '' }}" template="{{ template.name }}">
                     <i class="icon blue angle double up"></i>      
                     {{ buttons.primary.content }}
                 </button>                                     
             {% endif %}    
             <button 
-                class="ui icon button details-button" 
+                class="ui icon mini basic button details-button" 
                 template="{{ template.name }}" 
                 title="{{ buttons.details.content }}">
                 <i class="icon list blue layout"></i>                

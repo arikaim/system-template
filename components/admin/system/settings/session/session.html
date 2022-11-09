@@ -1,6 +1,7 @@
 {% set interval = getConfigOption('settings/sessionInterval',0) %}
 
 {% component 'semantic~tabs.vertical.content' %}
+{% set class = 'five wide' %}
 <form class="ui equal width form mt-8" id="session_settings_form"> 
     <div class="ui segment mt-10">
         <h4>{{ labels.details }}</h4>

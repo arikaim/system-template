@@ -1,5 +1,6 @@
 {% set disable_install_page = service('config').getByPath('settings/disableInstallPage') %}
 {% component 'semantic~tabs.vertical.content' %}
+{% set class = 'five wide' %}
 <div class="mt-4">
     <div class="field">
         <div class="ui slider checkbox" id="install_page_toggle">
