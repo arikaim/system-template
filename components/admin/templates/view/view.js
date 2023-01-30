@@ -35,6 +35,8 @@
                     replace: true
                 },function(result) {
                     self.initRows();
+                    arikaim.page.toastMessage(message);
+
                     arikaim.ui.form.showMessage({
                         selector: '#message_' + name,
                         message: message
@@ -52,7 +54,7 @@
             var name = $(element).attr('template');   
           
             return packages.update(name,'template',function(result) {
-                var mesasge = result.message;
+                var message = result.message;
                 arikaim.page.loadContent({
                     id: name,
                     params: { template_name: name },
@@ -60,9 +62,11 @@
                     replace: true
                 },function(result) {
                     self.initRows();   
+                    arikaim.page.toastMessage(message);
+
                     arikaim.ui.form.showMessage({
                         selector: '#message_' + name,
-                        message: mesasge
+                        message: message
                     });                 
                 });               
             },function(error) {

@@ -58,13 +58,17 @@
                         repository_type: library.get('repository-type',null),
                         installed_version: library.version   
                     }) 
-                }}                             
+                }}                                          
             </div>
         </div>
     </div>
 </div>
 <div class="ui segment">  
-    <h4>{{ labels.components }}</h4> 
-    {{ component('system:admin.component',{ components: library.components, extension: '' }) }} 
+    {% if library.get('type') == 'icons' %} 
+        {{ component('system:admin.libraries.components.icons',{ items: library.components, package_name: library_name }) }} 
+    {% else %}
+        <h4>{{ labels.components }}</h4> 
+        {{ component('system:admin.component',{ components: library.components, extension: '' }) }} 
+    {% endif %}
 </div>
 

@@ -30,13 +30,15 @@ function ModulesView() {
                 var message = result.message;            
                 modules.loadModuleDetails(name,function(result) {
                     self.initRows();
+                    arikaim.page.toastMessage(message);
+
                     arikaim.ui.form.showMessage({
                         selector: '#message_' + name,
                         message: message
                     });
                 });               
             },function(error) {              
-                self.initRows();
+                self.initRows();               
                 arikaim.ui.form.showMessage({
                     selector: '#message_' + name,
                     message: error,
@@ -53,6 +55,8 @@ function ModulesView() {
                 var message = result.message;    
                 modules.loadModuleDetails(name,function(result) {
                     self.initRows();
+                    arikaim.page.toastMessage(message);
+
                     arikaim.ui.form.showMessage({
                         selector: '#message_' + name,
                         message: message
@@ -76,6 +80,8 @@ function ModulesView() {
                 var message = result.message;             
                 modules.loadModuleDetails(name,function(result) {
                     self.initRows();
+                    arikaim.page.toastMessage(message);
+
                     arikaim.ui.form.showMessage({
                         selector: '#message_' + name,
                         message: message
@@ -99,6 +105,8 @@ function ModulesView() {
                 var message = result.message;               
                 modules.loadModuleDetails(name,function(result) {
                     self.initRows();
+                    arikaim.page.toastMessage(message);
+                    
                     arikaim.ui.form.showMessage({
                         selector: '#message_' + name,
                         message: message

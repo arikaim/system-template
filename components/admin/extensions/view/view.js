@@ -30,7 +30,8 @@ function ExtensionsView() {
                         component: 'system:admin.extensions.extension',
                         replace: true
                     },function(result) {  
-                        self.init();
+                        self.init();    
+                        arikaim.page.toastMessage(message);            
                         arikaim.ui.form.showMessage({
                             selector: '#message_' + name,
                             message: message
@@ -64,8 +65,11 @@ function ExtensionsView() {
                 },function(result) {                                           
                     // reload control panel menu
                     self.init();
+                  
+                    arikaim.page.toastMessage(message);
                     menu.loadSystemMenu();
                     menu.loadExtensionsMenu();
+                 
                     arikaim.ui.form.showMessage({
                         selector: '#message_' + name,
                         message: message                       
@@ -98,7 +102,7 @@ function ExtensionsView() {
                         replace: true
                     },function(result) {
                         // reload control panel menu
-                        self.init();
+                        self.init();                       
                         menu.loadSystemMenu();
                         menu.loadExtensionsMenu();
                     });                  
@@ -127,6 +131,8 @@ function ExtensionsView() {
                 },function(result) {                  
                     // reload control panel menu                  
                     self.init();
+                    arikaim.page.toastMessage(message);
+
                     menu.loadSystemMenu();
                     menu.loadExtensionsMenu();
                     arikaim.ui.form.showMessage({
@@ -163,6 +169,7 @@ function ExtensionsView() {
                     replace: true
                 },function(result) {
                     self.init();
+                    arikaim.page.toastMessage(message);
                     arikaim.ui.form.showMessage({
                         selector: '#message_' + name,
                         message: message
