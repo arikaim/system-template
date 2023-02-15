@@ -4,7 +4,7 @@
 {% set title = title|merge({ content: (driver is empty) ? title.content : driver.title })  %}
 
 {% component 'semantic~tabs.vertical.content' %}
-{% set class = 'six wide' %}
+{% set class = column_class|default('six wide') %}
 {% if driver_name is empty %}
 <div class="ui field mt-8">
     <h5>{{ labels.driver }}</h5>
