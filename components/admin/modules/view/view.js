@@ -31,20 +31,13 @@ function ModulesView() {
                 modules.loadModuleDetails(name,function(result) {
                     self.initRows();
                     arikaim.page.toastMessage(message);
-
-                    arikaim.ui.form.showMessage({
-                        selector: '#message_' + name,
-                        message: message
-                    });
                 });               
             },function(error) {              
                 self.initRows();               
-                arikaim.ui.form.showMessage({
-                    selector: '#message_' + name,
+                arikaim.page.toastMessage({
                     message: error,
-                    class: 'error',
-                    removeClass: 'success'
-                });
+                    class: 'error'
+                }); 
             });
         });
 
@@ -56,20 +49,13 @@ function ModulesView() {
                 modules.loadModuleDetails(name,function(result) {
                     self.initRows();
                     arikaim.page.toastMessage(message);
-
-                    arikaim.ui.form.showMessage({
-                        selector: '#message_' + name,
-                        message: message
-                    });
                 }); 
             },function(error) {               
                 self.initRows();
-                arikaim.ui.form.showMessage({
-                    selector: '#message_' + name,
+                arikaim.page.toastMessage({
                     message: error,
-                    class: 'error',
-                    removeClass: 'success'
-                });
+                    class: 'error'
+                }); 
             });
         });
 
@@ -81,20 +67,13 @@ function ModulesView() {
                 modules.loadModuleDetails(name,function(result) {
                     self.initRows();
                     arikaim.page.toastMessage(message);
-
-                    arikaim.ui.form.showMessage({
-                        selector: '#message_' + name,
-                        message: message
-                    });
                 });               
             },function(error) {              
                 self.initRows();
-                arikaim.ui.form.showMessage({
-                    selector: '#message_' + name,
+                arikaim.page.toastMessage({
                     message: error,
-                    class: 'error',
-                    removeClass: 'success'
-                });
+                    class: 'error'
+                }); 
             });
         });
 
@@ -106,20 +85,13 @@ function ModulesView() {
                 modules.loadModuleDetails(name,function(result) {
                     self.initRows();
                     arikaim.page.toastMessage(message);
-                    
-                    arikaim.ui.form.showMessage({
-                        selector: '#message_' + name,
-                        message: message
-                    });
                 });               
             },function(error) {               
                 self.initRows();
-                arikaim.ui.form.showMessage({
-                    selector: '#message_' + name,
+                arikaim.page.toastMessage({
                     message: error,
-                    class: 'error',
-                    removeClass: 'success'
-                });
+                    class: 'error'
+                }); 
             });
         });
     };

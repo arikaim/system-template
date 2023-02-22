@@ -36,17 +36,12 @@
                 },function(result) {
                     self.initRows();
                     arikaim.page.toastMessage(message);
-
-                    arikaim.ui.form.showMessage({
-                        selector: '#message_' + name,
-                        message: message
-                    });
                 });  
             },function(error) {
-                arikaim.ui.form.showMessage({
-                    selector: '#message_' + name,
-                    message: error
-                });
+                arikaim.page.toastMessage({
+                    message: error,
+                    class: 'error'
+                }); 
             });
         });
     
@@ -62,18 +57,13 @@
                     replace: true
                 },function(result) {
                     self.initRows();   
-                    arikaim.page.toastMessage(message);
-
-                    arikaim.ui.form.showMessage({
-                        selector: '#message_' + name,
-                        message: message
-                    });                 
+                    arikaim.page.toastMessage(message);                                    
                 });               
             },function(error) {
-                arikaim.ui.form.showMessage({
-                    selector: '#message_' + name,
-                    message: error
-                });
+                arikaim.page.toastMessage({
+                    message: error,
+                    class: 'error'
+                }); 
             });
         });
     

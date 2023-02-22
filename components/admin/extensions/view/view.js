@@ -32,16 +32,12 @@ function ExtensionsView() {
                     },function(result) {  
                         self.init();    
                         arikaim.page.toastMessage(message);            
-                        arikaim.ui.form.showMessage({
-                            selector: '#message_' + name,
-                            message: message
-                        });
                     });
                 },function(error) {
-                    arikaim.ui.form.showMessage({
-                        selector: '#message_' + name,
-                        message: error
-                    });
+                    arikaim.page.toastMessage({
+                        message: message,
+                        class: 'error'
+                    });                           
                 });     
             }
         });
@@ -69,20 +65,12 @@ function ExtensionsView() {
                     arikaim.page.toastMessage(message);
                     menu.loadSystemMenu();
                     menu.loadExtensionsMenu();
-                 
-                    arikaim.ui.form.showMessage({
-                        selector: '#message_' + name,
-                        message: message                       
-                    });
                 });               
             },function(error) {
-                arikaim.ui.form.showMessage({
-                    selector: '#message_' + name,
+                arikaim.page.toastMessage({
                     message: error,
-                    class: 'error',
-                    hide: 0,
-                    removeClass: 'success'
-                });
+                    class: 'error'
+                });                 
             });        
         });
        
@@ -107,13 +95,10 @@ function ExtensionsView() {
                         menu.loadExtensionsMenu();
                     });                  
                 }).fail(function(error) {
-                    arikaim.ui.form.showMessage({
-                        selector: '#message_' + name,
+                    arikaim.page.toastMessage({
                         message: error,
-                        class: 'error',
-                        hide: 0,
-                        removeClass: 'success'
-                    });
+                        class: 'error'
+                    }); 
                 });
             });
         });
@@ -135,21 +120,12 @@ function ExtensionsView() {
 
                     menu.loadSystemMenu();
                     menu.loadExtensionsMenu();
-                    arikaim.ui.form.showMessage({
-                        selector: '#message_' + name,
-                        message: message,
-                        class: 'success',
-                        removeClass: 'error',
-                    });
                 });
             }).fail(function(error) {
-                arikaim.ui.form.showMessage({
-                    selector: '#message_' + name,
+                arikaim.page.toastMessage({
                     message: error,
-                    class: 'error',
-                    removeClass: 'success',
-                    hide: 0
-                });
+                    class: 'error'
+                }); 
             });
         });
 
@@ -169,17 +145,13 @@ function ExtensionsView() {
                     replace: true
                 },function(result) {
                     self.init();
-                    arikaim.page.toastMessage(message);
-                    arikaim.ui.form.showMessage({
-                        selector: '#message_' + name,
-                        message: message
-                    });
+                    arikaim.page.toastMessage(message);                
                 });  
             },function(error) {
-                arikaim.ui.form.showMessage({
-                    selector: '#message_' + name,
-                    message: error
-                });
+                arikaim.page.toastMessage({
+                    message: error,
+                    class: 'error'
+                }); 
             });
         });
     };

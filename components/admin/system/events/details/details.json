@@ -6,7 +6,7 @@
         "extension": "Extension",
         "status": "Status",   
         "priority": "Priority",
-        "created": "Created in",     
+        "properties": "Properties",
         "description": "Description"
     },
     "title": "Details"

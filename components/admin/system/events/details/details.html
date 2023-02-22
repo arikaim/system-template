@@ -37,7 +37,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="two wide right aligned">{{ labels.created }}</td>
+                    <td class="two wide right aligned">{{ labels.extension }}</td>
                     <td>
                         {% set name = (event.extension_name is empty) ? 'core' : event.extension_name %}
                         <div class="ui basix label">
@@ -84,5 +84,13 @@
             </div>
             {% endfor %}
         </div>
+        {% if event.properties is not empty %}
+        <h5>
+            {{ labels.properties }}
+        </h5>
+        <div>
+            {{ component('semantic~properties.details',{ properties: event.properties }) }}
+        </div>
+        {% endif %}
     </div>
 </div>
