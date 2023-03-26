@@ -71,6 +71,10 @@
     <a class="item" data-tab="emails_tab">
         <i class="icon blue envelope outline"></i>
         {{ tabs.emails.content }}
+    </a>  
+    <a class="item" data-tab="jobs_tab">
+        <i class="icon blue cogs"></i>
+        {{ tabs.jobs.content }}
     </a>          
 </div>
 <div class="ui bottom attached tab segment active {{ tabs.routes.class }}" data-tab="routes_tab">
@@ -134,4 +138,7 @@
 </div>
 <div class="ui bottom attached tab segment {{ tabs.database.class }}" data-tab="emails_tab">   
     {{ component('semantic~list.items',{ items: extension.emails, icon: "envelope outline" }) }} 
+</div>
+<div class="ui bottom attached tab segment {{ tabs.jobs.class }}" data-tab="jobs_tab">   
+    {{ component('semantic~list.items',{ items: extension.jobs, icon: "cogs blue" }) }} 
 </div>

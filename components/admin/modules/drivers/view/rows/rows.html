@@ -5,7 +5,15 @@
 <tr id="{{ item.uuid }}" class="row" name="{{ item.name }}" category="{{ item.category }}">        
     <td class="one wide">
         <button 
-            class="ui icon mini basic button driver-config" 
+            mountTo="driver_details"
+            component="system:admin.modules.drivers.details"
+            class="ui icon mini compact basic button driver-details" 
+            title="{{ labels.details }}"
+            params="driver_name:{{ item.name }}">
+            <i class="icon info"></i>
+        </button>
+        <button 
+            class="ui icon mini compact basic button driver-config" 
             title="{{ labels.config }}"
             name="{{ item.name }}" 
             category="{{ item.category }}">
@@ -13,7 +21,7 @@
         </button>
         {% if hide_uninstall != true %} 
         <button 
-            class="ui icon mini basic button driver-uninstall" 
+            class="ui icon mini compact basic button driver-uninstall" 
             title="{{ labels.uninstall }}"
             name="{{ item.name }}" 
             uuid="{{ item.uuid }}"
@@ -27,9 +35,7 @@
     </td>
     <td>{{ item.name }}</td>
     <td>{{ item.category }}</td>
-    <td>{{ item.title }}</td>
-    <td>{{ item.class }}</td>
-    <td>{{ item.description|sliceLabel(30) }}</td>         
+    <td>{{ item.title }}</td>          
 </tr>
 {% endfor %}
 <tr>

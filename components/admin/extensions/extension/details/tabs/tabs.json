@@ -24,6 +24,9 @@
         "emails": {
             "content": "Emails"
         },
+        "jobs": {
+            "content": "Jobs"
+        },
         "macros": {
             "content": "Macros"
         },       

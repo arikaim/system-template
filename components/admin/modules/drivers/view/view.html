@@ -1,9 +1,9 @@
 
 <div class="ui segment">      
     <div class="ui stackable grid">
-        <div class="fifteen wide column">
+        <div class="ten wide column">
         </div>
-        <div class="one wide column right floated">
+        <div class="six wide column right aligned">
             {{ component('semantic~paginator.dropdown',{ class:'mini', namespace: 'drivers' }) }}
         </div>
     </div>
@@ -16,9 +16,7 @@
                 <th class="two wide">{{ columns.status }}</th>                                
                 <th class="two wide">{{ columns.name }}</th>  
                 <th class="one wide">{{ columns.category }}</th>
-                <th class="two wide">{{ columns.title }}</th>                         
-                <th>{{ columns.class }}</th>
-                <th class="four wide">{{ columns.description }}</th>                           
+                <th class="two wide">{{ columns.title }}</th>                                                                 
             </tr>
         </thead>
         <tbody id="drivers_rows" component="system:admin.modules.drivers.view.rows" namespace="drivers">

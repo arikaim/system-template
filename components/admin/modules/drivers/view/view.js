@@ -14,6 +14,8 @@ function DriversView() {
     };
 
     this.initRows = function() {
+        arikaim.ui.loadComponentButton('.driver-details');
+
         arikaim.ui.button('.driver-uninstall',function(element) {                           
             var name = $(element).attr('name');
             var uuid = $(element).attr('uuid');
@@ -33,7 +35,7 @@ function DriversView() {
 
             var name = $(element).attr('name');
             arikaim.ui.setActiveTab('#drivers_config','.drivers-tab-item');
-            drivers.loadConfig(name,'drivers_tab');
+            drivers.loadConfig(name,'driver_details',null,'sixteen wide');
         });
        
         $('.status-dropdown').dropdown({
