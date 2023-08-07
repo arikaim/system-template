@@ -1,8 +1,14 @@
+{#
+    id: 'repository_button', 
+    title: labels.repository.content, 
+    component: 'system:admin.extensions.repository', 
+    icon: 'box open' 
+#}
+
 {{  component('semantic~tabs',{ 
         items: [ 
             { id: 'view_button', title: labels.view.content, component: 'system:admin.extensions.view', icon: 'grid layout', active: true },
-            { id: 'details_button', title: labels.details.content, component: 'system:admin.extensions.extension.details', icon: 'info' },
-            { id: 'repository_button', title: labels.repository.content, component: 'system:admin.extensions.repository', icon: 'box open' }
+            { id: 'details_button', title: labels.details.content, component: 'system:admin.extensions.extension.details', icon: 'info' }
         ],
         content: { component: 'system:admin.extensions.view' } 
     })

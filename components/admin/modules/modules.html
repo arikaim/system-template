@@ -1,10 +1,14 @@
+{#
+    id: 'repository_button', title: labels.repository.content, 
+    component: 'system:admin.modules.repository', icon: 'open box' 
+#}
+
 {{  component('semantic~tabs',{ 
         items: [    
             { id: 'package_button', title: labels.package.content, component: 'system:admin.modules.view', icon: 'box', active: true, params: { type: 'package' } },
             { id: 'middleware_button', title: labels.middleware.content, component: 'system:admin.modules.view', icon: 'code', params: { type: 'middleware' } },    
             { id: 'drivers_button', title: labels.drivers.content, component: 'system:admin.modules.drivers', icon: 'code' },
-            { id: 'compsoer_button', title: labels.composer.content, component: 'system:admin.modules.composer', icon: 'code' },
-            { id: 'repository_button', title: labels.repository.content, component: 'system:admin.modules.repository', icon: 'open box' }
+            { id: 'compsoer_button', title: labels.composer.content, component: 'system:admin.modules.composer', icon: 'code' }           
         ],
         content: { component: 'system:admin.modules.view', params: { type: 'package' } } 
     })
