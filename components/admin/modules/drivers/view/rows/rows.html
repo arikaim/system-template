@@ -3,7 +3,7 @@
     
 {% for item in paginator.getItems() %}
 <tr id="{{ item.uuid }}" class="row" name="{{ item.name }}" category="{{ item.category }}">        
-    <td class="one wide">
+    <td class="two wide">
         <button 
             mountTo="driver_details"
             component="system:admin.modules.drivers.details"
@@ -30,10 +30,10 @@
         </button>       
         {% endif %}    
     </td>
-    <td>
+    <td class="three wide column">
         {{ component('semantic~status.dropdown',{ status: item.status, uuid: item.uuid, skip: [2,3,4,5] }) }}  
     </td>
-    <td>{{ item.name }}</td>
+    <td class="five wide column">{{ item.name }}</td>
     <td>{{ item.category }}</td>
     <td>{{ item.title }}</td>          
 </tr>
