@@ -27,6 +27,9 @@
         "jobs": {
             "content": "Jobs"
         },
+        "actions": {
+            "content": "Actions"
+        },
         "macros": {
             "content": "Macros"
         },       

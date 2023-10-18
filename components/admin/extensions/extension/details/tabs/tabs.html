@@ -44,7 +44,6 @@
                 }}
             </div>
         </div>
-
     </div>
 </div>
 <div class="ui stackable top attached tabular menu" id="extension_details_tab">
@@ -75,7 +74,11 @@
     <a class="item" data-tab="jobs_tab">
         <i class="icon blue cogs"></i>
         {{ tabs.jobs.content }}
-    </a>          
+    </a>   
+    <a class="item" data-tab="actions_tab">
+        <i class="icon blue code"></i>
+        {{ tabs.actions.content }}
+    </a>         
 </div>
 <div class="ui bottom attached tab segment active {{ tabs.routes.class }}" data-tab="routes_tab">
     {{ component('system:admin.routes',{ routes: extension.routes }) }}
@@ -142,3 +145,7 @@
 <div class="ui bottom attached tab segment {{ tabs.jobs.class }}" data-tab="jobs_tab">   
     {{ component('semantic~list.items',{ items: extension.jobs, icon: "cogs blue" }) }} 
 </div>
+<div class="ui bottom attached tab segment {{ tabs.jobs.class }}" data-tab="actions_tab">   
+    {{ component('semantic~list.items',{ items: extension.actions, icon: "code blue" }) }} 
+</div>
+
