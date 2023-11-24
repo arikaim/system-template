@@ -6,12 +6,56 @@
  */
 'use strict';
 
-function ControlPanelView() {
+function ControlPanelView(child) {
     var self = this;
     var messagesComponentName = null;
 
+    var itemComponentName = null;
+    var itemSelector = 'row_';
+    var itemsSelector = 'view_items';
+
     this.messages = null;
-    
+
+    this.setItemsSelector = function(selector) {
+        itemsSelector = selector;
+    };
+
+    this.setItemSelector = function(selector) {
+        itemSelector = selector;
+    };
+
+    this.setItemComponentName = function(name) {
+        itemComponentName = name
+    };
+
+    this.deleteItem = function(key) {
+        $('#' + itemSelector + key).remove();                
+    };
+
+    this.updateItem = function(uuid) {
+        return arikaim.page.loadContent({
+            id: itemSelector + uuid,         
+            replace: true,
+            component: itemComponentName,
+            params: {
+                uuid: uuid
+            }
+        },function() {
+            child.initRows();
+        });
+    };
+
+    this.addItem = function(params) {
+        return arikaim.page.loadContent({
+            id: itemsSelector,         
+            prepend: true,  
+            component: itemComponentName,
+            params: params
+        },function() {
+            child.initRows();
+        });
+    };
+
     this.setMessagesComponent = function(name) {
         messagesComponentName = name;
     };
