@@ -29,6 +29,9 @@
         },
         "install": {
             "content": "Install"
+        },
+        "storage": {
+            "content": "Storage"
         }
     }
 }
