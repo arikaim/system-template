@@ -10,7 +10,6 @@
         {{ component('system:admin.system.settings.cache.driver',{ class: 'button basic' }) }}
     </div>
     <div class="ui mt-2" id="cache_info">
-        
         {% if status == true %}
             {{ component('system:admin.system.settings.cache.info',{ stats: stats }) }}
         {% endif %}

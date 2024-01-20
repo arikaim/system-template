@@ -3,8 +3,18 @@
         {% for key, value in stats %}
         <tr>
             <td class="collapsing font-bold">{{ key }}</td>
-            <td>              
-                {{ (value is iterable) ? value|dump : value }}
+            <td>   
+                {% if value is iterable %}   
+                    <ul>
+                    {% for key, item_value in value %}
+                        <li>
+                            {{ key }} : {{ item_value|dump }}
+                        </li>
+                    {% endfor %}    
+                    </ul>  
+                {% else %}  
+                    {{ value|dump }}
+                {% endif %}             
             </td>
         </tr>
         {% endfor %}        
