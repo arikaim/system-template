@@ -2,7 +2,7 @@
     "message": "Page not found",
     "title": "Alert",
     "head": {
-        "favicon": "/images/arikaim-favicon.png",    
+        "favicon": "images/arikaim-favicon.png",    
         "title": "Page not found",
         "description": "Page not found"
     }

@@ -2,7 +2,7 @@
     "message": "Page not found",
     "title": "Application Error",
     "head": {
-        "favicon": "/images/arikaim-favicon.png",    
+        "favicon": "images/arikaim-favicon.png",    
         "title": "Application Error",
         "description": "Application Error"
     }

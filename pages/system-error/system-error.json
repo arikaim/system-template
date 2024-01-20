@@ -1,7 +1,7 @@
 {
     "title": "Alert",
     "head": {
-        "favicon": "/images/arikaim-favicon.png",    
+        "favicon": "images/arikaim-favicon.png",    
         "title": "System error",
         "description": "System error"
     }
