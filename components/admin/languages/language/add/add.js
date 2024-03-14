@@ -19,7 +19,5 @@ arikaim.component.onLoaded(function() {
     },function(result) {      
         arikaim.ui.form.showMessage(result.message);
         arikaim.ui.form.clear('#language_form');
-        languages.loadMenu();
-    },function(error) {
     });
 });

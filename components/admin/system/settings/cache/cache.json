@@ -1,10 +1,9 @@
 {
-    "title": {
-        "content": "Cache",
-        "icon": "sync alternate"
-    },
+    "title": "Cache",
+    "icon": "sync alternate",
     "buttons": {
-        "clear": "Clear"
+        "clear": "Clear",
+        "info": "Info"
     },
     "labels": {
         "enabled": "Enabled",

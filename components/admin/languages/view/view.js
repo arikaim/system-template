@@ -33,11 +33,13 @@ function LanguagesView() {
 
                 if (uuid != targetUuid) {
                     position.shift("Language",uuid,targetUuid,function(result) {
-                        languages.loadMenu();
+                       
                     });     
                 }
             }
         });
+
+        languagesView.initRows();
     };
 
     this.initRows = function() {
@@ -100,5 +102,5 @@ var languagesView = createObject(LanguagesView,ControlPanelView);
 
 arikaim.component.onLoaded(function() {    
     languagesView.init();
-    languagesView.initRows();
+   
 });

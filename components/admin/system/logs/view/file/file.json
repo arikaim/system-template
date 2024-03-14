@@ -16,5 +16,8 @@
         "delete": {
             "content": "Delete"
         }
+    },
+    "labels": {
+        "type": "File storage"
     }
 }

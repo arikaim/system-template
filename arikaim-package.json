@@ -4,14 +4,14 @@
     "package-type": "template",
     "description": "Arikaim CMS Control Panel",
     "repository": "https://github.com/arikaim/system-template.git",
-    "version": "1.11.1",
+    "version": "1.11.2",
     "icon": "sliders horizontals",
     "image": {
         "src": "",
         "alt": ""
     },
     "languages": [
-        "en"      
+        "en"       
     ],
     "require": {
         "library": [

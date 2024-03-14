@@ -16,9 +16,7 @@ arikaim.component.onLoaded(function() {
         arikaim.ui.form.onSubmit('#language_form',function() {      
             return arikaim.put('/core/api/language/update','#language_form');
         },function(result) {
-            arikaim.ui.form.showMessage(result.message);
-            languages.loadMenu();
-        },function(error) {            
+            arikaim.ui.form.showMessage(result.message);            
         });
     }
 

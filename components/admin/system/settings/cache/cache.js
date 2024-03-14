@@ -30,6 +30,8 @@ function Cache() {
     };
 
     this.init = function() {   
+        arikaim.ui.loadComponentButton('.cache-info-button');
+
         $('#cache_driver_dropdown').dropdown({
             onChange: function(value) {
                 self.setDriver(value,function(result) {
@@ -42,6 +44,7 @@ function Cache() {
             onChange: function(value) {
                 if (value == 1) {
                     arikaim.ui.show('#clear_cache_button');
+                    arikaim.ui.show('.cache-info-button');
                     self.enable(function(result) {
                         arikaim.page.loadContent({
                             id: 'cache_info',
@@ -50,6 +53,7 @@ function Cache() {
                     });
                 } else {
                     arikaim.ui.hide('#clear_cache_button');
+                    arikaim.ui.hide('.cache-info-button');
                     self.disable(function(result) {
                         $('#cache_info').html('');
                     });
@@ -59,16 +63,8 @@ function Cache() {
 
         arikaim.ui.button('#clear_cache_button',function(element) {          
             return self.clear(function(result) {  
-                var message = result.message;              
-                arikaim.page.loadContent({
-                    id: 'cache_info',
-                    component: "system:admin.system.settings.cache.info"
-                },function(result) {
-                    arikaim.ui.form.showMessage({
-                        selector: '#message',
-                        message: message
-                    });
-                });                             
+                var message = result.message;       
+                arikaim.ui.form.showMessage(message);                                          
             },function(error) {
                 arikaim.ui.form.showMessage({
                     selector: '#message',

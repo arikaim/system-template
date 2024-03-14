@@ -1,7 +1,10 @@
 {% set log_level = searchValue('level','logs') %}
 <div class="ui segment">
-    <div class="ui stackable grid">    
+    <div class="ui stackable grid">           
         <div class="ten wide column">
+            <div class="ui basic blue label">
+                {{ labels.type }}
+            </div>
             <i class="icon filter"></i>
             {{ component("system:admin.system.logs.type",{ selected: log_level, show_all: true }) }}
         </div>

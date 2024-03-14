@@ -3,7 +3,7 @@
 arikaim.component.onLoaded(function() {    
     $('.popup').popup();
     
-    $('#language_dropdown').dropdown({
+    $('#language_select').dropdown({
         onChange: function(value) {               
             arikaim.setLanguage(value);
         }

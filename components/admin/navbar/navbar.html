@@ -17,8 +17,8 @@
                     <i class="columns icon blue"></i>
                 </a>
             </div>   
-            <div class="px-4" id="language_menu">            
-                {{ component("semantic~language.dropdown",{ selected: current_language }) }}
+            <div class="px-4" id="language_menu">    
+                {{ component("semantic~language.select",{ selected: current_language }) }}
             </div>
             <div class="px-4" id="user_menu">
                 {{ component("system:admin.user-menu") }}

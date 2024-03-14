@@ -13,23 +13,7 @@ function Languages() {
     };
     
     this.setDefault = function(uuid, onSuccess, onError) {
-        var data = { uuid: uuid };
-        
-        return arikaim.put('/core/api/language/default',data,onSuccess,onError);        
-    };
-
-    this.loadMenu = function(selector) {
-        selector = getDefaultValue(selector,"language_menu");        
-        arikaim.page.loadContent({
-            id : selector,
-            component : 'semantic~language.dropdown'
-        },function(result) {            
-            $('#language_dropdown').dropdown({
-                onChange: function(value) {           
-                    arikaim.setLanguage(value);
-                }               
-            });
-        });
+        return arikaim.put('/core/api/language/default',{ uuid: uuid },onSuccess,onError);        
     };
 
     /**
@@ -39,12 +23,11 @@ function Languages() {
      */
     this.setStatus = function(uuid, status, onSuccess, onError) {     
         var status = isEmpty(status) ? 'toggle' : status;     
-        var data = { 
+    
+        return arikaim.put('/core/api/language/status',{ 
             uuid: uuid,
             status: status 
-        };    
-
-        return arikaim.put('/core/api/language/status',data,onSuccess,onError);      
+        },onSuccess,onError);      
     };
 
     this.load = function(uuid, onSuccesss, onError) {

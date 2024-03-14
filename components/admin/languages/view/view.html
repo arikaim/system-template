@@ -9,7 +9,7 @@
         </h4>
     </div>
 {% endif %}
-{{ component("system:position") }}
+{{ component("system:position",{},'js') }}
 <div class="ui stackable cards" id="languages_list">
     {% for item in items.getItems() %}
         {{ component("system:admin.languages.language",{ language: item, default_language: default_language }) }}

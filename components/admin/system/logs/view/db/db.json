@@ -17,5 +17,8 @@
         "delete": {
             "content": "Delete"
         }
+    },
+    "labels": {
+        "type": "Db storage"
     }
 }
