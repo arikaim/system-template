@@ -22,9 +22,8 @@
             </div>
             {% endif %}                       
         </div>
-        <div class="ui divider"></div>
     </div>
-    <div class="mt-1">      
+    <div>      
         {% set src = (template.thumbnail is not empty) ? getTemplateUrl(template_name) ~ '/images/' ~ template.thumbnail : null %}     
         {{ component('system:admin.templates.template.image',{ src: src }) }}                            
     </div>              

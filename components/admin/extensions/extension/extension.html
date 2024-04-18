@@ -57,28 +57,21 @@
         <div class="flex flex-row items-center px-1"> 
             {% if extension.installed == true %}        
                 {% if error != 1 %}  
-                <button class="ui mini fluid button basic green icon labeled update-button {{ (demo_mode == true) ? 'disabled' : ''}}" extension="{{ extension.name }}">
+                <button class="ui fluid mini button basic green icon labeled update-button {{ (demo_mode == true) ? 'disabled' : ''}}" extension="{{ extension.name }}">
                     <i class="icon refresh"></i>
                     {{ buttons.update.content }}
                 </button> 
-                {% endif %}              
+                {% endif %} 
+                <button class="ui basic icon mini labeled blue button details-button {{ error|ifthen(1,'hidden') }}" extension="{{ extension.name }}" title="{{ buttons.detail.title }}">
+                    <i class="icon list layout"></i>  
+                    {{ buttons.details.content }}                                
+                </button>               
                 <button 
-                    class="ui icon basic mini icon button orange un-install-button {{ error|ifthen(1,'fluid') }} {{ (demo_mode == true) ? 'disabled' : ''}}" 
+                    class="ui icon basic mini compact icon button orange un-install-button {{ error|ifthen(1,'fluid') }} {{ (demo_mode == true) ? 'disabled' : ''}}" 
                     extension="{{ extension.name }}"
                     title="{{ buttons.uninstall.content }}">
                     <i class="icon trash"></i>                   
-                </button>                     
-              
-                <button class="ui basic icon mini button details-button {{ error|ifthen(1,'hidden') }}" extension="{{ extension.name }}" title="{{ buttons.detail.title }}">
-                    <i class="icon list layout"></i>                                  
-                </button>  
-                {% set disabled = (extension.primary == 1) ? 'disabled' : '' %}                   
-                <button 
-                    class="ui basic mini icon button set-primary {{ disabled }} {{ (demo_mode == true) ? 'disabled' : ''}}" 
-                    extension="{{ extension.name }}"
-                    title="{{ buttons.primary.content }}">
-                    <i class="icon angle double up"></i>                                       
-                </button>    
+                </button>                                                   
             {% else %}          
                 <button 
                     class="ui basic button basic mini icon labeled green install-button 

@@ -11,11 +11,10 @@ arikaim.component.onLoaded(function() {
             return packages.confirmUpload(name,function(result) {               
                 $('#package_info').hide();
                 $('#upload_panel').hide();
-                arikaim.ui.form.showMessage({
-                    selector: "#message",
-                    message: result.message,
-                    hide: 0
-                });
+                
+                $('#message').show();
+                $('#message').html(result.message);
+                
             },function(error) {
                 arikaim.page.toastMessage({
                     class: 'error',
