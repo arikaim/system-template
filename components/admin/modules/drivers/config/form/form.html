@@ -1,4 +1,10 @@
 {% set config = service('driver').getConfig(driver_name) %}
+{% if service('driver').has(driver_name) == false %}
+    <div class="ui message">
+        Driver <b>{{ driver_name }}</b> not installed.
+        {% error '' %}
+    </div>
+{% endif %}
 <div class="pb-4 flex flex-row items-center">
     <div class="font-bold pr-2">
         {{ labels.name }}
