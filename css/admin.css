@@ -19,7 +19,7 @@ body {
   top: 0;
   bottom: 0;
   position: fixed;
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
   scrollbar-color: #262626 #312e81;
 }
