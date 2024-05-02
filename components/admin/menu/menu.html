@@ -1,6 +1,8 @@
 {% set button_status = getOption('admin.menu.button',false) %}
-<div class="flex flex-col bg-gradient-to-b from-gray-800 to-gray-900 pb-10 {{ class }}" id="admin_menu">          
-    <div id="extensions_menu">        
+<div 
+    class="fixed-content fixed flex flex-col bg-gradient-to-b from-gray-800 to-gray-900 pb-10 {{ class }}" 
+    id="admin_menu">          
+    <div class="" id="extensions_menu">        
         {{ component("system:admin.menu.extensions",{ status: 1, type: 0 }) }}
     </div>
     <div class="ui horizontal divider">       

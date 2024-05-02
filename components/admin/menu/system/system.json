@@ -11,9 +11,9 @@
             "templates": {
                 "component": "system:admin.templates",
                 "icon": "browser",
-                "title": "Themes",
+                "title": "Templates",
                 "page-icon": "browser",
-                "page-title": "Themes"
+                "page-title": "Templates"
             },
             "libraries": {
                 "component": "system:admin.libraries",

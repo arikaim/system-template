@@ -2,7 +2,7 @@
   font-family: 'Monoton';
   font-style: normal;
   font-weight: 400;
-  src: url(https://fonts.gstatic.com/s/monoton/v15/5h1aiZUrOngCibe4TkHLRw.ttf) format('truetype');
+  src: url(https://fonts.gstatic.com/s/monoton/v19/5h1aiZUrOngCibe4TkHLRw.ttf) format('truetype');
 }
 html {
   height: 100%;
@@ -14,6 +14,14 @@ body {
   margin: 0px;
   height: 100%;
   background-color: #F9FAFB !important;
+}
+.fixed-content {
+  top: 0;
+  bottom: 0;
+  position: fixed;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scrollbar-color: #262626 #312e81;
 }
 .tabular .menu {
   margin: 0px 0px 0px 0px!important;
