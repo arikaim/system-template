@@ -9,7 +9,13 @@
         <i class="dropdown icon"></i>
         {{ component.full_name }}
     </div>
-    <div class="content" component-name="{{ component.full_name }}" id="component_{{ count }}" extension="{{ extension }}" template="{{ template }}">        
+    <div 
+        class="content" 
+        component-name="{{ component.full_name }}" 
+        id="component_{{ count }}" 
+        extension="{{ extension }}" 
+        template="{{ template }}"
+        library="{{ library }}">        
     </div>
     {% endfor %}
 </div>

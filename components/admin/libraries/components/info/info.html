@@ -68,7 +68,7 @@
         {{ component('system:admin.libraries.components.icons',{ items: library.components, package_name: library_name }) }} 
     {% else %}
         <h4>{{ labels.components }}</h4> 
-        {{ component('system:admin.component',{ components: library.components, extension: '' }) }} 
+        {{ component('system:admin.component',{ components: library.components, library: library_name }) }} 
     {% endif %}
 </div>
 

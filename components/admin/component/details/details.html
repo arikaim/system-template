@@ -1,6 +1,14 @@
-{% set name = (extension is empty) ? template ~ ':' ~ component : extension ~ '::' ~ component %}
-{% set options = service('page').renderHtmlComponent(name).getOptions() %}
-<div class="ml-3">
+
+{% if extension is not empty %}
+    {% set selector = extension ~ '::' %}
+{% elseif template is not empty %}
+    {% set selector = template ~ ':' %}
+{% elseif library in not empty %}
+    {% set selector = library ~ '~' %}
+{% endif %}
+
+{% set name = selector ~ component %}
+<div class="ml-3">    
     <div class="ui card">
         <div class="content">
             <h5 class="text font-bold">{{ labels.title }}</h5> 

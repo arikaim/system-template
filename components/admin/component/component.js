@@ -7,6 +7,7 @@ arikaim.component.onLoaded(function() {
             var elementId = $(this).attr('id');
             var extension = getDefaultValue($(this).attr('extension'),'');
             var template = getDefaultValue($(this).attr('template'),'');
+            var library = getDefaultValue($(this).attr('library'),'');
 
             arikaim.page.loadContent({
                 id: elementId,
@@ -14,7 +15,8 @@ arikaim.component.onLoaded(function() {
                 params: { 
                     component: componentName,
                     extension: extension,
-                    template: template  
+                    template: template,
+                    library: library    
                 }
             });
         },
