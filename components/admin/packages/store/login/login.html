@@ -1,0 +1,53 @@
+<div 
+    class="flex h-full mt-32 w-full justify-center">
+    <div
+        class="flex-shrink-0 w-74 h-64 self-center">
+        <div class="ui raised card fluid">   
+            <div class="content">
+                <h3 class="ui dividing header">
+                {{ title }}
+                </h3>
+                <form class="ui form" id="store_login_form" method="post">
+                    <div class="field">
+                        <label>{{ user_name.label }}</label>
+                        <div class="ui left icon input">
+                            <i class="icon user"></i>
+                            <input rule="empty" type="text" name="user_name" id="user_name" {{ user_name.placeholder|attr("placeholder") }}>    
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>{{ password.label }}</label>
+                        <div class="ui left icon right action input">
+                            <i class="icon lock"></i>
+                            <input rule="empty" type="password" name="password" id="password" {{ password.placeholder|attr("placeholder") }}>  
+                            <a class="ui icon basic link button view-password">               
+                                <i class="eye slash outline icon"></i>
+                            </a>    
+                        </div>
+                    </div>                  
+                    {{  component('semantic~form.footer',{ 
+                            button_title: buttons.login.title,                   
+                            button_class: 'button large primary fluid login-button'
+                        })
+                    }}                   
+                </form>
+            </div>    
+        </div>
+        <!-- 
+        <div class="ui two mini buttons">
+            <a 
+                target="_arikaim_store"
+                class="ui basic min button "
+                href="{{ store.getSignupUrl() }}">
+                {{ links.create }}
+            </a>
+            <a 
+                target="_arikaim_store"
+                class="ui basic min button"
+                href="{{ store.getResetPasswordUrl() }}">
+                {{ links.forgotten }}
+            </a>
+        </div>
+        -->
+    </div>       
+</div>

@@ -1,0 +1,17 @@
+{% set store = arikaimStore() %}
+<div class="ui vertical pointing fluid menu">
+{% if store.isLogged() == false %}
+    <div class="item">     
+        {{ items.login }}
+    </div>
+{% else %}
+    <a class="item store-packages" href="#">
+        <i class="box open icon"></i>
+        {{ items.packages }}
+    </a>
+    <a class="item store-logout" href="#">
+        <i class="sign out alternate icon"></i>
+        {{ items.logout }}
+    </a>
+{% endif %}
+</div>

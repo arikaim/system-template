@@ -8,6 +8,7 @@
 
 function ArikaimStore() {
     var self = this;
+    var host = 'http://192.168.1.14/builder'
 
     this.removeOrder = function(onSuccess, onError) {
         return arikaim.put('/core/api/store/product/remove',{},onSuccess,onError);      
@@ -44,6 +45,14 @@ function ArikaimStore() {
             },function(error) {               
             });
         });
+    };
+
+    this.login = function(formId, onSuccess, onError) {
+        return arikaim.post('/core/api/store/login',formId,onSuccess,onError);       
+    };
+
+    this.logout = function(onSuccess, onError) {      
+        return arikaim.post('/core/api/store/logout',{},onSuccess,onError);          
     };
 }
 
