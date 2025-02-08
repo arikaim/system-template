@@ -16,5 +16,7 @@
 <form class="ui equal width form" id="driver_config_form">
     <input type="hidden" name="name" id="driver_name" value="{{ driver_name }}">  
     {{ component('semantic~properties.fields',{ properties: config, update: update }) }}
-    {{ component('semantic~form.footer') }}   
+    {% if config|length > 0 %}
+        {{ component('semantic~form.footer') }}   
+    {% endif %}
 </form>

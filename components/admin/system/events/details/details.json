@@ -9,5 +9,6 @@
         "properties": "Properties",
         "description": "Description"
     },
-    "title": "Details"
+    "title": "Details",
+    "icon": "info"
 }

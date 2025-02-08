@@ -1,6 +1,6 @@
 {% set event = createModel('Events').findById(uuid) %}
 {% set subscribers = event.subscribers() %}
-<div class="ui segment">
+{% component 'semantic~panel' %}
     <div class="ui header">
         {{ title }}
     </div>
@@ -47,50 +47,51 @@
                 </tr>
             </tbody>
         </table>
+        {% if event.properties is not empty %}
+            <h5>
+                {{ labels.properties }}
+            </h5>
+            <div>
+                {{ component('semantic~properties.details',{ properties: event.properties }) }}
+            </div>
+        {% endif %}
         <h5 class="ui horizontal divider header left aligned">
             <i class="icon blue small code"></i>
             {{ labels.subscribers }}
         </h5>
         <div class="ui list">
             {% if subscribers|length == 0 %}
-            <div class="item">..</div>
+                <div class="item">..</div>
             {% endif %}
             {% for item in subscribers %}
-            <div class="item">
-                <div class="ui right floated basic label">
-                    {{ labels.priority }}
-                    <div class="detail">
-                        {{ item.priority }}
-                    </div>               
-                </div>
-                <div class="ui right floated basic label">
-                    {{ labels.extension }}
-                    <div class="detail">
-                        <span class="ui text blue">
-                            {{ item.extension_name }}
-                        </span>
+                <div class="item">
+                    <div class="ui right floated basic label">
+                        {{ labels.priority }}
+                        <div class="detail">
+                            {{ item.priority }}
+                        </div>               
                     </div>
-                </div>          
-                <div class="content">              
-                    {{ component('semantic~status.label',{ status: item.status }) }}
-                    <i class="icon code blue"></i>
-                    {{ item.handler_class }}
-                    {% if item.handler_method is not empty %}
-                    <div class="ui horizontal mini basic label">
-                        {{ item.handler_method }}
+                    <div class="ui right floated basic label">
+                        {{ labels.extension }}
+                        <div class="detail">
+                            <span class="ui text blue">
+                                {{ item.extension_name }}
+                            </span>
+                        </div>
+                    </div>          
+                    <div class="content">              
+                        {{ component('semantic~status.label',{ status: item.status }) }}
+                        <i class="icon code blue"></i>
+                        {{ item.handler_class }}
+                        {% if item.handler_method is not empty %}
+                        <div class="ui horizontal mini basic label">
+                            {{ item.handler_method }}
+                        </div>
+                        {% endif %}
                     </div>
-                    {% endif %}
                 </div>
-            </div>
             {% endfor %}
         </div>
-        {% if event.properties is not empty %}
-        <h5>
-            {{ labels.properties }}
-        </h5>
-        <div>
-            {{ component('semantic~properties.details',{ properties: event.properties }) }}
-        </div>
-        {% endif %}
     </div>
 </div>
+{% endcomponent %}

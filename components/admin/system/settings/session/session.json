@@ -9,6 +9,7 @@
         }
     },
     "labels": {
+        "storage": "Storage",
         "min": "minutes",
         "details": "Details",
         "cookies": "Use cookies",

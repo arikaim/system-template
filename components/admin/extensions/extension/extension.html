@@ -57,12 +57,12 @@
         <div class="flex flex-row items-center px-1"> 
             {% if extension.installed == true %}        
                 {% if error != 1 %}  
-                <button class="ui fluid mini button basic green icon labeled update-button {{ (demo_mode == true) ? 'disabled' : ''}}" extension="{{ extension.name }}">
+                <button class="ui fluid mini compact button basic green icon labeled update-button {{ (demo_mode == true) ? 'disabled' : ''}}" extension="{{ extension.name }}">
                     <i class="icon refresh"></i>
                     {{ buttons.update.content }}
                 </button> 
                 {% endif %} 
-                <button class="ui basic icon mini labeled blue button details-button {{ error|ifthen(1,'hidden') }}" extension="{{ extension.name }}" title="{{ buttons.detail.title }}">
+                <button class="ui basic icon mini compact labeled blue button details-button {{ error|ifthen(1,'hidden') }}" extension="{{ extension.name }}" title="{{ buttons.detail.title }}">
                     <i class="icon list layout"></i>  
                     {{ buttons.details.content }}                                
                 </button>               
@@ -74,7 +74,7 @@
                 </button>                                                   
             {% else %}          
                 <button 
-                    class="ui basic button basic mini icon labeled green install-button 
+                    class="ui basic button basic mini compact icon labeled green install-button 
                         {{ error|ifthen(1,'hidden') }} {{ (demo_mode == true) ? 'disabled' : ''}}" 
                     extension="{{ extension.name }}">
                     <i class="icon download"></i>                    

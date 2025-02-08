@@ -23,7 +23,9 @@
             {% endif %}                       
         </div>
     </div>
-    <div>      
+    <div
+        style="overflow-y: clip;"
+        class="h-64">      
         {% set src = (template.thumbnail is not empty) ? getTemplateUrl(template_name) ~ '/images/' ~ template.thumbnail : null %}     
         {{ component('system:admin.templates.template.image',{ src: src }) }}                            
     </div>              
