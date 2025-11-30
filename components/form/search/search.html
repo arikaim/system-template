@@ -1,0 +1,20 @@
+{% set search_value = search_value|default(searchValue(search_field,namespace)) %}
+<div
+    id="{{ component_id }}" 
+    field="{{ search_field }}"
+    namespace="{{ namespace }}"
+    action=""
+    class="relative {{ class|default('w-full') }}">
+    <div class="absolute inset-y-0 start-0 flex items-center ps-2 pointer-events-none">
+        {{ component('icons~search',theme.search.icon,'svg') }}
+    </div>
+    <input 
+        type="search" 
+        class="block w-full search-field {{ theme.search.input }}" 
+        placeholder="{{ placeholder|default(labels.placeholder) }}"
+        value="{{ search_value }}">
+    <button 
+        class="search-button text-white absolute end-2.5 bottom-1 {{ theme.search.button }}">
+        {{ labels.search }}
+    </button>
+</div>

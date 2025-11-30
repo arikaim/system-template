@@ -13,6 +13,9 @@
     "languages": [
         "en"       
     ],
+    "themes": [
+        "default"
+    ], 
     "require": {
         "library": [
             "arikaim",
@@ -30,27 +33,25 @@
     },
     "include": {            
         "css": [
-            "admin.css"
+            "style.css",
+            "tailwind.min.css"
         ],
         "js": [
             "control-panel.js"
         ],
         "components": [
+            "system:users",
             "semantic~language.translate",
             "semantic~modal"    
         ],
         "library": [
             "jquery",
-            "jquery-ui",   
             "arikaim:admin",
             "arikaim-ui",
             "fomantic",
             "highlight:github",
             "filepond",
-            "markdown-editor",
-            "tailwind",
-            "tailwind:colors",
-            "tailwind:size"             
+            "markdown-editor"      
         ]
     }
 }

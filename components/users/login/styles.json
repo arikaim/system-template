@@ -1,0 +1,40 @@
+{
+    "space": "p-4",
+    "color": "bg-stone-50 dark:bg-gray-800",
+    "border": "dark:border-stone-700 rounded-xl border border-stone-200 border-solid",
+    "title": {
+        "icon": {
+            "name": "icons~user",
+            "size": "h-6 w-6",
+            "width": "2",
+            "color": "text-sky-500"
+        },
+        "color": "text-orange-950 dark:text-gray-200",
+        "class": "text-lg dark:text-gray-200 pb-8 uppercase"
+    },
+    "link": {
+        "icon": {
+            "size": "h-4 w-4",
+            "color": "text-sky-500",
+            "width": "2"           
+        },
+        "class": "underline-offset-4 poppins-font text-sm font-normal flex flex-row intems-center cursor-pointer block text-gray-600 dark:text-gray-400",
+        "hover": "decoration-green-500 decoration-2 cursor-pointer hover:underline transition-all duration-1000 ease-in-out"
+    },
+    "label": "input-floating-label dark:text-gray-200",
+    "field": "relative field my-4 input-floating",
+    "form": "form pt-4 px-4",
+    "error": "is-invalid",
+    "input": {
+        "icon": {
+            "size": "h-6 w-6",
+            "color": "text-sky-500",
+            "width": "2",
+            "class": "p-1"
+        },
+        "class": "input peer dark:text-gray-200 dark:bg-gray-700 dark:border-gray-500"        
+    },
+    "buttons": {
+        "login": "btn btn-success poppins-font"
+    }
+}

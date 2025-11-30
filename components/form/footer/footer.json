@@ -1,0 +1,12 @@
+{
+    "buttons": {
+        "save": {
+            "hint": "Save",
+            "title": "Save"
+        },
+        "cancel": {
+            "hint": "Cancel",
+            "title": "Cancel"
+        }
+    }
+}

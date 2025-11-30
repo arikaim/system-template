@@ -1,0 +1,31 @@
+{
+    "title": "Log in",    
+    "links": {
+        "forgotten": "Forgotten password",
+        "signup": "Sign Up"
+    },
+    "buttons": {
+        "login": "Login"
+    },
+    "fields": {
+        "user_name":{
+            "label": "Username",
+            "placeholder": "Enter Username"            
+        },
+        "email": {
+            "placeholder": "Enter Email",
+            "label": "Email"
+        },
+        "both":{
+            "label": "Username or Email",
+            "placeholder": "Enter Username or Email"            
+        },
+        "password":{
+            "placeholder": "Enter Password",
+            "label": "Password"
+        },
+        "remember": {
+            "label": "Remember Me"
+        }
+    }
+}

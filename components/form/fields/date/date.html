@@ -1,0 +1,23 @@
+<div class="{{ theme.form.input.default }} space-x-3">
+    <input
+        detepicker
+        value="{{ value }}"
+        {{ rule|attr('rule') }}
+        {{ input_style|attr('style') }}
+        todayBtn="{{ todayButton|default('false') }}"
+        clearBtn="{{ clearButton|default('false') }}"
+        detepicker-title="{{ title }}"
+        autohide="{{ autohide|default('false') }}"
+        calendarWeeks="{{ calendarWeeks|default('false') }}"
+        date-format="{{ format|default("m/d/y") }}"
+        orientation="{{ orientation|default('bottom') }}"
+        id="{{ component_id }}" 
+        type="text" 
+        name="{{ name|default('date') }}"       
+        class="grow"
+        placeholder="">
+   
+    <span class="my-auto">
+        {{ component(icon|default('icons~calendar'),theme.form.icon,'svg') }}      
+    </span>   
+</div>

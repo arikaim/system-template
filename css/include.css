@@ -1,0 +1,15 @@
+@layer theme, base, components, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/preflight.css" layer(base);
+@import "tailwindcss/utilities.css" layer(utilities);
+
+@plugin "flyonui" {
+    themes: light --default, dark --prefersdark, soft;
+}
+@import "../node_modules/flyonui/variants.css";
+@source "../node_modules/flyonui/dist/index.js";
+@config "../tailwind.config.mjs";
+
+.active-button {
+    @apply bg-stone-200;
+}

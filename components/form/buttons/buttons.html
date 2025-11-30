@@ -1,0 +1,21 @@
+<div class="flex flex-row {{ class|default('mt-4') }}">
+    <div class="flex-grow">
+        <button 
+            loading-class="{{ loading_class|default('loading') }}"
+            class="submit-button cursor-pointer {{ styles.submit }} " 
+            {{ tooltip|attr('title') }}>
+            {{ button_title|default(buttons.save.title) }}
+        </button>     
+    </div>
+    {% if cancel is not empty %}
+    <div class="content-end place-content-end">
+        <a
+            {{ cancel_params|attr }}
+            class="inline-block self-end justify-self-end cancel-button cursor-pointer 
+            {{ styles.cancel }}" 
+            {{ tooltip|attr('title') }}>
+            {{ cancel_title|default(buttons.cancel.title) }}
+        </a>  
+    </div>
+    {% endif %}
+</div>   

@@ -1,12 +1,11 @@
 <div class="fixed bottom-0 w-full p-4 bg-gray-800">
-    <div class="ui stackable grid">
-        <div class="four wide column"></div>
-        <div class="three wide column">                               
-            <a href="http://arikaim.com" class="item text-gray-300" target="arikaim">
-                <i class="icon home"></i> 
-                {{ labels.arikaim }}
-            </a>                    
-        </div>
-        <div class="four wide column"></div>
-    </div>
+    <div class="flex flex-row items-center">          
+        {{ component('icons~home',theme.icons.footer,'svg') }}                            
+        <a 
+            href="http://arikaim.com" 
+            class="link link-secondary px-2" 
+            target="arikaim">                     
+            {{ labels.arikaim }}
+        </a>                    
+    </div>   
 </div>

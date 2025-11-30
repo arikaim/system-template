@@ -1,0 +1,11 @@
+{% component "system:layout" %}
+    <div
+        style="border:1px solid red" 
+        class="h-full flex justify-center">
+        <div 
+            class="self-center w-96 md:w-96 sm:w-full xs:w-full" 
+            id="content_box">        
+            {{ component('system:users.login') }}
+        </div>        
+    </div>
+{% endcomponent %}

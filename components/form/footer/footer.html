@@ -1,0 +1,32 @@
+<div class="{{ class|default('mt-4') }}">
+    <div class="flex flex-row">
+        <button 
+            loading-class="{{ loading_class|default('loading') }}"
+            class="submit-button {{ styles.submit }}" 
+            {{ tooltip|attr('title') }}>
+            {{ button_title|default(buttons.save.title) }}
+        </button>      
+        {% if cancel is not empty %}
+        <div class="px-2">
+            <a 
+                class="content-end self-end justify-self-end cancel-button cursor-pointer 
+                {{ styles.cancel.class }} {{ styles.cancel.color }} {{ styles.cancel.border }}" 
+                {{ tooltip|attr('title') }}>
+                {{ cancel_title|default(buttons.cancel.title) }}
+            </a>  
+        </div>
+        {% endif %}
+    </div>   
+    <div class="{{ message.class|default('h-16') }}">
+        {% if hide_errors != true %}    
+        <div         
+            {{ message_error_id|attr('id') }}
+            class="errors error message invisible error-message {{ message.error|default('py-4 text-sm text-red-400 font-semibold') }}">
+        </div>        
+        {% endif %} 
+        <div
+            {{ message_success_id|attr('id') }} 
+            class="success invisible message {{ message.success|default('py-4 text-sm text-green-400 font-semibold') }}">        
+        </div>  
+    </div>   
+</div>

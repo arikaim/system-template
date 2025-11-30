@@ -1,0 +1,90 @@
+{
+    "navigation": {
+        "panel": "-ml-12 xs:-ml-4 md:-ml-12 mt-18 my-8 inline-block bg-stone-50 py-4 px-2 rounded-xl rounded-r-full shadow-sm" 
+    },
+   "form": {
+        "icon": {
+            "size": "h-6 w-6",
+            "color": "text-sky-500"
+        },       
+        "label": "label-text font-bold dark:text-gray-200",
+        "field": "field relative input-floating mt-2",
+        "value": "text-gray-700",
+        "fields": "grid grid-cols-2 gap-8 md:grid-cols-2 xs:grid-cols-1",
+        "textarea": "textarea dark:text-gray-200 dark:bg-gray-700",   
+        "input": {  
+            "class": "input dark:text-gray-200 dark:bg-gray-700 dark:border-gray-500"           
+        },
+        "select": "select"           
+    },
+    "details": {
+        "label": "font-bold uppercase text-sm text-stone-500",
+        "value": "flex rounded-xl bg-white p-2 text-stone-800",
+        "item": "flex flex-col my-1",
+        "cols2": "flex flex-row items-start",
+        "icon": {
+            "size": "h-5 w-5",
+            "color": "text-stone-500"
+        }
+    },
+    "search": {
+        "icon": {
+            "size": "h-5 w-5",
+            "color": "text-stone-500"
+        },
+        "input": "w-full py-1.5 pl-8 pr-24 border border-solid rounded-xl border-stone-200 placeholder-stone-300 focus:border-sky-300 focus:border focus:border-solid focus:outline-hidden hover:border-sky-300 transition duration-1000 ease-in-out",
+        "button": "text-white bg-linear-to-r from-sky-400 via-sky-500 to-sky-600 hover:bg-linear-to-br focus:ring-4 focus:outline-hidden focus:ring-sky-300 dark:focus:ring-sky-800 font-medium rounded-lg text-sm px-4 py-1 text-center"
+    },
+    "paginator": {
+        "panel": "p-1 mt-2",
+        "buttons": "btn-xs btn-outline"
+    },
+    "link": "text-sky-800 font-semibold hover:underline hover:text-red-700 transition duration-700 ease-in-out",
+    "page": {
+        "size": "w-3/4 xs:w-full sm:w-full md:w-full xl:w-3/4 lg:w-3/4 mx-auto",
+        "color" : "bg-gray-50 dark:bg-gray-950",
+        "content": "bg-gray-50 dark:bg-gray-950"
+    },
+    "icons": {
+        "indicator": {
+            "size": "h-5 w-5",
+            "class": "hover:text-green-500 cursor-pointer transition duration-1000 ease-in-out",
+            "color": "text-green-500"
+        },
+        "file": {
+            "size": "h-6 w-6",
+            "class": "cursor-pointer focus:text-stone-800 transition duration-1000 ease-in-out",
+            "color": "text-sky-500"
+        },
+        "enabled": {
+            "size": "h-6 w-6",
+            "class": "cursor-pointer focus:text-red-800 transition duration-1000 ease-in-out",
+            "color": "text-green-500"
+        },
+        "action": {
+            "size": "h-5 w-5",
+            "width": 1,
+            "class": "cursor-pointer focus:text-sky-800 transition duration-1000 ease-in-out",
+            "color": "text-sky-500"
+        },
+        "delete": {
+            "size": "h-5 w-5",
+            "class": "cursor-pointer focus:text-red-800 transition duration-1000 ease-in-out",
+            "color": "text-red-500"
+        },
+        "disabled": {
+            "size": "h-6 w-6",
+            "color": "text-stone-400"
+        },
+        "gray": {
+            "size": "h-6 w-6",
+            "stroke": 2,
+            "class": "cursor-pointer focus:text-red-800 transition duration-1000 ease-in-out",
+            "color": "text-stone-400"
+        },
+        "footer": {
+            "size": "h-5 w-5",         
+            "color": "text-gray-400"
+        }
+    }
+}
