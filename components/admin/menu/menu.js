@@ -9,8 +9,7 @@
 function ControlPanelMenu() {
     var self = this;
     
-    this.init = function() {     
-        $('.popup').popup();   
+    this.init = function() {           
         $('#admin_menu_dropdown').dropdown();
     
         arikaim.ui.button('#system_menu_button',function(element) {   
@@ -29,8 +28,7 @@ function ControlPanelMenu() {
         arikaim.ui.button('.admin-menu-link',function(element) {
             $('.admin-menu-link').removeClass('active');     
             $(element).addClass('active');       
-            controlPanel.setPageTitle($(element).attr('page-title'));
-            controlPanel.setPageIcon($(element).attr('page-icon'));
+            controlPanel.setPageTitle($(element).attr('page-title'));           
             
             return arikaim.page.loadContent({
                 id: 'tool_content',

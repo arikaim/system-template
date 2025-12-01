@@ -1,8 +1,7 @@
 {
     "include": {       
         "components": [        
-            "semantic~paginator",
-            "system:user"
+            "semantic~paginator"           
         ]       
     }   
 }

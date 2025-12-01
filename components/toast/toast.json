@@ -1,0 +1,15 @@
+{
+    "types": {
+        "success": {
+            "title": "Success",
+            "color": "text-green-500"
+        },
+        "alert": {
+            "title": "Alert",
+            "color": "text-red-500"
+        }
+    },
+    "labels": {
+        "close": "Close"
+    }
+}

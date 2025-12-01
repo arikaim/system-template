@@ -1,0 +1,28 @@
+{
+    "position": "bottom-0 right-0 mr-2 ml-2 mb-4",
+    "size": "w-96 max-w-5xl",
+    "color": "bg-white",
+    "border": "rounded-lg shadow-lg border border-stone-300 border-solid",
+    "title": "p-2 font-bold text-lg flex flex-row items-center",
+    "close": "cursor-pointer hover:text-sky-500",
+    "button": "cursor-pointer text-white bg-linear-to-r from-green-400 via-green-500 to-green-600 hover:bg-linear-to-br focus:ring-4 focus:outline-hidden focus:ring-green-300 dark:focus:ring-green-800 shadow-lg shadow-green-500/50 dark:shadow-lg dark:shadow-green-800/80 font-medium rounded-lg text-sm px-4 py-2 text-center",
+    "content": "p-4 font-bold",
+    "icons": {
+        "close": {
+            "name": "icons~close",
+            "size": "h-4 w-4",
+            "color": "text-gray-800"
+        },
+        "success": {
+            "name": "icons~check",
+            "size": "h-6 w-6",
+            "color": "text-green-500"
+        },
+        "alert": {
+            "name": "icons~warning",
+            "size": "h-6 w-6",
+            "color": "text-red-500"
+        }
+    }
+   
+}

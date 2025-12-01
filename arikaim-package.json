@@ -48,6 +48,7 @@
             "jquery",
             "arikaim:admin",
             "arikaim-ui",
+            "arikaim-ui:form",
             "fomantic",
             "highlight:github",
             "filepond",

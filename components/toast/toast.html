@@ -1,0 +1,33 @@
+{% set type = type|default('success') %}
+{% set type_style = types[type] %}
+<toast 
+    id="{{ component_id }}"
+    class="absolute z-50 hidden {{ class }}
+    {{ styles.position }} 
+    {{ styles.size }} 
+    {{ styles.color }} 
+    {{ styles.border }}"   
+    hide-after="{{ hide_after|default(1000) }}"   
+    fade="{{ fade|default(1000) }}">
+    <h3 class="{{ styles.title }}">
+        <div class="px-1">
+            {{ component(styles.icons[type].name,styles.icons[type],'svg') }} 
+        </div>
+        <div class="grow {{ type_style.color }}">
+            {{ type_style.title }}
+        </div>          
+        {% if hide_icon != true %}
+        <div class="modal-close-button {{ styles.close }}">
+            {{ component(styles.icons.close.name,styles.icons.close,'svg') }} 
+        </div>
+        {% endif %}
+    </h3>
+    <div class="toast-content grow {{ styles.content }}">
+        {{ content }} text content
+    </div>
+    {% if close_button == true %}
+    <button class="toast-close-button {{ styles.button }}">
+        {{ labels.close }}
+    </button>
+    {% endif %}
+</toast>

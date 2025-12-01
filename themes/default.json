@@ -2,20 +2,21 @@
     "navigation": {
         "panel": "-ml-12 xs:-ml-4 md:-ml-12 mt-18 my-8 inline-block bg-stone-50 py-4 px-2 rounded-xl rounded-r-full shadow-sm" 
     },
-   "form": {
-        "icon": {
-            "size": "h-6 w-6",
-            "color": "text-sky-500"
-        },       
-        "label": "label-text font-bold dark:text-gray-200",
-        "field": "field relative input-floating mt-2",
-        "value": "text-gray-700",
-        "fields": "grid grid-cols-2 gap-8 md:grid-cols-2 xs:grid-cols-1",
-        "textarea": "textarea dark:text-gray-200 dark:bg-gray-700",   
-        "input": {  
-            "class": "input dark:text-gray-200 dark:bg-gray-700 dark:border-gray-500"           
-        },
-        "select": "select"           
+    "panel": "shadow p-4 border border-gray-200 rounded",
+    "form": {
+            "icon": {
+                "size": "h-6 w-6",
+                "color": "text-sky-500"
+            },       
+            "label": "label-text font-bold dark:text-gray-200",
+            "field": "field relative input-floating mt-2",
+            "value": "text-gray-700",
+            "fields": "grid grid-cols-2 gap-8 md:grid-cols-2 xs:grid-cols-1",
+            "textarea": "textarea dark:text-gray-200 dark:bg-gray-700",   
+            "input": {  
+                "class": "input dark:text-gray-200 dark:bg-gray-700 dark:border-gray-500"           
+            },
+            "select": "select"           
     },
     "details": {
         "label": "font-bold uppercase text-sm text-stone-500",
@@ -46,6 +47,12 @@
         "content": "bg-gray-50 dark:bg-gray-950"
     },
     "icons": {
+        "menu": {
+            "size": "h-6 w-6",
+            "width": 2,
+            "class": "tooltip-toggle cursor-pointer transition duration-1000 ease-in-out",
+            "color": "text-amber-500 hover:text-green-500"
+        },
         "indicator": {
             "size": "h-5 w-5",
             "class": "hover:text-green-500 cursor-pointer transition duration-1000 ease-in-out",

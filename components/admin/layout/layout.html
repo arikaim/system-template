@@ -1,12 +1,16 @@
-{{ component("system:admin.navbar") }}
-<div
-    class="flex flex-row flex-grow items-stretch"> 
-    {{ component("system:admin.menu",{ class: 'w-56 pt-20' }) }}        
-    <div class="w-full pt-32 pl-56 flex flex-col flex-grow">                                
-        <div class="pl-2" id="tool_content">
+<div class="flex flex-col items-stretch" style="height: calc(100vh - calc(100vh - 100%))">
+    {{ component('system:admin.navbar',{ active: active }) }} 
+    <div
+        class="h-screen flex flex-row self-stretch items-stretch grow {{ theme.page.content }}">  
+        {{ component('system:admin.menu',{ active: active }) }}     
+        <div                  
+            class="md:pl-48 sm:pl-14 xs:pl-14 w-full pb-4 h-full pt-18 xs:pr-4 sm:pr-4 md:pr-8 pr-8 lg:pr-8" 
+            id="tool_content">
             {% if hasExtension('dashboard') == true %}
                 {{ component('dashboard::admin') }}
-            {% endif %}
-        </div>                                 
-    </div>          
-</div>
+            {% endif %}                           
+        </div>    
+    </div> 
+</div>      
+{{ component('system:toast',{ id: 'toast' }) }}   
+{{ component('system:loader',{},'html') }}   
