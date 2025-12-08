@@ -1,8 +1,6 @@
 {
-    "title": {
-        "content": "User",
-        "icon": "user"
-    },
+    "title":"User",  
+    "icon": "icons~user",
     "links": {
         "details": "Details",
         "password": "Password"

@@ -25,7 +25,7 @@ function SystemSettings() {
     };
 
     this.init = function() {   
-        arikaim.ui.tab('.settings-item','settings_content');
+        //arikaim.ui.tab('.settings-item','settings_content');
     };
 }
 

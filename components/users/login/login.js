@@ -31,4 +31,6 @@ arikaim.component.onLoaded(function() {
     },function(error) {
         console.log(error);
     });
+
+   
 });

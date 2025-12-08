@@ -1,26 +1,28 @@
 {% set log_level = searchValue('level','logs') %}
-<div class="ui segment">
-    <div class="ui stackable grid">           
-        <div class="ten wide column">
-            <div class="ui basic blue label">
+<div class="{{ theme.panel }}">
+    <div class="flex flex-row items-center">           
+        <div class="flex-grow flex flex-row items-center w-full">
+            <div class="badge">
                 {{ labels.type }}
-            </div>
-            <i class="icon filter"></i>
-            {{ component("system:admin.system.logs.type",{ selected: log_level, show_all: true }) }}
+            </div>            
+            <div class="ml-2">
+                {{  component("system:admin.system.logs.type",{ 
+                        selected: log_level, 
+                        show_all: true 
+                    }) 
+                }}
+            </div>          
         </div>
-        <div class="six wide column right aligned">
-            <button class="ui aligned basic button delete-logs">
-                <i class="icon orange trash"></i>
+        <div class="place-content-end flex-grow flex flex-row items-center">
+            <button class="{{ theme.buttons.delete }} delete-logs">
+                {{ component('icons~trash',theme.icons.delete,'svg') }}
                 {{ buttons.delete.content }}
-            </button>
-            <span class="pl-2">
-                {{ component('semantic~paginator.dropdown',{ namespace: 'logs' }) }}
-            </span>           
+            </button>                
         </div>
     </div>   
 </div>
-<div class="ui segment">
-    <table class="ui compact stackable striped very basic table">
+<div class="mt-4 {{ theme.panel }}">
+    <table class="{{ theme.table.class }}">
         <thead>
             <tr class="borderless table-head">                       
                 <th class="center aligned collapsing one wide">{{ columns.date }}</th>
@@ -29,7 +31,10 @@
                 <th>{{ columns.details }}</th>    
             </tr>
         </thead>
-        <tbody id="logs_rows" component="system:admin.system.logs.view.db.rows" namespace="logs">
+        <tbody 
+            id="logs_rows" 
+            component="system:admin.system.logs.view.db.rows" 
+            namespace="logs">
             {{ component("system:admin.system.logs.view.db.rows") }}
         </tbody>  
     </table>

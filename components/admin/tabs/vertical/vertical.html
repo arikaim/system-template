@@ -1,0 +1,38 @@
+{% set tab_content_id = content.id|default('tab_content') %}
+<div    
+    class="flex flex-row items-start h-full">
+    <nav  
+        id="{{ component_id }}"
+        class="h-full tabs tabs-bordered tabs-vertical min-w-32 {{ class }}" 
+        aria-label="Tabs" 
+        role="tablist" 
+        aria-orientation="vertical">
+        {% for item in items %}   
+            <button 
+                type="button" 
+                mountTo="{{ tab_content_id }}"
+                component="{{ item.component }}"
+                params="{{ item.params }}"
+                class="tab-item {{ (item.active == true) ? 'active' : '' }} {{ item.class }} tab active-tab:text-blue-500 hover:text-blue-500" 
+                data-tab="#{{ tab_content_id }}" 
+                aria-controls="{{ tab_content_id }}" 
+                role="tab" 
+                aria-selected="{{ (item.active == true) ? 'true' : 'false' }}">    
+                {% if item.svg_icon is not empty %}
+                    {{ component(item.svg_icon,theme.icons.menu,'svg') }}
+                {% endif %}   
+                <span class="font-semibold pl-1">
+                    {{ item.title }}
+                </span>
+            </button>
+        {% endfor %}        
+    </nav>
+    <div   
+        id="{{ tab_content_id }}"
+        class="ml-4 {{ content.class }} p-0 h-full w-full"
+        role="tabpanel">
+        {% if content.component is not empty %}
+            {{ component(content.component,content.params|default({})) }}
+        {% endif %}
+    </div>
+</div>

@@ -1,0 +1,22 @@
+<div
+    id="{{ component_id }}"
+    status="{{ status|default('open') }}"
+    type="{{ type }}"
+    uuid="{{ uuid }}"
+    animation="transition-opacity duration-1000 ease-in opacity-0"
+    class="{{ class|default(styles.class) }} {{ styles.color }}">
+    {% if hide_title != true %}
+        {{  component('system:admin.panel.title',{ 
+                title: title, 
+                icon: icon,
+                styles: styles,
+                hide_close: hide_close
+            }) 
+        }}
+    {% endif %}
+    <div
+        class="panel-content {{ styles.content|default(panel_content_class) }}">
+        {{ content }}
+    </div>
+    <span class="opacity-100"></span>
+</div>

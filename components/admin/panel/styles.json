@@ -1,0 +1,17 @@
+{
+    "class": "w-full transition-opacity duration-500 ease-in-out opacity-0",
+    "color": "p-2 dark:bg-gray-800 bg-stone-50 rounded-xl shadow-sm",
+    "title": {
+        "class": " py-2 px-4 text-md flex flex-row items-center font-semibold dark:text-stone-200 dark:bg-gray-700 text-stone-900 bg-stone-100 rounded-t-xl",
+        "icon": {
+            "size": "h-6 w-6",
+            "width": 2,
+            "color": "text-orange-500"
+        },
+        "close": {
+            "size": "h-6 w-6",
+            "color": "dark:text-stone-200 text-stone-500"
+        }
+    },
+    "content": "p-4 dark:bg-gray-800 bg-white rounded-xl"  
+}

@@ -1,0 +1,15 @@
+<div class="flex flex-row items-center {{ styles.title.class }} {{ class }}">
+    {% if icon is not empty %}
+        {{ component(icon,styles.title.icon,'svg') }}
+    {% endif %}
+    <div class="px-2 grow">
+        {{ title }}
+    </div>    
+    {% if hide_close != true %}
+    <btn 
+        data-tip="{{ tooltips.close }}"
+        class="px-1 cursor-pointer panel-close-button tooltip tooltip-left">  
+        {{ component(styles.title.close.name|default('icons~close.circle'),styles.title.close,'svg') }}
+    </btn>   
+    {% endif %}
+</div>

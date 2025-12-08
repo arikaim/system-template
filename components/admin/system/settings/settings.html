@@ -1,4 +1,5 @@
-{% set items = [ 
+{{  component('system:admin.tabs.vertical',{ 
+        items: [ 
     { title: links.user.content, component: 'system:admin.system.settings.user', icon: 'user', active: true },
     { title: links.date.content, component: 'system:admin.system.settings.date', icon: 'calendar' },
     { title: links.numbers.content, component: 'system:admin.system.settings.numbers', icon: 'table' },
@@ -8,12 +9,12 @@
     { title: links.cache.content, component: 'system:admin.system.settings.cache', icon: 'sync alternate' },   
     { title: links.install.content, component: 'system:admin.system.settings.install', icon: 'server' },
     { title: links.storage.content, component: 'system:admin.system.settings.storage', icon: 'hdd' }
-] %}
-
-{{  component('semantic~tabs.vertical',{ 
-        items: items, 
+], 
         menu: { id: null }, 
         item_class: 'settings-item',
-        content: { id: 'settings_content', component: 'system:admin.system.settings.user' } 
+        content: { 
+            id: 'settings_content', 
+            component: 'system:admin.system.settings.user' 
+        } 
     })
 }}

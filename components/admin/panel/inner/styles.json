@@ -1,0 +1,16 @@
+{
+    "class": "h-full w-full",
+    "color": "",
+    "title": {
+        "class": "p-3 bg-stone-100 text-lg flex flex-row items-center font-bold text-gray-900 rounded-t-xl",
+        "icon": {
+            "size": "h-6 w-6",
+            "color": "text-orange-500"
+        },
+        "close": {
+            "size": "h-6 w-6",
+            "color": "text-gray-500"
+        }
+    },
+    "content": "py-2 bg-white rounded-xl"  
+}

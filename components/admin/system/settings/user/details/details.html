@@ -6,23 +6,34 @@
             {{ title }}
         </h4>
         {% if demo_mode != true %}
-            <form class="ui equal width form mt-8" id="user_details_form"> 
-                <div class="required field">
-                    <label>{{ fields.user_name.label }}</label> 
-                    <div class="ui left icon input">
-                        <i class="icon user"></i>
-                        <input rule="minLength[2]" type="text" name="user_name" id="user_name" {{ fields.user_name.placeholder|attr('placeholder') }} value="{{ user.user_name }}">    
-                    </div>
+            <form class="form" id="user_details_form"> 
+                <div class="required {{ theme.form.field }}">
+                    <label class="{{ theme.form.label }}">
+                        {{ fields.user_name.label }}
+                    </label>                        
+                    <input 
+                        class="{{ theme.form.input }}"
+                        rule="minLength[2]" 
+                        type="text" 
+                        name="user_name" 
+                        id="user_name" 
+                        {{ fields.user_name.placeholder|attr('placeholder') }} 
+                        value="{{ user.user_name }}">                      
                 </div>            
-                <div class="field">
-                    <label>{{ fields.email.label }}</label>
-                    <div class="ui left icon input">
-                        <i class="icon mail outline"></i>
-                        <input type="text" name="email" id="email" {{ fields.email.placeholder|attr("placeholder") }} value="{{ user.email }}">    
-                    </div>                       
+                <div class="{{ theme.form.field }}">
+                      <label class="{{ theme.form.label }}">
+                        {{ fields.email.label }}
+                    </label>
+                    <input 
+                        class="{{ theme.form.input }}"
+                        type="text" 
+                        name="email" 
+                        id="email" 
+                        {{ fields.email.placeholder|attr("placeholder") }} 
+                        value="{{ user.email }}">        
                 </div>
                 {% if demo_mode == false %}
-                    {{ component('semantic~form.footer') }}     
+                    {{ component('system:form.footer') }}     
                 {% endif %}            
             </form>
         {% else %}
