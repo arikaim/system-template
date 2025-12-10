@@ -4,17 +4,7 @@
   font-weight: 400;
   src: url(https://fonts.gstatic.com/s/monoton/v19/5h1aiZUrOngCibe4TkHLRw.ttf) format('truetype');
 }
-html {
-  height: 100%;
-  padding: 0px;
-}
-body {
-  min-height: 100%;
-  padding: 0px;
-  margin: 0px;
-  height: 100%;
-  background-color: #F9FAFB !important;
-}
+
 .fixed-content {
   top: 0;
   bottom: 0;
@@ -94,11 +84,7 @@ div.inner {
 .sortable-state-highlight {
   opacity: 0.5;
 }
-.page-title {
-  font-family: 'Monoton' !important;
-  font-weight: 200!important;
-  font-size: 23px!important;
-}
+
 .ui.footer.segment {
   position: fixed;
   bottom: 0;

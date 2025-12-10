@@ -1,0 +1,13 @@
+{% set example_number = example_number|default(100000.254) %}
+{% set id = id|default('number_format') %}
+{% set items = loadConfig('number-format.json') %}
+
+<div class="select {{ class }}">    
+    <select id="{{ id }}" name="{{ name }}">
+         {% for key, item in items %}
+            <option value="{{ key }}" {{ key|ifthen(selected,'selected') }}>
+                {{ example_number|numberFormat(item) }}     
+            </option>      
+        {% endfor %}    
+    </select>
+</div>

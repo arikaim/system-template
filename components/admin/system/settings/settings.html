@@ -1,10 +1,30 @@
 {{  component('system:admin.tabs.vertical',{ 
         items: [ 
-    { title: links.user.content, component: 'system:admin.system.settings.user', icon: 'user', active: true },
-    { title: links.date.content, component: 'system:admin.system.settings.date', icon: 'calendar' },
-    { title: links.numbers.content, component: 'system:admin.system.settings.numbers', icon: 'table' },
-    { title: links.mailer.content, component: 'system:admin.system.settings.mailer', icon: 'mail outline' },
-    { title: links.logger.content, component: 'system:admin.system.settings.logger', icon: 'warning circle' },
+            { 
+                title: links.user.content, 
+                component: 'system:admin.system.settings.user', 
+                icon: 'user',
+                svg_icon: 'icons~user',
+                active: true 
+            },
+            { 
+                title: links.date.content, 
+                component: 'system:admin.system.settings.date', 
+                svg_icon: 'icons~calendar',
+                icon: 'calendar' 
+            },
+            { 
+                title: links.numbers.content, 
+                component: 'system:admin.system.settings.numbers', 
+                icon: 'table' 
+            },
+            { 
+                title: links.mailer.content, 
+                component: 'system:admin.system.settings.mailer', 
+                svg_icon: 'icons~mail',
+                icon: 'mail outline' 
+            },
+            { title: links.logger.content, component: 'system:admin.system.settings.logger', icon: 'warning circle' },
     { title: links.session.content, component: 'system:admin.system.settings.session', icon: 'server' },
     { title: links.cache.content, component: 'system:admin.system.settings.cache', icon: 'sync alternate' },   
     { title: links.install.content, component: 'system:admin.system.settings.install', icon: 'server' },

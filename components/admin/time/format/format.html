@@ -1,0 +1,20 @@
+{% set id = id|default('time_format') %}
+{% set default = default|default(labels.default) %}
+{% set config = loadConfig('date-time-format.json') %}
+{% set items = config.time %}
+
+<div class="select {{ class }}"> 
+    <span class="my-auto shrink-0">
+        {{ component('icons~clock',theme.icons.menu,'svg') }}   
+    </span>      
+    <select class="w-full" id="{{ id }}" name="{{ name }}">
+         {% for key, value in items %}
+            <option value="{{ value }}" {{ value|ifthen(selected,'selected') }}>
+                {{ "now"|date(value) }}
+                <div class="description">               
+                    {{ key }}                       
+                </div>              
+            </option>      
+        {% endfor %}    
+    </select>
+</div>

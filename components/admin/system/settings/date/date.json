@@ -1,8 +1,6 @@
 {
-    "title": {
-        "content": "Edit Date and Time Format",
-        "icon": "calendar"
-    },
+    "title":"Edit Date and Time Format",   
+    "icon": "icons~calendar",
     "fields": {
         "time_zone": {
             "label": "Time Zone"

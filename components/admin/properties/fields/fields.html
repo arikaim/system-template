@@ -1,0 +1,76 @@
+{% set readonly = properties.getPropertiesList(true,false) %}
+{% set editable = properties.getPropertiesList(false,false) %}
+{% set hiddens = properties.getPropertiesList(false,true) %}
+{% set groups = properties.getGroups() %}
+{% set show_readonly = show_readonly|default(true) %}
+
+{% if hiddens|length == 0 and readonly|length == 0 and editable|length == 0 and groups|length == 0 %}
+    <div class="{{ theme.panel }}">
+        {{ labels.empty }}
+    </div>
+{% endif %}
+
+{{  component('system:admin.properties.items',{ 
+        update: update, 
+        items: editable, 
+        properties: properties 
+    }) 
+}}
+
+{% for group in groups %}  
+    {% set editable = properties.getPropertiesList(false,false,group.value) %}    
+    <div class="{{ theme.panel }}">
+        {% if group.display_type == 'segment' %}
+            <div class="fields">
+                {{ component('system:admin.properties.items',{ items: editable }) }}   
+            </div>
+        {% else %}       
+            <div class="ui accordion field property-group">
+                <div class="title">
+                    <i class="dropdown icon"></i>
+                    {{ group.title }}
+                </div>
+                <div class="content">
+                    {{ component('system:admin.properties.items',{ items: editable }) }}   
+                </div>
+            </div>
+        {% endif %}
+    </div>   
+{% endfor %}
+
+{% if readonly is not empty and show_readonly == true %}
+    <div class="{{ theme.panel }}">
+        <h5 class="font-bold">
+            {{ labels.readonly }}
+        </h5>
+        <div class="ui list">
+        {% for property in readonly %}  
+            <div class="item">                   
+                <div class="badge-lg badge badge-secondary badge-outline">
+                    {{ property.title }}
+                    <div class="ml-1 font-bold">
+                        {% set value = (property.hidden == true) ? labels.hidden : property.value %}                          
+                        {{ value|string }}
+                    </div>   
+                </div>                                                     
+            </div>
+        {% endfor %}
+        </div>
+        {% if hiddens is not empty %}
+            <h5 class="font-bold">
+                {{ labels.hidden }}
+            </h5>
+            <div class="ui list">
+            {% for property in hiddens %}  
+                <div class="item">                   
+                    <div class="badge badge-secondary badge-outline">
+                        {{ property.title }}
+                        <div class="detail">                                           
+                            {{ property.value|string }}
+                        </div>   
+                    </div>                                                     
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>            
+{% endif %}

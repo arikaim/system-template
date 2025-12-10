@@ -10,7 +10,7 @@
             "color": "text-sky-500"
         },
         "color": "text-orange-950 dark:text-gray-200",
-        "class": "text-lg dark:text-gray-200 pb-8 uppercase"
+        "class": "text-md dark:text-gray-200 pb-8 uppercase"
     },
     "link": {
         "icon": {

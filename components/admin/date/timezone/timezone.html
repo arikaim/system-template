@@ -1,0 +1,19 @@
+{% set items = getTimeZonesList() %}
+{% set id = id|default('time_zone') %}
+{% set default = default|default(default.text) %}
+{% set name = name|default(id) %}
+{% set selected_text = selected|default(default) %}
+
+<div class="select {{ class }}"> 
+    <span class="my-auto">
+        {{ component('icons~calendar',theme.icons.menu,'svg') }}   
+    </span>   
+    <select id="{{ id }}" name="{{ name }}">
+        {% for item in items %}
+            <option value="{{ item }}" {{ item|ifthen(selected,'selected') }}>
+                {{ item }}
+            </option>      
+        {% endfor %}    
+    </select>
+</div>
+

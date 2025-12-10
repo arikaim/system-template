@@ -1,6 +1,6 @@
 {% set config = service('driver').getConfig(driver_name) %}
 {% if service('driver').has(driver_name) == false %}
-    <div class="ui message">
+    <div class="alert alert-warning">
         Driver <b>{{ driver_name }}</b> not installed.
         {% error '' %}
     </div>
@@ -9,14 +9,18 @@
     <div class="font-bold pr-2">
         {{ labels.name }}
     </div>
-    <div class="ui basic label">
+    <div class="badge badge-soft badge-secondary">
         {{ driver_name }}
     </div>
 </div>
-<form class="ui equal width form" id="driver_config_form">
+<form class="form" id="driver_config_form">
     <input type="hidden" name="name" id="driver_name" value="{{ driver_name }}">  
-    {{ component('semantic~properties.fields',{ properties: config, update: update }) }}
+    {{  component('system:admin.properties.fields',{ 
+            properties: config, 
+            update: update 
+        }) 
+    }}
     {% if config|length > 0 %}
-        {{ component('semantic~form.footer') }}   
+        {{ component('system:form.footer') }}   
     {% endif %}
 </form>

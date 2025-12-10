@@ -1,8 +1,6 @@
 {   
-    "title": {
-        "content": "Config",
-        "icon": "cogs"
-    },
+    "title": "Config",    
+    "icon": "icons~cog",
     "labels": {
         "driver": "Driver"
     }

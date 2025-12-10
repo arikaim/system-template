@@ -3,7 +3,7 @@
     class="flex flex-row items-start h-full">
     <nav  
         id="{{ component_id }}"
-        class="h-full tabs tabs-bordered tabs-vertical min-w-32 {{ class }}" 
+        class="h-full tabs tabs-bordered tabs-vertical {{ size|default('min-w-48') }} {{ class }}" 
         aria-label="Tabs" 
         role="tablist" 
         aria-orientation="vertical">

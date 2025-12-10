@@ -2,12 +2,12 @@
 {% set captcha_protect = getOption('users.login.captcha.protect',true) %}
 
 <div class="{{ styles.border }} {{ styles.space }} {{ styles.color }}"> 
-    <h1 class="flex items-center {{ styles.title.class }}">
+    <h4 class="flex items-center {{ styles.title.class }}">
         {{ component(styles.title.icon.name,styles.title.icon,'svg') }}  
         <div class="pl-2 font-bold {{ styles.title.color }}">
             {{ title }}
         </div>
-    </h1>
+    </h4>
     <form class="{{ styles.form }}" id="login_form" method="POST">
         {% if login_with == 1 or login_with == 3 %}
             <div class="{{ styles.field }}">                             

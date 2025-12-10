@@ -1,8 +1,6 @@
 {
-    "title": {
-        "content": "Mailer",
-        "icon": "mail outline"
-    },
+    "title": "Mailer",   
+    "icon": "icons~mail",
     "labels": {
         "transports": "Socket transports",
         "current": "Use driver",

@@ -16,21 +16,17 @@ function Drivers() {
     };
 
     this.enable = function(name, onSuccess, onError) {
-        var data = {
+        return arikaim.put('/core/api/driver/status',{
             name: name,
             status: 1
-        };
-
-        return arikaim.put('/core/api/driver/status',data,onSuccess,onError);          
+        },onSuccess,onError);          
     };
 
-    this.disable = function(name, onSuccess, onError) {
-        var data = {
+    this.disable = function(name, onSuccess, onError) {   
+        return arikaim.put('/core/api/driver/status',{
             name: name,
             status: 0
-        };
-        
-        return arikaim.put('/core/api/driver/status',data,onSuccess,onError);          
+        },onSuccess,onError);          
     };
 
     this.saveConfig = function(config, onSuccess, onError) {

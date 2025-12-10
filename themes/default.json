@@ -5,6 +5,9 @@
     "table": {
         "class": "table table-xs"
     },
+    "list": {
+        "default": "border-base-content/25 divide-base-content/25 divide-y rounded-md border *:p-3 *:first:rounded-t-md *:last:rounded-b-md"
+    },
     "panel": "shadow-xs p-4 border border-gray-200 rounded",
     "form": {
             "icon": {
@@ -39,7 +42,8 @@
     },
     "buttons": {
         "delete": "btn btn-outline btn-secondary",
-        "primary": "btn btn-secondary btn-sm btn-soft"
+        "primary": "btn btn-secondary btn-sm btn-soft",
+        "icon": "btn btn-text btn-sm btn-square"
     },
     "paginator": {
         "panel": "p-1 mt-2",
@@ -84,8 +88,8 @@
             "color": "text-green-500"
         },
         "action": {
-            "size": "h-5 w-5",
-            "width": 1,
+            "size": "h-6 w-6",
+            "width": 2,
             "class": "cursor-pointer focus:text-sky-800 transition duration-1000 ease-in-out",
             "color": "text-sky-500"
         },

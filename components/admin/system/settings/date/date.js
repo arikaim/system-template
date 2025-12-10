@@ -1,21 +1,18 @@
 'use strict';
 
 arikaim.component.onLoaded(function() {    
-    $('#time_zone').dropdown({
-        onChange: function(value, text, choice) {   
-            options.saveConfigOption('settings/timeZone',value);           
-        }
+    $('#time_zone').on('change',function() {
+        var selected = $(this).val();      
+        options.saveConfigOption('settings/timeZone',selected);                  
     });
 
-    $('#date_format').dropdown({
-        onChange: function(value) {    
-            options.saveConfigOption('settings/dateFormat',value);                         
-        }
+    $('#date_format').on('change',function() {
+        var selected = $(this).val();      
+        options.saveConfigOption('settings/dateFormat',selected);                  
     });
 
-    $('#time_format').dropdown({
-        onChange: function(value) {         
-            options.saveConfigOption('settings/timeFormat',value);                
-        }
-    });
+    $('#time_format').on('change',function() {
+        var selected = $(this).val();      
+        options.saveConfigOption('settings/timeFormat',selected);                  
+    }); 
 });
