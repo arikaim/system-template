@@ -19,7 +19,7 @@
 
 {% for group in groups %}  
     {% set editable = properties.getPropertiesList(false,false,group.value) %}    
-    <div class="{{ theme.panel }}">
+    <div class="mt-4 {{ theme.panel }}">
         {% if group.display_type == 'segment' %}
             <div class="fields">
                 {{ component('system:admin.properties.items',{ items: editable }) }}   
@@ -39,13 +39,13 @@
 {% endfor %}
 
 {% if readonly is not empty and show_readonly == true %}
-    <div class="{{ theme.panel }}">
+    <div class="mt-4 {{ theme.panel }}">
         <h5 class="font-bold">
             {{ labels.readonly }}
         </h5>
-        <div class="ui list">
+        <div class="{{ theme.list.default }}">
         {% for property in readonly %}  
-            <div class="item">                   
+            <div class="">                   
                 <div class="badge-lg badge badge-secondary badge-outline">
                     {{ property.title }}
                     <div class="ml-1 font-bold">
@@ -60,9 +60,9 @@
             <h5 class="font-bold">
                 {{ labels.hidden }}
             </h5>
-            <div class="ui list">
+            <div class="{{ theme.list.default }}">
             {% for property in hiddens %}  
-                <div class="item">                   
+                <div class="p-1">                   
                     <div class="badge badge-secondary badge-outline">
                         {{ property.title }}
                         <div class="detail">                                           

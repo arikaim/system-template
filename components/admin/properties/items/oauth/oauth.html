@@ -5,9 +5,11 @@
 {% else %}
 
 {% set access_token = (update == true) ? getSessionVar('access-token') : property.value %}
-<div class="field {{ property.required|ifthen(true,'required') }}">      
-    <label>{{ property.title }}</label>   
-    <div class="ui action input">     
+<div class="{{ theme.form.field }} {{ property.required|ifthen(true,'required') }}">      
+    <label class="{{ theme.form.label }}">
+        {{ property.title }}
+    </label>   
+    <div class="{{ theme.form.input }} input">     
         <input {{ rule|attr('rule') }} readonly type="text" name="{{ field_name }}" value="{{ access_token }}"> 
         <a 
             class="ui button blue oauth-authorize-button"

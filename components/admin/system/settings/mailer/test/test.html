@@ -1,12 +1,14 @@
-<div class="ui segment">
-    <h4>{{ title }}</h4>
+<div class="{{ theme.panel }}">
+    <h4 class="font-bold">
+        {{ title }}
+    </h4>
     <div class="mt-2">
         {% if message is not empty %}
-            <div class="ui success message">
+            <div class="alert alert-success">
                 {{ message }}
             </div>
         {% else %}
-            <div class="ui error message">
+            <div class="alert alert-error">
                 {{ labels.error }}
             </div>
         {% endif %}

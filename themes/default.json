@@ -12,9 +12,11 @@
     "form": {
             "icon": {
                 "size": "h-6 w-6",
+                "class": "my-auto shrink-0 me-3",
                 "color": "text-sky-500"
             },       
             "label": "label-text font-bold dark:text-gray-200",
+            "checkbox": "checkbox-sm checkbox checkbox-default",
             "field": "field relative mt-2",
             "value": "text-gray-700",
             "fields": "grid grid-cols-2 gap-8 md:grid-cols-2 xs:grid-cols-1",

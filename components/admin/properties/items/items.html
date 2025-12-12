@@ -15,13 +15,17 @@
             <label class="{{ theme.form.label }}">
                 {{ property.title }}
             </label>
-            <div class="ui labeled input">
+            <div class="{{ theme.form.input }}">
                 <div class="ui label">http://</div>
-                <input {{ rule|attr('rule') }} type="text" name="{{ field_name }}" value="{{ property.value }}"> 
+                <input 
+                    {{ rule|attr('rule') }} 
+                    type="text" 
+                    name="{{ field_name }}" 
+                    value="{{ property.value }}"> 
             </div>                
         </div>
     {% elseif property['type'] == 3 %}  
-        {{  component('semantic~form.fields.checkbox',{
+        {{  component('system:form.fields.checkbox',{
                 label: property.description,
                 class: property.required|ifthen(true,'required'),
                 name: field_name,   
@@ -50,7 +54,7 @@
             </select>                
         </div>
     {% elseif property['type'] == 6 %}
-        {{  component('semantic~form.fields.password',{
+        {{  component('system:form.fields.password',{
                 label: property.title,
                 class: (property.required == true) ? ' field required' : 'field',
                 name: field_name,         
@@ -70,7 +74,7 @@
                 cols="7" rows="7">{{ property.value }}</textarea>                                       
         </div>       
     {% elseif property['type'] == 10 %}
-        {{  component('semantic~properties.items.oauth',{ 
+        {{  component('system:admin.properties.items.oauth',{ 
                 update: update,
                 property: property, 
                 field_name: field_name,
@@ -83,7 +87,7 @@
             <label class="{{ theme.form.label }}">
                 {{ property.title }}
             </label>
-            {{  component('semantic~language.dropdown',{                
+            {{  component('system:admin.language.dropdown',{                
                     name: field_name,
                     selected: property.value,
                     class: 'property-language-dropdown selection',
@@ -100,14 +104,14 @@
             id="key_field_{{ property.group }}_{{ property.name }}"
             class="flex flex-row items-center p-1 border border-solid rounded-lg border-gray-300">    
             {% if property.value is empty %}    
-                {{  component('semantic~properties.items.key.edit',{ 
+                {{  component('system:admin.properties.items.key.edit',{ 
                         group: property.group,
                         field_name: property.name,
                         preview: '...'
                     }) 
                 }}
             {% else %}  
-                {{ component('semantic~properties.items.key',{ property: property }) }}
+                {{ component('system:admin.properties.items.key',{ property: property }) }}
             {% endif %}
         </div>
     </div> 

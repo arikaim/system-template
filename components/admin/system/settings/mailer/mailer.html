@@ -12,17 +12,21 @@
                 }) 
             }}               
             <div class="{{ theme.panel }} grid grid-cols-2 mt-4">
-                <div class="w-full">
-                    <h4>{{ labels.current }}</h4>
+                <div class="w-full px-4">
+                    <h4 class="font-bold">
+                        {{ labels.current }}
+                    </h4>                  
                     {{  component('system:admin.drivers.dropdown',{ 
                             selected: mailer_driver, 
                             category: 'mailers', 
-                            calss: 'fluid' 
+                            calss: 'select-sm' 
                         }) 
-                    }} 
+                    }}                                
                 </div>
-                <div class="w-full">   
-                    <h4>{{ labels.transports }}</h4>                                         
+                <div class="w-full px-4">   
+                    <h4 class="font-bold">
+                        {{ labels.transports }}
+                    </h4>                                         
                     {% for item in system().getStreamTransports() %}
                     <div class="ml-1 badge badge-outline badge-default badge-sm">
                         {{ item }}
@@ -31,33 +35,39 @@
                 </div>
             </div>     
             <div class="mt-4 {{ theme.panel }}">
-            <div class="grid grid-cols-2">
-                <div class="column">
-                    <h4 class="header">
-                        {{ labels.from }}      
-                        <div class='ui label basic text font-bold'>{{ from_email }}</div>                                            
-                    </h4>  
-                    <div class="ui icon labeled basic button mailer-settings-button">
-                        <i class="icon blue cog"></i>    
-                        {{ labels.settings }}              
+                <div class="grid grid-cols-2">
+                    <div class="p-2">
+                        {% if from_email is not empty %}
+                        <h4 class="font-bold">
+                            {{ labels.from }}      
+                            <div class='badge badge-secondary badge-outline'>
+                                {{ from_email }}
+                            </div>                                            
+                        </h4>  
+                        {% endif %}
+                        <div class="{{ theme.buttons.primary }} mailer-settings-button">
+                            {{ component('icons~cog',theme.icons.action,'svg') }}
+                            {{ labels.settings }}              
+                        </div>
                     </div>
-                </div>
-                <div class="column">
-                    {% if user.email is not empty %}
-                    <h4 class="header">
-                        {{ labels.test }}
-                        <div class='ui label basic text font-bold'>{{ user.email }}</div>                            
-                    </h4>      
-                    <div class="ui icon labeled basic button" id="send_button">
-                        <i class="icon blue mail outline"></i>
-                        {{ buttons.send.content }}
+                    <div class="p-2">
+                        {% if user.email is not empty %}
+                        <h4 class="font-bold">
+                            {{ labels.test }}
+                            <div class='ui label basic text font-bold'>
+                                {{ user.email }}
+                            </div>                            
+                        </h4>      
+                        <div class="ui icon labeled basic button" id="send_button">
+                            <i class="icon blue mail outline"></i>
+                            {{ buttons.send.content }}
+                        </div>
+                        <div class="ui hidden message" id="send_msg">
+                        </div> 
+                        {% endif %}          
                     </div>
-                    <div class="ui hidden message" id="send_msg">
-                    </div> 
-                    {% endif %}          
-                </div>
-            </div>                                                             
-        </div>                               
+                </div>                                                             
+            </div>                               
         </div>              
         <div 
             class="ml-2" 

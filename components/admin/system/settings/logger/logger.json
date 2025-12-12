@@ -1,8 +1,6 @@
 {
-    "title": {
-        "content": "Logger",
-        "icon": "warning circle"
-    },
+    "title":  "Logger",  
+    "icon": "icons~info",
     "labels": {
         "logger": {
             "label": "System Logger",
@@ -12,6 +10,6 @@
         "console": "Console",
         "console_log": "Log console command",
         "console_errors":"Log console errors",
-        "settings": "settings"
+        "settings": "Settings"
     }
 }

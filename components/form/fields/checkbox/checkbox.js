@@ -1,13 +1,12 @@
 'use strict';
 
 arikaim.component.onLoaded(function() {
-    $('.checkbox-field').checkbox({
-        onChecked: function() {   
-           var fieldId = $(this).attr('data-field-id');  
-           $('#' + fieldId).val(1);
-        },
-        onUnchecked: function() { 
-            var fieldId = $(this).attr('data-field-id');  
+    $('.checkbox-field').on('change', function(event) {      
+        var fieldId = $(this).attr('data-field-id'); 
+
+        if (event.currentTarget.checked == true) {           
+            $('#' + fieldId).val(1);
+        } else {           
             $('#' + fieldId).val(0);
         }
     });

@@ -9,10 +9,9 @@
 function MailerSettings() {
    
     this.init = function() {
-        $('#drivers_dropdown').dropdown({
-            onChange: function(value) {                    
-                options.saveConfigOption('settings/mailerDriver',value);
-            }
+        $('#drivers_dropdown').on('change', function() {     
+            var selected = $(this).val();                    
+            options.saveConfigOption('settings/mailerDriver',selected);           
         });
 
         arikaim.ui.button('.mailer-settings-button',function() {

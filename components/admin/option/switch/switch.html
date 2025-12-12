@@ -1,0 +1,15 @@
+{% set value = value|default(getOption(name)) %}
+<div    
+    class="flex items-center gap-1 {{ theme.form.field }} {{ class }}">
+    <input 
+        {{ id|attr('id') }}
+        class="option-switch switch switch-success"
+        type="checkbox" 
+        option-type="{{ type }}"
+        {{ value|ifthen(1,'checked') }} 
+        name="{{ name }}" 
+        value="1">
+    <label class="{{ theme.form.label }}">
+        {{ label|default(name) }}
+    </label>                           
+</div>  

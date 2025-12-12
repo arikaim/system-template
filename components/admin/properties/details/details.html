@@ -3,7 +3,7 @@
     {{ empty|default('..') }}
 </div>
 {% else %}
-    <table class="ui very basic definition table {{ class }}">
+    <table class="{{ theme.table.class }} {{ class }}">
         <thead>
             <tr>
                 <th class="four wide">{{ labels.key }}</th>
