@@ -18,11 +18,9 @@ function Cache() {
     };
 
     this.setDriver = function(driverName, onSuccess, onError) { 
-        var data = { 
+        return arikaim.put('/core/api/cache/driver',{ 
             name: driverName
-        };
-
-        return arikaim.put('/core/api/cache/driver',data,onSuccess,onError);
+        },onSuccess,onError);
     };
 
     this.clear = function(onSuccess, onError) {      
@@ -32,30 +30,24 @@ function Cache() {
     this.init = function() {   
         arikaim.ui.loadComponentButton('.cache-info-button');
 
-        $('#cache_driver_dropdown').dropdown({
-            onChange: function(value) {
-                self.setDriver(value,function(result) {
-                    arikaim.page.toastMessage(result.message);
-                });
-            }
+        $('#cache_driver_dropdown').on('change', function() {           
+            self.setDriver($(this).val(),function(result) {
+                arikaim.ui.getComponent('toast').show(result.message);               
+            });           
         });
 
-        $('.enable-dropdown').dropdown({
-            onChange: function(value) {
-                if (value == 1) {
-                    arikaim.ui.show('#clear_cache_button');
-                    arikaim.ui.show('.cache-info-button');
-                    self.enable(function(result) {
-                      
-                    });
-                } else {
-                    arikaim.ui.hide('#clear_cache_button');
-                    arikaim.ui.hide('.cache-info-button');
-                    self.disable(function(result) {
-                        
-                    });
-                }
-            }
+        $('#cahce_switch').on('change', function(event) {
+            if (event.currentTarget.checked == true) {
+                arikaim.ui.show('#cache_buttons');             
+                self.enable(function(result) {
+                    arikaim.ui.getComponent('toast').show(result.message);     
+                });
+            } else {
+                arikaim.ui.hide('#cache_buttons');
+                self.disable(function(result) {
+                    arikaim.ui.getComponent('toast').show(result.message);     
+                });
+            }           
         });
 
         arikaim.ui.button('#clear_cache_button',function(element) {          

@@ -1,12 +1,12 @@
 {
     "title": "Cache",
-    "icon": "sync alternate",
+    "icon": "icons~info",
     "buttons": {
         "clear": "Clear",
         "info": "Info"
     },
     "labels": {
-        "enabled": "Enabled",
+        "enable": "Enable",
         "driver": "Driver",
         "disabled": "Disabled",
         "status": "Status"           

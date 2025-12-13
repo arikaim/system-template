@@ -4,30 +4,29 @@
 
 {% for event in paginator.getItems() %}
     <li class="px-4 py-4 grid sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0 text-base">
-        <div class="flex flex-row items-center">                  
+        <div class="ml-4 flex flex-row items-center">                  
             <div class="flex flex-row items-center">
-                <i class="calendar outline icon small blue"></i>
-                <div class="ml-4">
-                    <a class="link event-details" uuid="{{ event.uuid }}">
+                <a class="flex flex-row items-center link event-details" uuid="{{ event.uuid }}">
+                    {{ component('icons~calendar',theme.icons.menu,'svg') }}
+                    <div class="px-4">
                         {{ event.name }}
-                    </a>   
-                </div>                   
-            </div>
-            <div class="badge">
+                    </div>
+                </a>                              
+            </div>              
+        </div>     
+        <div class="px-2 flex-grow">
+            {{ event.title }}
+        </div>       
+        <div class="badge badge-outline">
                 {% if event.extension_name is not empty %}
                     {{ labels.extension }}
-                    <div class="detail">
-                        <span class="ui blue text">
-                            {{ event.extension_name }}
-                        </span>               
+                    <div class="font-bold">                       
+                        {{ event.extension_name }}                                
                     </div>
                 {% else %}
                 core
                 {% endif %}
-            </div>         
-            <div class="description">
-                {{ event.title }}
-            </div>                   
-        </div>                               
+        </div>         
+                                               
     </li>
 {% endfor %}

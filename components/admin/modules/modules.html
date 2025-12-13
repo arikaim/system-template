@@ -1,10 +1,32 @@
-{{  component('semantic~tabs',{ 
+{{  component('system:admin.tabs',{ 
         items: [    
-            { id: 'package_button', title: labels.package.content, component: 'system:admin.modules.view', icon: 'box', active: true, params: { type: 'package' } },
-            { id: 'middleware_button', title: labels.middleware.content, component: 'system:admin.modules.view', icon: 'code', params: { type: 'middleware' } },    
-            { id: 'drivers_button', title: labels.drivers.content, component: 'system:admin.modules.drivers', icon: 'code' },
-            { id: 'compsoer_button', title: labels.composer.content, component: 'system:admin.modules.composer', icon: 'code' }           
+            { 
+                title: labels.package.content, 
+                component: 'system:admin.modules.view', 
+                svg_icon: 'icons~info', 
+                active: true, 
+                params: 'type:package'
+            },
+            { 
+                title: labels.middleware.content, 
+                component: 'system:admin.modules.view', 
+                svg_icon: 'icons~code', 
+                params: 'type:middleware'
+            },    
+            {         
+                title: labels.drivers.content, 
+                component: 'system:admin.modules.drivers', 
+                svg_icon: 'icons~code'
+            },
+            {             
+                title: labels.composer.content, 
+                component: 'system:admin.modules.composer', 
+                svg_icon: 'icons~code'
+            }           
         ],
-        content: { component: 'system:admin.modules.view', params: { type: 'package' } } 
+        content: { 
+            component: 'system:admin.modules.view', 
+            params: { type: 'package' } 
+        } 
     })
 }}

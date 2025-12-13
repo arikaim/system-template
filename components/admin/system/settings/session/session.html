@@ -1,12 +1,13 @@
 {% set interval = getConfigOption('settings/sessionInterval',0) %}
 {% set handler = getConfigOption('settings/sessionHandler','files') %}
 
-{% component 'semantic~tabs.vertical.content' %}
-{% set class = 'five wide' %}
-<form class="ui equal width form mt-8" id="session_settings_form"> 
-    <div class="ui segment mt-10">
-        <h4>{{ labels.details }}</h4>
-        <div class="my-2 flex flex-row items-center">
+<div class="grid grid-cols-3">
+    {% component 'system:admin.panel' %}
+    <h4>
+        {{ labels.details }}
+    </h4>
+    <div class="{{ theme.list.default }} mt-4">           
+        <div class="flex flex-row items-center">
             <div class="font-bold">
                 {{ labels.storage }}
             </div>
@@ -14,11 +15,11 @@
                 {{ handler }}
             </div>
         </div>
-        <div class="field">
+        <div class="mt-1">
             {% set session_info = sessionInfo() %}
             {% set use_cookies = session.isUseCookies() %}
             {% set label = (session_info.use_cookies == true) ? 'yes' : 'no' %}        
-            <table class="ui very basic table">
+            <table class="{{ theme.table.class }}">
                 <tbody>
                     <tr>
                         <td class="collapsing">{{ labels.cookies }} </td>
@@ -39,16 +40,28 @@
                 </tbody>               
             </table>                                  
         </div>       
-    </div>   
-    <div class="ui segment mt-10">
-        <div class="field">
-            <label>{{ fields.interval.label }}</label>
-            <div class="ui right labeled input">
-                <input value="{{ interval }}" name="recreation" id="interval" type="text" {{ fields.interval.placeholder|attr('placeholder') }}> 
-                <div class="ui basic label">{{ labels.min }}</div>
-            </div>              
-        </div> 
-        {{ component('semantic~form.footer') }}           
-    </div>          
-</form>
-{% endcomponent %}
+    </div>
+
+    <div class="{{ theme.panel }} mt-4">
+        <form class="form" id="session_settings_form">         
+            <div class="field">
+                <label class="{{ theme.form.label }}">
+                    {{ fields.interval.label }}
+                </label>
+                <div class="{{ theme.form.input }}">
+                    <input 
+                        value="{{ interval }}" 
+                        name="recreation" 
+                        id="interval" 
+                        type="text" 
+                        {{ fields.interval.placeholder|attr('placeholder') }}> 
+                    <div class="label-text my-auto">
+                        {{ labels.min }}
+                    </div>
+                </div>              
+            </div> 
+            {{ component('system:form.footer') }}             
+        </form>
+    </div>
+    {% endcomponent %}
+</div>

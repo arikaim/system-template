@@ -1,11 +1,8 @@
 {% set event = createModel('Events').findById(uuid) %}
 {% set subscribers = event.subscribers() %}
-{% component 'semantic~panel' %}
-    <div class="ui header">
-        {{ title }}
-    </div>
+{% component 'system:admin.panel' %}   
     <div class="mt-4">
-        <table class="ui table very basic definition">
+        <table class="{{ theme.table.details }}">
             <thead>
                 <tr>
                     <th></th>
@@ -14,33 +11,33 @@
             </thead>
             <tbody>
                 <tr>
-                    <td class="two wide right aligned">{{ labels.id }}</td>
+                    <td class="">{{ labels.id }}</td>
                     <td>{{ event.uuid }}</td>
                 </tr>
                 <tr>
-                    <td class="two wide right aligned">{{ labels.name }}</td>
+                    <td class="">{{ labels.name }}</td>
                     <td>{{ event.name }}</td>
                 </tr>
                 <tr>
-                    <td class="two wide right aligned">{{ labels.description }}</td>
+                    <td class="">{{ labels.description }}</td>
                     <td>
-                        <h5>{{ event.title }}</h5>
+                        <div class="font-bold">{{ event.title }}</div>
                         <p>
                             {{ event.description }}
                         </p>
                     </td>
                 </tr>
                 <tr>
-                    <td class="two wide right aligned">{{ labels.status }}</td>
+                    <td class="">{{ labels.status }}</td>
                     <td>
                         {{ component('semantic~status.label',{ status: event.status }) }}
                     </td>
                 </tr>
                 <tr>
-                    <td class="two wide right aligned">{{ labels.extension }}</td>
+                    <td class="">{{ labels.extension }}</td>
                     <td>
                         {% set name = (event.extension_name is empty) ? 'core' : event.extension_name %}
-                        <div class="ui basix label">
+                        <div class="badge badge-outline badge-sm">
                             {{ name }}
                         </div>
                     </td>
@@ -55,23 +52,22 @@
                 {{ component('semantic~properties.details',{ properties: event.properties }) }}
             </div>
         {% endif %}
-        <h5 class="ui horizontal divider header left aligned">
-            <i class="icon blue small code"></i>
+        <h4 class="font-bold">          
             {{ labels.subscribers }}
-        </h5>
-        <div class="ui list">
+        </h4>
+        <div class="{{ theme.list.default }}">
             {% if subscribers|length == 0 %}
                 <div class="item">..</div>
             {% endif %}
             {% for item in subscribers %}
                 <div class="item">
-                    <div class="ui right floated basic label">
+                    <div class="badge badge-outline">
                         {{ labels.priority }}
-                        <div class="detail">
+                        <div class="font-bold">
                             {{ item.priority }}
                         </div>               
                     </div>
-                    <div class="ui right floated basic label">
+                    <div class="badge badge-outline">
                         {{ labels.extension }}
                         <div class="detail">
                             <span class="ui text blue">
@@ -79,12 +75,12 @@
                             </span>
                         </div>
                     </div>          
-                    <div class="content">              
+                    <div class="mt-4">              
                         {{ component('semantic~status.label',{ status: item.status }) }}
-                        <i class="icon code blue"></i>
+                    
                         {{ item.handler_class }}
                         {% if item.handler_method is not empty %}
-                        <div class="ui horizontal mini basic label">
+                        <div class="badge badge-outline badge-success badge-sm">
                             {{ item.handler_method }}
                         </div>
                         {% endif %}
@@ -93,5 +89,4 @@
             {% endfor %}
         </div>
     </div>
-</div>
 {% endcomponent %}

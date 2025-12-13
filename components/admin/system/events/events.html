@@ -5,7 +5,7 @@
                 {{ title }}
             </div>  
             <ul 
-                class="divide-y divide-base-content/25" 
+                class="{{ theme.list.default }}" 
                 id="events_rows">
                 {{ component('system:admin.system.events.rows',{}) }}
             </ul>

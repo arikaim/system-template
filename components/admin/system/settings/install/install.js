@@ -1,13 +1,9 @@
 'use strict';
 
 arikaim.component.onLoaded(function() {    
-    $('#install_page_toggle').checkbox({
-        onChecked: function() {
-            settings.disableInstallPage(true);         
-        },
-        onUnchecked: function() {
-            settings.disableInstallPage(false);         
-        }
+    $('#install_page_toggle').on('change', function(event) {
+        var checked = (event.currentTarget.checked == true) ? 1 : 0;     
+        settings.disableInstallPage(checked);         
     }); 
 
     arikaim.ui.button('.repair-install',function(element) {

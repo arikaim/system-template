@@ -5,27 +5,26 @@
 <div class="grid grid-cols-3">
     {% component 'system:admin.panel' %}
         <div class="mt-4"> 
-            <div class="field">
-
-                {{  component('system:admin.option.switch',{                         
-                        label: labels.logger.label,
-                        id: 'logger_switch',
-                        name: 'settings/logger',
-                        type: 'config',
-                        value: logger
-                    })
-                }}
-              
-            </div>     
+            {{  component('system:admin.option.switch',{                         
+                    label: labels.logger.label,
+                    id: 'logger_switch',
+                    name: 'settings/logger',
+                    type: 'config',
+                    value: logger
+                })
+            }}                         
             <div 
                 id="logger_type_settings" 
                 class="mt-4 {{ (logger != true) ? 'hidden' : '' }}">       
                 <h4 class="horizontal divider">
                     {{ labels.settings }}
                 </h4>
-
-                <span class="font-bold p-1">{{ labels.type }}</span>
-                {{ component('system:admin.system.settings.logger.type') }}          
+                <div class="{{ theme.form.field }}">
+                    <label class="{{ theme.form.label }}">
+                        {{ labels.type }}
+                    </label>
+                    {{ component('system:admin.system.settings.logger.type') }} 
+                </div>         
                 <div class="mt-8">                  
                     <div class="{{ theme.form.fields }}">
                         {{  component('system:admin.option.switch',{                         

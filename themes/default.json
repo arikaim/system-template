@@ -2,8 +2,12 @@
     "navigation": {
         "panel": "-ml-12 xs:-ml-4 md:-ml-12 mt-18 my-8 inline-block bg-stone-50 py-4 px-2 rounded-xl rounded-r-full shadow-sm" 
     },
+    "grid": {
+        "six": "grid grid-cols-6 lg:grid-cols-6 md:grid-cols-3 sm:grid-cols-1 gap-4"
+    },
     "table": {
-        "class": "table table-xs"
+        "class": "table table-xs",
+        "details": "able table-sm table-borderless"
     },
     "list": {
         "default": "border-base-content/25 divide-base-content/25 divide-y rounded-md border *:p-3 *:first:rounded-t-md *:last:rounded-b-md"
@@ -43,7 +47,8 @@
         "button": "text-white bg-linear-to-r from-sky-400 via-sky-500 to-sky-600 hover:bg-linear-to-br focus:ring-4 focus:outline-hidden focus:ring-sky-300 dark:focus:ring-sky-800 font-medium rounded-lg text-sm px-4 py-1 text-center"
     },
     "buttons": {
-        "delete": "btn btn-outline btn-secondary",
+        "delete": "btn btn-sm btn-error btn-soft",
+        "green": "btn btn-sm btn-success btn-outline",
         "primary": "btn btn-secondary btn-sm btn-soft",
         "icon": "btn btn-text btn-sm btn-square"
     },

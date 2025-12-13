@@ -1,6 +1,6 @@
 {
     "title": "Cache Info",
-    "icon": "info",
+    "icon": "icons~info",
     "labels": {
         "driver": "Driver",
         "usage": "Memory Usage",

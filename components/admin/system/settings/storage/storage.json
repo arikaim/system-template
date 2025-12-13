@@ -1,8 +1,6 @@
 {
-    "title": {
-        "content": "Storage",
-        "icon": "hdd"
-    },
+    "title": "Storage", 
+    "icon": "icons~info",
     "labels": {
         "path": "Path",
         "public": "Public Path"

@@ -1,8 +1,6 @@
 {
-    "title": {
-        "content": "Session",
-        "icon": "server"
-    },
+    "title": "Session",      
+    "icon": "icons~server",
     "fields": {
         "interval": {
             "label": "Session Recreation Interval"

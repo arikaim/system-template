@@ -1,6 +1,8 @@
 {% set package_filter = (type is empty) ? null : { 'type': type } %}   
 {% set modules = package('module').getPackages(false,package_filter) %}
-<div class="ui stackable six cards mt-1" id="modules">
+<div 
+    class="ui stackable six cards mt-1" 
+    id="modules">
     {% if modules is empty %}
         <div class="p-2 px-4 font-bold">
             {{ labels.empty }}
