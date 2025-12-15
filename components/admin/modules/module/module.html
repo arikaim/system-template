@@ -1,53 +1,54 @@
 {% set module = package('module').getPackageProperties(module_name,true) %}
-<div class="ui raised card" id="{{ module.name }}">
-    <div class="content item">  
+<div class="{{ theme.card.default }}" 
+    id="{{ module.name }}">
+    <div class="flex flex-row items-center pb-2">  
         {% if icon is not empty %}
-            <i class="icon {{ icon }}"></i>
-        {% endif %}      
-        {{ module.title }}        
-        <div class="ui horizontal labels right floated">  
-            <div class="ui mini icon basic label">           
-                {% if module.installed == true %}
-                    {% if module.status == 0 %}            
-                        <i class="icon exclamation red" title="{{ labels.disabled }}"></i>                        
-                    {% else %}
-                        <i class="icon checkmark olive" title="{{ labels.active }}"></i> 
-                    {% endif %}
-                    {% if module.error != false %}
-                        <i class="icon exclamation triangle red" title="{{ module.error }}"></i>            
-                    {% endif %}
-                {% endif %}               
-            </div>      
+           {{ component(icon,theme.icons.action,'svg') }}
+        {% endif %}     
+        <div class="flex-grow px-2 font-bold">
+            {{ module.title }}        
+        </div>
+        <div class="self-end flex flex-row items-center">  
+            {% if module.installed == true %}
+                {% if module.status == 0 %}            
+                    <i class="icon exclamation red" title="{{ labels.disabled }}"></i>                        
+                {% else %}
+                    {{ component('icons~check',theme.icons.green,'svg') }}                    
+                {% endif %}
+                {% if module.error != false %}
+                    <i class="icon exclamation triangle red" title="{{ module.error }}"></i>            
+                {% endif %}
+            {% endif %}                                
             {% if module.help is not null %}
-            <div class="ui mini basic icon label">
-                <a class="" href="{{ module.help }}" target="_blank" {{ labels.help|attr('title') }}>
-                    <i class="icon info circle"></i>   
+            <div class="mx-2 badge badge-outline badge-success badge-sm">
+                <a class="" href="{{ module.help }}" target="_blank" {{ labels.help|attr('title') }}>               
                     {{ labels.help }}        
                 </a>
             </div>
             {% endif %}
         </div>
-        <div class="ui divider"></div>
+    </div>
+    <div>
         <div class="px-1">
-            <div class="ui mini basic label">
+            <div class="badge badge-sm badge-outline">
                 {{ labels.version }}
                 <div class="detail">{{ module.version }}</div>
             </div>  
-            <div class="ui label mini blue basic">
+            <div class="badge badge-sm badge-outline badge-primary">
                 {{ labels.type }}
-                <div class="detail text-gray-800">                    
+                <div class="font-bold text-gray-800">                    
                     {{ module.type }}
                 </div>
             </div>      
             {% if module.bootable == true %}
-            <div class="ui label mini blue basic">
+            <div class="badge badge-sm badge-secondary">
                 {{ labels.bootable }}
             </div>
             {% endif %} 
             {% if module.facade.alias is not empty %}
-            <div class="ui label mini blue basic">
+            <div class="badge badge-sm badge-secondary">
                 {{ labels.facade }}
-                <div class="detail text-gray-800">
+                <div class="font-bold text-gray-800">
                     {{ module.facade.alias }}
                 </div>
             </div>       
@@ -57,45 +58,55 @@
             {{ module.description }}
         </div>                           
     </div>      
-    <div class="extra content">
+    <div class="px-2">
         {% if module.error is not empty %}
-        <div class="ui label mini red basic">
+        <div class="alert alert-error alert-sm">
             {{ labels.error }}
-            <div class="detail text-gray-800">
+            <div class="font-bold text-gray-800">
                 {{ module.error }}
             </div>
         </div> 
         {% endif %}
     </div>
     <div class="p-2">
-        <div class="ui success mini message opacity-0 m-2" id="message_{{ module.name }}"></div>
+        <div 
+            class="alert alert-success alert-xs message opacity-0 m-2" 
+            id="message_{{ module.name }}">
+        </div>
     </div>  
-    <div class="extra content">
+    <div class="flex flex-row items-center">
         {% if module.installed == true %}
-            <button class="ui basic mini button update-button module-button" name="{{ module.name }}">     
+            <button 
+                class="{{ theme.buttons.green }} update-button module-button" 
+                name="{{ module.name }}">     
                 <i class="sync alternate olive icon"></i>
                 {{ labels.update }}
             </button>
             {% if module.status == 1 %}
-            <button class="ui basic mini button disable-button module-button red" name="{{ module.name }}"> 
+            <button 
+                class="{{ theme.buttons.delete }} disable-button module-button" 
+                name="{{ module.name }}"> 
                 <span class="text-gray-800">{{ labels.disable }}</span>
             </button>
             {% else %}
-            <button class="ui basic mini button enable-button module-button green" name="{{ module.name }}"> 
+            <button 
+                class="{{ theme.buttons.green }} enable-button module-button" 
+                name="{{ module.name }}"> 
                 <span class="text-gray-800">{{ labels.enable }}</span>
             </button>
             {% endif %}
         {% else %}
-            <button class="ui basic mini olive button module-button install-button" name="{{ module.name }}">    
-                <i class="icon download"></i> 
+            <button class="{{ theme.buttons.green }} module-button install-button" 
+                name="{{ module.name }}">    
+                {{ component('icons~download',theme.icons.green,'svg') }}
                 {{ labels.install }}
             </button>
-        {% endif %}    
+        {% endif %}            
         <button 
-            class="ui icon basic mini right floated button module-button details-button" 
+            class="{{ theme.buttons.default }} module-button details-button" 
             name="{{ module.name }}"
             title="{{ labels.details }}">    
-            <i class="icon list layout"></i>            
-        </button>          
+            {{ labels.details }}        
+        </button>                      
     </div>
 </div>

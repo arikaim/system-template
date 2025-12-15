@@ -5,6 +5,9 @@
     "grid": {
         "six": "grid grid-cols-6 lg:grid-cols-6 md:grid-cols-3 sm:grid-cols-1 gap-4"
     },
+    "card": {
+        "default": "p-4 w-full border border-stone-200 shadow-sm"
+    },
     "table": {
         "class": "table table-xs",
         "details": "able table-sm table-borderless"
@@ -14,19 +17,19 @@
     },
     "panel": "shadow-xs p-4 border border-gray-200 rounded",
     "form": {
-            "icon": {
-                "size": "h-6 w-6",
-                "class": "my-auto shrink-0 me-3",
-                "color": "text-sky-500"
-            },       
-            "label": "label-text font-bold dark:text-gray-200",
-            "checkbox": "checkbox-sm checkbox checkbox-default",
-            "field": "field relative mt-2",
-            "value": "text-gray-700",
-            "fields": "grid grid-cols-2 gap-8 md:grid-cols-2 xs:grid-cols-1",
-            "textarea": "textarea dark:text-gray-200 dark:bg-gray-700",   
-            "input": "input dark:text-gray-200 dark:bg-gray-700 dark:border-gray-500",           
-            "select": "select"           
+        "icon": {
+            "size": "h-6 w-6",
+            "class": "my-auto shrink-0 me-3",
+            "color": "text-sky-500"
+        },       
+        "label": "label-text font-bold dark:text-gray-200",
+        "checkbox": "checkbox-sm checkbox checkbox-default",
+        "field": "field relative mt-2",
+        "value": "text-gray-700",
+        "fields": "grid grid-cols-2 gap-8 md:grid-cols-2 xs:grid-cols-1",
+        "textarea": "textarea dark:text-gray-200 dark:bg-gray-700",   
+        "input": "input dark:text-gray-200 dark:bg-gray-700 dark:border-gray-500",           
+        "select": "select"           
     },
     "details": {
         "label": "font-bold uppercase text-sm text-stone-500",
@@ -47,8 +50,9 @@
         "button": "text-white bg-linear-to-r from-sky-400 via-sky-500 to-sky-600 hover:bg-linear-to-br focus:ring-4 focus:outline-hidden focus:ring-sky-300 dark:focus:ring-sky-800 font-medium rounded-lg text-sm px-4 py-1 text-center"
     },
     "buttons": {
+        "default": "btn btn-sm btn-secondary btn-soft",
         "delete": "btn btn-sm btn-error btn-soft",
-        "green": "btn btn-sm btn-success btn-outline",
+        "green": "btn btn-sm btn-success btn-soft text-gray-800",
         "primary": "btn btn-secondary btn-sm btn-soft",
         "icon": "btn btn-text btn-sm btn-square"
     },
@@ -72,6 +76,11 @@
             "size": "h-4 w-4",
             "width": 1,
             "color": "text-orange-500"
+        },
+        "green": {
+            "size": "h-5 w-5",
+            "width": 2,
+            "color": "text-green-500"
         },
         "menu": {
             "size": "h-6 w-6",
