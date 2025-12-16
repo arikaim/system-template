@@ -1,8 +1,19 @@
-{{  component('semantic~tabs',{ 
+{{  component('system:admin.tabs',{ 
         items: [ 
-            { id: 'view_button', title: labels.view.content, component: 'system:admin.extensions.view', icon: 'grid layout', active: true },
-            { id: 'details_button', title: labels.details.content, component: 'system:admin.extensions.extension.details', icon: 'info' }
+            { 
+                title: labels.view.content, 
+                component: 'system:admin.extensions.view', 
+                svg_icon: 'icons~list', 
+                active: true 
+            },
+            {                
+                title: labels.details.content, 
+                component: 'system:admin.extensions.extension.details', 
+                svg_icon: 'icons~info' 
+            }
         ],
-        content: { component: 'system:admin.extensions.view' } 
+        content: { 
+            component: 'system:admin.extensions.view' 
+        } 
     })
 }}

@@ -28,7 +28,7 @@
             {% endif %}
         </div>
     </div>
-    <div>
+    <div class="flex-grow">
         <div class="px-1">
             <div class="badge badge-sm badge-outline">
                 {{ labels.version }}
@@ -54,11 +54,13 @@
             </div>       
             {% endif %} 
         </div>
-        <div class="p-2">
+        <div
+            class="pt-12 h-full min-h-full flex flex-col flex-grow">
             {{ module.description }}
         </div>                           
     </div>      
-    <div class="px-2">
+    <div       
+        class="mt-4">
         {% if module.error is not empty %}
         <div class="alert alert-error alert-sm">
             {{ labels.error }}
@@ -68,13 +70,14 @@
         </div> 
         {% endif %}
     </div>
-    <div class="p-2">
+    <div class="mt-4">
         <div 
             class="alert alert-success alert-xs message opacity-0 m-2" 
             id="message_{{ module.name }}">
         </div>
     </div>  
-    <div class="flex flex-row items-center">
+    <div
+        class="flex flex-row items-center">
         {% if module.installed == true %}
             <button 
                 class="{{ theme.buttons.green }} update-button module-button" 

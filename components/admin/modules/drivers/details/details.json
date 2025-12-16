@@ -1,6 +1,6 @@
 {
     "title": "Driver Details",
-    "icon": "info",
+    "icon": "icons~info",
     "labels": {
         "uuid": "Uuid",
         "name": "Name",   

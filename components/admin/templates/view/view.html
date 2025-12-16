@@ -1,5 +1,5 @@
 {% set items = package('template').getPackages() %}
-<div class="ui stackable cards">
+<div class="mt-4 {{ theme.grid.five }}">
 {% for template in items %}
     {{ component("system:admin.templates.template",{ template_name: template }) }}
 {% endfor %}

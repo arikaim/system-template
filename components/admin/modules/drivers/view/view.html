@@ -1,14 +1,5 @@
-<div class="ui segment">      
-    <div class="ui stackable grid">
-        <div class="ten wide column">
-        </div>
-        <div class="six wide column right aligned">
-            {{ component('semantic~paginator.dropdown',{ class:'mini', namespace: 'drivers' }) }}
-        </div>
-    </div>
-</div>
-<div class="ui segment">
-    <table class="ui compact stackable selectable borderless very basic table ">
+<div class="{{ theme.panel }}">
+    <table class="{{ theme.table.default }}">
         <thead>
             <tr>
                 <th class="collapsing">{{ columns.config }}</th>  
@@ -18,7 +9,10 @@
                 <th class="two wide">{{ columns.title }}</th>                                                                 
             </tr>
         </thead>
-        <tbody id="drivers_rows" component="system:admin.modules.drivers.view.rows" namespace="drivers">
+        <tbody 
+            id="drivers_rows" 
+            component="system:admin.modules.drivers.view.rows" 
+            namespace="drivers">
             {{ component('system:admin.modules.drivers.view.rows') }}
         </tbody>
     </table>

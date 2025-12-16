@@ -7,26 +7,26 @@
         <button 
             mountTo="driver_details"
             component="system:admin.modules.drivers.details"
-            class="ui icon mini compact basic button driver-details" 
+            class="{{ theme.buttons.icon }} driver-details" 
             title="{{ labels.details }}"
             params="driver_name:{{ item.name }}">
-            <i class="icon info"></i>
+            {{ component('icons~info',theme.icons.action,'svg') }}
         </button>
         <button 
-            class="ui icon mini compact basic button driver-config" 
+            class="{{ theme.buttons.icon }} driver-config" 
             title="{{ labels.config }}"
             name="{{ item.name }}" 
             category="{{ item.category }}">
-            <i class="icon cogs"></i>
+            {{ component('icons~cog',theme.icons.action,'svg') }}
         </button>
         {% if hide_uninstall != true %} 
         <button 
-            class="ui icon mini compact basic button driver-uninstall" 
+            class="{{ theme.buttons.icon }} driver-uninstall" 
             title="{{ labels.uninstall }}"
             name="{{ item.name }}" 
             uuid="{{ item.uuid }}"
             category="{{ item.category }}">
-            <i class="icon orange trash"></i>
+             {{ component('icons~trash',theme.icons.delete,'svg') }}
         </button>       
         {% endif %}    
     </td>

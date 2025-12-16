@@ -1,9 +1,25 @@
-{{  component('semantic~tabs',{ 
+{{  component('system:admin.tabs',{ 
         items: [ 
-            { id: 'view_button', title: labels.view.content, component: 'system:admin.templates.view', icon: 'grid layout', active: true },
-            { id: 'details_button', title: labels.details.content, component: 'system:admin.templates.template.details', icon: 'info' },           
-            { id: 'upload_button', title: labels.upload.content, component: 'system:admin.packages.upload', icon: 'upload', params: { title: labels.upload } }
+            { 
+                title: labels.view.content, 
+                component: 'system:admin.templates.view', 
+                svg_icon: 'icons~list', 
+                active: true 
+            },
+            { 
+                title: labels.details.content, 
+                component: 'system:admin.templates.template.details', 
+                svg_icon: 'icons~info' 
+            },           
+            { 
+                title: labels.upload.content, 
+                component: 'system:admin.packages.upload', 
+                svg_icon: 'icons~upload', 
+                params: "title: labels.upload" 
+            }
         ],
-        content: { component: 'system:admin.templates.view' } 
+        content: { 
+            component: 'system:admin.templates.view' 
+        } 
     })
 }}

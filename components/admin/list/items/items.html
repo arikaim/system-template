@@ -1,0 +1,22 @@
+<div   
+    class="{{ theme.list.default }}">
+    {% if items is empty %}
+    <div class="px-2">{{ labels.empty }}</div>
+    {% endif %}
+    {% for item in items %}
+        <div class="px-2 flex flex-row items-center">               
+            {% if icon is defined %}  
+               {{ component(icon,theme.icons.action,'svg') }}   
+            {% endif %} 
+            <div class="flex">
+            {% if item.title is defined %}
+                <div class="ml-2 font-bold">{{ item.title }}</div>
+            {% elseif item.name == "" %}
+                <div class="ml-2 text-md">{{ item }}</div>
+            {% else %}
+                <div class="ml-2 font-bold">{{ item.name }}</div>
+            {% endif %}
+            </div>       
+        </div>
+    {% endfor %}
+</div>

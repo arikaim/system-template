@@ -16,14 +16,7 @@ function Extensions() {
             params: { extension: name }
         });   
     };
-    
-    this.init = function() {
-        arikaim.ui.tab();
-    };
 }
 
 var extensions = new Extensions();
 
-arikaim.component.onLoaded(function() {       
-    extensions.init();    
-});

@@ -9,7 +9,8 @@
 function ComposerPackagesView() {
    
     this.init = function() {
-        paginator.init('composer_rows');      
+        paginator.init('composer_rows'); 
+        this.initRows();     
     };
 
     this.initRows = function() {
@@ -29,5 +30,4 @@ var composerPackages = new ComposerPackagesView();
 
 arikaim.component.onLoaded(function() {    
     composerPackages.init();
-    composerPackages.initRows();
 });

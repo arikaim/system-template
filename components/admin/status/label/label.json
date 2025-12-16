@@ -1,0 +1,39 @@
+{
+    "items": [
+        {
+            "index": 0,
+            "title": "Disabled",
+            "class": "badge badge-secondary badge-sm"
+        },
+        {
+            "index": 1,
+            "title": "Active",
+            "class": "badge badge-success badge-sm"
+        },
+        {
+            "index": 2,
+            "title": "Completed",
+            "class": "badge badge-success badge-sm"
+        },
+        {
+            "index": 3,
+            "title": "Deleted",
+            "class": "badge badge-error badge-sm"
+        },
+        {
+            "index": 4,
+            "title": "Pending",
+            "class": "badge badge-info badge-sm"           
+        },
+        {
+            "index": 5,
+            "title": "Suspended",
+            "class": "badge badge-warning badge-sm"
+        },
+        {
+            "index": 6,
+            "title": "Cancelled",
+            "class": "badge badge-warning badge-sm"
+        } 
+    ]
+}

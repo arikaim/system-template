@@ -12,7 +12,7 @@
                 type="button" 
                 mountTo="{{ tab_content_id }}"
                 component="{{ item.component }}"
-                params="{{ item.params }}"
+                params="{{ item.params|default(item_params) }}"
                 class="tab-item {{ (item.active == true) ? 'active' : '' }} {{ item.class }} tab active-tab:text-blue-500 hover:text-blue-500" 
                 data-tab="#{{ tab_content_id }}" 
                 aria-controls="{{ tab_content_id }}" 

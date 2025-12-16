@@ -1,14 +1,24 @@
-<div class="ui middle aligned divided list">   
+{% if extension_name is not empty %}
+    {% set extension = package('extension').getPackageProperties(extension_name,true) %}
+    {% set items = extension.subscribers %}
+{% endif %}
+<div class="{{ theme.list.default }}">   
     {% if items is empty %}
-        <div class="item">{{ labels.empty }}</div>
+        <div class="px-2">{{ labels.empty }}</div>
     {% endif %}
     {% for subscriber in items %}
-    <div class="item">       
+    <div class="flex flex-row items-center">       
         {{ component('semantic~status.icon',{ status: subscriber.status }) }}      
-        <div class="content">
-            <i class="icon grey code"></i> 
-            <span class="font-bold">{{ subscriber.handler_class|baseClass }}</span> {{ labels.subscribed }} <div class="ui basic label">{{ subscriber.name }}</div>                     
-        </div>                    
+        <i class="icon grey code"></i> 
+        <div class="font-bold">
+            {{ subscriber.handler_class|baseClass }}
+        </div> 
+        <div class="mx-2">
+             {{ labels.subscribed }} 
+        </div>       
+        <div class="badge badge-outline badge-sm">
+            {{ subscriber.name }}
+        </div>                             
     </div>
     {% endfor %}
 </div>

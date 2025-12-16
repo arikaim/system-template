@@ -1,16 +1,19 @@
 {% set extension = package('extension').getPackageProperties(extension_name) %}
 {% set primary_style = (extension.primary == 1) ? 'green' : '' %}
 {% set thumbnail_src = (extension.thumbnail is not empty) ? getExtensionViewUrl(extension_name,'/images/' ~ extension.thumbnail) : null %}  
-<div class="ui raised card {{ error|ifthen(1,'red') }} {{ primary_style }}" id="{{ extension.name }}">     
-    <div class="flex flex-row items-center p-2 border-0 border-b border-solid border-gray-300">    
+{% set icon_name = extension.get('admin-menu').svg_icon|default('icons~puzzle') %}
+<div 
+    class="{{ theme.card.default }} {{ error|ifthen(1,'red') }} {{ primary_style }}" 
+    id="{{ extension.name }}">     
+    <div class="flex flex-row items-center">    
         <div class="pl-1">
-            <i class="left floated large blue icon {{ extension.get('admin-menu').icon }}"></i>       
+            {{ component(icon_name,theme.icons.action,'svg') }}           
         </div>                                                 
         <div class="font-bold mt-1 px-1 flex-grow">
             {{ extension.title }}
         </div>   
         {% if extension.primary == 1 %}     
-        <div class="ui horizontal green mini label primary-label">               
+        <div class="badge badge-sm badge-primary badge-outline">               
             {{ labels.primary }}            
         </div>  
         {% endif %}
@@ -26,22 +29,21 @@
     </div>       
     <div class="flex flex-col self-stretch p-2 flex-grow">
         <div class="p-1">
-            <div class="ui horizontal basic mini label">               
+            <div class="badge badge-outline badge-sm">               
                 {{ labels.version }} 
-                <div class="detail">{{ extension.version }}</div>
+                <div class="font-bold">{{ extension.version }}</div>
             </div>  
             {% if extension.type == 1 %}
-            <div class="ui horizontal blue mini label">
+            <div class="badge badge-outline badge-sm badge-info">
                 {{ labels.system }}      
             </div>      
             {% endif %} 
         </div>  
-        <div class='self-stretch flex-grow p-1'>
+        <div class='self-stretch flex-grow mt-4'>
             <p>{{ extension.description }}</p>                     
             {% if error == 1 %}
             <div class="ui meta mt-1">
-                <div class="ui mini error message">
-                    <i class="close icon"></i>
+                <div class="alert alert-error alert-sm message">                    
                     {{ messages.error }}
                 </div>
             </div>
@@ -49,38 +51,39 @@
         </div>                 
     </div>        
     <div class="p-2">
-        <div class="ui success mini message opacity-0 m-2" id="message_{{ extension.name }}">
-            <i class="close icon"></i>
+        <div 
+            class="alert alert-success alert-sm message opacity-0 m-2" 
+            id="message_{{ extension.name }}">           
         </div>
+    </div>       
+    <div class="flex flex-row items-center px-1"> 
+        {% if extension.installed == true %}        
+            {% if error != 1 %}  
+            <button 
+                class="{{ theme.buttons.green }} update-button {{ (demo_mode == true) ? 'disabled' : ''}}" 
+                extension="{{ extension.name }}">
+                <i class="icon refresh"></i>
+                {{ buttons.update.content }}
+            </button> 
+            {% endif %} 
+            <button class="{{ theme.buttons.default }} details-button {{ error|ifthen(1,'hidden') }}" extension="{{ extension.name }}" title="{{ buttons.detail.title }}">
+                <i class="icon list layout"></i>  
+                {{ buttons.details.content }}                                
+            </button>               
+            <button 
+                class="{{ theme.buttons.icon }} un-install-button {{ error|ifthen(1,'fluid') }} {{ (demo_mode == true) ? 'disabled' : ''}}" 
+                extension="{{ extension.name }}"
+                title="{{ buttons.uninstall.content }}">
+                {{ component('icons~trash',theme.icons.delete,'svg') }}                              
+            </button>                                                   
+        {% else %}          
+            <button 
+                class="{{ theme.buttons.green }} install-button 
+                    {{ error|ifthen(1,'hidden') }} {{ (demo_mode == true) ? 'disabled' : ''}}" 
+                extension="{{ extension.name }}">
+                  {{ component('icons~download',theme.icons.green,'svg') }}                
+                {{ buttons.install.content }}
+            </button> 
+        {% endif %}           
     </div>   
-    <div class="extra content">
-        <div class="flex flex-row items-center px-1"> 
-            {% if extension.installed == true %}        
-                {% if error != 1 %}  
-                <button class="ui fluid mini compact button basic green icon labeled update-button {{ (demo_mode == true) ? 'disabled' : ''}}" extension="{{ extension.name }}">
-                    <i class="icon refresh"></i>
-                    {{ buttons.update.content }}
-                </button> 
-                {% endif %} 
-                <button class="ui basic icon mini compact labeled blue button details-button {{ error|ifthen(1,'hidden') }}" extension="{{ extension.name }}" title="{{ buttons.detail.title }}">
-                    <i class="icon list layout"></i>  
-                    {{ buttons.details.content }}                                
-                </button>               
-                <button 
-                    class="ui icon basic mini compact icon button orange un-install-button {{ error|ifthen(1,'fluid') }} {{ (demo_mode == true) ? 'disabled' : ''}}" 
-                    extension="{{ extension.name }}"
-                    title="{{ buttons.uninstall.content }}">
-                    <i class="icon trash"></i>                   
-                </button>                                                   
-            {% else %}          
-                <button 
-                    class="ui basic button basic mini compact icon labeled green install-button 
-                        {{ error|ifthen(1,'hidden') }} {{ (demo_mode == true) ? 'disabled' : ''}}" 
-                    extension="{{ extension.name }}">
-                    <i class="icon download"></i>                    
-                    {{ buttons.install.content }}
-                </button> 
-            {% endif %}           
-        </div>
-    </div>
 </div>

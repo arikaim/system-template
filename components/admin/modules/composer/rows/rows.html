@@ -1,30 +1,32 @@
 {% set composer_packages = package('composer').getPackages(false,{ type: 'composer' }) %}
 {% set paginator = paginate(composer_packages,'composer') %}
 
-<div class="item">
-    <div class="right floated content p-2">
-        <div class="header">
-            {{ labels.version }}
-        </div>
-    </div>
-    <div class="content p-2">
-        <div class="header">
+<div class="flex flex-row items-center">
+    <div class="flex-grow p-2">
+        <div class="font-bold">
             {{ labels.name }}
+        </div>       
+    </div>
+    <div class="place-content-end">
+        <div class="font-bold">
+            {{ labels.version }}
         </div>
     </div>
 </div>
 {% for package in paginator.getItems() %}
-<div class="item">
-    <div class="right floated content">
-        <div class="ui basic label">                      
-            {{ package.version }}                                
-        </div>
-    </div>
-    <div class="content">
-        <i class="icon code"></i>
-        <a class="ui link package-details" package-name="{{ package.name }}">
+<div class="flex flex-row items-center">
+    <div class="flex flex-row items-center flex-grow">
+        {{ component('icons~code',theme.icons.action,'svg') }}
+        <a 
+            class="ml-4 link package-details"
+            package-name="{{ package.name }}">
             {{ package.name }}        
         </a>
+    </div>
+    <div class=" p-2">
+        <div class="badge badge-outline badge-sm">                      
+            {{ package.version }}                                
+        </div>
     </div>
 </div>
 {% endfor %}

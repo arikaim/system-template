@@ -2,13 +2,18 @@
     "navigation": {
         "panel": "-ml-12 xs:-ml-4 md:-ml-12 mt-18 my-8 inline-block bg-stone-50 py-4 px-2 rounded-xl rounded-r-full shadow-sm" 
     },
-    "grid": {
-        "six": "grid grid-cols-6 lg:grid-cols-6 md:grid-cols-3 sm:grid-cols-1 gap-4"
+    "grid": {        
+        "six": "grid items-stretch grid-cols-6 lg:grid-cols-6 md:grid-cols-3 sm:grid-cols-1 gap-4",
+        "five": "grid items-stretch grid-cols-5 lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-1 gap-4"
     },
     "card": {
-        "default": "p-4 w-full border border-stone-200 shadow-sm"
+        "default": "flex flex-col p-4 w-full border border-stone-200 shadow-sm"
     },
     "table": {
+        "field": {
+            "label": "font-bold"
+        },
+        "default": "table",
         "class": "table table-xs",
         "details": "able table-sm table-borderless"
     },
@@ -60,7 +65,9 @@
         "panel": "p-1 mt-2",
         "buttons": "btn-xs btn-outline"
     },
-    "link": "text-sky-800 font-semibold hover:underline hover:text-red-700 transition duration-700 ease-in-out",
+    "link": {
+        "menu": "cursor-pointer transition duration-1000 ease-in-out hover:text-green-500"
+    },
     "page": {
         "size": "w-3/4 xs:w-full sm:w-full md:w-full xl:w-3/4 lg:w-3/4 mx-auto",
         "color" : "bg-gray-50 dark:bg-gray-950",
@@ -110,7 +117,8 @@
             "color": "text-sky-500"
         },
         "delete": {
-            "size": "h-5 w-5",
+            "size": "h-6 w-6",
+            "width": 2,
             "class": "cursor-pointer focus:text-red-800 transition duration-1000 ease-in-out",
             "color": "text-red-500"
         },

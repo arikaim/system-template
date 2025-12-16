@@ -1,41 +1,52 @@
 {
     "tabs": {
         "routes": {
-            "content": "Routes"     
+            "title": "Routes",
+            "active": true,
+            "component": "system:admin.routes",
+            "params": "extension_name:{{extension_name}}"          
         },
         "database": {
-            "content": "Database"
+            "title": "Database",
+            "svg_icon": "icons~database",
+            "component": "system:admin.extensions.extension.details.list",
+            "params": "extension_name:{{extension_name}},key:database"                    
         },
         "events": {
-            "content": "Events"
+            "title": "Events",
+            "svg_icon": "icons~calendar",
+            "component": "system:admin.extensions.extension.details.list",
+            "params": "extension_name:{{extension_name}},key:events" 
         },
         "subscribers": {
-            "content": "Subscribers"
+            "title": "Subscribers",
+            "svg_icon": "icons~calendar",
+            "component": "system:admin.extensions.extension.subscribers",
+            "params": "extension_name:{{extension_name}},key:subscribers" 
         },
         "view": {
-            "content": "View"
+            "title": "View"
         },
         "components": {
-            "content": "Components"
+            "title": "Components"
         },
         "pages": {
-            "content": "Pages"
+            "title": "Pages"
         },
         "emails": {
-            "content": "Emails"
+            "title": "Emails"
         },
         "jobs": {
-            "content": "Jobs"
+            "title": "Jobs"
         },
         "actions": {
-            "content": "Actions"
+            "title": "Actions"
         },
         "macros": {
-            "content": "Macros"
+            "title": "Macros"
         },       
         "console": {
-            "content": "Console",
-            "title": "Console Commands"
+            "title": "Console"           
         }
     },
     "labels": {

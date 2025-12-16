@@ -9,10 +9,10 @@
         page-icon="{{ menu['page-icon'] }}" 
         page-title="{{ menu['page-title'] }}">
         <div class="px-5 py-2 flex flex-row items-center menu-item-title border-0 border-b-2 border-gray-900 border-solid">          
-            {% if menu.svg_icon is not empty %}
-                {{ component(menu.svg_icon,theme.icons.menu,"svg") }}   
+            {% if menu.icon is not empty %}
+                {{ component(menu.icon,theme.icons.menu,"svg") }}   
             {% endif %}
-            <span class="text-lg tracking-wide pl-4 text-gray-300 sm:hidden lg:inline md:hidden">
+            <span class="{{ theme.link.menu }} text-lg tracking-wide pl-4 text-gray-300 sm:hidden lg:inline md:hidden">
                 {{ menu.title }}
             </span>
         </div>

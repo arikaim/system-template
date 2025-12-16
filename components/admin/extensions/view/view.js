@@ -12,10 +12,6 @@ function ExtensionsView() {
     this.init = function() {        
         this.loadMessages('system:admin.extensions');
 
-        $('.popup-button').popup({ 
-            on: 'click' 
-        });
-
         $('.enable-dropdown').dropdown({
             onChange: function(value) {               
                 var name = $(this).attr('extension');

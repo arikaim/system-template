@@ -20,14 +20,6 @@ function Templates() {
             arikaim.ui.setActiveTab('#details_button');
         });
     };
-
-    this.init = function() {     
-       arikaim.ui.tab();
-    };
 }
 
 var templates = new Templates();
-
-arikaim.component.onLoaded(function() {  
-    templates.init();   
-});

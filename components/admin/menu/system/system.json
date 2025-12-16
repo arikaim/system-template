@@ -3,59 +3,59 @@
         "items": {
             "extensions": {
                 "component": "system:admin.extensions",
-                "icon": "puzzle",
+                "icon": "icons~puzzle",
                 "title": "Extensions",
                 "page-icon": "puzzle",
                 "page-title": "Extensions"
             },
             "templates": {
                 "component": "system:admin.templates",
-                "icon": "browser",
+                "icon": "icons~template",
                 "title": "Templates",
-                "page-icon": "browser",
+                "page-icon": "icons~template",
                 "page-title": "Templates"
             },
             "libraries": {
                 "component": "system:admin.libraries",
-                "icon": "cubes",
+                "icon": "icons~cube",
                 "title": "UI Libraries",
-                "page-icon": "cubes",
+                "page-icon": "icons~cube",
                 "page-title": "UI Libraries"
             },
             "modules": {
                 "component": "system:admin.modules",
-                "icon": "plug",
+                "icon": "icons~info",
                 "title": "Modules",
-                "page-icon": "plug",
+                "page-icon": "icons~info",
                 "page-title": "Modules"
             },
             "languages": {
                 "component": "system:admin.languages",
-                "icon": "globe",
+                "icon": "icons~globe",
                 "title": "Languages",
                 "page-title": "Languages", 
-                "page-icon": "globe"
+                "page-icon": "icons~globe"
             },
             "system": { 
                 "component": "system:admin.system",
-                "icon": "setting",
+                "icon": "icons~cog",
                 "title": "System",
-                "page-icon": "setting",
+                "page-icon": "icons-cog",
                 "page-title": "System"
             },
             "logout": { 
                 "component": "system:logout",
-                "icon": "sign out",
+                "icon": "icons~logout",
                 "title": "Log out",
-                "page-icon": "sign out",
+                "page-icon": "icons~logout",
                 "page-title": "Log out"
             }   
         },
         "store": { 
             "component": "system:admin.packages.store",
-            "icon": "store",
+            "icon": "icons~shopping.cart",
             "title": "Store",
-            "page-icon": "store",
+            "page-icon": "icons~shopping.cart",
             "page-title": "Store"
         }  
     }
