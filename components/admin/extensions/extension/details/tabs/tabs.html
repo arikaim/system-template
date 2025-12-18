@@ -51,7 +51,6 @@
 <div class="mt-4">
     {{  component('system:admin.tabs.vertical',{ 
             items: tabs|renderParams({ extension_name: extension_name }),
-            item_params: 'extension_name:' ~ extension_name,
             content: {
                 id: 'extension_items_tab_content',
                 component: 'system:admin.routes',

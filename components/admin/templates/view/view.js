@@ -35,13 +35,10 @@
                     replace: true
                 },function(result) {
                     self.initRows();
-                    arikaim.page.toastMessage(message);
+                    arikaim.ui.getComponent('toast').show(message);                   
                 });  
             },function(error) {
-                arikaim.page.toastMessage({
-                    message: error,
-                    class: 'error'
-                }); 
+                arikaim.ui.getComponent('toast').show(error);                  
             });
         });
     
@@ -57,18 +54,16 @@
                     replace: true
                 },function(result) {
                     self.initRows();   
-                    arikaim.page.toastMessage(message);                                    
+                    arikaim.ui.getComponent('toast').show(message);                                                   
                 });               
             },function(error) {
-                arikaim.page.toastMessage({
-                    message: error,
-                    class: 'error'
-                }); 
+                arikaim.ui.getComponent('toast').show(error);                                   
             });
         });
     
         arikaim.ui.button('.details-button',function(element) {  
-            var name = $(element).attr('template');          
+            var name = $(element).attr('template');   
+            
             templates.showDetailsPage(name);
             
             return true;

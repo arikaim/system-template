@@ -1,0 +1,7 @@
+{% set template = package('template').getPackageProperties(template_name,true) %}
+
+{{  component('system:admin.list.items',{ 
+        items: template.toArray()[key], 
+        icon: icon
+    }) 
+}} 

@@ -8,16 +8,15 @@
 'use strict';
 
 function Templates() { 
-    var self = this;
-   
+
     this.showDetailsPage = function(name) {
         arikaim.page.loadContent({
             id : 'tab_content',
             component : 'system:admin.templates.template.details',
-            params: { 'template_name': name }
-        },function(result) {
-            $('#templates_details_tab .item').tab();
-            arikaim.ui.setActiveTab('#details_button');
+            params: { 
+                template_name: name 
+            }
+        },function(result) {            
         });
     };
 }

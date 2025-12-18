@@ -1,34 +1,50 @@
 {
     "tabs": {
-        "themes": {
-            "content": "Themes"
-        },
-        "styles": {
-            "content": "Styles"
-        },
         "components": {
-            "content": "Components"
+            "title": "Components",
+            "active": true,
+            "svg_icon": "icons~code",
+            "component": "system:admin.component",
+            "params": "template_name:{{template_name}}"
         },
         "macros": {
-            "content": "Macros"
+            "title": "Macros",
+            "svg_icon": "icons~code",
+            "component": "system:admin.templates.template.details.list",
+            "params": "template_name:{{template_name}},key:macros,icon:icons~code"
         },
         "pages": {
-            "content": "Pages"
+            "title": "Pages",
+            "svg_icon": "icons~template",
+            "component": "system:admin.templates.template.details.list",
+            "params": "template_name:{{template_name}},key:pages,icon:icons~template"
         },
         "routes": {
-            "content": "Routes"
+            "title": "Routes"
         },
         "emails": {
-            "content": "Emails"
-        },
+            "title": "Emails",
+            "svg_icon": "icons~mail",
+            "component": "system:admin.templates.template.details.list",
+            "params": "template_name:{{template_name}},key:mail,icon:icons~mail"
+        },        
         "css": {
-            "content": "Css Files"
+            "title": "Css Files",
+            "svg_icon": "icons~mail",
+            "component": "system:admin.templates.template.details.list",
+            "params": "template_name:{{template_name}},key:mail,icon:icons~mail"
         },
         "js": {
-            "content": "Js Files"
+            "title": "Js Files",
+            "svg_icon": "icons~mail",
+            "component": "system:admin.templates.template.details.list",
+            "params": "template_name:{{template_name}},key:mail,icon:icons~mail"
         },
         "languages": {
-            "content": "Languages"
+            "title": "Languages",
+            "svg_icon": "icons~mail",
+            "component": "system:admin.templates.template.details.list",
+            "params": "template_name:{{template_name}},key:mail,icon:icons~mail"
         }
     },
     "labels": {

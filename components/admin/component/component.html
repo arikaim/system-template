@@ -1,21 +1,30 @@
+{% if extension_name is not empty %}
+    {% set extension = package('extension').getPackageProperties(extension_name,true) %}
+    {% set components = extension.components %}
+{% endif %}
+{% if template_name is not empty %}
+    {% set template = package('template').getPackageProperties(template_name,true) %}
+    {% set components = template.components %}
+{% endif %}
+
 <div class="ui accordion components-list">
     {% if components is empty %}
-        <div class="text">..</div>
+        <div class="px-2">..</div>
     {% endif %}
     {% for component in components %}
-    {% set count = count + 1 %}
-    <div class="title">
-        <i class="code icon"></i>
-        <i class="dropdown icon"></i>
-        {{ component.full_name }}
-    </div>
-    <div 
-        class="content" 
-        component-name="{{ component.full_name }}" 
-        id="component_{{ count }}" 
-        extension="{{ extension }}" 
-        template="{{ template }}"
-        library="{{ library }}">        
-    </div>
+        {% set count = count + 1 %}
+        <div class="title">
+            <i class="code icon"></i>
+            <i class="dropdown icon"></i>
+            {{ component.full_name }}
+        </div>
+        <div 
+            class="content" 
+            component-name="{{ component.full_name }}" 
+            id="component_{{ count }}" 
+            extension="{{ extension_name }}" 
+            template="{{ template_name }}"
+            library="{{ library }}">        
+        </div>
     {% endfor %}
 </div>

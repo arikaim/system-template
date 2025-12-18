@@ -1,18 +1,17 @@
-<div class="ui list">
+<div class="{{ theme.list.default }}">
     {% if items is empty %}
         <div class="item">{{ labels.empty }}</div>
     {% endif %}
     {% for item in items %}
-    <div class="item">
+    <div class="flex flex-row items-center">
         <i class="icon grey middle aligned {{ icon }}"></i>
-        <div class="content">
-            <div class="header">{{ item.name }}</div>
+        <div class="flex flex-row items-center">
+            <div class="font-bold">{{ item.name }}</div>
             <div class="description">
                 {{ item.title }}
                 {% if item.help is defined %}                   
-                    <div class="ui basic label">
-                        <i class="info circle icon"></i>                                           
-                        <div class="detail">
+                    <div class="badge badge-sm badge-outline">                                             
+                        <div class="font-bold">
                             {% if help_icon is not empty %}
                                 <i class="icon {{ help_icon }}"></i>       
                             {% endif %}

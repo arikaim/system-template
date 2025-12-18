@@ -14,12 +14,14 @@
         {% if icon is defined %} 
             <i class="icon grey middle aligned {{ icon }}"></i>
         {% endif %} 
-        <div class="px-4 flex-grow">
+        <div class="px-4 flex-grow flex flex-row items-center">
             {% set methods = route.method|default('GET')|split(",") %}     
             {% for method in methods %}
-                <div class="badge badge-info badge-outline badge-sm">{{ method }}</div>
+                <div class="badge badge-info badge-xs">{{ method }}</div>
             {% endfor %}
-            {{ base_url }}{{ route.path }}{{ route.pattern }}                  
+            <div class="ml-2">
+                {{ base_url }}{{ route.path }}{{ route.pattern }}     
+            </div>                        
             {% if route.page_name is not empty %}
             <div class="badge badge-outline badge-sm">
                 {{ labels.page }}           

@@ -1,0 +1,23 @@
+{
+    "tabs": {
+        "components": {
+            "title": "Components",
+            "active": true,
+            "svg_icon": "icons~code",
+            "component": "system:admin.component",
+            "params": "extension_name:{{extension_name}}"          
+        },
+        "pages": {
+            "title": "Pages",          
+            "component": "system:admin.extensions.extension.details.list",
+            "svg_icon": "icons~template",
+            "params": "extension_name:{{extension_name}},key:pages"          
+        },
+        "macros": {
+            "title": "Macros",       
+            "svg_icon": "system:admin.extensions.extension.details.list",   
+            "component": "system:admin.routes",
+            "params": "extension_name:{{extension_name}},key:macros"          
+        }
+    }
+}

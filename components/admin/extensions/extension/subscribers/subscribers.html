@@ -9,8 +9,8 @@
     {% for subscriber in items %}
     <div class="flex flex-row items-center">       
         {{ component('semantic~status.icon',{ status: subscriber.status }) }}      
-        <i class="icon grey code"></i> 
-        <div class="font-bold">
+        {{ component('icons~code',theme.icons.action,'svg') }}      
+        <div class="font-bold ml-2">
             {{ subscriber.handler_class|baseClass }}
         </div> 
         <div class="mx-2">

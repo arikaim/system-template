@@ -30,9 +30,9 @@
     <div   
         id="{{ tab_content_id }}"
         class="ml-4 {{ content.class }} p-0 h-full w-full"
-        role="tabpanel">
-        {% if content.component is not empty %}
-            {{ component(content.component,content.params|default({})) }}
+        role="tabpanel">     
+        {% if content.component is not empty %}       
+            {{ component(content.component,content.params|default({}) ) }}
         {% endif %}
     </div>
 </div>

@@ -10,13 +10,13 @@
             "title": "Database",
             "svg_icon": "icons~database",
             "component": "system:admin.extensions.extension.details.list",
-            "params": "extension_name:{{extension_name}},key:database"                    
+            "params": "extension_name:{{extension_name}},key:database,icon:icons~database"                    
         },
         "events": {
             "title": "Events",
             "svg_icon": "icons~calendar",
             "component": "system:admin.extensions.extension.details.list",
-            "params": "extension_name:{{extension_name}},key:events" 
+            "params": "extension_name:{{extension_name}},key:events,icon:icons~calendar" 
         },
         "subscribers": {
             "title": "Subscribers",
@@ -25,28 +25,34 @@
             "params": "extension_name:{{extension_name}},key:subscribers" 
         },
         "view": {
-            "title": "View"
-        },
-        "components": {
-            "title": "Components"
-        },
-        "pages": {
-            "title": "Pages"
+            "title": "View",
+            "svg_icon": "icons~list",
+            "component": "system:admin.extensions.extension.details.view",
+            "params": "extension_name:{{extension_name}},icon:icons~list" 
         },
         "emails": {
-            "title": "Emails"
+            "title": "Emails",
+            "svg_icon": "icons~mail",
+            "component": "system:admin.extensions.extension.details.list",
+            "params": "extension_name:{{extension_name}},key:emails,icon:icons~mail"
         },
         "jobs": {
-            "title": "Jobs"
+            "title": "Jobs",
+            "svg_icon": "icons~cog",
+            "component": "system:admin.extensions.extension.details.list",
+            "params": "extension_name:{{extension_name}},key:jobs,icon:icons~cog"
         },
         "actions": {
-            "title": "Actions"
-        },
-        "macros": {
-            "title": "Macros"
-        },       
+            "title": "Actions",
+            "svg_icon": "icons~code",
+            "component": "system:admin.extensions.extension.details.list",
+            "params": "extension_name:{{extension_name}},key:actions,icon:icons~code"
+        },            
         "console": {
-            "title": "Console"           
+            "title": "Console",
+            "svg_icon": "icons~terminal",
+            "component": "system:admin.extensions.extension.details.list.description",
+            "params": "extension_name:{{extension_name}},key:console_commands,icon:icons~terminal"          
         }
     },
     "labels": {

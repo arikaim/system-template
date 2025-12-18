@@ -1,6 +1,6 @@
 {
     "title": "Upload",
-    "icon": "upload",
+    "icon": "icons~upload",
     "labels": {
         "upload": "Upload",
         "file": "Package .zip file"

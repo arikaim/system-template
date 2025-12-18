@@ -1,9 +1,11 @@
 {% if items.count > 0 %}
-    <h4 class="font-bold">{{ labels.title }}</h4>  
+    <h4 class="font-bold">
+        {{ labels.title }}
+    </h4>  
 {% endif %}   
-{{ component('system:admin.packages.requires.items',{ title: labels.library, items: items.library, icon: 'cube' }) }}    
-{{ component('system:admin.packages.requires.items',{ title: labels.extension, items: items.extensions, icon: 'puzzle piece' }) }} 
-{{ component('system:admin.packages.requires.items',{ title: labels.module, items: items.modules, icon: 'plug' }) }}  
-{{ component('system:admin.packages.requires.items',{ title: labels.theme, items: items.themes, icon: 'browser' }) }}    
-{{ component('system:admin.packages.requires.items',{ title: labels.composer, items: items.composer, icon: 'code' }) }}  
-{{ component('system:admin.packages.requires.items',{ title: labels.pip, items: items.pip, icon: 'code' }) }} 
+{{ component('system:admin.packages.requires.items',{ title: labels.library, items: items.library, icon: 'icons~cube' }) }}    
+{{ component('system:admin.packages.requires.items',{ title: labels.extension, items: items.extensions, icon: 'icons~puzzle' }) }} 
+{{ component('system:admin.packages.requires.items',{ title: labels.module, items: items.modules, icon: 'icons~code' }) }}  
+{{ component('system:admin.packages.requires.items',{ title: labels.theme, items: items.themes, icon: 'icons~template' }) }}    
+{{ component('system:admin.packages.requires.items',{ title: labels.composer, items: items.composer, icon: 'icons~code' }) }}  
+{{ component('system:admin.packages.requires.items',{ title: labels.pip, items: items.pip, icon: 'icons~code' }) }} 

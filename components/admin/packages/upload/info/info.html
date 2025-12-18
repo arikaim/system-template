@@ -1,4 +1,4 @@
-<div class="ui segment mt-2">
+<div class="{{ theme.panel }} mt-2">
     <h4 class="ui header">
         <i class="icon blue browser" id="icon"></i>
         <div class="content">
@@ -6,7 +6,7 @@
             <div class="sub header" id="description"></div>       
         </div>
     </h4>  
-    <table class="ui very basic table">
+    <table class="{{ theme.table.default }}">
         <tbody>
             <tr>
                 <td>{{ labels.version }}</td>
@@ -36,14 +36,16 @@
                 <p>{{ messages.alert.description }}</p>
             </div>       
         </div>
-    </div>   
-    <div class="ui divider"></div>
-    <div class="mt-2">
-        <div class="ui green button confirm-upload-button" package-directory="" id="confirm_button">
+    </div>       
+    <div class="mt-4">
+        <button 
+            class="{{ theme.buttons.green }} confirm-upload-button" 
+            package-directory="" 
+            id="confirm_button">
             {{ labels.confirm }}
-        </div>
-        <div class="ui orange button right floated cancel-upload-button">
+        </button>
+        <button class="{{ theme.buttons.default }} cancel-upload-button">
             {{ labels.cancel }}
-        </div>
+        </button>
     </div>  
 </div>

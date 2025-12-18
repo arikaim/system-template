@@ -1,11 +1,7 @@
 {% set extension = package('extension').getPackageProperties(extension_name,true) %}
 
-{{ extension_name }}
-key {{ key }}
-ic {{ icon }}
-
-{{  component('system:admin.list.items',{ 
+{{  component('system:admin.list.description',{ 
         items: extension.toArray()[key], 
-        icon: icon
+        icon: 'icons~database'
     }) 
 }} 
