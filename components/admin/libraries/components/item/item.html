@@ -1,34 +1,45 @@
 {% set library = package('components').getPackageProperties(library_name) %}
-<div class="ui card" id="library_{{ library_name }}">  
-    <div class="content">           
-        <i class="ui left floated blue cubes large icon"></i>  
-        {{ library.title }} 
-        <div class="right floated meta">
-            <div class="ui horizontal basic mini label">               
-                {{ labels.version }} 
-                <div class="detail">{{ library.version }}</div>
-            </div>
-            {% if library.help is not empty %}
-            <a class="ui horizontal basic mini label" href="{{ library.help }}" target="_blank">  
-                <i class="question circle outline icon"></i>                            
-                <span class="ui text blue">{{ labels.help }}</span>                          
-            </a>
-            {% endif %}
-        </div> 
+<div 
+    class="h-full {{ theme.card.default }}" 
+    id="library_{{ library_name }}">  
+    <div class="flex flex-row items-center">           
+        {{ component('icons~cube',theme.icons.action,'svg') }}      
+        <div class="ml-2 font-bold">
+            {{ library.title }} 
+        </div>
     </div>
-    <div class="content h-40">  
+    <div class="mt-2 flex flex-row items-center">
+        <div class="badge badge-outline badge-xs">               
+            {{ labels.version }} 
+            <div class="font-bold">{{ library.version }}</div>
+        </div>
+        {% if library.help is not empty %}
+        <a 
+            class="badge badge-outline badge-sm" 
+            href="{{ library.help }}" 
+            target="_blank">                                        
+            <span class="link">{{ labels.help }}</span>                          
+        </a>
+        {% endif %}
+    </div> 
+    <div class="my-2 flex flex-col h-full">  
         <p>
             {{ library.description }}        
         </p>         
     </div>
-    <div class="extra content">
-        <button class="ui basic mini button icon labeled components-details" library-name="{{ library.name }}">
-            <i class="icon info blue"></i>
+    <div class="mt-2 flex flex-row items-center">
+        <button class="{{ theme.buttons.default }} components-details" library-name="{{ library.name }}">
+            {{ component('icons~list',theme.icons.action,'svg') }}      
             {{ labels.details }}
         </button>
+        <div class="flex-grow">
+        </div>
         {% if library.repository is not empty %}
-        <a class="ui mini basic icon button right floated" href="{{ library.repository }}" target="_blank">
-            <i class="icon blue github"></i>           
+        <a 
+            class="{{ theme.buttons.icon }}" 
+            href="{{ library.repository }}" 
+            target="_blank">
+            {{ component('icons~github',theme.icons.action,'svg') }}               
         </a>   
         {% endif %}     
     </div>    

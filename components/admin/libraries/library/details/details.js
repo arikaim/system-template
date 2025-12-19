@@ -9,7 +9,7 @@ arikaim.component.onLoaded(function() {
                 params: { library_name : name },
                 useHeader: true
             },function() {
-                $('#library_details_tab .item').tab();               
+                        
             });     
         }
     });   

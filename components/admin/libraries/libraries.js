@@ -9,12 +9,10 @@
 function Libraries() {
   
     this.setStatus = function(name, status, onSuccess, onError) {
-        var data = {
+        return arikaim.put('/core/api/packages/library/status',{
             name: name,
             status: status
-        };
-
-        return arikaim.put('/core/api/packages/library/status',data,onSuccess,onError);
+        },onSuccess,onError);
     };
 
     this.showDetails = function(name, onSuccess) {
@@ -22,8 +20,7 @@ function Libraries() {
             id: 'tab_content',
             component: 'system:admin.libraries.library.details',
             params: { library_name: name }
-        },function(result) {           
-            $('#library_details_tab .item').tab();  
+        },function(result) {                     
             callFunction(onSuccess,result);           
         });  
     };
@@ -34,15 +31,10 @@ function Libraries() {
             component: "system:admin.libraries.library.details.tabs",
             params: { library_name : name },
             useHeader: true
-        },function(result) {
-            $('#library_details_tab .item').tab();  
+        },function(result) {            
             callFunction(onSuccess,result);             
         });     
     }
 }
 
 var libraries = new Libraries();
-
-arikaim.component.onLoaded(function() {  
-    arikaim.ui.tab();
-});

@@ -15,12 +15,12 @@ function ComponentsLibraryView() {
     }
 
     this.loadDetails = function(name) {
-        arikaim.ui.setActiveTab('#components_details','.components-tab-item');
-
         return arikaim.page.loadContent({
-            id: 'components_content',
+            id: 'component_library_details',
             component: "system:admin.libraries.components.info",
-            params: { library_name : name }              
+            params: { 
+                library_name : name 
+            }              
         });    
     }
 }

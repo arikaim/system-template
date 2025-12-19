@@ -2,23 +2,18 @@
     {{ items|length }}
     {{ title }}
 </h4>
-<div class="ui ten cards">
+<div class="{{ theme.grid.ten }}">
     {% for item in items %}
         {% set icon_name = package_name ~ '~' ~ item.full_name %}
         {% set icon_code = component(icon_name,{ size: 'h-20 w-20' },'svg') %}   
         {% if icon_code is not empty %}     
-            <div class="ui mini card">  
-                <div class="text-center p-8">
+            <div class="{{ theme.card.default }}">  
+                <div class="text-center p-2">
                     {{ icon_code }}     
-                </div>              
-                <div class="content">
-                    <div class="font-bold">
-                        {{ labels.name }}
-                    </div>
-                    <span>
-                        {{ icon_name }}
-                    </span>
-                </div>
+                </div>                              
+                <div class="px-2 text-pretty font-bold text-sm">
+                    {{ icon_name|trim() }}
+                </div>                
             </div>    
         {% endif %}    
     {% endfor %}

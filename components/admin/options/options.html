@@ -1,0 +1,44 @@
+{% if hide_title != true %}
+    <h4>
+        {{ title }}
+    </h4> 
+{% endif %}
+{% if options is not empty %} 
+    <table class="{{ themetable.details }}"> 
+        <thead>
+            <tr>
+                <th class="six wide">{{ labels.key }}</th>
+                <th>{{ labels.value }}</th>                    
+            </tr>
+        </thead>           
+        <tbody>                 
+            {% for key, value in options %}
+            <tr>
+                <td class="right aligned">
+                    {{ key }}
+                </td>
+                <td class="break-all">
+                    {% if value is iterable %}
+                        <div class="ui list"> 
+                        {% for key, param in value %}
+                            <div class="item">
+                                <div class="ui basic mini label px-1 font-bold">
+                                    {{ key }}
+                                </div>
+                                {{ param }}
+                            </div>
+                        {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ value }}
+                    {% endif %}
+                </td>
+            </tr>           
+            {% endfor %}                                                          
+        </tbody>
+    </table>      
+{% else %} 
+    <div>
+        ...
+    </div>
+{% endif %}

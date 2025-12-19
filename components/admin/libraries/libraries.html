@@ -1,10 +1,24 @@
- {# id: 'repository_button', title: labels.repository.content, component: 'system:admin.libraries.repository', icon: 'open box' #},
-{{  component('semantic~tabs',{ 
+{{  component('system:admin.tabs',{ 
         items: [ 
-            { id: 'view_button', title: labels.view.content, component: 'system:admin.libraries.view', icon: 'grid layout', active: true },
-            { id: 'details_button', title: labels.details.content, component: 'system:admin.libraries.library.details', icon: 'info' },              
-            { id: 'components_button', title: labels.components.content, component: 'system:admin.libraries.components', icon: 'cubes blue' }
+            { 
+                title: labels.view.content, 
+                component: 'system:admin.libraries.view', 
+                svg_icon: 'icons~list', 
+                active: true 
+            },
+            { 
+                title: labels.details.content, 
+                component: 'system:admin.libraries.library.details', 
+                svg_icon: 'icons~info'
+            },              
+            { 
+                title: labels.components.content, 
+                component: 'system:admin.libraries.components', 
+                svg_icon: 'icons~cube'
+            }
         ],
-        content: { component: 'system:admin.libraries.view' } 
+        content: { 
+            component: 'system:admin.libraries.view' 
+        } 
     })
 }}
