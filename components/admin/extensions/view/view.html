@@ -1,6 +1,8 @@
 {% set items = package('extension').getPackages() %}
 <div class="mt-8 pb-10 {{ theme.grid.six }}">
-{% for item in items %}
-    {{ component("system:admin.extensions.extension",{ extension_name: item }) }}      
-{% endfor %}
+    {% for item in items %}
+        <div id="{{ item }}">
+            {{ component("system:admin.extensions.extension",{ extension_name: item }) }} 
+        </div>       
+    {% endfor %}
 </div>

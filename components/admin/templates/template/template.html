@@ -34,27 +34,29 @@
         }}                            
     </div>              
     <div class="p-2">
-        <div class="alert alert-success alert-xs message opacity-0 m-2" 
-        id="message_{{ template.name }}"></div>
+        <div 
+            class="alert alert-success alert-xs message opacity-0 my-2" 
+            id="message_{{ template.name }}"></div>
     </div> 
     {% if show_requires == true %}
-    <div class="content">       
+    <div class="mt-2">       
         {% set package = package('template').createPackage(template_name) %}
         {% set items = package.validator.validate() %}       
         {{ component('system:admin.packages.requires',{ items: items }) }}               
     </div> 
     {% endif %}
-    {% if show_buttons == true %}  
-    <div class="extra content">
-        <div class="join flex flex-row items-center px-1">                             
+    {% if show_buttons == true %}     
+        <div class="mt-2 join flex flex-row items-center">                             
             {% if template.name != system_template_name %}
-                <button class="join-item {{ theme.buttons.green }} update-button {{ (demo_mode == true) ? 'disabled' : '' }}" template="{{ template.name }}">
-                    <i class="icon green refresh"></i>
+                <button 
+                    class="join-item {{ theme.buttons.green }} update-button {{ (demo_mode == true) ? 'disabled' : '' }}" 
+                    template="{{ template.name }}">
                     {{ buttons.update.content }}
                 </button>
                 {% set disabled = (template.name == primary_template) ? 'disabled' : '' %}                 
-                <button class="join-item {{ theme.buttons.default }} set-primary {{ disabled }} {{ (demo_mode == true) ? 'disabled' : '' }}" template="{{ template.name }}">
-                    <i class="icon blue angle double up"></i>      
+                <button 
+                    class="join-item {{ theme.buttons.primary }} set-primary {{ disabled }} {{ (demo_mode == true) ? 'disabled' : '' }}" 
+                    template="{{ template.name }}">
                     {{ buttons.primary.content }}
                 </button>                                     
             {% endif %}    
@@ -62,9 +64,8 @@
                 class="join-item {{ theme.buttons.default }} details-button" 
                 template="{{ template.name }}" 
                 title="{{ buttons.details.content }}">
-                {{ component('icons~list',theme.icons.action,'svg') }}                     
+                {{ buttons.details.content }}                         
             </button>
         </div>
-    </div>
     {% endif %}
 </div>      

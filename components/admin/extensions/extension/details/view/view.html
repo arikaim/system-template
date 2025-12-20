@@ -1,11 +1,11 @@
 {{  component('system:admin.tabs.vertical',{ 
-            items: tabs|renderParams({ extension_name: extension_name }),
-            content: {
-                id: 'extension_items_tab_view_content',
-                component: 'system:admin.component',
-                params: {
-                    extension_name: extension_name
-                }
+        items: tabs|renderParams({ extension_name: extension_name }),
+        content: {
+            id: 'extension_items_tab_view_content',
+            component: 'system:admin.component',
+            params: {
+                extension_name: extension_name
             }
+        }
     }) 
 }}

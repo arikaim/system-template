@@ -7,24 +7,16 @@
     {% set components = template.components %}
 {% endif %}
 
-<div class="ui accordion components-list">
+<div class="{{ theme.list.default }}">
     {% if components is empty %}
         <div class="px-2">..</div>
     {% endif %}
-    {% for component in components %}
-        {% set count = count + 1 %}
-        <div class="title">
-            <i class="code icon"></i>
-            <i class="dropdown icon"></i>
-            {{ component.full_name }}
-        </div>
-        <div 
-            class="content" 
-            component-name="{{ component.full_name }}" 
-            id="component_{{ count }}" 
-            extension="{{ extension_name }}" 
-            template="{{ template_name }}"
-            library="{{ library }}">        
+    {% for component in components %}        
+        <div class="flex fle-row items-center">
+            {{ component('icons~code',theme.icons.action,'svg') }}   
+            <div class="ml-2">
+                {{ component.full_name }}            
+            </div>           
         </div>
     {% endfor %}
 </div>

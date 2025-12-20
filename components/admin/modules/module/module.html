@@ -20,7 +20,7 @@
                 {% endif %}
             {% endif %}                                
             {% if module.help is not null %}
-            <div class="mx-2 badge badge-outline badge-success badge-sm">
+            <div class="mx-2 badge badge-outline badge-success badge-xs">
                 <a class="" href="{{ module.help }}" target="_blank" {{ labels.help|attr('title') }}>               
                     {{ labels.help }}        
                 </a>
@@ -30,23 +30,23 @@
     </div>
     <div class="flex-grow">
         <div class="px-1">
-            <div class="badge badge-sm badge-outline">
+            <div class="badge badge-xs badge-outline">
                 {{ labels.version }}
                 <div class="detail">{{ module.version }}</div>
             </div>  
-            <div class="badge badge-sm badge-outline badge-primary">
+            <div class="badge badge-xs badge-outline badge-primary">
                 {{ labels.type }}
                 <div class="font-bold text-gray-800">                    
                     {{ module.type }}
                 </div>
             </div>      
             {% if module.bootable == true %}
-            <div class="badge badge-sm badge-secondary">
+            <div class="badge badge-xs badge-secondary">
                 {{ labels.bootable }}
             </div>
             {% endif %} 
             {% if module.facade.alias is not empty %}
-            <div class="badge badge-sm badge-secondary">
+            <div class="badge badge-xs badge-secondary">
                 {{ labels.facade }}
                 <div class="font-bold text-gray-800">
                     {{ module.facade.alias }}
@@ -81,8 +81,7 @@
         {% if module.installed == true %}
             <button 
                 class="{{ theme.buttons.green }} update-button module-button" 
-                name="{{ module.name }}">     
-                <i class="sync alternate olive icon"></i>
+                name="{{ module.name }}">                    
                 {{ labels.update }}
             </button>
             {% if module.status == 1 %}
@@ -100,8 +99,7 @@
             {% endif %}
         {% else %}
             <button class="{{ theme.buttons.green }} module-button install-button" 
-                name="{{ module.name }}">    
-                {{ component('icons~download',theme.icons.green,'svg') }}
+                name="{{ module.name }}">               
                 {{ labels.install }}
             </button>
         {% endif %}            

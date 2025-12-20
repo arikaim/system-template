@@ -3,38 +3,39 @@
 {% set thumbnail_src = (extension.thumbnail is not empty) ? getExtensionViewUrl(extension_name,'/images/' ~ extension.thumbnail) : null %}  
 {% set icon_name = extension.get('admin-menu').svg_icon|default('icons~puzzle') %}
 <div 
-    class="{{ theme.card.default }} {{ error|ifthen(1,'red') }} {{ primary_style }}" 
-    id="{{ extension.name }}">     
+    class="h-full {{ theme.card.default }} {{ error|ifthen(1,'red') }} {{ primary_style }}">     
     <div class="flex flex-row items-center">    
         <div class="pl-1">
             {{ component(icon_name,theme.icons.action,'svg') }}           
         </div>                                                 
         <div class="font-bold mt-1 px-1 flex-grow">
             {{ extension.title }}
-        </div>   
-        {% if extension.primary == 1 %}     
-        <div class="badge badge-sm badge-primary badge-outline">               
-            {{ labels.primary }}            
-        </div>  
-        {% endif %}
+        </div>          
         {% if extension.type != 1 %}
-            {{  component('semantic~dropdown.enable',{ 
-                    class: ' icon basic mini button',
-                    selected: extension.status,
-                    attributes: { extension: extension.name },
-                    show_label: false
+            {{  component('system:form.fields.switch',{ 
+                    switch_class: 'switch-xs switch-success enable-switch',                    
+                    value: extension.status,
+                    attributes: { 
+                        extension: extension.name 
+                    },
+                    hide_label: true
                 }) 
             }}
         {% endif %} 
     </div>       
     <div class="flex flex-col self-stretch p-2 flex-grow">
-        <div class="p-1">
-            <div class="badge badge-outline badge-sm">               
+        <div class="px-1">
+            {% if extension.primary == 1 %}     
+                <div class="badge badge-xs badge-primary badge-outline">               
+                    {{ labels.primary }}            
+                </div>  
+            {% endif %}
+            <div class="badge badge-outline badge-xs">               
                 {{ labels.version }} 
                 <div class="font-bold">{{ extension.version }}</div>
             </div>  
             {% if extension.type == 1 %}
-            <div class="badge badge-outline badge-sm badge-info">
+            <div class="badge badge-outline badge-xs badge-info">
                 {{ labels.system }}      
             </div>      
             {% endif %} 
@@ -56,32 +57,30 @@
             id="message_{{ extension.name }}">           
         </div>
     </div>       
-    <div class="flex flex-row items-center px-1"> 
+    <div class="flex flex-row items-center"> 
         {% if extension.installed == true %}        
             {% if error != 1 %}  
             <button 
                 class="{{ theme.buttons.green }} update-button {{ (demo_mode == true) ? 'disabled' : ''}}" 
                 extension="{{ extension.name }}">
-                <i class="icon refresh"></i>
                 {{ buttons.update.content }}
             </button> 
             {% endif %} 
             <button class="{{ theme.buttons.default }} details-button {{ error|ifthen(1,'hidden') }}" extension="{{ extension.name }}" title="{{ buttons.detail.title }}">
-                <i class="icon list layout"></i>  
                 {{ buttons.details.content }}                                
             </button>               
             <button 
-                class="{{ theme.buttons.icon }} un-install-button {{ error|ifthen(1,'fluid') }} {{ (demo_mode == true) ? 'disabled' : ''}}" 
+                class="{{ theme.buttons.delete }} un-install-button {{ error|ifthen(1,'fluid') }} {{ (demo_mode == true) ? 'disabled' : ''}}" 
                 extension="{{ extension.name }}"
                 title="{{ buttons.uninstall.content }}">
-                {{ component('icons~trash',theme.icons.delete,'svg') }}                              
+               
+                {{ buttons.uninstall.content }}                           
             </button>                                                   
         {% else %}          
             <button 
                 class="{{ theme.buttons.green }} install-button 
-                    {{ error|ifthen(1,'hidden') }} {{ (demo_mode == true) ? 'disabled' : ''}}" 
-                extension="{{ extension.name }}">
-                  {{ component('icons~download',theme.icons.green,'svg') }}                
+                {{ error|ifthen(1,'hidden') }} {{ (demo_mode == true) ? 'disabled' : ''}}" 
+                extension="{{ extension.name }}">                
                 {{ buttons.install.content }}
             </button> 
         {% endif %}           

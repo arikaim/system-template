@@ -2,41 +2,44 @@
 {% set package = package('library').createPackage(library_name) %}
 {% set params = package.getLibraryParams() %}
 {% set disabled = (params.disabled is empty) ? false : params.disabled %}
-<div class="flex flex-row items-start">
-    
-    <div class="w-1/3 {{ theme.panel }}">        
-        
-         {{ component('icons~cube',{ size: 'h-12 w-12', color: 'text-blue-500' },'svg') }}    
-        <div class="content">
-            {{ library.title|default(library.name) }} 
-            <div class="ui basic mini label">
-                {{ labels.version }}
-                <div class="detail">
-                    {{ library.version }}
+<div class="flex flex-row items-start items-stretch">
+    <div class="flex-1 w-1/3 {{ theme.panel }}"> 
+        <div class="flex flex-row items-center">
+            {{ component('icons~cube',{ size: 'h-12 w-12', color: 'text-blue-500' },'svg') }}                
+            <div class="ml-2 flex flex-col items-start">            
+                <div>
+                    {{ library.title|default(library.name) }} 
+                </div>            
+                <div class="badge badge-xs badge-outline">
+                    {{ labels.version }}
+                    <div class="font-bold">
+                        {{ library.version }}
+                    </div>
                 </div>
-            </div>
-            <div class="sub header">{{ library.description }}</div>                          
-            {% if library.async == true %}
-            <div class="ui basic horizontal blue label">Async</div>
-            {% endif %}
-            {% if library.crossorigin is not empty %}
-            <div class="ui basic blue horizontal label">
-                <span class="text-gray-900">
-                    {{ labels.crossorigin }}
-                </span>    
-                {{ library.crossorigin }}
-            </div>
-            {% endif %}
-            {% if disabled == true %} 
-            <div class="ui basic orange horizontal label">
-                {{ labels.disabled }}
-            </div>
-            {% endif %}
-        </div>    
-            
+            </div>    
+        </div>          
         
+        <div class="mt-2">
+            {{ library.description }}
+        </div>                          
+        {% if library.async == true %}
+        <div class="bdge badge-xs badge-info">Async</div>
+        {% endif %}
+        {% if library.crossorigin is not empty %}
+        <div class="badge badge-xs badge-outline">
+            <span class="text-gray-900">
+                {{ labels.crossorigin }}
+            </span>    
+            {{ library.crossorigin }}
+        </div>
+        {% endif %}
+        {% if disabled == true %} 
+        <div class="badge badge-xs badge-outline">
+            {{ labels.disabled }}
+        </div>
+        {% endif %}      
     </div>
-    <div class="ml-4 w-2/3 {{ theme.panel }}">        
+    <div class="flex-1 ml-4 w-2/3 {{ theme.panel }}">        
         {{  component('system:admin.packages.repository',{ 
                 type: 'library', 
                 package_name: library.name, 
@@ -47,6 +50,9 @@
         }}                                     
     </div>
 </div>
+
+
+
 <div class="ui stackable top attached tabular menu" id="library_details_tab">
     <a class="item active" data-tab="params_tab">
         <i class="icon blue cogs"></i>

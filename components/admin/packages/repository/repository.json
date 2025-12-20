@@ -9,6 +9,7 @@
         "license": "Missing package license key.",
         "empty": "not set"       
     },
+    "title": "Repository",
     "messages": {
         "error": ""
     }

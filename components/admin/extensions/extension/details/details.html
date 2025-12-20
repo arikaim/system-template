@@ -2,12 +2,14 @@
     <div class="font-bold px-2">
         {{ labels.extension }}
     </div>    
-    {{ component("system:admin.extensions.dropdown",{ selected: extension }) }}  
+    <div class="w-96">
+        {{ component("system:admin.extensions.dropdown",{ selected: extension }) }}  
+    </div>    
 </div>                 
 <div 
     id="extension_details" 
     class="mt-4">   
-{% if extension is not empty %}  
-    {{ component("system:admin.extensions.extension.details.tabs",{ extension_name: extension }) }}
-{% endif %}
+    {% if extension is not empty %}  
+        {{ component("system:admin.extensions.extension.details.tabs",{ extension_name: extension }) }}
+    {% endif %}
 </div>

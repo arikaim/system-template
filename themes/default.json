@@ -3,7 +3,7 @@
         "panel": "-ml-12 xs:-ml-4 md:-ml-12 mt-18 my-8 inline-block bg-stone-50 py-4 px-2 rounded-xl rounded-r-full shadow-sm" 
     },
     "grid": {        
-        "six": "grid items-stretch grid-cols-6 lg:grid-cols-6 md:grid-cols-3 sm:grid-cols-1 gap-4",
+        "six": "grid items-stretch grid-cols-6 xl:grid-cols-6 lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-1 gap-4",
         "ten": "grid items-stretch grid-cols-10 lg:grid-cols-10 md:grid-cols-5 sm:grid-cols-2 gap-4",
         "five": "grid items-stretch grid-cols-5 lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-1 gap-4"
     },
@@ -59,7 +59,7 @@
         "default": "btn btn-sm btn-secondary btn-soft",
         "delete": "btn btn-sm btn-error btn-soft",
         "green": "btn btn-sm btn-success btn-soft text-gray-800",
-        "primary": "btn btn-secondary btn-sm btn-soft",
+        "primary": "btn btn-info btn-sm btn-soft",
         "icon": "btn btn-text btn-sm btn-square"
     },
     "paginator": {

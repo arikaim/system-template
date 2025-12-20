@@ -1,0 +1,16 @@
+<div    
+    class="flex lex-row items-center {{ theme.form.field }} {{ class }}">
+    <input 
+        {{ id|attr('id') }}
+        {{ attributes|attr() }}
+        class="switch {{ switch_class|default('switch-success') }}"
+        type="checkbox" 
+        {{ value|default(0)|ifthen(1,'checked') }} 
+        name="{{ name }}" 
+        value="1">
+    {% if hide_label != true %}
+    <label class="{{ theme.form.label }}">
+        {{ label|default(name) }}
+    </label> 
+    {% endif %}                          
+</div>  

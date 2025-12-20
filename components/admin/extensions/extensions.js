@@ -8,15 +8,15 @@
 
 function Extensions() {
     
-    this.showDetails = function(name) {
-        arikaim.ui.setActiveTab('#details_button');
+    this.showDetails = function(name) {      
         arikaim.page.loadContent({
             id: 'tab_content',
             component: 'system:admin.extensions.extension.details',
-            params: { extension: name }
+            params: { 
+                extension: name 
+            }
         });   
     };
 }
 
 var extensions = new Extensions();
-

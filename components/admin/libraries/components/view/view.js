@@ -14,9 +14,11 @@ function ComponentsLibraryView() {
         });
     }
 
-    this.loadDetails = function(name) {
+    this.loadDetails = function(name, mountTo) {
+        mountTo = getDefaultValue(mountTo,'components_content');
+
         return arikaim.page.loadContent({
-            id: 'component_library_details',
+            id: mountTo,
             component: "system:admin.libraries.components.info",
             params: { 
                 library_name : name 

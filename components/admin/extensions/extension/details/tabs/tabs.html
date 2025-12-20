@@ -2,7 +2,7 @@
 {% set package = package('extension').createPackage(extension_name) %}
 {% set icon_name = extension.get('admin-menu').svg_icon|default('icons~puzzle') %}
 
-<div class="grid grid-cols-2 gap-4">
+<div class="grid grid-cols-2 gap-4 items-strech">
     <div class="w-full">
         <div class="{{ theme.panel }}">
             <div class="p-4">
@@ -37,7 +37,7 @@
             </div> 
         {% endif %}    
     </div>
-    <div class="{{ theme.panel }}">
+    <div class="h-full {{ theme.panel }}">
         {{  component('system:admin.packages.repository',{ 
                 type: 'extension', 
                 package_name: extension.name,

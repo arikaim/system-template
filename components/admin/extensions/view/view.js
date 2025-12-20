@@ -12,30 +12,28 @@ function ExtensionsView() {
     this.init = function() {        
         this.loadMessages('system:admin.extensions');
 
-        $('.enable-dropdown').dropdown({
-            onChange: function(value) {               
-                var name = $(this).attr('extension');
-                return packages.changeStatus(name,'extension',value,function(result) {
-                    menu.loadExtensionsMenu();
-                    menu.loadSystemMenu();
-                    var message = result.message;
+        $('.enable-switch').on('change', function() {           
+            var status = (event.currentTarget.checked == true) ? 1 : 0;  
+            var name = $(this).attr('extension');
 
-                    arikaim.page.loadContent({
-                        id: name,
-                        params: { extension_name: name },
-                        component: 'system:admin.extensions.extension',
-                        replace: true
-                    },function(result) {  
-                        self.init();    
-                        arikaim.page.toastMessage(message);            
-                    });
-                },function(error) {
-                    arikaim.page.toastMessage({
-                        message: message,
-                        class: 'error'
-                    });                           
-                });     
-            }
+            return packages.changeStatus(name,'extension',status,function(result) {
+                menu.loadExtensionsMenu();
+                menu.loadSystemMenu();
+                var message = result.message;
+
+                arikaim.page.loadContent({
+                    id: name,
+                    params: { extension_name: name },
+                    component: 'system:admin.extensions.extension',
+                    replace: true
+                },function(result) {  
+                    self.init();    
+                    arikaim.ui.getComponent('toast').show(message);            
+                });
+            },function(error) {
+                arikaim.ui.getComponent('toast').show(error);                                                 
+            });     
+            
         });
 
         arikaim.ui.button('.details-button',function(element) {

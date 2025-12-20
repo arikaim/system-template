@@ -1,3 +1,6 @@
+<h5 class="font-bold">
+    {{ title }}
+</h5>
 {% if arikaimStore().isLogged() == true %}
     {% set installed_version = installed_version|default('0.0.0') %}
     {% set confirm_overwrite = confirm_overwrite|default(false) %}

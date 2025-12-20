@@ -1,12 +1,12 @@
 {% set items = package('components').getPackages() %}
 <div class="mt-4 {{ theme.grid.six }}">
-{% for library in items %}  
-    <div 
-        id="library_{{ library }}">  
-        {{  component('system:admin.libraries.components.item',{ 
-                library_name : library 
-            }) 
-        }}  
-    </div>
-{% endfor %}
+    {% for library in items %}  
+        <div 
+            id="library_{{ library }}">  
+            {{  component('system:admin.libraries.components.item',{ 
+                    library_name : library 
+                }) 
+            }}  
+        </div>
+    {% endfor %}
 </div>

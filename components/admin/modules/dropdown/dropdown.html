@@ -1,17 +1,26 @@
 {% set items = package('module').getPackages(true) %}
 {% set selected_text = (selected is empty) ? labels.select : selected %}
-<div 
-    id="{{ id|default('modules_dropdown') }}"
-    class="ui floated dropdown labeled search icon basic button {{ class }}">
-    <input name="modules_dropdown" type="hidden" value="{{ selected }}">
-    <i class="plug icon"></i>
-    <span class="text">{{ selected_text }}</span>
-    <div class="menu">
-        {% for item in items %}
-            {% set package = package('module').createPackage(item).getProperties() %}
-            <div class="item" data-value="{{ package.name }}">           
-                {{ package.title|default(package.name) }}
-            </div>
-        {% endfor %}
-    </div>
-</div>
+
+<select 
+    class="select {{ class }} modules-dropdown" 
+    id="modules_dropdown">
+        <option 
+            disabled
+            class="text-gray-100" 
+            {{ (selected is empty) ? 'selected' : '' }} 
+            value="">             
+            {{ labels.select }}
+        </option> 
+    
+    {% for item in items %}    
+        {% if item not in skip %}    
+            {% set package = package('module').createPackage(item).getProperties() %}    
+            <option 
+                class=""
+                {{ package.name|ifthen(selected,'selected') }}
+                value="{{ package.name }}">             
+                {{ package.title }}
+            </option>  
+        {% endif %} 
+    {% endfor %}   
+</select>

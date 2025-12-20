@@ -6,5 +6,22 @@
         "verisons": "Versions",  
         "disabled": "Disabled",            
         "crossorigin": "Crossorigin"
+    },
+    "tabs": {
+        "params": {
+            "title": "Params",   
+            "component": "system:admin.libraries.library.files",
+            "params": "library_name:{{library_name}}"
+        },
+        "files": {
+            "title": "Files",
+            "component": "system:admin.libraries.library.params",
+            "params": "library_name:{{library_name}}"
+        },
+        "verisons": {
+            "title": "Verisons",
+            "component": "system:admin.libraries.library.versions",
+            "params": "library_name:{{library_name}}"
+        }
     }
 }

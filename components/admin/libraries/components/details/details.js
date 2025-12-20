@@ -1,9 +1,8 @@
 'use strict';
 
 arikaim.component.onLoaded(function() {  
-    $('#libraries_dropdown').dropdown({
-        onChange: function(name) {              
-            componentsLibraryView.loadDetails(name);
-        }
+    $('#libraries_dropdown').on('change', function() {
+        var name = $(this).val();
+        componentsLibraryView.loadDetails(name,'component_library_details');
     });   
 });
