@@ -37,7 +37,7 @@
                 "page-title": "System"
             },
             "logout": { 
-                "component": "system:logout",
+                "component": "system:users.logout",
                 "icon": "icons~logout",
                 "title": "Log out",
                 "page-icon": "icons~logout",

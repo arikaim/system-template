@@ -10,8 +10,6 @@ function ControlPanelMenu() {
     var self = this;
     
     this.init = function() {           
-        $('#admin_menu_dropdown').dropdown();
-    
         arikaim.ui.button('#system_menu_button',function(element) {   
             var status = $(element).attr('status');
             if (status == 'true' || status == true) {                

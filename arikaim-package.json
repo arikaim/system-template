@@ -21,10 +21,7 @@
             "arikaim",
             "arikaim-ui",
             "jquery",
-            "highlight",
             "jquery-ui",
-            "fomantic",
-            "tailwind",
             "filepond"
         ],
         "extensions": [
@@ -37,7 +34,8 @@
             "tailwind.min.css"
         ],
         "js": [
-            "control-panel.js"
+            "control-panel.js",
+            "flyonui.js"
         ],
         "components": [
             "system:users",
@@ -49,7 +47,7 @@
             "arikaim:admin",
             "arikaim-ui",
             "arikaim-ui:form",
-            "fomantic",
+            "fomantic:form",
             "highlight:github",
             "filepond",
             "markdown-editor"      

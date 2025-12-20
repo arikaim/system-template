@@ -1,9 +1,11 @@
 'use strict';
 
-arikaim.component.onLoaded(function() {     
+arikaim.component.onLoaded(function() {  
+    /*   
     $('#language_select').dropdown({
-        onChange: function(value) {               
+       onChange: function(value) {               
             arikaim.setLanguage(value);
         }
     });
+    */
 });

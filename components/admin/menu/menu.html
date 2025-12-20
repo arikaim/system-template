@@ -1,19 +1,17 @@
 {% set button_status = getOption('admin.menu.button',false) %}
 <div 
-    class="overflow-y-scroll fixed top-18 left-0 z-40 h-screen flex flex-col bg-gradient-to-r from-gray-800  to-gray-900 pb-20" 
+    class="overflow-y-scroll fixed top-14 left-0 z-40 h-screen flex flex-col bg-gradient-to-b from-gray-800  to-gray-900 pb-20" 
     id="admin_menu">          
     <div id="extensions_menu">        
         {{ component("system:admin.menu.extensions",{ status: 1, type: 0 }) }}
     </div>
-    <div class="divider">
-        <span class="flex items-center justify-center">      
-            <button 
-                status="{{ button_status|default('false') }}"
-                id="system_menu_button" 
-                class="ui teal icon button mini circular">
-                <i class="dropdown icon"></i>
-            </button>
-        </span>
+    <div class="divider divider-horizontal divider-dotted">       
+        <button 
+            status="{{ button_status|default('false') }}"
+            id="system_menu_button" 
+            class="btn btn-sm  btn-circle">
+            {{ component("icons~chevron.down",theme.icons.menu,'svg') }}     
+        </button>        
     </div> 
     <div id="system_menu" class="{{ (button_status != true) ? 'hidden' : '' }}">      
         {{ component("system:admin.menu.system") }}       
