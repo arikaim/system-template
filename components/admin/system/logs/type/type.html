@@ -1,17 +1,21 @@
-{% set id = id|default('log_message_type_dropdown') %}
-
-<div class="ui {{ class }} selection dropdown clearable log-message-type-dropdown" id="{{ id }}">
-    {% if selected is not empty %}
-        <div class="text">{{ items[selected] }}</div>  
-    {% else %}
-        <div class="default text">{{ labels.empty }}</div>  
-    {% endif %}   
-    <i class="dropdown icon"></i>  
-    <div class="ui menu">   
-        {% for key, value in items %}            
-            <div class="item {{ (key == selected) ? 'active': '' }}" data-value="{{ key }}">             
-                {{ items[key] }}
-            </div>   
-        {% endfor %}        
-    </div>  
-</div>
+<select 
+    uuid="{{ uuid }}"
+    {{ attributes|attr() }}
+    class="select select-sm {{ class }} log-message-type-dropdown" 
+    id="{{ id|default('log_message_type_dropdown') }}">
+    {% if show_all == true %}
+        <option             
+             {{ (selected is empty) ? 'selected' : '' }} 
+            value="">          
+            {{ labels.all }}   
+        </option>  
+    {% endif %}
+    
+    {% for key, value in items %}                  
+        <option             
+            {{ key|ifthen(selected,'selected') }}
+            value="{{ key }}">          
+            {{ items[key] }}     
+        </option>  
+    {% endfor %}   
+</select>

@@ -2,7 +2,10 @@
 {% set paginator = paginate(list,'drivers')  %}
     
 {% for item in paginator.getItems() %}
-<tr id="{{ item.uuid }}" class="row" name="{{ item.name }}" category="{{ item.category }}">        
+<tr 
+    id="{{ item.uuid }}" 
+    name="{{ item.name }}" 
+    category="{{ item.category }}">        
     <td class="two wide">
         <button 
             mountTo="driver_details"
@@ -31,7 +34,12 @@
         {% endif %}    
     </td>
     <td class="three wide column">
-        {{ component('semantic~status.dropdown',{ status: item.status, uuid: item.uuid, skip: [2,3,4,5] }) }}  
+        <input 
+            driver-name="{{ item.name }}"
+            type="checkbox"
+            value="1"
+            {{ (item.status == 1) ? 'checked' : '' }}
+            class="switch switch-xs switch-success status-switch">      
     </td>
     <td class="five wide column">{{ item.name }}</td>
     <td>{{ item.category }}</td>

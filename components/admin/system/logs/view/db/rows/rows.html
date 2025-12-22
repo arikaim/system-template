@@ -16,7 +16,7 @@
             {{ row.date_created|dateFormat }} {{ row.date_created|timeFormat }}
         </td>
         <td>
-            <div class="ui basic horizontal mini label {{ (row.level == 400) ? 'red' : '' }}">
+            <div class="badge badge-sm badge-outline {{ (row.level == 400) ? 'badge-error' : '' }}">
                 {{ row.level_name }}
             </div>
         </td>
@@ -25,11 +25,11 @@
         </td>           
         <td>
             {% if row.context|length > 0 %}
-                <div class="ui basic horizontal labels">
+                <div class="flex flex-row items-center">
                 {% for key, value in row.context %}
-                    <div class="ui label">
+                    <div class="badge badge-sm badge-outline">
                         {{ key }}
-                        <span class="ui blue text pl-1">
+                        <span class="font-bold">
                             {{ (value is iterable) ? value|dump : value }}
                         </span>
                     </div>

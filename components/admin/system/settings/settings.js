@@ -22,15 +22,8 @@ function SystemSettings() {
         };
 
         return arikaim.put('/core/api/settings/install-page',data,onSuccess,onError);
-    };
-
-    this.init = function() {   
-        //arikaim.ui.tab('.settings-item','settings_content');
-    };
+    }; 
 }
 
 var settings = new SystemSettings();
 
-arikaim.component.onLoaded(function() {    
-    settings.init();
-});

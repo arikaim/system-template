@@ -1,8 +1,6 @@
 'use strict';
 
 arikaim.component.onLoaded(function() {  
-    $('#module_details_tab .item').tab();
-
     arikaim.ui.button('.update-composer',function(element) {          
         var name = $(element).attr('name');
      

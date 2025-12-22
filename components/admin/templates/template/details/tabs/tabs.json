@@ -20,25 +20,28 @@
             "params": "template_name:{{template_name}},key:pages,icon:icons~template"
         },
         "routes": {
-            "title": "Routes"
+            "title": "Routes",
+            "svg_icon": "icons~template",
+            "component": "system:admin.routes",
+            "params": "template_name:{{template_name}}"
         },
         "emails": {
             "title": "Emails",
             "svg_icon": "icons~mail",
             "component": "system:admin.templates.template.details.list",
-            "params": "template_name:{{template_name}},key:mail,icon:icons~mail"
+            "params": "template_name:{{template_name}},key:emails,icon:icons~mail"
         },        
         "css": {
             "title": "Css Files",
             "svg_icon": "icons~mail",
-            "component": "system:admin.templates.template.details.list",
-            "params": "template_name:{{template_name}},key:mail,icon:icons~mail"
+            "component": "system:admin.templates.template.details.css",
+            "params": "template_name:{{template_name}}"
         },
         "js": {
             "title": "Js Files",
             "svg_icon": "icons~mail",
-            "component": "system:admin.templates.template.details.list",
-            "params": "template_name:{{template_name}},key:mail,icon:icons~mail"
+            "component": "system:admin.templates.template.details.js",
+            "params": "template_name:{{template_name}}"
         },
         "languages": {
             "title": "Languages",

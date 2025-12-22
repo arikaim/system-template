@@ -77,34 +77,34 @@
         </div>
     </div>  
     <div
-        class="flex flex-row items-center">
+        class="join flex flex-row items-center">
         {% if module.installed == true %}
             <button 
-                class="{{ theme.buttons.green }} update-button module-button" 
+                class="join-item {{ theme.buttons.green }} update-button module-button" 
                 name="{{ module.name }}">                    
                 {{ labels.update }}
             </button>
             {% if module.status == 1 %}
             <button 
-                class="{{ theme.buttons.delete }} disable-button module-button" 
+                class="join-item {{ theme.buttons.delete }} disable-button module-button" 
                 name="{{ module.name }}"> 
                 <span class="text-gray-800">{{ labels.disable }}</span>
             </button>
             {% else %}
             <button 
-                class="{{ theme.buttons.green }} enable-button module-button" 
+                class="join-item {{ theme.buttons.green }} enable-button module-button" 
                 name="{{ module.name }}"> 
                 <span class="text-gray-800">{{ labels.enable }}</span>
             </button>
             {% endif %}
         {% else %}
-            <button class="{{ theme.buttons.green }} module-button install-button" 
+            <button class="join-item {{ theme.buttons.green }} module-button install-button" 
                 name="{{ module.name }}">               
                 {{ labels.install }}
             </button>
         {% endif %}            
         <button 
-            class="{{ theme.buttons.default }} module-button details-button" 
+            class="join-item {{ theme.buttons.default }} module-button details-button" 
             name="{{ module.name }}"
             title="{{ labels.details }}">    
             {{ labels.details }}        

@@ -57,20 +57,20 @@
             id="message_{{ extension.name }}">           
         </div>
     </div>       
-    <div class="flex flex-row items-center"> 
+    <div class="join flex flex-row items-center"> 
         {% if extension.installed == true %}        
             {% if error != 1 %}  
             <button 
-                class="{{ theme.buttons.green }} update-button {{ (demo_mode == true) ? 'disabled' : ''}}" 
+                class="join-item {{ theme.buttons.green }} update-button {{ (demo_mode == true) ? 'disabled' : ''}}" 
                 extension="{{ extension.name }}">
                 {{ buttons.update.content }}
             </button> 
             {% endif %} 
-            <button class="{{ theme.buttons.default }} details-button {{ error|ifthen(1,'hidden') }}" extension="{{ extension.name }}" title="{{ buttons.detail.title }}">
+            <button class="join-item {{ theme.buttons.default }} details-button {{ error|ifthen(1,'hidden') }}" extension="{{ extension.name }}" title="{{ buttons.detail.title }}">
                 {{ buttons.details.content }}                                
             </button>               
             <button 
-                class="{{ theme.buttons.delete }} un-install-button {{ error|ifthen(1,'fluid') }} {{ (demo_mode == true) ? 'disabled' : ''}}" 
+                class="join-item {{ theme.buttons.delete }} un-install-button {{ error|ifthen(1,'fluid') }} {{ (demo_mode == true) ? 'disabled' : ''}}" 
                 extension="{{ extension.name }}"
                 title="{{ buttons.uninstall.content }}">
                
@@ -78,7 +78,7 @@
             </button>                                                   
         {% else %}          
             <button 
-                class="{{ theme.buttons.green }} install-button 
+                class="join-item {{ theme.buttons.green }} install-button 
                 {{ error|ifthen(1,'hidden') }} {{ (demo_mode == true) ? 'disabled' : ''}}" 
                 extension="{{ extension.name }}">                
                 {{ buttons.install.content }}

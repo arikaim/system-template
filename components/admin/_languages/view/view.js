@@ -62,11 +62,13 @@ function LanguagesView() {
         
         arikaim.ui.button('.edit-button',function(element) {
             var uuid = $(element).attr('uuid');
-            arikaim.ui.setActiveTab('#edit_button');
+          
             return arikaim.page.loadContent({
                 id: 'tab_content',
                 component: 'system:admin.languages.language.edit',
-                params: { uuid: uuid }
+                params: { 
+                    uuid: uuid 
+                }
             });           
         });
     

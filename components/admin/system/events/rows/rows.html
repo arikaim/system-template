@@ -17,7 +17,7 @@
         <div class="px-2 flex-grow">
             {{ event.title }}
         </div>       
-        <div class="badge badge-outline">
+        <div class="badge badge-outline badge-sm">
                 {% if event.extension_name is not empty %}
                     {{ labels.extension }}
                     <div class="font-bold">                       
@@ -26,7 +26,6 @@
                 {% else %}
                 core
                 {% endif %}
-        </div>         
-                                               
+        </div>                                                        
     </li>
 {% endfor %}

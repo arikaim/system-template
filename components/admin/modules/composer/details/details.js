@@ -7,6 +7,7 @@ arikaim.component.onLoaded(function() {
 
         return packages.install(name,'composer',function(result) {                    
             arikaim.page.toastMessage(result.message);
+            
         },function(error) {              
             arikaim.page.toastMessage({
                 selector: '#message_' + name,

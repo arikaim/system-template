@@ -1,20 +1,17 @@
-<div class="{{ theme.panel }}">
-    <div class="flex flex-row items-center">
-        <div class="grow">
-            <div class="badge">
-                {{ labels.type }}
-            </div>
-        </div>
-        <div class="flex flex-row items-center">
-            <button class="{{ theme.buttons.delete }} delete-logs">
-                {{ component('icons~trash',theme.icons.delete,'svg') }}
-                {{ buttons.delete.content }}
-            </button>            
+<div class="flex flex-row items-center {{ theme.panel }}">  
+    <div class="mx-2">
+        <div class="font-bold">
+            {{ labels.type }}
         </div>
     </div>
+    <div class="flex flex-row items-center">
+        <button class="{{ theme.buttons.delete }} delete-logs">            
+            {{ buttons.delete.content }}
+        </button>            
+    </div>   
 </div>
 <div class="mt-4 {{ theme.panel }}">
-    <table class="ui compact stackable striped very basic table">
+    <table class="{{ theme.table.default }}">
         <thead>
             <tr class="borderless table-head">                
                 <th class="single line">{{ columns.date }}</th>
@@ -23,11 +20,14 @@
                 <th>{{ columns.details }}</th>    
             </tr>
         </thead>
-        <tbody id="logs_rows" component="system:admin.system.logs.view.file.rows" namespace="logs.file">
+        <tbody 
+            id="logs_rows" 
+            component="system:admin.system.logs.view.file.rows" 
+            namespace="logs.file">
             {{ component("system:admin.system.logs.view.file.rows") }}
         </tbody>  
     </table>
 </div>
-<div class="mt-1" id="paginator">
+<div class="mt-2" id="paginator">
     {{ component("semantic~paginator",{ namespace: 'logs.file' }) }}
 </div>

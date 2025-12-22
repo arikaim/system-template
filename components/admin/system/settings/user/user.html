@@ -7,18 +7,15 @@
                     { 
                         title: links.details, 
                         component: 'system:admin.system.settings.user.details', 
-                       
+                        svg_icon: 'icons~info',
                         active: true 
                     },
                     { 
                         title: links.password, 
                         component: 'system:admin.system.settings.user.password', 
-                      
+                        svg_icon: 'icons~lock'
                     }
                 ], 
-                menu: { id: null }, 
-                item_class: 'user-settings-item',
-                class:  'ten wide', 
                 content: { 
                     id: 'user_settings_content', 
                     component: 'system:admin.system.settings.user.details' 

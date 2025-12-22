@@ -1,25 +1,22 @@
 {% set log_level = searchValue('level','logs') %}
-<div class="{{ theme.panel }}">
-    <div class="flex flex-row items-center">           
-        <div class="flex-grow flex flex-row items-center w-full">
-            <div class="badge">
-                {{ labels.type }}
-            </div>            
-            <div class="ml-2">
-                {{  component("system:admin.system.logs.type",{ 
-                        selected: log_level, 
-                        show_all: true 
-                    }) 
-                }}
-            </div>          
-        </div>
-        <div class="place-content-end flex-grow flex flex-row items-center">
-            <button class="{{ theme.buttons.delete }} delete-logs">
-                {{ component('icons~trash',theme.icons.delete,'svg') }}
-                {{ buttons.delete.content }}
-            </button>                
-        </div>
-    </div>   
+<div class="flex flex-row items-center {{ theme.panel }}">     
+    <div class="flex-grow flex flex-row items-center w-full">
+        <div class="font-bold">
+            {{ labels.type }}
+        </div>            
+        <div class="ml-2">
+            {{  component("system:admin.system.logs.type",{ 
+                    selected: log_level, 
+                    show_all: true 
+                }) 
+            }}
+        </div>          
+    </div>
+    <div class="place-content-end flex-grow flex flex-row items-center">
+        <button class="{{ theme.buttons.delete }} delete-logs">              
+            {{ buttons.delete.content }}
+        </button>                
+    </div>  
 </div>
 <div class="mt-4 {{ theme.panel }}">
     <table class="{{ theme.table.class }}">

@@ -1,0 +1,11 @@
+{% set module = package('module').getPackageProperties(module_name,true) %}
+{% if type == 'console' %}    
+    {% set items = module.console_commands %}
+    {% set icon = 'icons~terminal' %}
+{% endif %}
+
+{{  component('system:admin.list.description',{ 
+        items: items, 
+        icon: icon
+    }) 
+}} 

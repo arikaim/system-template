@@ -5,12 +5,12 @@
 <div class="grid grid-cols-2 gap-4 items-strech">
     <div class="w-full">
         <div class="{{ theme.panel }}">
-            <div class="p-4">
+            <div class="p-4 flex flex-row items-center">
                 {{ component(icon_name,{ size: 'h-20 w-20', color: 'text-blue-500' },'svg') }}                           
-                <div class="p-4">
-                    <h3>
+                <div class="p-4 ">
+                    <h4 class="font-bold">
                         {{ extension.title }} 
-                    </h3>                 
+                    </h4>                 
                     <div class="badge badge-outline badge-sm">
                         {{ labels.version }}
                         <div class="font-bold">
@@ -21,11 +21,11 @@
                     <div class="badge badge-primary primary-label">               
                         {{ labels.primary }}            
                     </div>  
-                    {% endif %}
-                    <div class="text-lg">
-                        {{ extension.description }}
-                    </div>
-                </div> 
+                    {% endif %}                    
+                </div>                                                 
+            </div>
+            <div class="text-lg">
+                {{ extension.description }}
             </div>
         </div>        
         {% set items = package.validator.validate() %}  

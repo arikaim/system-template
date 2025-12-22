@@ -56,10 +56,10 @@
         "button": "text-white bg-linear-to-r from-sky-400 via-sky-500 to-sky-600 hover:bg-linear-to-br focus:ring-4 focus:outline-hidden focus:ring-sky-300 dark:focus:ring-sky-800 font-medium rounded-lg text-sm px-4 py-1 text-center"
     },
     "buttons": {
-        "default": "btn btn-sm btn-secondary btn-soft",
-        "delete": "btn btn-sm btn-error btn-soft",
-        "green": "btn btn-sm btn-success btn-soft text-gray-800",
-        "primary": "btn btn-info btn-sm btn-soft",
+        "default": "btn btn-sm btn-secondary btn-outline",
+        "delete": "btn btn-sm btn-error btn-outline",
+        "green": "btn btn-sm btn-outline btn-success text-gray-800",
+        "primary": "btn btn-info btn-sm btn-outline",
         "icon": "btn btn-text btn-sm btn-square"
     },
     "paginator": {

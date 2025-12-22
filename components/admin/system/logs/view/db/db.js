@@ -18,23 +18,23 @@ function DbLogsView() {
             event: 'logs.search.load'
         },'logs')
         
-        $('#log_message_type_dropdown').dropdown({
-            onChange: function(value, text, choice) {                 
-                var searchData = {
-                    search: {
-                        level: value,                       
-                    }          
-                }              
-                search.setSearch(searchData,'logs',function(result) {                  
-                    arikaim.page.loadContent({
-                        id: 'logs_rows',         
-                        component: 'system:admin.system.logs.view.db.rows'
-                    },function(result) {
-                        self.initRows();  
-                        paginator.reload(); 
-                    });
-                });    
-            }
+        $('#log_message_type_dropdown').on('change', function() {
+            var val = $(this).val();
+
+            search.setSearch({
+                search: {
+                    level: val,                       
+                }          
+            },'logs',function(result) {                  
+                arikaim.page.loadContent({
+                    id: 'logs_rows',         
+                    component: 'system:admin.system.logs.view.db.rows'
+                },function(result) {
+                    self.initRows();  
+                    paginator.reload(); 
+                });
+            });    
+            
         });
     };   
 

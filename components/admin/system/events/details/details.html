@@ -52,39 +52,38 @@
                 {{ component('semantic~properties.details',{ properties: event.properties }) }}
             </div>
         {% endif %}
-        <h4 class="font-bold">          
+        <h4 class="font-bold mt-4">          
             {{ labels.subscribers }}
         </h4>
         <div class="{{ theme.list.default }}">
             {% if subscribers|length == 0 %}
-                <div class="item">..</div>
+                <div class="px-2">..</div>
             {% endif %}
             {% for item in subscribers %}
-                <div class="item">
-                    <div class="badge badge-outline">
+                <div class="flex flex-row items-center">
+                    <div class="badge badge-outline badge-sm">
                         {{ labels.priority }}
                         <div class="font-bold">
                             {{ item.priority }}
                         </div>               
                     </div>
-                    <div class="badge badge-outline">
+                    <div class="ml-2 badge badge-outline badge-sm">
                         {{ labels.extension }}
-                        <div class="detail">
-                            <span class="ui text blue">
-                                {{ item.extension_name }}
-                            </span>
+                        <div class="font-bold">
+                            {{ item.extension_name }}
                         </div>
-                    </div>          
-                    <div class="mt-4">              
-                        {{ component('semantic~status.label',{ status: item.status }) }}
-                    
-                        {{ item.handler_class }}
-                        {% if item.handler_method is not empty %}
-                        <div class="badge badge-outline badge-success badge-sm">
-                            {{ item.handler_method }}
-                        </div>
-                        {% endif %}
+                    </div>                             
+                </div>
+                <div class="mt-4 flex flex-row items-center">              
+                    {{ component('system:admin.status.label',{ status: item.status }) }}
+                    <div class="ml-2">
+                          {{ item.handler_class }}
+                    </div>                  
+                    {% if item.handler_method is not empty %}
+                    <div class="badge badge-outline badge-success badge-sm">
+                        {{ item.handler_method }}
                     </div>
+                    {% endif %}
                 </div>
             {% endfor %}
         </div>

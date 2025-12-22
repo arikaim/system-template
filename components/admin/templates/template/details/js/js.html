@@ -3,14 +3,11 @@
 
 <div class="ui list">
     {% if files is not iterable or files|length == 0 %}
-        <div class="item">..</div>
+        <div class="px-1">..</div>
     {% endif %}
     {% for file in files %}
-    <div class="item">
-        <div class="content">
-            <i class="icon outline file"></i>
-            {{ file }}
-        </div>       
+    <div class="flex flex-row items-center">
+        {{ file }}
     </div>
     {% endfor %}
 </div>

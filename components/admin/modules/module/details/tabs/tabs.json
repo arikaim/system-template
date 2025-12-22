@@ -1,11 +1,16 @@
 {
     "tabs": {
         "drivers": {
-            "content": "Drivers"     
+            "title": "Drivers",
+            "component": "system:admin.modules.module.details.list",
+            "params": "module_name:{{module_name}},type:drivers,icon:icons~code",
+            "svg_icon": "icons~code"
         },
         "console": {
-            "content": "Console",
-            "title": "Console Commands"
+            "title": "Console",
+            "component": "system:admin.modules.module.details.list.description",
+            "svg_icon": "icons~terminal",
+            "params": "module_name:{{module_name}},type:console,icon:icons~terminal"           
         }
     },
     "labels": {

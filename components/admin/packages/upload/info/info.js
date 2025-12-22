@@ -16,10 +16,7 @@ arikaim.component.onLoaded(function() {
                 $('#message').html(result.message);
                 
             },function(error) {
-                arikaim.page.toastMessage({
-                    class: 'error',
-                    message: error
-                });
+                arikaim.ui.getComponent('toast').show(error);                  
             });
         });
     

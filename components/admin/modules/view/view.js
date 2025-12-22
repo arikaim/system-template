@@ -27,14 +27,11 @@ function ModulesView() {
                 var message = result.message;            
                 modules.loadModuleDetails(name,function(result) {
                     self.initRows();
-                    arikaim.page.toastMessage(message);
+                    arikaim.ui.getComponent('toast').show(message);                     
                 });               
             },function(error) {              
-                self.initRows();               
-                arikaim.page.toastMessage({
-                    message: error,
-                    class: 'error'
-                }); 
+                self.initRows();        
+                arikaim.ui.getComponent('toast').show(error);                 
             });
         });
 
@@ -45,50 +42,39 @@ function ModulesView() {
                 var message = result.message;    
                 modules.loadModuleDetails(name,function(result) {
                     self.initRows();
-                    arikaim.page.toastMessage(message);
+                    arikaim.ui.getComponent('toast').show(message);         
                 }); 
             },function(error) {               
                 self.initRows();
-                arikaim.page.toastMessage({
-                    message: error,
-                    class: 'error'
-                }); 
+                arikaim.ui.getComponent('toast').show(error);         
             });
         });
 
         arikaim.ui.button('.enable-button',function(element) {         
             var name = $(element).attr('name');
 
-            return packages.enable(name,'module',function(result) {     
-                var message = result.message;             
+            return packages.enable(name,'module',function(result) {                    
                 modules.loadModuleDetails(name,function(result) {
                     self.initRows();
-                    arikaim.page.toastMessage(message);
+                    arikaim.ui.getComponent('toast').show(result.message);       
                 });               
             },function(error) {              
                 self.initRows();
-                arikaim.page.toastMessage({
-                    message: error,
-                    class: 'error'
-                }); 
+                arikaim.ui.getComponent('toast').show(error);                   
             });
         });
 
         arikaim.ui.button('.disable-button',function(element) {          
             var name = $(element).attr('name');
 
-            return packages.disable(name,'module',function(result) {   
-                var message = result.message;               
+            return packages.disable(name,'module',function(result) {             
                 modules.loadModuleDetails(name,function(result) {
                     self.initRows();
-                    arikaim.page.toastMessage(message);
+                    arikaim.ui.getComponent('toast').show(result.message);        
                 });               
             },function(error) {               
                 self.initRows();
-                arikaim.page.toastMessage({
-                    message: error,
-                    class: 'error'
-                }); 
+                arikaim.ui.getComponent('toast').show(error);  
             });
         });
     };

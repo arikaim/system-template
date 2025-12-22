@@ -3,39 +3,50 @@
             { 
                 title: links.user.content, 
                 component: 'system:admin.system.settings.user', 
-                icon: 'user',
                 svg_icon: 'icons~user',
                 active: true 
             },
             { 
                 title: links.date.content, 
                 component: 'system:admin.system.settings.date', 
-                svg_icon: 'icons~calendar',
-                icon: 'calendar' 
+                svg_icon: 'icons~calendar'
             },
             { 
                 title: links.numbers.content, 
                 component: 'system:admin.system.settings.numbers', 
-                icon: 'table' 
+                svg_icon: 'icons~list.numbered' 
             },
             { 
                 title: links.mailer.content, 
                 component: 'system:admin.system.settings.mailer', 
-                svg_icon: 'icons~mail',
-                icon: 'mail outline' 
+                svg_icon: 'icons~mail'               
             },
-            { title: links.logger.content, component: 'system:admin.system.settings.logger', icon: 'warning circle' },
-    { title: links.session.content, component: 'system:admin.system.settings.session', icon: 'server' },
+            { 
+                title: links.logger.content, 
+                component: 'system:admin.system.settings.logger', 
+                svg_icon: 'icons~alert' 
+            },
+            { 
+                title: links.session.content, 
+                component: 'system:admin.system.settings.session', 
+                svg_icon: 'icons~server' 
+            },
             { 
                 title: links.cache.content, 
                 component: 'system:admin.system.settings.cache', 
-                icon: 'sync alternate' 
+                svg_icon: 'icons~stack' 
             },   
-    { title: links.install.content, component: 'system:admin.system.settings.install', icon: 'server' },
-    { title: links.storage.content, component: 'system:admin.system.settings.storage', icon: 'hdd' }
-], 
-        menu: { id: null }, 
-        item_class: 'settings-item',
+            { 
+                title: links.install.content, 
+                component: 'system:admin.system.settings.install', 
+                svg_icon: 'icons~download' 
+            },
+            { 
+                title: links.storage.content, 
+                component: 'system:admin.system.settings.storage',
+                svg_icon: 'icons~database' 
+            }
+        ],       
         content: { 
             id: 'settings_content', 
             component: 'system:admin.system.settings.user' 

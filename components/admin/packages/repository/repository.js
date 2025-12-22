@@ -29,16 +29,10 @@ function PackageRepository() {
 
             return self.download(name,type,repository,repoType,function(result) {
                 // show message
-                arikaim.page.toastMessage({                   
-                    message: result.message,
-                    class: 'success'                    
-                });
+                arikaim.ui.getComponent('toast').show(result.message);  
                 $(element).hide();
             },function(error) {
-                arikaim.page.toastMessage({                  
-                    message: error,
-                    class: 'error'                                           
-                });
+                arikaim.ui.getComponent('toast').show(error);              
             });
         });   
     };

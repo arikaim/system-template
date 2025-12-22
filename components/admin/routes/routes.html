@@ -2,50 +2,58 @@
     {% set extension = package('extension').getPackageProperties(extension_name,true) %}
     {% set routes = extension.routes %}
 {% endif %}
+{% if template_name is not empty %}
+    {% set template = package('template').getPackageProperties(template_name,true) %}
+    {% set routes = template.routes %}
+{% endif %}
+
 <div  
     class="{{ theme.list.default }}">   
     {% if routes is empty %}
-        <div class="px-2">{{ labels.empty }}</div>
+        <div class="px-2">
+            {{ labels.empty }}
+        </div>
     {% endif %}
     {% for route in routes %}
-    <div class="flex-grow flex flex-row items-center">         
-        {% set auth_names = (route.auth is not empty) ? route.auth|split(',') : '' %}
-        {{ component('semantic~status.icon',{ status: route.status }) }}               
-        {% if icon is defined %} 
-            <i class="icon grey middle aligned {{ icon }}"></i>
-        {% endif %} 
-        <div class="px-4 flex-grow flex flex-row items-center">
-            {% set methods = route.method|default('GET')|split(",") %}     
-            {% for method in methods %}
-                <div class="badge badge-info badge-xs">{{ method }}</div>
-            {% endfor %}
-            <div class="ml-2">
-                {{ base_url }}{{ route.path }}{{ route.pattern }}     
-            </div>                        
-            {% if route.page_name is not empty %}
-            <div class="badge badge-outline badge-sm">
-                {{ labels.page }}           
-                <span class="font-bold">{{ route.page_name }}</span>               
-            </div>
-            {% endif %}         
-        </div>    
-        <div class="px-2" title="{{ labels.auth }}">
-            {% set middlewares = route.middlewares|jsonDecode(false) %}
-            {% for middleware in middlewares %}
-                <div class="badge badge-outline badge-sm" 
-                    title="{{ labels.middleware }}">                    
-                    <span class="text-gray-500">
-                        {{ middleware|baseClass }}
-                    </span>
-                </div>
-            {% endfor %}    
-            {% if auth_names is iterable %}
-                {% for item in auth_names %}
-                    <div class="badge badge-outline badge-sm">{{ item }}</div>
+        <div class="flex-grow flex flex-row items-center">         
+            {% set auth_names = (route.auth is not empty) ? route.auth|split(',') : '' %}
+            {{ component('system:admin.status.icon',{ status: route.status }) }}               
+            {% if icon is defined %} 
+
+            {% endif %} 
+            <div class="px-4 flex-grow flex flex-row items-center">
+                {% set methods = route.method|default('GET')|split(",") %}     
+                {% for method in methods %}
+                    <div class="badge badge-info badge-xs">{{ method }}</div>
                 {% endfor %}
-            {% endif %}           
-            {{ component('semantic~labels.route-type',{ type: route.type }) }}                            
-        </div>                    
-    </div>
+                <div class="ml-2">
+                    {{ base_url }}{{ route.path }}{{ route.pattern }}     
+                </div>                        
+                   
+            </div>    
+            <div class="px-2" title="{{ labels.auth }}">
+                {% if route.page_name is not empty %}
+                <div class="badge badge-outline badge-xs">
+                    {{ labels.page }}           
+                    <span class="font-bold">{{ route.page_name }}</span>               
+                </div>
+                {% endif %}    
+                {% set middlewares = route.middlewares|jsonDecode(false) %}
+                {% for middleware in middlewares %}
+                    <div class="badge badge-outline badge-xs" 
+                        title="{{ labels.middleware }}">                    
+                        <span class="text-gray-500">
+                            {{ middleware|baseClass }}
+                        </span>
+                    </div>
+                {% endfor %}    
+                {% if auth_names is iterable %}
+                    {% for item in auth_names %}
+                        <div class="badge badge-outline badge-xs">{{ item }}</div>
+                    {% endfor %}
+                {% endif %}           
+                {{ component('system:admin.labels.route-type',{ type: route.type }) }}                            
+            </div>                    
+        </div>
     {% endfor %}    
 </div>

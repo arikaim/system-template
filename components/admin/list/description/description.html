@@ -4,23 +4,26 @@
     {% endif %}
     {% for item in items %}
     <div class="flex flex-row items-center">
-        <i class="icon grey middle aligned {{ icon }}"></i>
-        <div class="flex flex-row items-center">
-            <div class="font-bold">{{ item.name }}</div>
-            <div class="description">
-                {{ item.title }}
-                {% if item.help is defined %}                   
-                    <div class="badge badge-sm badge-outline">                                             
-                        <div class="font-bold">
-                            {% if help_icon is not empty %}
-                                <i class="icon {{ help_icon }}"></i>       
-                            {% endif %}
-                            {{ item.help }}
-                        </div>
-                    </div>                   
-                {% endif %}
-            </div>
+        {% if icon is defined %}  
+            {{ component(icon,theme.icons.action,'svg') }}   
+        {% endif %}        
+        <div class="font-bold mx-4">
+            {{ item.name }}
         </div>
+        <div          
+            class="flex-grow flex flex-row items-center">
+            <div                
+                class="flex-grow">
+                {{ item.title }}
+            </div>               
+            {% if item.help is defined %}                   
+                <div class="ml-2 badge badge-sm badge-outline">                                             
+                    <div class="font-bold">
+                        {{ item.help }}
+                    </div>
+                </div>                   
+            {% endif %}
+        </div>       
     </div>
     {% endfor %}
 </div>

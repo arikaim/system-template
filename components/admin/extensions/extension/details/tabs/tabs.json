@@ -23,13 +23,7 @@
             "svg_icon": "icons~calendar",
             "component": "system:admin.extensions.extension.subscribers",
             "params": "extension_name:{{extension_name}},key:subscribers" 
-        },
-        "view": {
-            "title": "View",
-            "svg_icon": "icons~list",
-            "component": "system:admin.extensions.extension.details.view",
-            "params": "extension_name:{{extension_name}},icon:icons~list" 
-        },
+        },       
         "emails": {
             "title": "Emails",
             "svg_icon": "icons~mail",

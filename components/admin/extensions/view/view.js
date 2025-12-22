@@ -27,7 +27,7 @@ function ExtensionsView() {
                     component: 'system:admin.extensions.extension',
                     replace: true
                 },function(result) {  
-                    self.init();    
+                    self.init();                        
                     arikaim.ui.getComponent('toast').show(message);            
                 });
             },function(error) {
@@ -56,15 +56,12 @@ function ExtensionsView() {
                     // reload control panel menu
                     self.init();
                   
-                    arikaim.page.toastMessage(message);
+                    arikaim.ui.getComponent('toast').show(message);                      
                     menu.loadSystemMenu();
                     menu.loadExtensionsMenu();
                 });               
             },function(error) {
-                arikaim.page.toastMessage({
-                    message: error,
-                    class: 'error'
-                });                 
+                arikaim.ui.getComponent('toast').show(error);       
             });        
         });
        
@@ -89,10 +86,7 @@ function ExtensionsView() {
                         menu.loadExtensionsMenu();
                     });                  
                 }).fail(function(error) {
-                    arikaim.page.toastMessage({
-                        message: error,
-                        class: 'error'
-                    }); 
+                    arikaim.ui.getComponent('toast').show(error);                   
                 });
             });
         });
@@ -110,16 +104,13 @@ function ExtensionsView() {
                 },function(result) {                  
                     // reload control panel menu                  
                     self.init();
-                    arikaim.page.toastMessage(message);
 
+                    arikaim.ui.getComponent('toast').show(message);         
                     menu.loadSystemMenu();
                     menu.loadExtensionsMenu();
                 });
             }).fail(function(error) {
-                arikaim.page.toastMessage({
-                    message: error,
-                    class: 'error'
-                }); 
+                arikaim.ui.getComponent('toast').show(error);      
             });
         });
 
@@ -139,13 +130,10 @@ function ExtensionsView() {
                     replace: true
                 },function(result) {
                     self.init();
-                    arikaim.page.toastMessage(message);                
+                    arikaim.ui.getComponent('toast').show(message);                                   
                 });  
             },function(error) {
-                arikaim.page.toastMessage({
-                    message: error,
-                    class: 'error'
-                }); 
+                arikaim.ui.getComponent('toast').show(error);                  
             });
         });
     };

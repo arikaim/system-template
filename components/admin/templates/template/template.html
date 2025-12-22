@@ -3,11 +3,10 @@
 {% endif %}
 {% set show_requires = show_requires|default(false) %}
 {% set show_buttons = show_buttons|default(true) %}
-{% set primary_template = service('view').getPrimaryTemplate() %}
+{% set primary_templ = primary_templ|default(getConfigOption('settings/primaryTemplate')) %}
 
 <div 
-    class="{{ theme.card.default }} {{ class }}" 
-    id="{{ template_name }}">    
+    class="h-full {{ theme.card.default }} {{ class }}">       
     <div class="flex flex-row items-center">              
         {{ component(template.svg_icon|default('icons~template'),theme.icons.action,'svg') }}                     
         <div class="font-bold flex-grow ml-2">
@@ -18,7 +17,7 @@
             {{ labels.system }}  
         </div>
         {% endif %}
-        {% if template.name == primary_template %}
+        {% if template.name == primary_templ %}
         <div class="badge badge-xs badge-success primary-label">  
             {{ labels.primary }}  
         </div>

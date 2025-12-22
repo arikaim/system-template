@@ -1,0 +1,16 @@
+{% set class = class|default('tiny left pointing') %}
+{% if type == 1 %}
+    <div class="badge {{ class }} badge-info badge-xs" {{ labels.title|attr('title') }}>
+        {{ labels.page }}
+    </div>
+{% elseif type == 2 %}
+    <div class="badge {{ class }} badge-xs" {{ labels.title|attr('title') }}>{{ labels.api }}</div>
+{% elseif type == 3 %}
+    <div class="badge {{ class }} badge-success badge-xs" {{ labels.title|attr('title') }}>        
+        {{ labels.home }}
+    </div>
+{% elseif type == 4 %}
+    <div class="badge {{ class }} badge-xs" {{ labels.title|attr('title') }}>
+        {{ labels.admin }}
+    </div>
+{% endif %}

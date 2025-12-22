@@ -21,18 +21,19 @@
 
         arikaim.ui.button('.set-primary',function(element) {  
             var name = $(element).attr('template');
-                    
+            
             return packages.setPrimary(name,'template',function(result) {
                 var message = result.message;
                 $('.primary-label').remove();
                 $(this).addClass('disabled grey');
                 $('.set-primary').removeClass('disabled grey');
 
+                console.log(name);
+
                 arikaim.page.loadContent({
-                    id: name,
+                    id: 'id_' + name,
                     params: { template_name: name },
-                    component: 'system:admin.templates.template',
-                    replace: true
+                    component: 'system:admin.templates.template',                   
                 },function(result) {
                     self.initRows();
                     arikaim.ui.getComponent('toast').show(message);                   

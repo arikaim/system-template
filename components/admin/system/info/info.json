@@ -5,6 +5,7 @@
         "composer": "Composer Packages",          
         "modules": "Modules",
         "console": "Console",
+        "details": "Details",
         "node": "NodeJs Info"       
     }  
 }

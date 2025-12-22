@@ -42,6 +42,3 @@ function Languages() {
 
 var languages = new Languages();
 
-arikaim.component.onLoaded(function() {  
-    arikaim.ui.tab();
-});

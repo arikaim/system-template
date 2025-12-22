@@ -1,0 +1,10 @@
+{% if type == 'drivers' %}
+    {% set package = package('module').createPackage(module_name) %}
+    {% set items = package.getDrivers() %}
+{% endif %}
+
+{{  component('system:admin.list.items',{ 
+        items: items, 
+        icon: icon
+    }) 
+}} 

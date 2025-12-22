@@ -1,12 +1,10 @@
-<div class="{{ theme.panel }}">    
-    <div class="flex flex-row items-center">
-        <div class="font-bold p-2">
-            {{ labels.module }}
-        </div>
-        <div class="w-96">
-            {{ component("system:admin.modules.dropdown",{ selected : module, class: 'fluid' }) }}  
-        </div>    
+<div class="flex flex-row items-center {{ theme.panel }}">       
+    <div class="font-bold px-2">
+        {{ labels.module }}
     </div>
+    <div class="w-96">
+        {{ component("system:admin.modules.dropdown",{ selected : module, class: 'fluid' }) }}  
+    </div>       
 </div>
 <div 
     id="module_details" 

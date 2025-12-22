@@ -1,6 +1,16 @@
 {% set items = package('template').getPackages() %}
-<div class="mt-4 {{ theme.grid.five }}">
-{% for template in items %}
-    {{ component("system:admin.templates.template",{ template_name: template }) }}
-{% endfor %}
+{% set primary_templ = getConfigOption('settings/primaryTemplate') %}
+
+<div class="mt-4 {{ theme.grid.five }} items-strech">
+    {% for template in items %}
+        <div 
+            id="id_{{ template }}" 
+            class="h-full">
+            {{  component("system:admin.templates.template",{ 
+                    template_name: template,
+                    primary_templ: primary_templ
+                }) 
+            }}
+        </div>    
+    {% endfor %}
 </div>

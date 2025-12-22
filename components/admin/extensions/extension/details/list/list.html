@@ -1,9 +1,5 @@
 {% set extension = package('extension').getPackageProperties(extension_name,true) %}
 
-{{ extension_name }}
-key {{ key }}
-ic {{ icon }}
-
 {{  component('system:admin.list.items',{ 
         items: extension.toArray()[key], 
         icon: icon

@@ -9,8 +9,7 @@
 function DriversView() {
    
     this.init = function() {
-        paginator.init('drivers_rows');               
-        arikaim.ui.tab('.drivers-tab-item','drivers_tab');            
+        paginator.init('drivers_rows');                     
     };
 
     this.initRows = function() {
@@ -34,21 +33,18 @@ function DriversView() {
             arikaim.events.emit('driver.config',element);
 
             var name = $(element).attr('name');
-            arikaim.ui.setActiveTab('#drivers_config','.drivers-tab-item');
             drivers.loadConfig(name,'driver_details',null,'sixteen wide');
         });
        
-        $('.status-dropdown').dropdown({
-            onChange: function(status) {   
-                var uuid = $(this).attr('uuid');
-                var name = $('#' + uuid).attr('name');
-                if (status == 1) {
-                    drivers.enable(name);
-                }
-                if (status == 0) {
-                    drivers.disable(name);
-                }
+        $('.status-switch').on('change', function() {          
+            var driverName = $(this).attr('driver-name');
+      
+            if (this.checked == true) {
+                drivers.enable(driverName);
+            } else {
+                drivers.disable(driverName);
             }
+           
         });
     };    
 };

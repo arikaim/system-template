@@ -19,6 +19,6 @@
         }
     },
     "labels": {
-        "type": "Db storage"
+        "type": "Message Type"
     }
 }

@@ -1,45 +1,57 @@
 {% set info = system().getSystemInfo()  %}
 {% component 'system:admin.panel' %}
     {% set hide_close = true %}
-    <div class="flex flex-col">                            
-        <div class="my-4">     
-            <div>
-                {{ labels.version }}       
-            </div>                           
-            <div class="badge badge-outline">
-                {{ info.core }}
-            </div>            
-        </div>                             
-        <div class="my-4 flex flex-row items-center">
-            <div class="badge flex flex-row items-center">
-                {{ component('icons~server',theme.icons.badge,'svg') }}
-                <div class="text-sm">{{ info.os_name }}</div> 
-                <div class="text-sm">{{ info.os_version }}</div>
-            </div>                              
-            <div class="mx-4 badge ">
-                {{ info.apache_version }}
-            </div>                                 
-        </div>
-        <div class="mt-2">                  
-            <div class="ui accordion" id="php_extensions_info">
-                <div class="title">                                       
-                    <i class="icon code"></i> 
-                    <i class="dropdown icon"></i>
-                    PHP 
-                    <div class="ui basic min label">{{ info.php_version }}</div>    
-                </div>                                     
-                <div class="content ml-2">
-                {{ component("system:admin.system.info.php-info") }}
+    <div class="grid grid-cols-2 gap-10">
+        <div class="flex flex-col">                            
+            <div class="my-4">     
+                <div>
+                    {{ labels.version }}       
+                </div>                           
+                <div class="badge badge-outline">
+                    {{ info.core }}
+                </div>            
+            </div>                             
+            <div class="my-4 flex flex-row items-center">
+                <div class="badge flex flex-row items-center">
+                    {{ component('icons~server',theme.icons.badge,'svg') }}
+                    <div class="text-sm">{{ info.os_name }}</div> 
+                    <div class="text-sm">{{ info.os_version }}</div>
+                </div>                              
+                <div class="mx-4 badge ">
+                    {{ info.apache_version }}
+                </div>                                 
+            </div>
+            <div class="my-2"> 
+                <div class="font-bold">
+                    PHP
                 </div>
-            </div>            
-        </div>               
+                <div class="badge badge-sm badge-outline">
+                    {{ info.php_version }}
+                </div>                               
+                <button 
+                    id="show_collapse"
+                    aria-expanded="false"
+                    aria-controls="php_info_content"
+                    data-collapse="#php_info_content"
+                    class="ml-2 collapse-toggle btn-xs btn btn-outline btn-info">                                                   
+                    {{ labels.details }}                         
+                </button>                                             
+                <div 
+                    aria-labelledby="show_collapse"
+                    class="my-2 collapse hidden w-full overflow-hidden transition-[height] duration-300 ml-2" 
+                    id="php_info_content">
+                    {{ component("system:admin.system.info.php-info") }}
+                </div>                 
+            </div>  
+        </div>
+
         <div class="my-4">        
             <div class="join flex flex-row items-center">
-                <button class="mx-4 join-item {{ theme.buttons.primary }} check-console">
+                <button class="join-item {{ theme.buttons.primary }} check-console">
                     {{ component('icons~code',theme.icons.title,'svg') }}
                     {{ labels.console }}
                 </button>   
-                <button class="ml-4 join-item {{ theme.buttons.primary }} node-info">
+                <button class="join-item {{ theme.buttons.primary }} node-info">
                     {{ component('icons~code',theme.icons.title,'svg') }}
                     {{ labels.node }}
                 </button>   
@@ -48,6 +60,6 @@
                 class="mt-4" 
                 id="console_content">                                                                        
             </div>    
-        </div>                                                                                                             
-    </div>
+        </div>        
+    </div>                                                                                     
 {% endcomponent %}
