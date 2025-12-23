@@ -1,8 +1,15 @@
-<div class="list">                  
-    {% for file in files %}
-    <div class="item">
-        <i class="file code outline icon"></i>
-        {{ file }}
+{% if library_name is not empty %}
+    {% set library = package('library').getPackageProperties(library_name,true) %}
+    {% set package = package('library').createPackage(library_name) %}  
+{% endif %}
+
+<div class="{{ theme.list.default }}">                  
+    {% for file in library.files %}
+    <div class="flex flex-row items-center">
+        {{ component('icons~document',theme.icons.action,'svg') }}   
+        <div class="ml-2">
+            {{ file }}
+        </div>    
     </div>
     {% endfor %}
 </div>

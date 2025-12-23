@@ -49,6 +49,7 @@
     "drivers": {
         "config": "Driver config was saved successfully.",
         "enable": "Driver was enabled successfully.",
+        "uninstall": "Driver was uninstalled successfully.",
         "disable": "Driver was disabled successfully."
     },
     "options": {

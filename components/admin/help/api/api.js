@@ -7,8 +7,9 @@
 'use strict';
 
 function ApiDocsView() {   
-    this.init = function() {
-        paginator.init('api_rotes_list',"system:admin.help.api.items",'help.api');             
+    
+    this.init = function() {        
+        this.initRows();
     };
 
     this.initRows = function() {
@@ -27,6 +28,5 @@ function ApiDocsView() {
 var apiDocsView = createObject(ApiDocsView,ControlPanelView);
 
 arikaim.component.onLoaded(function() {
-    apiDocsView.init();
-    apiDocsView.initRows();
+    apiDocsView.init();    
 });

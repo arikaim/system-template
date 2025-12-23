@@ -5,10 +5,15 @@
 <div class="h-full {{ theme.card.default }}">   
     <div class="flex flex-row items-center">
         {{ component('icons~cube',theme.icons.action,'svg') }}      
-        <div class="font-bold ml-2" 
-            title="{{ (disabled == true) ? labels.disable : labels.enable }}">
-            {{ library.title|default(library.name) }}             
-        </div>    
+        <div class="font-bold ml-2 flex-grow" 
+            title="{{ (disabled == true) ? labels.disable : labels.enable }}">          
+            {{ library.title|default(library.name) }}
+        </div>            
+        {% if disabled == true %}    
+            {{ component('icons~close',theme.icons.delete,'svg') }}                                    
+        {% else %}
+            {{ component('icons~check',theme.icons.green,'svg') }}                    
+        {% endif %}        
     </div>                      
     <div class="mt-2 flex flex-row items-center">
         <div class="badge badge-xs badge-outline">               

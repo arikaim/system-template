@@ -1,18 +1,17 @@
-<div class="ui segment">  
-    <div class="ui header">
-        <i class="icon server "></i>   
+<div class="{{ theme.panel }}">  
+    <div class="font-bold">       
         {{ labels.requirements }}
     </div>
-    <div class="description ml-2">
+    <div class=" ml-2">
         <div class="ui list">
         {% for item in requirements.items %}
             <div class="item">
-            {% if item.status == 1 %}
-                <i class="icon checkmark olive"></i>
+            {% if item.status == 1 %}              
+                {{ component('icons~check',theme.icons.green,'svg') }}   
             {% elseif item.status == 0 %}
-                <i class="icon warning sign red"></i>
+               {{ component('icons~alert',theme.icons.delete,'svg') }}   
             {% elseif item.status == 2 %}
-                <i class="icon warning circle orange"></i>
+               {{ component('icons~alert',theme.icons.delete,'svg') }}   
             {% endif %}
                 {{ item.message }}
             </div>

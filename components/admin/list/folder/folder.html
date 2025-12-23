@@ -1,18 +1,17 @@
 {% set icon = icon|default('folder') %}
-<div class="list {{ class }}">
+<div class="{{ theme.list.default }} {{ class }}">
     {% for item in items %}
         {% if item is iterable %}
-            <div class="item">          
-                <i class="icon {{ icon }}"></i>
-                <div class="content">                                
+            <div class="flex flex-row items-center">          
+               
+                <div class="px-2">                                
                     {{ item.title }}  
                 </div>           
             </div>
-            {{ component('semantic~list.folder',{ items: item.items, icon: icon, class: class }) }}
+            {{ component('system:admin.list.folder',{ items: item.items, icon: icon, class: class }) }}
         {% else %}
-            <div class="item">
-                <i class="icon {{ icon }}"></i>
-                <div class="content">                                       
+            <div class="flex flex-row items-center">               
+                <div class="px-2">                                       
                     {{ item }}   
                 </div>      
             </div>

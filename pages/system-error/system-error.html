@@ -1,13 +1,13 @@
-{% component "semantic~layout" %}
-    {{ component("system:navbar") }}
+{% component "system:layout" %}
+    {% set hide_title = true %}
     <div class="flex h-screen w-full justify-center">      
         <div class="flex-shrink-0 self-center w-1/2">
-            <div class="ui raised segment">                       
+            <div class="{{ theme.panel }}">                       
                 <h3 class="mt-2 pt-2">
-                    <i class="icon orange warning large sign"></i>
+                   {{ component('icons~alert',theme.icons.delete,'svg') }}   
                     <span class="pl-2">{{ title }}</span>
                 </h3>
-                <div class="ui message"> 
+                <div class="alert alert-error alert-outline"> 
                     {{ (error.message is not empty) ? error.message : error }}
                 </div>
             </div>          

@@ -1,13 +1,12 @@
 {% if library_name is not empty %}
     {% set library = package('library').getPackageProperties(library_name,true) %}
-    {% set package = package('library').createPackage(library_name) %}
-    {% set params = package.getLibraryParams() %}
+    {% set package = package('library').createPackage(library_name) %}  
 {% endif %}
 
 <div class="font-bold">
     {{ labels.params }}
 </div>
-  
+{% if library.params is not empty %}
 <table class="{{ theme.table.details }}">
     <thead>
         <tr>
@@ -16,7 +15,7 @@
         </tr>
     </thead>
     <tbody>
-        {% for name,param in params.params %}
+        {% for name,param in library.params %}
         <tr class="item">
             <td>{{ name }}</td>
             <td>{{ param }}</td>                                                 
@@ -24,3 +23,8 @@
         {% endfor %}
     </tbody>
 </table>   
+{% else %}
+<div>
+    ..
+</div>
+{% endif %}

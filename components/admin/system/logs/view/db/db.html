@@ -29,13 +29,17 @@
             </tr>
         </thead>
         <tbody 
-            id="logs_rows" 
-            component="system:admin.system.logs.view.db.rows" 
-            namespace="logs">
+            id="logs_rows">
             {{ component("system:admin.system.logs.view.db.rows") }}
         </tbody>  
     </table>
-    <div class="mt-1" id="paginator">
-        {{ component("semantic~paginator",{ namespace: 'logs' }) }}
+    <div class="my-2 ml-2" id="paginator">
+        {{  component("system:admin.paginator",{ 
+                id: 'logs_paginator',
+                namespace: 'logs',
+                rows_selector: 'logs_rows',
+                component:"system:admin.system.logs.view.db.rows" 
+            })  
+        }}        
     </div>
 </div>

@@ -7,7 +7,7 @@
         <div class="flex flex-row items-center">
             {{ component('icons~cube',{ size: 'h-12 w-12', color: 'text-blue-500' },'svg') }}                
             <div class="ml-2 flex flex-col items-start">            
-                <div>
+                <div class="font-bold text-lg">
                     {{ library.title|default(library.name) }} 
                 </div>            
                 <div class="badge badge-xs badge-outline">
@@ -50,44 +50,16 @@
         }}                                     
     </div>
 </div>
-
-
-
-<div class="ui stackable top attached tabular menu" id="library_details_tab">
-    <a class="item active" data-tab="params_tab">
-        <i class="icon blue cogs"></i>
-        {{ labels.params }}
-    </a> 
-    <a class="item" data-tab="files_tab">
-        <i class="icon blue outline file"></i>
-        {{ labels.files }}
-    </a>  
-    <a class="item" data-tab="versions_tab">
-        <i class="icon blue code branch"></i>
-        {{ labels.verisons }}
-    </a>     
-</div>
-<div class="ui bottom attached tab segment active" data-tab="params_tab">
-    <div class="ui grid">
-        <div class="four wide column">
-            {% if library.get('params-readonly',false) != true %}        
-                {{  component('system:admin.libraries.library.params.form',{ 
-                        library: library_name, 
-                        params_config: params.params,
-                        params: library.params,
-                        show_label: true, 
-                        show_value: true 
-                    }) 
-                }}
-            {% else %}
-                {{ component('system:admin.libraries.library.params',{ library: library_name, params: params.params }) }}
-            {% endif %}
-        </div>
-    </div>    
-</div>
-<div class="ui bottom attached tab segment" data-tab="files_tab">
-    {{ component('system:admin.libraries.library.files',{ files: library.files }) }}
-</div>
-<div class="ui bottom attached tab segment" data-tab="versions_tab">
-    {{ component('system:admin.libraries.library.versions',{ items: library.versions }) }}
+<div class="mt-4 {{ theme.panel }}">
+    {{  component('system:admin.tabs.vertical',{ 
+            items: tabs|renderParams({ library_name: library_name }),
+            content: {
+                id: 'library_items_tab_content',
+                component: 'system:admin.libraries.library.params',
+                params: {
+                    library_name: library_name
+                }
+            }
+        }) 
+    }}
 </div>

@@ -13,7 +13,7 @@
     "messages": {
         "uninstall": {
             "title": "Confirm",
-            "description": "Uninstall extension '<b><% title %></b>' "
+            "description": "Uninstall extension"
         }  
     }
 }

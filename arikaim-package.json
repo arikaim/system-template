@@ -21,7 +21,6 @@
             "arikaim",
             "arikaim-ui",
             "jquery",
-            "jquery-ui",
             "filepond"
         ],
         "extensions": [
@@ -38,15 +37,12 @@
             "flyonui.js"
         ],
         "components": [
-            "system:users",
-            "semantic~language.translate",
-            "semantic~modal"    
+            "system:users"         
         ],
         "library": [
             "jquery",
             "arikaim:admin",
             "arikaim-ui",
-            "arikaim-ui:form",
             "fomantic:form",
             "highlight:github",
             "filepond",

@@ -1,11 +1,8 @@
 {% set package = package('composer').createPackage(package_name) %}
 {% set details = package.getDetails() %}
-<div class="ui segment">
-    <div class="ui header">
-        {{ title }}
-    </div>
+{% component 'system:admin.panel' %}   
     <div class="mt-4">
-        <table class="ui table very basic definition">
+        <table class="{{ tehme.table.details }}">
             <thead>
                 <tr>
                     <th class="two wide"></th>
@@ -14,25 +11,25 @@
             </thead>
             <tbody>
                 <tr>
-                    <td class="right aligned">{{ labels.name }}</td>
+                    <td class="{{ theme.table.field.label }}">{{ labels.name }}</td>
                     <td>{{ details.name }}</td>
                 </tr>
                 <tr>
-                    <td class="right aligned">{{ labels.version }}</td>
+                    <td class="{{ theme.table.field.label }}">{{ labels.version }}</td>
                     <td>{{ details.version }}</td>
                 </tr>
                 <tr>
-                    <td class="right aligned">{{ labels.source }}</td>
+                    <td class="{{ theme.table.field.label }}">{{ labels.source }}</td>
                     <td>
                         {{  details.source.url }}                 
                     </td>
                 </tr>
                 <tr>
-                    <td class="right aligned">{{ labels.requires }}</td>
+                    <td class="{{ theme.table.field.label }}">{{ labels.requires }}</td>
                     <td>
-                        <ul class="ui list">
+                        <ul class="{{ theme.list.flush }}">
                             {% for name, version in details.require %}
-                            <li cass="item">
+                            <li cass="px-1">
                                 {{ name }} {{ version }}
                             </li>
                             {% endfor %}
@@ -41,17 +38,19 @@
                 </tr>
             </tbody>
         </table>
-        <h4>
+        <h4 class="font-bold my-2">
             {{ labels.description }}
         </h4>
         <p class="p-2 mt-4">
             {{ details.description }}
         </p>   
         <div class="mt-4">
-            <button class="ui mini button icon labeled green update-composer-package" package-name="{{ details.name }}">
-                <i class="icon download"></i>
+            <button 
+                class="{{ theme.buttons.green }} update-composer-package" 
+                package-name="{{ details.name }}">               
                 {{ labels.update }}
             </button>
         </div>
     </div>
 </div>
+{% endcomponent %}

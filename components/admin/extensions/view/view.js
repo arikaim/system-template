@@ -12,7 +12,7 @@ function ExtensionsView() {
     this.init = function() {        
         this.loadMessages('system:admin.extensions');
 
-        $('.enable-switch').on('change', function() {           
+        $('.enable-switch').on('change', function(event) {           
             var status = (event.currentTarget.checked == true) ? 1 : 0;  
             var name = $(this).attr('extension');
 
@@ -67,18 +67,15 @@ function ExtensionsView() {
        
         arikaim.ui.button('.un-install-button',function(element) {             
             var name = $(element).attr('extension');          
-            var message = arikaim.ui.template.render(self.getMessage('uninstall.description'),{ title: name });
-
-            modal.confirm({
-                title: self.getMessage('uninstall.title'),
-                description: message
-            }).done(function() {                              
+         
+            arikaim.ui.getComponent('confirm_uninstall_extension').open(function() {
                 return packages.unInstall(name,'extension').done(function(result) {
                     arikaim.page.loadContent({
                         id: name,
-                        params: { extension_name: name },
-                        component: 'system:admin.extensions.extension',
-                        replace: true
+                        params: { 
+                            extension_name: name 
+                        },
+                        component: 'system:admin.extensions.extension'                       
                     },function(result) {
                         // reload control panel menu
                         self.init();                       
@@ -88,7 +85,7 @@ function ExtensionsView() {
                 }).fail(function(error) {
                     arikaim.ui.getComponent('toast').show(error);                   
                 });
-            });
+             });                         
         });
 
         arikaim.ui.button('.update-button',function(element) {

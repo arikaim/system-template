@@ -1,7 +1,0 @@
-{
-    "include": {       
-        "components": [        
-            "semantic~paginator"           
-        ]       
-    }   
-}

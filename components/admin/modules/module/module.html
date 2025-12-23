@@ -10,13 +10,13 @@
         </div>
         <div class="self-end flex flex-row items-center">  
             {% if module.installed == true %}
-                {% if module.status == 0 %}            
-                    <i class="icon exclamation red" title="{{ labels.disabled }}"></i>                        
+                {% if module.status == 0 %}    
+                    {{ component('icons~close',theme.icons.delete,'svg') }}                                    
                 {% else %}
                     {{ component('icons~check',theme.icons.green,'svg') }}                    
                 {% endif %}
                 {% if module.error != false %}
-                    <i class="icon exclamation triangle red" title="{{ module.error }}"></i>            
+                    {{ component('icons~alert',theme.icons.delete,'svg') }}                       
                 {% endif %}
             {% endif %}                                
             {% if module.help is not null %}

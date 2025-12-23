@@ -1,0 +1,7 @@
+{
+    "title": "Confirm",
+    "buttons": {
+        "cancel": "Cancel",
+        "confirm": "Confirm"
+    }
+}

@@ -1,14 +1,21 @@
-{% if items is iterable %}
-<div class="list">                  
-    {% for key, item in items %}
-    <div class="item">        
-        <div class="ui horizontal basic mini label">{{ key }}</div>
-        <div class="content pl-4">
-            {{ component('system:admin.libraries.library.files',{ files: item.files }) }}     
-        </div>          
+{% if library_name is not empty %}
+    {% set library = package('library').getPackageProperties(library_name,true) %}
+    {% set package = package('library').createPackage(library_name) %}  
+{% endif %}
+
+{% if library.versions|length > 0 %}
+    <div class="{{ theme.list.flux }}">                  
+        {% for key, item in library.versions %}
+        <div class="mt-2 flex flex-col">        
+            <div class="badge badge-sm badge-info">
+                {{ key }}
+            </div>
+            <div class="ml-4 mt-2">
+                {{ component('system:admin.libraries.library.files',{ library_name: library_name }) }}     
+            </div>          
+        </div>
+        {% endfor %}
     </div>
-    {% endfor %}
-</div>
 {% else %}
-<div>..</div>
+    <div>..</div>
 {% endif %}

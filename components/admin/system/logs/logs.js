@@ -13,10 +13,7 @@ function SystemLogs() {
         this.loadMessages('system:admin.system.logs');
 
         arikaim.ui.button('.delete-logs',function(element) {
-            return modal.confirmDelete({ 
-                title: self.getMessage('confirm.delete.title'),
-                description: self.getMessage('confirm.delete.description') 
-            }).done(function() {                
+            return arikaim.ui.getComponent('confirm_delete_logs').open(function() {                
                 self.clear().done(function() {           
                     self.reload();
                 });

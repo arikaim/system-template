@@ -40,7 +40,7 @@
                 </a>
             </div>   
             <div class="px-4" id="language_menu">    
-                {{ component("semantic~language.select",{ selected: current_language }) }}
+                
             </div>
             <div class="px-4" id="user_menu">
                 {{ component("system:admin.user.dropdown") }}
@@ -48,7 +48,7 @@
         </div>  
         {% endif %}
     </div>
-    {% if service('access').isLogged() == true %}  
+    {% if service('access').isLogged() == true and hide_title != true %}  
     <div class="-mt-2 p-1 mx-auto w-72">
         <div 
             class="px-2 pb-1 rounded-b-full shadow-xl bg-gradient-to-b from-indigo-900 via-indigo-900 to-indigo-800 bg-opacity-50

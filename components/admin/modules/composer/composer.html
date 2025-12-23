@@ -2,13 +2,17 @@
     <div class="w-1/2">             
         <div 
             class="{{ theme.list.default }}" 
-            id="composer_rows"
-            component="system:admin.modules.composer.rows" 
-            namespace="composer">
+            id="composer_rows">
             {{ component('system:admin.modules.composer.rows') }}
         </div>
-        <div class="mt-8" id="paginator">
-            {{ component("semantic~paginator",{ namespace: 'composer' }) }}
+        <div class="my-4 ml-2" id="paginator">
+            {{  component("system:admin.paginator",{ 
+                    id: 'composer_paginator',
+                    namespace: 'composer',
+                    rows_selector: 'composer_rows',
+                    component:"system:admin.modules.composer.rows" 
+                })  
+            }}
         </div>        
     </div>
     <div 

@@ -21,12 +21,17 @@ function LibrariesView() {
             var status = $(element).attr('status');     
          
             libraries.setStatus(name,status,function(result) {
+                var message = result.message;
+
                 arikaim.page.loadContent({
                     id: 'library_' + name,
                     component: 'system:admin.libraries.library',
-                    params: { library_name: name }
+                    params: { 
+                        library_name: name 
+                    }
                 },function(result) {           
                     self.initRows();
+                    arikaim.ui.getComponent('toast').show(message);
                 }); 
             });
         });

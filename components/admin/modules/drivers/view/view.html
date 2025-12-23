@@ -10,13 +10,18 @@
             </tr>
         </thead>
         <tbody 
-            id="drivers_rows" 
-            component="system:admin.modules.drivers.view.rows" 
-            namespace="drivers">
+            id="drivers_rows">
             {{ component('system:admin.modules.drivers.view.rows') }}
         </tbody>
     </table>
+    <div id="paginator" class="my-2 ml-2">
+        {{  component("system:admin.paginator",{ 
+                id: 'drivers_paginator',
+                rows_selector: 'drivers_rows',
+                component: "system:admin.modules.drivers.view.rows",
+                namespace: 'drivers' 
+            }) 
+        }}
+    </div>
 </div>
-<div id="paginator" class="bottom-0">
-    {{ component("semantic~paginator",{ namespace: 'drivers' }) }}
-</div>
+

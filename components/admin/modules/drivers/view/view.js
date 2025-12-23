@@ -9,7 +9,8 @@
 function DriversView() {
    
     this.init = function() {
-        paginator.init('drivers_rows');                     
+        this.loadMessages('system:admin.messages');
+        this.initRows();                    
     };
 
     this.initRows = function() {
@@ -19,12 +20,10 @@ function DriversView() {
             var name = $(element).attr('name');
             var uuid = $(element).attr('uuid');
             
-            return modal.confirmDelete({ 
-                title: 'Confirm',
-                description: 'Confirm Uninstall Driver'
-            },function() {
+            return arikaim.ui.getComponent('confirm_uninstall_driver').open(function() {
                 drivers.uninstall(name,function(result) {
                     $('#' + uuid).remove();
+                    arikaim.ui.getComponent('toast').show(result.message);
                 });
             });
         });
@@ -49,9 +48,8 @@ function DriversView() {
     };    
 };
 
-var driversView = new DriversView();
+var driversView = createObject(DriversView,ControlPanelView);
 
 arikaim.component.onLoaded(function() {    
-    driversView.init();
-    driversView.initRows();
+    driversView.init();  
 });

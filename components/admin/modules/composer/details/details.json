@@ -1,5 +1,6 @@
 {
     "title": "Package Details",
+    "icon": "icons~code",
     "labels": {
         "name": "Name",
         "version": "Version",

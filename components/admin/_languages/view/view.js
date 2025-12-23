@@ -48,6 +48,7 @@ function LanguagesView() {
             var uuid = $(element).attr('uuid');
             var message = arikaim.ui.template.render(self.getMessage('description'),{ title: language });
             
+            /*
             modal.confirmDelete({
                     title: self.getMessage('title'),  
                     description: message,
@@ -58,6 +59,8 @@ function LanguagesView() {
                     languages.loadMenu();
                 });
             });        
+            */
+           
         });
         
         arikaim.ui.button('.edit-button',function(element) {

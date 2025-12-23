@@ -19,6 +19,7 @@
         "details": "able table-sm table-borderless"
     },
     "list": {
+        "flush": "divide-base-content/25 w-96 divide-y *:p-2",
         "default": "border-base-content/25 divide-base-content/25 divide-y rounded-md border *:p-3 *:first:rounded-t-md *:last:rounded-b-md"
     },
     "panel": "shadow-xs p-4 border border-gray-200 rounded",
@@ -125,13 +126,12 @@
         },
         "disabled": {
             "size": "h-6 w-6",
-            "color": "text-stone-400"
+            "color": "text-gray-400"
         },
         "gray": {
             "size": "h-6 w-6",
-            "stroke": 2,
-            "class": "cursor-pointer focus:text-red-800 transition duration-1000 ease-in-out",
-            "color": "text-stone-400"
+            "width": 2,           
+            "color": "text-gray-400"
         },
         "footer": {
             "size": "h-5 w-5",         

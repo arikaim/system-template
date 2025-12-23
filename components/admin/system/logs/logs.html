@@ -9,3 +9,8 @@
         {{ component("system:admin.system.logs.view.db") }}
     {% endif %}
 </div>           
+{{  component('system:admin.modal.confirm',{
+        id: 'confirm_delete_logs',
+        content: messages.confirm.delete.description
+    }) 
+}}

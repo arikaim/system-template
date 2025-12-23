@@ -2,57 +2,70 @@
 {% set php_stream_wrappers = system().getStreamWrappers() %}
 {% set pdo_drivers = system().getPdoDrivers() %}
 {% set opcache = system().getOpcache() %}
-<h4>
+<h4 class="font-bold my-2">
     {{ labels.cache }}
 </h4>
-<div>
-    <div>       
-        {{ labels.enabled }} 
-        {{ component('semantic~status.icon',{ status: opcache.config.directives['opcache.enable'] }) }}      
+<div class="{{ theme.list.flush }}">
+    <div class="flex flex-row items-center">   
+        <div class="flex-grow">
+            {{ labels.enabled }} 
+        </div>       
+        {{  component('system:admin.status.icon',{ 
+                status: opcache.config.directives['opcache.enable'] 
+            }) 
+        }}      
     </div>   
-    <div>       
-        {{ labels.memory }}  
+    <div class="flex flex-row items-center">     
+        <div class="flex-grow">
+            {{ labels.memory }}  
+        </div>  
         <span class="font-bold">
             {{ opcache.config.directives['opcache.memory_consumption'] }}
         </span>       
     </div>       
-    <div>
-        {{ labels.scripts }}
+    <div class="flex flex-row items-center">
+        <div class="flex-grow">
+            {{ labels.scripts }}
+        </div>      
         <span class="font-bold">
         {{ opcache.status['opcache_statistics']['num_cached_scripts'] }}
         </span>
     </div>    
 </div>
-<div class="ui horizontal divider"></div>
-<h4>
+
+<h4 class="font-bold my-2">
     {{ labels.pdo }}
 </h4>
+
 {% for item in pdo_drivers %}
-    <div class="ui left pointing label">{{ item }}</div>
+    <div class="badge badge-sm badge-outline">{{ item }}</div>
 {% endfor %}
-<div class="ui horizontal divider"></div>
-<h4>
+
+<h4 class="font-bold my-2">
     {{ labels.stream }}
 </h4>
+
 {% for item in php_stream_wrappers %}
-    <div class="ui left pointing label">{{ item }}</div>
+    <div class="badge badge-sm badge-outline">{{ item }}</div>
 {% endfor %}
-<div class="ui horizontal divider"></div>
-<h4>
+
+<h4 class="font-bold my-2">
     {{ labels.extensions }}
 </h4>
-<div class="ui mini list">
+
+<div class="{{ theme.list.flush }}">
     {% for item in php_extensions %}
-        <div class="item">
-            <i class="icon puzzle grey"></i>
-            <div class="content">
-                <div class="header">{{ item.name }}
-                {% if item.version != "" %}
-                    <span class="small text">
-                        <div class="ui mini label">{{ version_label.content }} {{ item.version }}</div>
-                    </span>
-                {% endif %}
-                </div>         
+        <div class="flex flex-row items-center">
+            {{ component('icons~puzzle',theme.icons.gray,'svg') }}
+            <div class="ml-2 flex-grow flex flex-row items-center">
+                <div class="text-sm font-bold flex-grow">
+                      {{ item.name }}
+                </div>              
+                {% if item.version != "" %}                      
+                    <div class="ml-1 badge badge-xs badge-outline">                       
+                        {{ item.version }}                                     
+                    </div>                       
+                {% endif %}               
             </div>
         </div>
     {% endfor %}

@@ -1,0 +1,55 @@
+{% set paginator = getPaginator(namespace) %}
+{% set page_links = page_links|default(4) %}
+{% set last_page = paginator.last_page|default(1) %}
+{% set from_page = paginator.current_page - page_links %}
+{% set from_page = (from_page < 1) ? 1 : from_page  %}
+{% set to_page = (from_page + page_links) %}
+{% set to_page = (to_page > last_page) ? last_page : to_page %}
+{% set icon_size = icon_size|default('h-4 w-4') %}
+{% set button_class = button_class|default(theme.paginator.buttons) %}
+
+<div 
+    id="{{ component_id }}"
+    rows_selector="{{ rows_selector }}"
+    component="{{ component }}"
+    namespace="{{ namespace }}"
+    {{ params|attr() }}
+    last-page="{{ last_page }}"
+    from-page="{{ from_page }}" 
+    to-page="{{ to_page }}" 
+    current-page="{{ paginator.current_page }}"
+    class="flex items-center gap-x-1 {{ class }}">
+    <button 
+        class="btn btn-soft rounded-full page-link first-page {{ button_class }} 
+        {{ (paginator.current_page == 1) ? 'hidden' : '' }}"
+        page="1">
+        {{ component('icons~chevron.double.left',{ size: icon_size },'svg') }}
+    </button>
+    <button class="btn btn-soft btn-circle prev-page page-link {{ button_class }} 
+        {{ (paginator.current_page == 1) ? 'hidden' : '' }}" 
+        page="prev">
+        {{ component('icons~chevron.left',{ size: icon_size },'svg') }}
+    </button> 
+    {% if last_page > 1 %}
+        {% for index in from_page..to_page %}
+            <button 
+                class="btn btn-soft btn-circle page-link page-{{ index }}
+                {{ button_class }}            
+                {{ (paginator.current_page == index) ? 'button-active' : '' }}" 
+                page="{{ index }}">
+                {{ index }}  
+            </button>
+        {% endfor %} 
+    {% endif %}   
+    <button class="btn btn-soft btn-circle page-link next-page page-link {{ button_class }}
+        {{ (paginator.current_page == last_page) ? 'hidden' : '' }}"
+        page="next">
+        {{ component('icons~chevron.right',{ size: icon_size },'svg') }}
+    </button>
+    <button 
+        class="btn btn-soft btn-circle page-link last-page {{ button_class }} 
+        {{ (paginator.current_page == last_page) ? 'hidden' : '' }}"
+        page="{{ last_page }}">
+        {{ component('icons~chevron.double.right',{ size: icon_size },'svg') }}
+    </button>   
+</div>

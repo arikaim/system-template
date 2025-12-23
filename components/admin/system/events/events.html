@@ -5,8 +5,14 @@
             id="events_rows">
             {{ component('system:admin.system.events.rows',{}) }}
         </ul>
-        <div class="mt-1" id="paginator">
-            {{ component("semantic~paginator",{ namespace: 'events' }) }}
+        <div class="my-2 ml-2" id="paginator">
+             {{  component("system:admin.paginator",{ 
+                    id: 'events_paginator',
+                    namespace: 'events',
+                    rows_selector: 'events_rows',
+                    component:"system:admin.system.events.rows" 
+                })  
+            }}        
         </div>       
     </div>
     <div 

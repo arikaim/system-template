@@ -16,6 +16,7 @@ function RelationsView() {
         var model = $('#relation_rows').attr('model');
         var relationId = $('#relation_rows').attr('relation-id');
         
+        /*
         paginator.init('relation_rows',{ 
             name: 'system:admin.orm.relations.view.rows',
             params: {  
@@ -24,6 +25,7 @@ function RelationsView() {
                 relation_id: relationId
             } 
         },'relations');  
+        */
     };
 
     this.initRows = function() {

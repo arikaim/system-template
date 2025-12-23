@@ -6,15 +6,9 @@ arikaim.component.onLoaded(function() {
         var name = $(element).attr('package-name');
 
         return packages.install(name,'composer',function(result) {                    
-            arikaim.page.toastMessage(result.message);
-            
-        },function(error) {              
-            arikaim.page.toastMessage({
-                selector: '#message_' + name,
-                message: error,
-                class: 'error',
-                removeClass: 'success'
-            });
+            ariaim.ui.getComponent('toast').show(result.message);            
+        },function(error) {           
+            ariaim.ui.getComponent('toast').show(error);              
         });
     });
 });

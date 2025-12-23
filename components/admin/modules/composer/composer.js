@@ -8,8 +8,7 @@
 
 function ComposerPackagesView() {
    
-    this.init = function() {
-        paginator.init('composer_rows'); 
+    this.init = function() {      
         this.initRows();     
     };
 

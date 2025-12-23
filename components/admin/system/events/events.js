@@ -10,7 +10,7 @@ function EventsView() {
     var self = this;
 
     this.init = function() {
-        paginator.init('events_rows','system:admin.system.events.rows','events');    
+        this.initRows();
     };
 
     this.initRows = function() {
@@ -32,5 +32,4 @@ var eventsView = createObject(EventsView,ControlPanelView);
 
 arikaim.component.onLoaded(function() {  
     eventsView.init();
-    eventsView.initRows();
 });

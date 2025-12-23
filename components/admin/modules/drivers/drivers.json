@@ -2,5 +2,8 @@
     "menu": {
         "view": "View",
         "config": "Config"
+    },
+    "messages": {
+        "uninstall": "Confirm uninstall driver"
     }
 }

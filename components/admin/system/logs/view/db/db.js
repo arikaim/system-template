@@ -10,8 +10,6 @@ function DbLogsView() {
     var self = this;
    
     this.init = function() {
-        paginator.init('logs_rows',"system:admin.system.logs.view.db.rows",'logs');    
-
         search.init({
             id: 'logs_rows',
             component: 'system:admin.system.logs.view.db.rows',
@@ -31,7 +29,7 @@ function DbLogsView() {
                     component: 'system:admin.system.logs.view.db.rows'
                 },function(result) {
                     self.initRows();  
-                    paginator.reload(); 
+                    arikaim.ui.getComponent('logs_paginator').reload(); 
                 });
             });    
             
