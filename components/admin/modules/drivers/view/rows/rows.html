@@ -13,14 +13,14 @@
             class="{{ theme.buttons.icon }} driver-details" 
             title="{{ labels.details }}"
             params="driver_name:{{ item.name }}">
-            {{ component('icons~info',theme.icons.action,'svg') }}
+            {{ component('icons~info',theme.icons.blue,'svg') }}
         </button>
         <button 
             class="{{ theme.buttons.icon }} driver-config" 
             title="{{ labels.config }}"
             name="{{ item.name }}" 
             category="{{ item.category }}">
-            {{ component('icons~cog',theme.icons.action,'svg') }}
+            {{ component('icons~cog',theme.icons.blue,'svg') }}
         </button>
         {% if hide_uninstall != true %} 
         <button 

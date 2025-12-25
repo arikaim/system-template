@@ -1,0 +1,14 @@
+<input type="hidden" name="{{ field_name }}" id="{{ field_name }}" value="{{ field_value }}">
+<div 
+    class="{{ class }}" 
+    type="{{ type|default('date') }}"
+    field="{{ field_name }}"
+    id="{{ component_id }}">   
+    <div class="input ">
+        {{ component('icons~calendar',theme.form.icon,'svg') }}
+        <input 
+            type="text" 
+            value="{{ field_value|dateFormat('Y-m-d') }}"
+            placeholder="{{ placeholder|default(labels.placeholder) }}">
+    </div>
+</div>

@@ -4,7 +4,7 @@
         class="h-screen flex flex-row self-stretch items-stretch grow {{ theme.page.content }}">  
         {{ component('system:admin.menu',{ active: active }) }}     
         <div                  
-            class="md:pl-48 sm:pl-14 xs:pl-14 w-full pb-4 h-full pt-14 xs:pr-4 sm:pr-4 md:pr-8 pr-8 lg:pr-8" 
+            class="mt-12 md:pl-48 sm:pl-14 xs:pl-14 w-full pb-4 h-full pt-14 xs:pr-4 sm:pr-4 md:pr-8 pr-8 lg:pr-8" 
             id="tool_content">
             {% if hasExtension('dashboard') == true %}
                 {{ component('dashboard::admin') }}

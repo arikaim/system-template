@@ -8,6 +8,7 @@
 {% endif %}
 
 <select 
+    name="{{ field_name|default('driver') }}"
     class="select {{ class }} drivers-dropdown" 
     id="{{ id }}">
         <option 
@@ -20,7 +21,6 @@
     
     {% for item in items %}            
         <option 
-            class=""
             {{ item.name|ifthen(selected.name,'selected') }}
             value="{{ item.name }}">             
             {{ item.title }}
