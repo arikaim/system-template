@@ -9,11 +9,10 @@
     </span>   
     <select id="{{ id }}" name="{{ name }}">
          {% for key, value in items %}
-            <option value="{{ value }}" {{ value|ifthen(selected,'selected') }}>
-                {{ "now"|date(value) }}
-                <div class="description">               
-                    {{ key }}                       
-                </div>
+            <option 
+                value="{{ value }}" 
+                {{ value|ifthen(selected,'selected') }}>
+                {{ "now"|date(value) }}                          
             </option>      
         {% endfor %}    
     </select>

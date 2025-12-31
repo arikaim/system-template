@@ -1,23 +1,19 @@
-<div class="{{ theme.form.input.default }} space-x-3">
+{% if format is empty %}
+    {% set format = getConfigOption("settings/dateFormat") %}
+{% endif %}
+
+<div class="input {{ class }} {{ size|default('w-full')  }}">   
+    {{ component(icon|default('icons~calendar'),theme.form.icon,'svg') }}         
     <input
         detepicker
         value="{{ value }}"
         {{ rule|attr('rule') }}
         {{ input_style|attr('style') }}
-        todayBtn="{{ todayButton|default('false') }}"
-        clearBtn="{{ clearButton|default('false') }}"
-        detepicker-title="{{ title }}"
-        autohide="{{ autohide|default('false') }}"
-        calendarWeeks="{{ calendarWeeks|default('false') }}"
-        date-format="{{ format|default("m/d/y") }}"
+        date-format="{{ format }}"
         orientation="{{ orientation|default('bottom') }}"
         id="{{ component_id }}" 
         type="text" 
         name="{{ name|default('date') }}"       
-        class="grow"
-        placeholder="">
-   
-    <span class="my-auto">
-        {{ component(icon|default('icons~calendar'),theme.form.icon,'svg') }}      
-    </span>   
+        class="ps-3 {{ input_class }}" 
+        placeholder="{{ placeholder }}">
 </div>

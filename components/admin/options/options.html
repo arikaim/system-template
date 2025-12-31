@@ -1,28 +1,28 @@
 {% if hide_title != true %}
-    <h4>
+    <h4 class="my-2 font-bold">
         {{ title }}
     </h4> 
 {% endif %}
 {% if options is not empty %} 
-    <table class="{{ themetable.details }}"> 
+    <table class="{{ theme.table.default }} table-sm"> 
         <thead>
             <tr>
-                <th class="six wide">{{ labels.key }}</th>
-                <th>{{ labels.value }}</th>                    
+                <th class="w-1/2">{{ labels.key }}</th>
+                <th class="w-1/2">{{ labels.value }}</th>                    
             </tr>
         </thead>           
         <tbody>                 
             {% for key, value in options %}
             <tr>
-                <td class="right aligned">
+                <td class="{{ theme.table.field.label }}">
                     {{ key }}
                 </td>
-                <td class="break-all">
+                <td class="">
                     {% if value is iterable %}
                         <div class="ui list"> 
                         {% for key, param in value %}
                             <div class="item">
-                                <div class="ui basic mini label px-1 font-bold">
+                                <div class="badge badge-xs badge-outline px-1 font-bold">
                                     {{ key }}
                                 </div>
                                 {{ param }}

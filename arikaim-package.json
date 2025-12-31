@@ -21,7 +21,8 @@
             "arikaim",
             "arikaim-ui",
             "jquery",
-            "filepond"
+            "filepond",
+            "calendar:flatpickr"
         ],
         "extensions": [
             "dashboard"
@@ -33,6 +34,7 @@
             "tailwind.min.css"
         ],
         "js": [
+            "form.js",
             "control-panel.js",
             "flyonui.js"
         ],
@@ -42,10 +44,10 @@
         "library": [
             "jquery",
             "arikaim:admin",
-            "arikaim-ui",
-            "fomantic:form",
+            "arikaim-ui",           
             "highlight:github",
             "filepond",
+            "calendar:flatpickr",
             "markdown-editor"      
         ]
     }

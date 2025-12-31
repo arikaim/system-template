@@ -11,7 +11,8 @@ arikaim.component.onLoaded(function(component) {
     }
 
     component.init = function() {
-        var datepicker = flatpickr(component.getElement(),{
+        var datepicker = new flatpickr('#' + component.getId(),{
+            defaultDate: component.get('value'),
             dateFormat: component.get('date-format')
         });
 
