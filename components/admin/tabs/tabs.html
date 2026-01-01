@@ -1,56 +1,48 @@
 {% set tab_content_id = content.id|default('tab_content') %}
-<nav  
+<nav   
     id="{{ component_id }}"
-    class="w-full tabs tabs-lifted overflow-x-auto {{ class }}" 
+    class="w-full  tabs tabs-lifted overflow-x-auto {{ class }}" 
     aria-label="Tabs" 
     role="tablist" 
     aria-orientation="horizontal">
-    {% for item in items %}       
-        <button 
-            type="button" 
-            mountTo="{{ tab_content_id }}"
-            component="{{ item.component }}"
-            params="{{ item.params }}"
-            class="tab-item {{ (item.active == true) ? 'active' : '' }} {{ item.class }} tab active-tab:text-blue-500 hover:text-blue-500" 
-            data-tab="#{{ tab_content_id }}" 
-            aria-controls="{{ tab_content_id }}" 
-            role="tab" 
-            aria-selected="{{ (item.active == true) ? 'true' : 'false' }}">    
-            {% if item.svg_icon is not empty %}
-                {{ component(item.svg_icon,theme.icons.menu,'svg') }}
-            {% endif %}   
-            <span class="font-semibold ml-2">
-                {{ item.title }}
-            </span>
-        </button>
+    {% for item in items %}    
+        {{  component('system:admin.tabs.item',{ 
+                tab_content_id: tab_content_id,
+                item: item 
+            }) 
+        }}   
     {% endfor %}  
-    <div class="grow flex flex-row place-content-end border-b-2 border-gray-200">
-
+    <div class="border-b border-gray-200 flex-grow flex flex-row items-center">
     </div>
-    {% if help is not empty or menu is not empty  %}     
-    <div class="grow flex flex-row place-content-end">
-        {% if help is not empty %}     
-            <div class="item link {{ item_class|default('tab-item') }}" 
-                title="{{ labels.extension }}" 
-                id="menu_tab" 
-                component="{{ (help.component is empty) ? 'system:admin.help' : help.component }}" 
-                extension="{{ help.extension }}">               
-                <i class="info purple icon"></i> 
-                {{ labels.docs }} 
-            </div>                   
+    <div      
+        class="border-b border-gray-200 flex flex-row place-content-end justify-end">
+        {% if help is not empty %}  
+            {{  component('system:admin.tabs.item',{ 
+                    tab_content_id: tab_content_id,
+                    item: {
+                        title: labels.docs,
+                        svg_icon: 'icons~info',
+                        component: (help.component is empty) ? 'system:admin.help' : help.component,
+                        params: "extension:" ~ help.extension
+                    } 
+                }) 
+            }} 
+                        
         {% endif %}   
+
         {% if menu is not empty %}     
-            <div class="item link {{ item_class|default('tab-item') }}" 
-                title="{{ labels.extension }}" 
-                id="menu_tab" 
-                component="system:admin.extensions.extension.details" 
-                extension="{{ menu.extension }}">               
-                <i class="puzzle purple icon"></i> 
-                {{ labels.extension }} 
-            </div>                   
+            {{  component('system:admin.tabs.item',{ 
+                    tab_content_id: tab_content_id,
+                    item: {
+                        title: labels.extension,
+                        svg_icon: 'icons~puzzle',
+                        component: 'system:admin.extensions.extension.details',
+                        params: "extension:" ~ menu.extension
+                    } 
+                }) 
+            }}                           
         {% endif %}      
     </div>
-    {% endif %}
 </nav>
 <div   
     id="{{ tab_content_id }}"

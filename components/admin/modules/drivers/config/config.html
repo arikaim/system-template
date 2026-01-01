@@ -6,7 +6,7 @@
 {% component 'system:admin.panel' %}
     {% if driver_name is empty %}
         <div class="mt-8">
-            <h4>
+            <h4 class="font-bold">
                 {{ labels.driver }}
             </h4>
             {{  component('system:admin.drivers.dropdown',{ 
@@ -17,7 +17,7 @@
             }}
         </div>           
     {% endif %}
-    <div id="driver_config" class="mt-8">              
+    <div id="driver_config" class="mt-8">    
         {% if driver_name is not empty %}
             {{  component('system:admin.modules.drivers.config.form',{ 
                     driver_name: driver_name, 

@@ -21,8 +21,7 @@
         "class": "underline-offset-4 poppins-font text-sm font-normal flex flex-row intems-center cursor-pointer block text-gray-600 dark:text-gray-400",
         "hover": "decoration-green-500 decoration-2 cursor-pointer hover:underline transition-all duration-1000 ease-in-out"
     },
-    "label": "input-floating-label dark:text-gray-200",
-    "field": "relative field my-4 input-floating",
+    "label": "input-floating-label dark:text-gray-200",   
     "form": "form pt-4 px-4",
     "error": "is-invalid",
     "input": {

@@ -1,3 +1,7 @@
 {
-    "submit": "font-semibold btn btn-success btn-gradient"     
+    "submit": "font-semibold btn btn-success btn-gradient",
+    "message": {
+        "error": "py-4 text-sm text-red-500 font-semibold",
+        "success": "py-4 text-sm text-green-500 font-semibold"
+    }
 }

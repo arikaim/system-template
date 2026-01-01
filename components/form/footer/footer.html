@@ -1,5 +1,5 @@
 <div class="{{ class|default('mt-4') }}">
-    <div class="flex flex-row">
+    <div class="flex flex-row items-center">
         <button 
             loading-class="{{ loading_class|default('loading') }}"
             class="submit-button {{ styles.submit }}" 
@@ -21,12 +21,12 @@
         {% if hide_errors != true %}    
         <div         
             {{ message_error_id|attr('id') }}
-            class="errors error message invisible error-message {{ message.error|default('py-4 text-sm text-red-400 font-semibold') }}">
+            class="errors error message invisible error-message {{ message.error|default(styles.message.error) }}">
         </div>        
         {% endif %} 
         <div
             {{ message_success_id|attr('id') }} 
-            class="success invisible message {{ message.success|default('py-4 text-sm text-green-400 font-semibold') }}">        
+            class="success invisible message {{ message.success|default(styles.message.success) }}">        
         </div>  
     </div>   
 </div>

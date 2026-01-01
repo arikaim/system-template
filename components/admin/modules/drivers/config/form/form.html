@@ -1,9 +1,10 @@
 {% set config = service('driver').getConfig(driver_name) %}
 {% if service('driver').has(driver_name) == false %}
-    <div class="alert alert-warning">
-        Driver <b>{{ driver_name }}</b> not installed.
-        {% error '' %}
-    </div>
+    {{  component('system:admin.alert.warning',{
+            message: warning|renderText({ driver_name: driver_name })
+        }) 
+    }}
+    {% error '' %}
 {% endif %}
 <div class="pb-4 flex flex-row items-center">
     <div class="font-bold pr-2">

@@ -1,5 +1,6 @@
 {
     "labels": {
         "name": "Driver Name"
-    }
+    },
+    "warning": "Driver <b>{{ driver_name }}</b> not installed."
 }

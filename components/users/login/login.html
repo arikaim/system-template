@@ -8,56 +8,53 @@
             {{ title }}
         </div>
     </h4>
-    <form class="{{ styles.form }}" id="login_form" method="POST">
+    <form class="form" id="login_form" method="POST">
         {% if login_with == 1 or login_with == 3 %}
-            <div class="{{ styles.field }}">                             
+            <div class="{{ theme.form.field }}">        
+                <label class="{{ theme.form.label }}">
+                    {{ fields.user_name.label }}
+                </label>                          
                 <input 
-                    class="form-input {{ styles.input.class }}"
+                    class="form-input {{ theme.form.input }}"
                     type="text" 
                     rule="minLength[2]"
                     name="user_name" 
                     id="user_name" 
-                    {{ fields.user_name.placeholder|attr("placeholder") }}> 
-                <label class="{{ styles.label }}">
-                    {{ fields.user_name.label }}
-                </label>    
-                                 
+                    {{ fields.user_name.placeholder|attr("placeholder") }}>                                                
             </div>
         {% else %}
-        <div class="{{ styles.field }}">                        
+        <div class="{{ theme.form.field }}">   
+            <label class="{{ theme.form.label }}">
+                {{ fields.email.label }}
+            </label>                         
             <input 
-                class="form-input {{ styles.input.class }}"
+                class="form-input {{ theme.form.input }}"
                 type="email" 
                 rule="email"
                 name="email" 
                 id="email" 
-                {{ fields.email.placeholder|attr("placeholder") }}>
-                <label class="{{ styles.label }}">
-                    {{ fields.email.label }}
-                </label>         
-                  
+                {{ fields.email.placeholder|attr("placeholder") }}>                                 
         </div>        
         {% endif %}
-        <div class="{{ styles.field }}">                
-            <div class="relative z-0">
+        <div class="{{ theme.form.field }}">     
+            <label class="{{ theme.form.label }}">
+                {{ fields.password.label }}
+            </label>            
+            <div class="{{ theme.form.input }}">                    
                 <input 
-                    class="z-0 form-input {{ styles.input.class }}"
+                    class="form-input "
                     type="password" 
                     rule="minLength[4]"
                     name="password" 
                     id="password" 
                     {{ fields.password.placeholder|attr("placeholder") }}>  
-                <div class="absolute view-password cursor-pointer inset-y-0 right-0 flex items-center pr-2">
-                    {{ component('icons~eye',styles.input.icon,'svg') }}
-                </div>
-                <label class="{{ styles.label }}">
-                    {{ fields.password.label }}
-                </label>
-              
+                <span class="view-password cursor-pointer my-auto">
+                    {{ component('icons~eye',theme.form.right_icon,'svg') }}
+                </span>                        
             </div>
         </div>   
-        <div class="field flex flex-row items-center">              
-            <input class="form-input checkbox checkbox-primary checkbox-sm" 
+        <div class="my-2 field flex flex-row items-center">              
+            <input class="form-input checkbox checkbox-xs" 
                 type="checkbox" 
                 name="remember" 
                 id="remember" 
@@ -66,7 +63,7 @@
                 {{ fields.remember.label }}
             </label>
         </div>             
-        <div class="{{ styles.field }}" id="captcha_panel">            
+        <div class="mt-8" id="captcha_panel">            
             {% if captcha_protect == true %}           
                 {{ component('captcha::code') }}                
             {% endif %}   

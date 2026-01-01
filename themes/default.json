@@ -29,6 +29,11 @@
             "size": "h-6 w-6",
             "class": "my-auto shrink-0 me-3",
             "color": "text-sky-500"
+        },
+        "right_icon": {
+            "size": "h-6 w-6",
+            "class": "my-auto shrink-0 ms-3",
+            "color": "text-sky-500"
         },       
         "label": "label-text font-bold dark:text-gray-200",
         "checkbox": "checkbox-sm checkbox checkbox-default",
@@ -144,5 +149,5 @@
             "color": "text-gray-400"
         }
     },
-    "include_classes": "min-w-auto radio-sm radio-xs radio-primary w-1/2 w-1/3 min-w-full min-w-1/2 min-w-1/3"
+    "include_classes": "input-sm min-w-auto radio-sm radio-xs radio-primary w-1/2 w-1/3 min-w-full min-w-1/2 min-w-1/3"
 }

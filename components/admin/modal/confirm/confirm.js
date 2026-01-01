@@ -27,6 +27,10 @@ arikaim.component.onLoaded(function(component) {
         component.setVar('onConfirm',onConfirm);
         component.setVar('onCancel',onCancel);
         
+        if (typeof onCancel === 'string' || onCancel instanceof String) {
+            component.setContent(onCancel);
+        }
+        
         component.getModal().open(); 
     };
 
