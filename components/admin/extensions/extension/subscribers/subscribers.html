@@ -8,7 +8,7 @@
     {% endif %}
     {% for subscriber in items %}
     <div class="flex flex-row items-center">       
-        {{ component('semantic~status.icon',{ status: subscriber.status }) }}      
+        {{ component('system:admin.status.icon',{ status: subscriber.status }) }}      
         {{ component('icons~code',theme.icons.blue,'svg') }}      
         <div class="font-bold ml-2">
             {{ subscriber.handler_class|baseClass }}

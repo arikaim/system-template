@@ -4,9 +4,18 @@ arikaim.component.onLoaded(function(component) {
 
     component.init = function() {
         arikaim.ui.button($(component.getElement()).find('.panel-close-button'),function(element) {  
+
             $(component.getElement()).removeClass('opacity-100');
             $(component.getElement()).addClass('opacity-0');
+
             setTimeout(function() {
+                if (component.get('parent') == 'show') {
+                    // add hidden class to parent
+                    console.log('show');
+
+                    $(component.getElement()).parent().addClass('hidden');
+                }
+
                 $(component.getElement()).remove();  
             },500); 
 
@@ -18,8 +27,13 @@ arikaim.component.onLoaded(function(component) {
             });                  
         });
 
-        setTimeout(function() {
+        setTimeout(function() {           
             $(component.getElement()).addClass('opacity-100');
+            if (component.get('parent') == 'show') {
+                // remove hidden class form parent
+                $(component.getElement()).parent().removeClass('hidden');
+            }
+            
         },50);       
     };
     

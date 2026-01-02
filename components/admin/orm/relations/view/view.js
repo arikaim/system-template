@@ -39,7 +39,10 @@ function RelationsView() {
                 icon: 'database',
                 component: {
                     name: 'system:admin.orm.model',
-                    params: { uuid: uuid, type: type }
+                    params: { 
+                        uuid: uuid, 
+                        type: type 
+                    }
                 }
             });
         });

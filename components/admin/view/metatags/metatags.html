@@ -1,0 +1,23 @@
+<h4 class="mt-4 font-bold">
+    {{ title }}
+</h4>
+<table class="{{ theme.table.details }}">
+    <thead>
+        <tr>
+            <th class="w-1/4"></th>
+            <th class="w-3/4"></th>
+        </tr>
+    </thead>
+    <tbody> 
+    {% for item in items %}
+        <tr>
+            <td class="{{ theme.table.field.label }}">
+                {{ item.title }}
+            </td>
+            <td>                   
+                {{ model[item.key] }}                  
+            </td>
+        </tr>  
+    {% endfor %}  
+    </tbody>
+</table>

@@ -1,6 +1,7 @@
 'use strict';
 
-arikaim.component.onLoaded(function() {    
+arikaim.component.onLoaded(function() {  
+    /*  
     $('.relations-field-dropdown').dropdown({
         onAdd: function(value, text, $choice) {
             var extension = $(this).attr('extension');
@@ -21,4 +22,6 @@ arikaim.component.onLoaded(function() {
             });
         }
     });
+    */
+   
 });

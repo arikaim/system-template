@@ -1,6 +1,6 @@
 {% set options = createModel(model,extension).getOptions(model_id) %}
 {% if options.toArray()|length > 0  %}
-    <form class="ui form" id="options_form">   
+    <form class="form" id="options_form">   
         <input type="hidden" value="{{ extension }}" name="extension">
         <input type="hidden" value="{{ model }}" name="model">
         <input type="hidden" value="{{ model_id }}" name="id">

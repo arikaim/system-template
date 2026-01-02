@@ -34,6 +34,8 @@ function DbLogsView() {
             });    
             
         });
+
+        this.initRows();
     };   
 
     this.initRows = function() {
@@ -43,6 +45,5 @@ function DbLogsView() {
 var dbLogsView = createObject(DbLogsView,ControlPanelView);
 
 arikaim.component.onLoaded(function() {    
-    dbLogsView.init();
-    dbLogsView.initRows();
+    dbLogsView.init();    
 });

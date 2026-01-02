@@ -8,7 +8,7 @@
             }) 
         }}
     {% else %}
-        {{  component('semantic~tabs.vertical',{ 
+        {{  component('system:admin.tabs.vertical',{ 
                 items: [ 
                     { title: labels.api, component: 'system:admin.help.api', icon: 'code', active: true, params }        
                 ], 

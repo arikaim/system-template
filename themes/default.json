@@ -149,5 +149,5 @@
             "color": "text-gray-400"
         }
     },
-    "include_classes": "input-sm min-w-auto radio-sm radio-xs radio-primary w-1/2 w-1/3 min-w-full min-w-1/2 min-w-1/3"
+    "include_classes": "min-w-1/2 min-w-3/4 text-green-500 input-sm min-w-auto radio-sm radio-xs radio-primary w-1/2 w-1/3 min-w-full min-w-1/2 min-w-1/3"
 }
