@@ -1,26 +1,42 @@
 {% set name = name|default(type ~ '_relations') %}
-{% set id = id|default(name) %}
 {% set relationsModel = createModel(model,extension) %}
 {% if selectins is empty %}
-{% set selections = relationsModel.getRelatedItems(relation_id,type) %}
+    {% set selections = relationsModel.getRelatedItems(relation_id,type) %}
 {% endif %}
 {% set label = label|default(labels.select) %}
 
-<div class="ui clearable multiple selection search dropdown relations-field-dropdown {{ class }}" 
-    id="{{ id }}" 
+<select 
+    multiple
+    data-select='{
+        "placeholder": "Select multiple options...",
+        "toggleTag": "<button type=\"button\" aria-expanded=\"false\"></button>",
+        "toggleClasses": "advance-select-toggle select-disabled:pointer-events-none select-disabled:opacity-40",
+        "dropdownClasses": "advance-select-menu",
+        "optionClasses": "advance-select-option selected:select-active",
+        "optionTemplate": "<div class=\"flex justify-between items-center w-full\"><span data-title></span><span class=\"icon-[tabler--check] shrink-0 size-4 text-primary hidden selected:block \"></span></div>",
+        "extraMarkup": "<span class=\"icon-[tabler--caret-up-down] shrink-0 size-4 text-base-content absolute top-1/2 end-3 -translate-y-1/2 \"></span>"
+    }'
+    class="hidden {{ class }} relations-field-dropdown"
+    id="{{ component_id }}" 
+    name="{{ name }}"
     extension="{{ extension }}" 
     model="{{ model }}" 
     type="{{ type }}"
     relation-id="{{ relation_id }}">
-    <input type="hidden" name="{{ name }}" value="{{ selections.toArray()|join(',') }}">
-    <i class="dropdown icon"></i>
-    <div class="default text">{{ label }}</div>   
-    <div class="menu">
-        {% for item in items %}      
+    <option 
+        disabled
+        {{ (selections is empty) ? 'selected' : '' }} 
+        value="">             
+        {{ labels.select }}
+    </option> 
+    {% for item in items %}      
         {% set title = item.title|default(item.name) %}    
-        <div class="item {{ item_class }}" data-value="{{ item.id }}" uuid="{{ item.uuid }}">
+        <option 
+            class="item {{ item_class }}" 
+            {{ (selected == item.id) ? 'selected' : '' }} 
+            value="{{ item.id }}" 
+            uuid="{{ item.uuid }}">
             {{ (title is iterable) ? title|string : title }}         
-        </div>
-        {% endfor %}
-    </div>
-</div>
+        </option>
+    {% endfor %}
+</select>

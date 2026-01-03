@@ -1,0 +1,41 @@
+{% set title_column = title_column|default('title') %}
+<form class="form {{ class }}" id="meta_tags_form">  
+    {% if uuid is not empty %}
+        <input type="hidden" name="uuid" id="uuid" value="{{ uuid }}">  
+    {% endif %}    
+    <div class="{{ theme.form.field }}">
+        <label class="{{ theme.form.label }}">
+            {{ fields.title.label }}
+        </label>
+        <input 
+            class="{{ theme.form.input }}"
+            type="text" 
+            name="meta_title" 
+            id="meta_title" 
+            {{ title.placeholder|attr('placeholder') }} 
+            value="{{ model.meta_title|default(model[title_column]) }}">  
+    </div> 
+    <div class="{{ theme.form.field }}">
+        <label class="{{ theme.form.label }}">
+            {{ fields.description.label }}
+        </label>
+        <textarea 
+            class="{{ theme.form.textarea }}"
+            rows="7" cols="7" 
+            name="meta_description" 
+            id="meta_description" 
+            {{ fields.description.placeholder|attr('placeholder') }}>{{ model.meta_description }}</textarea>
+    </div> 
+    <div class="{{ theme.form.field }}">
+        <label class="{{ theme.form.label }}">
+            {{ fields.keywords.label }}
+        </label>
+        <textarea 
+            class="{{ theme.form.textarea }}"
+            rows="7" cols="7" 
+            name="meta_keywords" 
+            id="meta_keywords" 
+            {{ fields.keywords.placeholder|attr('placeholder') }}>{{ model.meta_keywords }}</textarea>
+    </div> 
+    {{ component('system:form.footer') }}   
+</form>

@@ -1,8 +1,16 @@
 'use strict';
 
-arikaim.component.onLoaded(function() {  
+arikaim.component.onLoaded(function(component) {  
+
+
+    const select = new HSSelect(document.querySelector('#' + component.getId()));
+
+    console.log(select);
+
     /*  
-    $('.relations-field-dropdown').dropdown({
+    $('.relations-field-dropdown').on('change',function() {
+        var value = $(this).val();
+
         onAdd: function(value, text, $choice) {
             var extension = $(this).attr('extension');
             var model = $(this).attr('model');
@@ -23,5 +31,7 @@ arikaim.component.onLoaded(function() {
         }
     });
     */
-   
+
+    return component;
+    
 });

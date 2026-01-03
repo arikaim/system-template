@@ -1,10 +1,12 @@
 {% set tab_content_id = content.id|default('tab_content') %}
+{{ orientation }}
 <nav   
     id="{{ component_id }}"
-    class="w-full  tabs tabs-lifted overflow-x-auto {{ class }}" 
+    class="w-full tabs tabs-lifted {{ class }}
+        {{ (orientation == 'vertical') ? 'tabs-vertical overflow-y-auto' : 'overflow-x-auto' }}" 
     aria-label="Tabs" 
     role="tablist" 
-    aria-orientation="horizontal">
+    aria-orientation="{{ orientation|default('horizontal') }}">
     {% for item in items %}    
         {{  component('system:admin.tabs.item',{ 
                 tab_content_id: tab_content_id,
