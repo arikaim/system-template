@@ -2,7 +2,7 @@
     id="{{ component_id }}"
     status="{{ status|default('open') }}"
     type="{{ type }}"
-    parent="{{ parent }}"
+    parent="{{ parent|default('show') }}"
     uuid="{{ uuid }}"
     animation="transition-opacity duration-1000 ease-in opacity-0"
     class="{{ size|default('w-full') }} {{ class|default(styles.class) }} {{ styles.color }}">

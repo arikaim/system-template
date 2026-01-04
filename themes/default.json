@@ -67,7 +67,7 @@
         "delete": "btn btn-sm btn-error btn-outline",
         "green": "btn btn-sm btn-outline btn-success text-gray-800",
         "primary": "btn btn-info btn-sm btn-outline",
-        "icon": "btn btn-soft btn-secodary btn-sm btn-circle "
+        "icon": "btn btn-outline btn-text btn-warning btn-sm btn-circle"
     },
     "paginator": {
         "panel": "p-1 mt-2",
@@ -149,5 +149,5 @@
             "color": "text-gray-400"
         }
     },
-    "include_classes": "min-w-1/2 min-w-3/4 text-green-500 input-sm min-w-auto radio-sm radio-xs radio-primary w-1/2 w-1/3 min-w-full min-w-1/2 min-w-1/3"
+    "include_classes": "w-64 w-32 mr-4 min-w-1/2 min-w-3/4 text-green-500 input-sm min-w-auto radio-sm radio-xs radio-primary w-1/2 w-1/3 min-w-full min-w-1/2 min-w-1/3"
 }

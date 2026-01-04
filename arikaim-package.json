@@ -44,7 +44,8 @@
         "library": [
             "jquery",
             "arikaim:admin",
-            "arikaim-ui",           
+            "arikaim-ui",      
+            "arikaim-ui:view",           
             "highlight:github",
             "filepond",
             "calendar:flatpickr",

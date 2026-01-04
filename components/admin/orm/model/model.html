@@ -11,7 +11,7 @@
 {% else %}
 <div>    
     <h4 class="bg-gray-300 p-4">{{ model_name|baseClass }}</h4>
-    <table class="ui basic table">
+    <table class="{{ theme.table.details }}">
         {% for key,value in model.toArray() %}     
         <tr>
             <td class="right aligned font-bold collapsing">{{ key|titleCase }}</td>
@@ -19,7 +19,7 @@
         </tr>         
         {% endfor %}     
     </table>       
-    <table class="ui basic table">            
+    <table class="{{ theme.table.details }}">            
         <tr>
             <td class="right aligned font-bold collapsing">{{ labels.class }}</td>
             <td class="collapsing">{{ model_name }}</td>
