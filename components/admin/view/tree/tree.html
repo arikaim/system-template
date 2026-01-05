@@ -1,0 +1,324 @@
+<div 
+    id="tree-view" 
+    class="rounded-sm" 
+    role="tree" 
+    aria-orientation="vertical" 
+    data-tree-view="">
+    <!-- 1st Level Accordion -->
+    <div 
+        class="accordion-item active" 
+        role="treeitem" 
+        aria-expanded="true" 
+        id="basic-tree-view-heading-one"
+        data-tree-view-item='{
+            "value": "assets",
+            "isDir": true
+        }'>
+        <!-- 1st Level Accordion Heading -->
+        <div 
+            class="accordion-heading tree-view-selected:bg-base-300/40 flex w-full items-center gap-x-0.5 rounded-md py-0.5" >
+            <button 
+                class="accordion-toggle btn btn-sm btn-circle btn-text" 
+                aria-expanded="true" 
+                aria-controls="basic-tree-view-collapse-one" >
+                <span class="icon-[tabler--plus] text-base-content/80 accordion-item-active:rotate-45 size-4 transition-all duration-300" ></span>
+            </button>
+            <div class="tree-view-selected:bg-base-300/40 grow cursor-pointer rounded-md px-1.5">
+                <div class="flex items-center gap-x-3">
+                    <span class="icon-[tabler--folder] text-base-content size-4 shrink-0"></span>
+                <div class="grow">
+                    <span class="text-base-content">assets</span>
+                </div>
+            </div>
+        </div>
+        </div>
+        <!-- End 1st Level Accordion Heading -->
+        <!-- 1st Level Collapse -->
+        <div id="basic-tree-view-collapse-one" class="accordion-content w-full overflow-hidden transition-[height] duration-300" role="group" aria-labelledby="basic-tree-view-heading-one" >
+        <!-- 2nd Level Accordion Group -->
+        <div class="tree-view-space">
+            <!-- 2nd Level Nested Accordion -->
+            <div class="accordion-item active" role="treeitem" aria-expanded="true" id="basic-tree-view-sub-heading-one"
+            data-tree-view-item='{
+            "value": "css",
+            "isDir": true
+            }'
+            >
+            <!-- 2nd Level Accordion Heading -->
+            <div class="accordion-heading tree-view-selected:bg-base-300/40 flex w-full items-center gap-x-0.5 rounded-md py-0.5" >
+                <button class="accordion-toggle btn btn-sm btn-circle btn-text" aria-expanded="true" aria-controls="basic-tree-view-sub-collapse-one" >
+                <span class="icon-[tabler--plus] text-base-content/80 accordion-item-active:rotate-45 size-4 transition-all duration-300" ></span>
+                </button>
+                <div class="tree-view-selected:bg-base-300/40 grow cursor-pointer rounded-md px-1.5">
+                <div class="flex items-center gap-x-3">
+                    <span class="icon-[tabler--folder] text-base-content size-4 shrink-0"></span>
+                    <div class="grow">
+                    <span class="text-base-content">css</span>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <!-- End 2nd Level Accordion Heading -->
+            <!-- 2nd Level Collapse -->
+            <div id="basic-tree-view-sub-collapse-one" class="accordion-content w-full overflow-hidden transition-[height] duration-300" role="group" aria-labelledby="basic-tree-view-sub-heading-one" >
+                <!-- 3rd Level Accordion Group -->
+                <div class="tree-view-space">
+                <!-- 3rd Level Accordion -->
+                <div class="accordion-item active" role="treeitem" aria-expanded="true" id="basic-tree-view-sub-level-two-heading-one"
+                    data-tree-view-item='{
+                    "value": "main",
+                    "isDir": true
+                }'
+                >
+                    <!-- 3rd Level Accordion Heading -->
+                    <div class="accordion-heading tree-view-selected:bg-base-300/40 flex w-full items-center gap-x-0.5 rounded-md py-0.5" >
+                    <button class="accordion-toggle btn btn-sm btn-circle btn-text" aria-expanded="true" aria-controls="basic-tree-view-sub-level-two-collapse-one" >
+                        <span class="icon-[tabler--plus] text-base-content/80 accordion-item-active:rotate-45 size-4 transition-all duration-300" ></span>
+                    </button>
+                    <div class="tree-view-selected:bg-base-300/40 grow cursor-pointer rounded-md px-1.5">
+                        <div class="flex items-center gap-x-3">
+                        <span class="icon-[tabler--folder] text-base-content size-4 shrink-0"></span>
+                        <div class="grow">
+                            <span class="text-base-content">main</span>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                    <!-- End 3rd Level Accordion Heading -->
+                    <!-- 3rd Level Collapse -->
+                    <div id="basic-tree-view-sub-level-two-collapse-one" class="accordion-content w-full overflow-hidden transition-[height] duration-300" role="group" aria-labelledby="basic-tree-view-sub-level-two-heading-one" >
+                    <div class="tree-view-space">
+                        <!-- 3rd Level Item -->
+                        <div class="tree-view-selected:bg-base-300/40 cursor-pointer rounded-md px-2" role="treeitem"
+                        data-tree-view-item='{
+                        "value": "main.css",
+                        "isDir": false
+                        }'
+                        >
+                        <div class="flex items-center gap-x-3">
+                            <span class="icon-[tabler--file] text-base-content size-4 shrink-0"></span>
+                            <div class="grow">
+                            <span class="text-base-content">main.css</span>
+                            </div>
+                        </div>
+                        </div>
+                        <!-- End 3rd Level Item -->
+                        <!-- 3rd Level Item -->
+                        <div class="tree-view-selected:bg-base-300/40 cursor-pointer rounded-md px-2" role="treeitem"
+                        data-tree-view-item='{
+                        "value": "docs.css",
+                        "isDir": false
+                        }'
+                        >
+                        <div class="flex items-center gap-x-3">
+                            <span class="icon-[tabler--file] text-base-content size-4 shrink-0"></span>
+                            <div class="grow">
+                            <span class="text-base-content">docs.css</span>
+                            </div>
+                        </div>
+                        </div>
+                        <!-- End 3rd Level Item -->
+                        <!-- 3rd Level Item -->
+                        <div class="tree-view-selected:bg-base-300/40 rounded-md px-2"
+                        data-tree-view-item='{
+                        "value": "README.txt",
+                        "isDir": false
+                        }'
+                        >
+                        <span class="text-base-content">README.txt</span>
+                        </div>
+                        <!-- End 3rd Level Item -->
+                    </div>
+                    </div>
+                    <!-- End 3rd Level Collapse -->
+                </div>
+                <!-- End 3rd Level Accordion -->
+                <!-- 3rd Level Accordion -->
+                <div class="accordion-item" role="treeitem" aria-expanded="false" id="basic-tree-view-sub-level-two-heading-two"
+                    data-tree-view-item='{
+                    "value": "tailwind",
+                    "isDir": true
+                }'
+                >
+                    <!-- 3rd Level Accordion Heading -->
+                    <div class="accordion-heading tree-view-selected:bg-base-300/40 flex w-full items-center gap-x-0.5 rounded-md py-0.5" >
+                    <button class="accordion-toggle btn btn-sm btn-circle btn-text" aria-expanded="false" aria-controls="basic-tree-view-sub-level-two-collapse-two" >
+                        <span class="icon-[tabler--plus] text-base-content/80 accordion-item-active:rotate-45 size-4 transition-all duration-300" ></span>
+                    </button>
+                    <div class="tree-view-selected:bg-base-300/40 grow cursor-pointer rounded-md px-1.5">
+                        <div class="flex items-center gap-x-3">
+                        <span class="icon-[tabler--folder] text-base-content size-4 shrink-0"></span>
+                        <div class="grow">
+                            <span class="text-base-content">tailwind</span>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                    <!-- End 3rd Level Accordion Heading -->
+                    <!-- 3rd Level Collapse -->
+                    <div id="basic-tree-view-sub-level-two-collapse-two" class="accordion-content hidden w-full overflow-hidden transition-[height] duration-300" role="group" aria-labelledby="basic-tree-view-sub-level-two-heading-two" >
+                    <div class="tree-view-space">
+                        <!-- 3rd Level Item -->
+                        <div class="tree-view-selected:bg-base-300/40 cursor-pointer rounded-md px-2" role="treeitem"
+                        data-tree-view-item='{
+                        "value": "input.css",
+                        "isDir": false
+                        }'
+                        >
+                        <div class="flex items-center gap-x-3">
+                            <span class="icon-[tabler--file] text-base-content size-4 shrink-0"></span>
+                            <div class="grow">
+                            <span class="text-base-content">input.css</span>
+                            </div>
+                        </div>
+                        </div>
+                        <!-- End 3rd Level Item -->
+                    </div>
+                    </div>
+                    <!-- End 3rd Level Collapse -->
+                </div>
+                <!-- End 3rd Level Accordion -->
+                <!-- 3rd Level Heading -->
+                <div class="tree-view-selected:bg-base-300/40 rounded-md px-1.5 py-0.5" role="treeitem"
+                    data-tree-view-item='{
+                    "value": ".gitignore",
+                    "isDir": false
+                }'
+                >
+                    <span class="text-base-content">.gitignore</span>
+                </div>
+                <!-- End 3rd Level Heading -->
+                </div>
+                <!-- End 3rd Level Accordion Group -->
+            </div>
+            <!-- End 2nd Level Collapse -->
+            </div>
+            <!-- End 2nd Level Nested Accordion -->
+            <!-- 2nd Level Nested Accordion -->
+            <div class="accordion-item" role="treeitem" aria-expanded="false" id="basic-tree-view-sub-heading-two"
+            data-tree-view-item='{
+            "value": "img",
+            "isDir": true
+            }'
+            >
+            <!-- 2nd Level Accordion Heading -->
+            <div class="accordion-heading tree-view-selected:bg-base-300/40 flex w-full items-center gap-x-0.5 rounded-md py-0.5" >
+                <button class="accordion-toggle btn btn-sm btn-circle btn-text" aria-expanded="false" aria-controls="basic-tree-view-sub-collapse-two" >
+                <span class="icon-[tabler--plus] text-base-content/80 accordion-item-active:rotate-45 size-4 transition-all duration-300" ></span>
+                </button>
+                <div class="tree-view-selected:bg-base-300/40 grow cursor-pointer rounded-md px-1.5">
+                <div class="flex items-center gap-x-3">
+                    <span class="icon-[tabler--folder] text-base-content size-4 shrink-0"></span>
+                    <div class="grow">
+                    <span class="text-base-content">img</span>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <!-- End 2nd Level Accordion Heading -->
+            <!-- 2nd Level Collapse -->
+            <div id="basic-tree-view-sub-collapse-two" class="accordion-content hidden w-full overflow-hidden transition-[height] duration-300" role="group" aria-labelledby="basic-tree-view-sub-heading-two" >
+                <div class="tree-view-space">
+                <!-- 2nd Level Item -->
+                <div class="tree-view-selected:bg-base-300/40 cursor-pointer rounded-md px-2" role="treeitem"
+                    data-tree-view-item='{
+                    "value": "hero.jpg",
+                    "isDir": false
+                }'
+                >
+                    <div class="flex items-center gap-x-3">
+                    <span class="icon-[tabler--photo] text-base-content size-4 shrink-0"></span>
+                    <div class="grow">
+                        <span class="text-base-content">hero.jpg</span>
+                    </div>
+                    </div>
+                </div>
+                <!-- End 2nd Level Item -->
+                <!-- 2nd Level Item -->
+                <div class="tree-view-selected:bg-base-300/40 cursor-pointer rounded-md px-2" role="treeitem"
+                    data-tree-view-item='{
+                    "value": "tailwind.png",
+                    "isDir": false
+                }'
+                >
+                    <div class="flex items-center gap-x-3">
+                    <span class="icon-[tabler--photo] text-base-content size-4 shrink-0"></span>
+                    <div class="grow">
+                        <span class="text-base-content">tailwind.png</span>
+                    </div>
+                    </div>
+                </div>
+                <!-- End 2nd Level Item -->
+                <!-- 2nd Level Item -->
+                <div class="tree-view-selected:bg-base-300/40 cursor-pointer rounded-md px-2" role="treeitem"
+                    data-tree-view-item='{
+                    "value": "untitled.png",
+                    "isDir": false
+                }'
+                >
+                    <div class="flex items-center gap-x-3">
+                    <span class="icon-[tabler--photo] text-base-content size-4 shrink-0"></span>
+                    <div class="grow">
+                        <span class="text-base-content">untitled.png</span>
+                    </div>
+                    </div>
+                </div>
+                <!-- End 2nd Level Item -->
+                </div>
+            </div>
+            <!-- End 2nd Level Collapse -->
+            </div>
+            <!-- End 2nd Level Nested Accordion -->
+            <!-- 2nd Level Nested Accordion -->
+            <div class="accordion-item" role="treeitem" aria-expanded="false" id="basic-tree-view-sub-heading-three"
+            data-tree-view-item='{
+            "value": "js",
+            "isDir": true
+            }'
+            >
+            <!-- 2nd Level Accordion Heading -->
+            <div class="accordion-heading tree-view-selected:bg-base-300/40 flex w-full items-center gap-x-0.5 rounded-md py-0.5" >
+                <button class="accordion-toggle btn btn-sm btn-circle btn-text" aria-expanded="false" aria-controls="basic-tree-view-sub-collapse-three" >
+                <span class="icon-[tabler--plus] text-base-content/80 accordion-item-active:rotate-45 size-4 transition-all duration-300" ></span>
+                </button>
+                <div class="tree-view-selected:bg-base-300/40 grow cursor-pointer rounded-md px-1.5">
+                <div class="flex items-center gap-x-3">
+                    <span class="icon-[tabler--folder] text-base-content size-4 shrink-0"></span>
+                    <div class="grow">
+                    <span class="text-base-content">js</span>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <!-- End 2nd Level Accordion Heading -->
+            <!-- 2nd Level Collapse -->
+            <div id="basic-tree-view-sub-collapse-three" class="accordion-content hidden w-full overflow-hidden transition-[height] duration-300" role="group" aria-labelledby="basic-tree-view-sub-heading-three" >
+                <div class="tree-view-space">
+                <!-- 2nd Level Item -->
+                <div class="tree-view-selected:bg-base-300/40 cursor-pointer rounded-md px-2" role="treeitem"
+                    data-tree-view-item='{
+                    "value": "flyonui.jpg",
+                    "isDir": false
+                }'
+                >
+                    <div class="flex items-center gap-x-3">
+                    <span class="icon-[tabler--photo] text-base-content size-4 shrink-0"></span>
+                    <div class="grow">
+                        <span class="text-base-content">flyonui.jpg</span>
+                    </div>
+                    </div>
+                </div>
+                <!-- End 2nd Level Item -->
+                </div>
+            </div>
+            <!-- End 2nd Level Collapse -->
+            </div>
+            <!-- End 2nd Level Nested Accordion -->
+        </div>
+        <!-- 2nd Level Accordion Group -->
+    </div>
+    <!-- End 1st Level Collapse -->
+
+  </div>
+  <!-- End 1st Level Accordion -->
+</div>

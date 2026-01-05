@@ -1,22 +1,29 @@
 {% set search = getSearch(namespace) %}
-<form class="form {{ class }}" id="search_form">
-    <div class="input" 
+<form 
+    class="form {{ class }}" 
+    id="search_form">
+    <div 
+        class="join" 
         id="search_input">
-       
-        <input placeholder="{{ placeholder }}" class="search-field" type="text" name="search_text" id="search_text" value="{{ search.search_text }}">               
-        <div class="flex flex-row items-center">
-            <button 
-                class="{{ theme.buttons.icon }}" 
-                id="search_button" 
-                title="{{ labels.search }}">
-                {{ labels.search }}
-            </button>
-            <button 
-                class="{{ theme.buttons.icon }} clear-search-form" 
-                title="{{ labels.clear }}">
-                <i class="remove icon"></i>
-            </button>
-        </div>
+        <input 
+            placeholder="{{ placeholder }}" 
+            class="join-item search-field {{ theme.form.input }} input-sm" 
+            type="text" 
+            name="search_text" 
+            id="search_text" 
+            value="{{ search.search_text }}">               
+      
+        <button 
+            class="join-item {{ theme.buttons.default }}" 
+            id="search_button" 
+            title="{{ labels.search }}">
+            {{ labels.search }}
+        </button>
+        <button 
+            class="join-item {{ theme.buttons.default }} clear-search-form" 
+            title="{{ labels.clear }}">
+            {{ component('icons~close',theme.icons.gray,'svg') }}
+        </button>       
     </div>
     {{ fields }}
 </form>
