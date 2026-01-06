@@ -3,15 +3,16 @@
 {% set empty_label = empty_label|default(text.status) %}
 
 <select 
+    name="{{ name }}"
     uuid="{{ uuid }}"
     {{ attributes|attr() }}
-    class="select select-xs {{ class }} status-dropdown" 
-    id="status_dropdown">
+    class="select {{ class }} status-dropdown {{ size|default('select-xs') }}" 
+    id="{{ id|default('status_dropdown') }}">
        
     {% if all == true %}
         <option 
             {{ (selected is empty) ? 'selected' : '' }} 
-            data-value="">
+            value="">
             {{ text.all }}
         </option>
     {% endif %}
@@ -20,11 +21,11 @@
         {% if label.index not in skip %}             
             <option 
                 class="text-green-500"
-                {{ label.index|ifthen(selected.index,'selected') }}
+                {{ (label.index is same as(selected.index)) ? 'selected' : '' }}               
                 value="{{ label.index }}">          
                 <span class="text-green-500">
                     {{ label.title }}
-                </span>                
+                </span>                     
             </option>  
         {% endif %} 
     {% endfor %}   

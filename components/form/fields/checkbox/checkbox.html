@@ -1,12 +1,12 @@
-{% set id = id|default(name ~ '_id') %}
-<div class="flex items-center gap-1 {{ theme.form.field }} {{ class }}"> 
-    <input 
-        id="checkbox_{{ id }}"
+<div 
+    id="{{ component_id }}"
+    class="flex items-center gap-2 {{ theme.form.field }} {{ class }}"> 
+    <input    
+        id="{{ field_id|default(name ~ '_id') }}"   
         {{ rule|attr('rule') }}  
         class="checkbox-field {{ theme.form.checkbox }}"    
         type="checkbox"           
-        {{ value|ifthen(1,'checked') }} 
-        data-field-id="{{ id }}">
+        {{ value|ifthen(1,'checked') }}>
     {% if field_label is not empty %}
         <label 
             class="{{ theme.form.label }}"
@@ -15,8 +15,9 @@
         </label>
     {% endif %}   
     <input 
+        id="{{ name }}_data_field"
+        class="checkbox-data-field"
         type="hidden" 
         name="{{ name }}" 
-        value="{{ (value is empty) ? '0' : '1' }}" 
-        id="{{ id }}">    
+        value="{{ (value == 1 ) ? 1 : 0 }}">    
 </div>
