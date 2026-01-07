@@ -4,67 +4,63 @@
 {% set log_error = getOption("mailer.log.error") %}
 
 {% component 'system:admin.panel' %}
-    {% if demo_mode == true %}
-        <div class="alert alert-warning">
-            {{ messages.demo }}
-        </div>
-    {% else %}
-        <div class="{{ theme.panel }}">
-            <form class="form" id="mailer_settings_form">                                      
-                <h4 class="font-bold">
-                    {{ labels.from }}
-                </h4>
-                <div class="{{ theme.form.fields }}">
-                    <div class="{{ theme.form.field }}">
-                        <label class="{{ theme.form.label }}">
-                            {{ fields.from.email.label }}
-                        </label> 
-                        <input 
-                            class="{{ theme.form.input }}"
-                            rule="email" 
-                            optional="true" 
-                            id="from_email" 
-                            name="mailer.from.email" 
-                            value="{{ from_email }}" 
-                            {{ fields.from.email.placeholder|attr('placeholder') }}>                   
-                    </div> 
-                    <div class="{{ theme.form.field }}">
-                        <label class="{{ theme.form.label }}">
-                            {{ fields.from.name.label }}
-                        </label> 
-                        <input 
-                            class="{{ theme.form.input }}"
-                            id="from_name" 
-                            optional="true" 
-                            name="mailer.from.name" 
-                            value="{{ from_name }}" 
-                            {{ fields.from.name.placeholder|attr('placeholder') }}>                   
-                    </div>  
-                </div>
-                {{ component('system:form.footer') }}        
-            </form>    
-        </div> 
-        <div class="mt-4 {{ theme.panel }}">
+
+    {{ component('system:admin.alert.demo') }}
+    <div class="{{ theme.panel }}">
+        <form class="form" id="mailer_settings_form">                                      
             <h4 class="font-bold">
-                {{ labels.logs }}
+                {{ labels.from }}
             </h4>
-            <div class="mt-2">
-                <div class="{{ theme.form.fields }}">
-                    {{  component('system:admin.option.switch',{                         
-                            label: labels.info,
-                            name: 'mailer.log',
-                            value: log_info
-                        })
-                    }}
-                
-                    {{  component('system:admin.option.switch',{                           
-                            label: labels.error,
-                            name: 'mailer.log.error',
-                            value: log_error
-                        })
-                    }}                   
-                </div>
+            <div class="{{ theme.form.fields }}">
+                <div class="{{ theme.form.field }}">
+                    <label class="{{ theme.form.label }}">
+                        {{ fields.from.email.label }}
+                    </label> 
+                    <input 
+                        class="{{ theme.form.input }}"
+                        rule="email" 
+                        optional="true" 
+                        id="from_email" 
+                        name="mailer.from.email" 
+                        value="{{ from_email }}" 
+                        {{ fields.from.email.placeholder|attr('placeholder') }}>                   
+                </div> 
+                <div class="{{ theme.form.field }}">
+                    <label class="{{ theme.form.label }}">
+                        {{ fields.from.name.label }}
+                    </label> 
+                    <input 
+                        class="{{ theme.form.input }}"
+                        id="from_name" 
+                        optional="true" 
+                        name="mailer.from.name" 
+                        value="{{ from_name }}" 
+                        {{ fields.from.name.placeholder|attr('placeholder') }}>                   
+                </div>  
+            </div>
+            {{ component('system:form.footer') }}        
+        </form>    
+    </div> 
+    <div class="mt-4 {{ theme.panel }}">
+        <h4 class="font-bold">
+            {{ labels.logs }}
+        </h4>
+        <div class="mt-2">
+            <div class="{{ theme.form.fields }}">
+                {{  component('system:admin.option.switch',{                         
+                        label: labels.info,
+                        name: 'mailer.log',
+                        value: log_info
+                    })
+                }}
+            
+                {{  component('system:admin.option.switch',{                           
+                        label: labels.error,
+                        name: 'mailer.log.error',
+                        value: log_error
+                    })
+                }}                   
             </div>
         </div>
-    {% endif %}
+    </div>
 {% endcomponent %}

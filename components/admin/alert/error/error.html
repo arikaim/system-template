@@ -1,4 +1,6 @@
-<div class="alert alert-sm alert-error {{ class }}" {{ id|attr(id) }}>   
+<div 
+    {{ id|attr('id') }}
+    class="alert alert-sm alert-error {{ class }}" {{ id|attr(id) }}>   
     <div class="p-2">
         {% if title is not empty %}
         <div class="header">{{ title }}</div>

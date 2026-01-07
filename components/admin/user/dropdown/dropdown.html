@@ -10,9 +10,12 @@
         aria-label="User menu">
         <div class="{{ styles.avatar.ring }}">   
             {% if user_details.avatar is not empty %}                            
-                <img alt="Avatar" src="{{ url(service('users').getViewAvatarUrl(),true) }}" />            
+                <img 
+                    class="w-6 h-6"
+                    alt="Avatar" 
+                    src="{{ url(service('users').getViewAvatarUrl(),true) }}" />            
             {% else %}  
-                {{ component('icons~user',theme.icons.menu,'svg') }}  
+                {{ component('icons~user',{ size: 'h-6 w-6' },'svg') }}  
             {% endif %}
         </div>       
     </button>    

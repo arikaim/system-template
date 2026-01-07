@@ -1,4 +1,6 @@
-<div class="flex flex-row items-center alert alert-outline alert-warning {{ class }}">     
+<div
+    {{ id|attr('id') }}
+    class="flex flex-row items-center alert alert-outline alert-warning {{ class }}">     
     <div class="status status-error"></div>     
     <p class="mx-4 text-gray-800">
         {{ message }}

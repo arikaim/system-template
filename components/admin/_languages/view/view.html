@@ -2,13 +2,9 @@
 {% set language = language.orderBy('position') %}
 {% set items = paginate(language,'language') %}
 {% set default_language = getConfigOption('settings/defaultLanguage') %}
-{% if demo_mode == true %}
-    <div class="ui warning message">
-        <h4>
-            {{ labels.demo }}
-        </h4>
-    </div>
-{% endif %}
+
+{{ component('system:admin.alert.demo') }}
+
 {{ component("system:position",{},'js') }}
 <div class="ui stackable cards" id="languages_list">
     {% for item in items.getItems() %}

@@ -1,0 +1,11 @@
+{% if demo_mode == true %}
+    <div class="alert alert-sm alert-error {{ class }}" {{ id|attr(id) }}>   
+        <div class="p-2">
+            {% if title is not empty %}
+                <div class="header">{{ title }}</div>
+            {% endif %}      
+            <p>{{ message }}</p>
+        </div>
+    </div>
+    {% error '' %}
+{% endif %}

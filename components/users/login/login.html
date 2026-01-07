@@ -8,7 +8,7 @@
             {{ title }}
         </div>
     </h4>
-    <form class="form" id="login_form" method="POST">
+    <form class="form" id="login_form">
         {% if login_with == 1 or login_with == 3 %}
             <div class="{{ theme.form.field }}">        
                 <label class="{{ theme.form.label }}">
@@ -30,7 +30,7 @@
             <input 
                 class="form-input {{ theme.form.input }}"
                 type="email" 
-                rule="email"
+                rule="minLength[2]"
                 name="email" 
                 id="email" 
                 {{ fields.email.placeholder|attr("placeholder") }}>                                 

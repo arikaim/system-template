@@ -5,41 +5,35 @@
         <h4 class="font-bold">             
             {{ title }}
         </h4>
-        {% if demo_mode != true %}
-            <form class="form" id="user_details_form"> 
-                <div class="required {{ theme.form.field }}">
-                    <label class="{{ theme.form.label }}">
-                        {{ fields.user_name.label }}
-                    </label>                        
-                    <input 
-                        class="{{ theme.form.input }}"
-                        rule="minLength[2]" 
-                        type="text" 
-                        name="user_name" 
-                        id="user_name" 
-                        {{ fields.user_name.placeholder|attr('placeholder') }} 
-                        value="{{ user.user_name }}">                      
-                </div>            
-                <div class="{{ theme.form.field }}">
-                    <label class="{{ theme.form.label }}">
-                        {{ fields.email.label }}
-                    </label>
-                    <input 
-                        class="{{ theme.form.input }}"
-                        type="text" 
-                        name="email" 
-                        id="email" 
-                        {{ fields.email.placeholder|attr("placeholder") }} 
-                        value="{{ user.email }}">        
-                </div>
-                {% if demo_mode == false %}
-                    {{ component('system:form.footer') }}     
-                {% endif %}            
-            </form>
-        {% else %}
-            <div class="ui warning message">
-                {{ labels.demo }}
-            </div>
-        {% endif %}
+        {{ component('system:admin.alert.demo') }}
+
+        <form class="form" id="user_details_form"> 
+            <div class="required {{ theme.form.field }}">
+                <label class="{{ theme.form.label }}">
+                    {{ fields.user_name.label }}
+                </label>                        
+                <input 
+                    class="{{ theme.form.input }}"
+                    rule="minLength[2]" 
+                    type="text" 
+                    name="user_name" 
+                    id="user_name" 
+                    {{ fields.user_name.placeholder|attr('placeholder') }} 
+                    value="{{ user.user_name }}">                      
+            </div>            
+            <div class="{{ theme.form.field }}">
+                <label class="{{ theme.form.label }}">
+                    {{ fields.email.label }}
+                </label>
+                <input 
+                    class="{{ theme.form.input }}"
+                    type="text" 
+                    name="email" 
+                    id="email" 
+                    {{ fields.email.placeholder|attr("placeholder") }} 
+                    value="{{ user.email }}">        
+            </div>           
+            {{ component('system:form.footer') }}                  
+        </form>      
     </div>   
 </div>
