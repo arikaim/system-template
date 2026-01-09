@@ -1,10 +1,11 @@
-<div 
-    {{ id|attr('id') }}
-    class="alert alert-sm alert-error {{ class }}" {{ id|attr(id) }}>   
-    <div class="p-2">
-        {% if title is not empty %}
-        <div class="header">{{ title }}</div>
-        {% endif %}      
-        <p>{{ message }}</p>
+<div   
+    class="text-gray-800 alert alert-outline alert-xs alert-error {{ class }}" 
+    {{ id|attr(id) }}>
+    {% if title is not empty %}
+        <div class="font-bold">{{ title }}</div>
+    {% endif %}      
+    <div class="p-2 flex flex-row items-center">      
+        <div class="status status-error"></div>        
+        <p class="ml-2 text-gray-800">{{ message }}</p>
     </div>
 </div>
