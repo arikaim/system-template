@@ -2,8 +2,8 @@
 {% set selected_text = (selected is empty) ? labels.select : selected %}
 
 <select 
-    class="select {{ class }} extensions-dropdown" 
-    id="extensions_dropdown">
+    class="{{ theme.form.select }} {{ class }} extensions-dropdown {{ size }}" 
+    id="{{ id|default('extensions_dropdown') }}">
         <option 
             disabled
             class="text-gray-100" 

@@ -1,0 +1,35 @@
+{% set show_url = (show_url is not defined) ? true : show_url %}
+{% set url_path = url_path|default('') %}
+{% set slug = slug|default('&nbsp;') %}
+{% set editable = editable|default(false) %}
+{% set name = name|default('slug') %}
+{% set id = id|default('slug') %}
+{% set disable_update = disable_update|default(false) %}
+
+<div class="{{ theme.form.field }} {{ class }}">   
+    <label class="{{ theme.form.label }}" >
+        {{ label|default(labels.url) }}
+    </label>   
+    {% if editable == true %}
+        <input 
+            class="{{ theme.form.input }}"
+            type="text" 
+            name="{{ name }}" 
+            id="{{ id }}" 
+            slug-source="{{ slug_source|default('title') }}" 
+            value="{{ value }}" 
+            editable="{{ editable }}"
+            disable-update="{{ disable_update }}"/>
+    {% else %}
+        <div class="{{ field_class|default('badge badge-sm badge-outline') }}">   
+            {% if show_url == true %}         
+                {{ url(url_path,true) }}   
+            {% endif %}       
+            <span 
+                id="{{ id }}" 
+                slug-source="{{ slug_source }}" 
+                editable="false">{{ slug }}
+            </span>                           
+        </div>  
+    {% endif %}     
+</div>

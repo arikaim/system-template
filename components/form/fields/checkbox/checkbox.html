@@ -1,23 +1,33 @@
-<div 
-    id="{{ component_id }}"
-    class="flex items-center gap-2 {{ theme.form.field }} {{ class }}"> 
-    <input    
-        id="{{ field_id|default(name ~ '_id') }}"   
-        {{ rule|attr('rule') }}  
-        class="checkbox-field {{ theme.form.checkbox }}"    
-        type="checkbox"           
-        {{ value|ifthen(1,'checked') }}>
-    {% if field_label is not empty %}
+<div class="{{ theme.form.field }}">
+    {% if label is not empty %} 
         <label 
-            class="{{ theme.form.label }}"
-            for="checkbox_{{ id }}">
-            {{ field_label }}
+            class="{{ theme.form.label }}">
+            {{ label }}
         </label>
-    {% endif %}   
-    <input 
-        id="{{ name }}_data_field"
-        class="checkbox-data-field"
-        type="hidden" 
-        name="{{ name }}" 
-        value="{{ (value == 1 ) ? 1 : 0 }}">    
+    {% endif %}
+    <div 
+        id="{{ component_id }}"
+        class="flex items-center gap-2 {{ class }}">   
+        <input    
+            id="{{ field_id|default(name ~ '_id') }}"   
+            {{ rule|attr('rule') }}  
+            class="checkbox-field {{ theme.form.checkbox }}"    
+            type="checkbox"           
+            {{ value|ifthen(1,'checked') }}>
+
+        {% if field_label is not empty %}
+            <label 
+                class="{{ theme.form.label }}"
+                for="checkbox_{{ id }}">
+                {{ field_label }}
+            </label>
+        {% endif %}   
+
+        <input 
+            id="{{ name }}_data_field"
+            class="checkbox-data-field"
+            type="hidden" 
+            name="{{ name }}" 
+            value="{{ (value == 1 ) ? 1 : 0 }}">    
+    </div>
 </div>
