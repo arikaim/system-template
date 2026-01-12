@@ -8,6 +8,7 @@
         "five": "grid items-stretch grid-cols-5 lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-1 gap-4"
     },
     "card": {
+        "small": "flex flex-col px-4 py-2 w-full border border-stone-200 shadow-xs",
         "default": "flex flex-col p-4 w-full border border-stone-200 shadow-sm",
         "dashboard": "p-4 bg-white dark:bg-gray-800 dark:text-gray-200 dashboard-item justify-self-stretch w-full border dark:border-stone-800 border-stone-300 border-solid rounded-xl shadow-xs"
     },
@@ -39,7 +40,7 @@
         "space": "flex items-center gap-2",
         "label": "label-text font-bold dark:text-gray-200",
         "checkbox": "checkbox-xs checkbox checkbox-default",
-        "button": "btn btn-outline btn-square btn-icon pl-2",
+        "button": "btn btn-outline btn-square btn-icon px-2",
         "field": "field relative mt-2",
         "radio": "radio radio-xs radio-default",
         "value": "text-gray-700",

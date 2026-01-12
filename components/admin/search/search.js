@@ -13,10 +13,7 @@ function Search() {
     this.init = function(options, namespace) {
         this.options = options;
         var formId = getValue('form_id',options,"#search_form");   
-      //  $('.search-fields').dropdown({           
-     //       allowAdditions: true
-     //   });   
-     
+  
         arikaim.ui.button('.clear-search-form',function(element) {
             arikaim.ui.form.clear(formId);
             $(formId).form('clear');
@@ -36,6 +33,7 @@ function Search() {
 
     this.getSearchFields = function(formId) {
         var items = {};
+        
         $(formId).find('.search-field').each(function(index) {
             var name = $(this).attr('name');
             var value = $(this).val();

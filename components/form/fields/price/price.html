@@ -1,0 +1,29 @@
+{% set name = name|default('price') %}
+{% set id = id|default(name) %}
+{% set value = value|default(0) %}
+
+<div class="{{ theme.form.field }} {{ class }}">
+    <label class="{{ theme.form.label }}">
+        {{ label|default(price.label) }}
+    </label>   
+    <div class="join">
+        <div class="join {{ theme.form.input }}">       
+            <div class="label-text my-auto me-3 p-0 join-item">
+               {{ currency_code }}
+            </div>        
+            <input 
+                class="join-item"
+                {{ rule|attr('rule') }} 
+                type="text" 
+                placeholder="{{ placeholder }}" 
+                name="{{ name }}" 
+                id="{{ id }}" 
+                value="{{ value|numberFormat }}">
+        </div>
+        <div 
+            class="join-item {{ theme.form.button }} clear-price" 
+            price-field="{{ id }}">
+            {{ component('icons~close',theme.icons.delete,'svg') }}
+        </div>
+    </div>
+</div>
