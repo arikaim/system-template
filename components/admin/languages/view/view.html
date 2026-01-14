@@ -1,0 +1,36 @@
+{% set language = createModel('Language').orderBy('position') %}
+{% set items = paginate(language,'language') %}
+
+{% set default_language = getConfigOption('settings/defaultLanguage') %}
+
+{{ component('system:admin.alert.demo') }}
+
+<div 
+    class="mt-4 {{ theme.panel }}">
+    <button 
+        mountTo="language_details"
+        component="system:admin.languages.add"
+        title="{{ tooltip.create }}"
+        class="{{ theme.buttons.green }} add-language">
+        {{ buttons.add }}
+    </button>
+</div>
+
+<div class="mt-4 flex flex-row items-start">
+    <div 
+        class="mr-4 w-1/3 hidden" 
+        id="language_details">         
+    </div>
+    <div        
+        class=" {{ theme.grid.five }} w-full" 
+        id="languages_list">
+        {% for item in items.getItems() %}
+            {{  component("system:admin.languages.view.item",{ 
+                    language: item, 
+                    default_language: default_language 
+                }) 
+            }}
+        {% endfor %}
+    </div>    
+</div>
+   

@@ -36,6 +36,13 @@
                 "page-icon": "icons-cog",
                 "page-title": "System"
             },
+            "languages": {
+                "component": "system:admin.languages",
+                "icon": "icons~globe",
+                "title": "Languages",
+                "page-title": "Languages", 
+                "page-icon": "icons~globe"
+            },
             "logout": { 
                 "component": "system:users.logout",
                 "icon": "icons~logout",
@@ -50,13 +57,6 @@
             "title": "Store",
             "page-icon": "icons~shopping.cart",
             "page-title": "Store"
-        },
-        "languages": {
-            "component": "system:admin.languages",
-            "icon": "icons~globe",
-            "title": "Languages",
-            "page-title": "Languages", 
-            "page-icon": "icons~globe"
         }
     }
 }

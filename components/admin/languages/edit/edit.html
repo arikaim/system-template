@@ -5,7 +5,7 @@
     {% set class = 'six wide' %}
     {% if uuid is empty %}
         <div class="mt-4">
-        {{  component('semantic~language.dropdown',{ 
+        {{  component('system:admin.language.dropdown',{ 
                 selected: language, 
                 name: 'language',
                 id: 'choose_language',
@@ -17,7 +17,7 @@
     {% endif %}          
     <div class="mt-8" id="form_content">
     {% if uuid is defined %}
-        {{ component('system:admin.languages.language.form',{ uuid: uuid }) }}
+        {{ component('system:admin.languages.form',{ uuid: uuid }) }}
     {% endif %}
     </div>
 {% endcomponent %}

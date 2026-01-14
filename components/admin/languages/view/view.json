@@ -1,5 +1,8 @@
 {
     "labels": {
         "demo": "DEMO MODE some features are disabled."
+    },
+    "buttons": {
+        "add": "Add"
     }
 }

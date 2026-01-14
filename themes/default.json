@@ -40,7 +40,7 @@
         "space": "flex items-center gap-2",
         "label": "label-text font-bold dark:text-gray-200",
         "checkbox": "checkbox-xs checkbox checkbox-default",
-        "button": "btn btn-outline btn-square btn-icon px-2",
+        "button": "btn btn-outline btn-square btn-icon px-4",
         "field": "field relative mt-2",
         "radio": "radio radio-xs radio-default",
         "value": "text-gray-700",

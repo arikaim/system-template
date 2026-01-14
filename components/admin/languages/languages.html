@@ -1,0 +1,19 @@
+{{  component('system:admin.tabs',{ 
+        items:  [ 
+            {              
+                title: labels.view, 
+                component: 'system:admin.languages.view', 
+                svg_icon: 'icons~list', 
+                active: true 
+            }          
+        ],
+        content: { 
+            component: 'system:admin.languages.view' 
+        } 
+    })
+}}
+
+{{  component('system:admin.modal.confirm',{
+        id: 'confirm_delete'       
+    }) 
+}}

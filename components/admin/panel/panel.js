@@ -11,8 +11,6 @@ arikaim.component.onLoaded(function(component) {
             setTimeout(function() {
                 if (component.get('parent') == 'show') {
                     // add hidden class to parent
-                    console.log('show');
-
                     $(component.getElement()).parent().addClass('hidden');
                 }
 

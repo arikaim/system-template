@@ -1,0 +1,8 @@
+{% component 'system:admin.panel' %}  
+    <div class="mt-4">
+        {{ component('system:admin.language.list') }}        
+    </div>   
+    <div class="mt-4" id="form_content">
+        {{ component('system:admin.languages.form') }}
+    </div>   
+{% endcomponent %}

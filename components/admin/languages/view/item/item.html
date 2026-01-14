@@ -1,0 +1,79 @@
+{% set disabled_class = (demo_mode == true) ? 'disabled': '' %}
+{% set disabled_default = (default_language == language.code) ? 'disabled' : '' %}
+<div 
+    id="row_{{ language.uuid }}"
+    class="{{ theme.card.default }} {{ language.status|ifthen([1,2],"green") }}" 
+    {{ language.uuid|attr("id") }}>        
+    <div class="flex flex-row items-center"> 
+        {% if default_language == language.code %}         
+        <div {{ default_language_icon.title|attr("title") }}>
+            {{ component('icons~check',theme.icons.green,'svg') }}
+        </div>
+        {% endif %}       
+        <div class="flex flex-row items-center flex-grow pl-4">
+            <div>
+                <span class="flag {{ language.country_code }}">
+
+                </span> 
+            </div>                    
+            <div class="font-bold">                          
+                {{ language.title }}                                        
+            </div>  
+        </div>                 
+        <div class="place-content-end">                        
+            {% if demo_mode != true %}
+                <input 
+                    {{ language.uuid|attr("uuid") }}
+                    class="checkbox checkbox-xs checkbox-success change-status-button {{ disabled_class }}"
+                    name="status" 
+                    {{ language.status|ifthen(1,"checked") }} 
+                    type="checkbox">                
+            {% endif %}           
+        </div>                                                               
+    </div>        
+    <div class="mt-4 flex flex-col">
+        <div class="flex flex-col ">
+            {{ labels.native_name }} 
+            <span class="font-bold ">{{ language.native_title }}</span>
+        </div>
+        <div class="mt-2">
+            {{ labels.code }}
+        </div>
+        <div class="mt-2 flex flex-row items-center">
+            <div class="badge badge-sm badge-outline">
+                <span class="text-uppercase">{{ language.code }}</span>
+            </div>
+            <div class="ml-2 badge badge-sm badge-outline">
+                <span class="text-uppercase">{{ language.code_3 }}</span>
+            </div>
+        </div>
+    </div>                                                 
+    <div 
+        class="mt-2 alert alert-outline opacity-0 m-2" 
+        id="message_{{ language.uuid }}">
+    </div>   
+    <div class="mt-4 flex self-center">
+        <div class="join"> 
+            <button 
+                class="join-item edit-button {{ theme.buttons.blue }}" 
+                {{ buttons.edit.title|attr("title") }} 
+                {{ language.uuid|attr("uuid") }}>
+                {{ buttons.edit.content }}    
+            </button>    
+            <button 
+                class="join-item {{ theme.buttons.green }} set-default-button {{ disabled_class }}" 
+                language-title="{{ language.title }}" 
+                {{ language.uuid|attr("uuid") }} 
+                {{ buttons.default.title|attr("title") }}>                   
+                {{ buttons.default.content }}    
+            </button>            
+            <button    
+                class="join-item {{ theme.buttons.delete }} remove-button {{ disabled_class }}" 
+                language-title="{{ language.title }}" 
+                {{ language.uuid|attr("uuid") }} 
+                {{ buttons.remove.title|attr("title") }}>                   
+                {{ buttons.remove.content }}    
+            </button>                    
+        </div> 
+    </div>       
+</div>

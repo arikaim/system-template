@@ -1,0 +1,16 @@
+{% set name = name|default('country_code') %}
+{% set id = id|default(name) %}
+
+<select   
+    {{ rule|attr('rule') }}
+    name="{{ name }}"
+    class="{{ theme.form.select }} country-dropdown {{ class }} {{ size }}" 
+    id="{{ id }}">    
+    {% for item in items %}
+        <option 
+            {{ (selected == item.code|lower) ? 'selected' : '' }}
+            value="{{ item.code|lower }}">
+            {{ item.name }}
+        </option>      
+    {% endfor %}
+</select>

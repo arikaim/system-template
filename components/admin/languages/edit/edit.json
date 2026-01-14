@@ -1,8 +1,6 @@
 {
-    "title": {
-        "content": "New Language",
-        "icon": "file outline"
-    },
+    "title": "Edit Language",       
+    "icon": "icons~edit",
     "menu": {
         "label": "Select Language",
         "name" : "language",

@@ -9,11 +9,12 @@
     },
     "buttons": {
         "edit": {
+            "content": "Edit",     
             "title": "Edit language"   
         },
         "default": {
-            "content": "Set Default",            
-        "title": "Set default language"
+            "content": "Default",            
+            "title": "Set default language"
         },
         "remove": {
             "content": "Delete",
