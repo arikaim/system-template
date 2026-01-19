@@ -1,0 +1,32 @@
+id {{ component_id }}
+<div 
+    id="{{ component_id }}"
+    class="--prevent-on-load-init relative {{ class }}"    
+    data-combo-box='{
+    "apiUrl": "https://restcountries.com/v3.1",
+    "apiSearchPath": "name",
+    "apiSearchDefaultPath": "all",
+    "outputEmptyTemplate": "<div class=\"dropdown-item\">No found...</div>",
+    "outputItemTemplate": "<div class=\"dropdown-item combo-box-selected:dropdown-active\" data-combo-box-output-item><div class=\"flex justify-between items-center w-full\"><div><div class=\"hidden\" data-combo-box-output-item-field=\"ccn3\"></div><div data-combo-box-output-item-field=\"name.common\" data-combo-box-search-text data-combo-box-value></div></div><span class=\"icon-[tabler--check] text-primary combo-box-selected:block hidden size-4 shrink-0\"></span></div></div>"
+  }'>
+    
+    <input         
+        id="combo_input"    
+        class="{{ theme.form.input }}" 
+        type="text" 
+        value="" 
+        role="combobox" 
+        aria-expanded="false" 
+        data-combo-box-input
+        aria-label="{{ placeholder }}" />        
+    <span 
+        class="absolute end-3 top-1/2 size-4 shrink-0 -translate-y-1/2" 
+        data-combo-box-toggle>
+        {{ component('icons~chevron.down',theme.form.icon,'svg') }}
+    </span>    
+    <div 
+        class="bg-base-100 rounded-box absolute z-50 max-h-44 w-full space-y-0.5 overflow-y-auto p-2 shadow-sm" 
+        style="display: none" 
+        data-combo-box-output >
+    </div>
+</div>

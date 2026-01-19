@@ -16,6 +16,10 @@ arikaim.component.onLoaded(function() {
     arikaim.ui.form.onSubmit('#language_form',function() {         
         return arikaim.post('/core/api/language/add','#language_form');
     },function(result) {      
+        languagesView.addItem({
+            uuid: result.uuid
+        });
+
         arikaim.ui.form.showMessage(result.message);
         arikaim.ui.form.clear('#language_form');
     });

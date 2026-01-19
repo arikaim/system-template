@@ -1,0 +1,22 @@
+<div 
+    id="{{ component_id }}"
+    class="flex flex-col {{ class }}">
+    <label 
+        for="{{ component_id }}_input" 
+        class="label-text">
+        {{ label }}
+    </label>
+    <input 
+        class="{{ theme.form.input }}" 
+        list="{{ componebtr_id }}_options" 
+        id="{{ component_id }}_input" 
+        placeholder="{{ placeholder }}" />
+    <datalist id="{{ component_id }}_options">
+        {% for item in items %}
+            <option 
+                value="{{ item.value }}">
+                {{ item.title }}
+            </option>
+        {% endfor %}    
+    </datalist>
+</div>

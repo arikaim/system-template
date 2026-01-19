@@ -1,0 +1,37 @@
+{% autoescape false %} 
+
+{% set dropdownClasses = dropdownClasses|default("advance-select-menu max-h-48 pt-0 overflow-y-auto") %}
+{% set optionTemplate = optionTemplate|default("<div class=\"flex items-center gap-2\"><div data-title ></div></div>") %}
+{% set toggleTag = toggleTag|default("<button type=\"button\" aria-expanded=\"false\"></button>") %}
+<div 
+    class="{{ class|default('w-full') }}">
+    <select
+        id="{{ component_id }}"
+        optionTemplate='{{ optionTemplate|raw }}'
+        searchPlaceholder="{{ searchPlaceholder|default(placeholder) }}"
+        placeholder="{{ placeholder }}"
+        hasSearch="{{ hasSearch|default(true) }}"
+        apiDataPart="{{ apiDataPart|default('results') }}"
+        apiIconTag='{{ apiIconTag|raw }}'
+        toggleTag='{{ toggleTag|raw }}'
+        apiQuery="{{ apiQuery }}"  
+        toggleClasses="{{ toggleClasses|default('advance-select-toggle select-disabled:pointer-events-none select-disabled:opacity-40') }}"
+        dropdownClasses="{{ dropdownClasses }}"
+
+        {{ (multiple == true) ? 'multiple' : '' }}
+        class="--prevent-on-load-init hidden {{ size }} {{ theme.form.input }}"
+      
+        data-select='{
+            "apiUrl": "{{ DOMAIN }}{{ BASE_PATH }}/api/users/admin/list/uuid/",         
+            "apiFieldsMap": {              
+                "value": "value",
+                "title": "name"
+            },                      
+            "optionClasses": "advance-select-option selected:select-active",           
+            "extraMarkup": "<span id=\"select-icon\" class=\"icon-[tabler--caret-up-down] shrink-0 size-4 text-base-content absolute top-1/2 end-3 -translate-y-1/2 \"></span>"
+        }'>
+        <option value="">{{ labels.select }}</option>       
+    </select>
+</div>
+
+{% endautoescape %}

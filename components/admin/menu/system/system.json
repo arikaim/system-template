@@ -38,10 +38,10 @@
             },
             "languages": {
                 "component": "system:admin.languages",
-                "icon": "icons~globe",
+                "icon": "icons~language",
                 "title": "Languages",
                 "page-title": "Languages", 
-                "page-icon": "icons~globe"
+                "page-icon": "icons~language"
             },
             "logout": { 
                 "component": "system:users.logout",

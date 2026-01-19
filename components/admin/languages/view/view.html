@@ -22,11 +22,11 @@
         id="language_details">         
     </div>
     <div        
-        class=" {{ theme.grid.five }} w-full" 
-        id="languages_list">
+        class="{{ theme.grid.five }} w-full" 
+        id="languages_items">
         {% for item in items.getItems() %}
             {{  component("system:admin.languages.view.item",{ 
-                    language: item, 
+                    item: item, 
                     default_language: default_language 
                 }) 
             }}

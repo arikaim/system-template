@@ -2,7 +2,7 @@
 
 arikaim.component.onLoaded(function() {
     $('#choose_language').on('change',function() {
-        var uuid= $(this).val();
+        var uuid = $(this).val();
        
         languages.load(uuid,function(result) {
             arikaim.ui.form.clearErrors('#language_form');
@@ -14,6 +14,10 @@ arikaim.component.onLoaded(function() {
         arikaim.ui.form.onSubmit('#language_form',function() {      
             return arikaim.put('/core/api/language/update','#language_form');
         },function(result) {
+            console.log(result.uuid);
+
+            languagesView.updateItem(result.uuid);   
+
             arikaim.ui.form.showMessage(result.message);            
         });
     }

@@ -1,9 +1,14 @@
 {% if languages is iterable %}
     {% set model = createModel('Language') %}
-    <div class="ui horizontal list">
+    <div class="{{ theme.list.default }}">
         {% for code in languages %}
-        <div class="item">
-            {{ component('semantic~language.label',{ model: model, language: code, class: 'basic' }) }}
+        <div class="px-1">
+            {{  component('system:admin.language.label',{ 
+                    model: model, 
+                    language: code, 
+                    class: '' 
+                }) 
+            }}
         </div>
         {% endfor %}
     </div>

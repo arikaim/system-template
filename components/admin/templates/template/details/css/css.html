@@ -6,8 +6,11 @@
         <div class="px-1">..</div>
     {% endif %}
     {% for file in files %}
-    <div class="flex flex-row items-center">           
-        {{ file }}            
-    </div>
+        <div class="flex flex-row items-center">        
+            {{ component('icons~document',theme.icons.blue,'svg') }}  
+            <div class="mx-2">
+                {{ file }}            
+            </div>    
+        </div>
     {% endfor %}
 </div>

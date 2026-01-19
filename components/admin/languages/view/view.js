@@ -12,7 +12,9 @@ function LanguagesView() {
     this.init = function() {
         this.loadMessages('system:admin.languages');
         arikaim.ui.loadComponentButton('.add-language');
-    
+        
+        this.setItemsSelector('languages_items');
+        this.setItemComponentName('system:admin.languages.view.item');
         this.initRows();
     };
 
@@ -20,12 +22,11 @@ function LanguagesView() {
         arikaim.ui.button('.remove-button', function(element) {
             var language = $(element).attr('language-title');
             var uuid = $(element).attr('uuid');
-            var message = arikaim.ui.template.render(self.getMessage('description'),{ title: language });
+            var message = arikaim.ui.template.render(languagesView.getMessage('description'),{ title: language });
             
             arikaim.ui.getComponent('confirm_delete').open(function() {
-                return languages.delete(uuid).done(function(result) {
-                    $('#view_button').click();
-                    $('row_' + result.uuid).remove();               
+                return languages.delete(uuid).done(function(result) {                    
+                    languagesView.deleteItem(result.uuid);                          
                 });
             },message);
         });
@@ -49,9 +50,8 @@ function LanguagesView() {
             var uuid = $(element).attr('uuid');            
             $('.default-language').hide();
 
-            return languages.setDefault(uuid).done(function(result) {           
-                $('#'+ uuid).find('.default-language').removeClass('hidden').show();    
-                $('#view_button').click();  
+            return languages.setDefault(uuid).done(function(result) {   
+                languagesView.updateItem(uuid);                
             }).fail(function(error) {
                 console.log(error);
             });        
