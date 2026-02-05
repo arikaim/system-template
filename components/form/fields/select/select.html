@@ -1,37 +1,56 @@
-{% autoescape false %} 
+{% autoescape false %}
 
-{% set dropdownClasses = dropdownClasses|default("advance-select-menu max-h-48 pt-0 overflow-y-auto") %}
-{% set optionTemplate = optionTemplate|default("<div class=\"flex items-center gap-2\"><div data-title ></div></div>") %}
+{% set dropdownClasses = dropdownClasses|default("advance-select-menu") %}
+{% set optionTemplate = optionTemplate|default("<div class=\"flex flex-grow justify-between items-center w-full\"><span data-title></span><span class=\"icon-[tabler--check] shrink-0  text-primary hidden selected:block \"></span></div>") %}
+{% set toggleClasses = toggleClasses|default('advance-select-toggle select-disabled:pointer-events-none select-disabled:opacity-40') %}
+{% set optionClasses = optionClasses|default("advance-select-option selected:select-active") %}
 {% set toggleTag = toggleTag|default("<button type=\"button\" aria-expanded=\"false\"></button>") %}
-<div 
-    class="{{ class|default('w-full') }}">
-    <select
-        id="{{ component_id }}"
-        optionTemplate='{{ optionTemplate|raw }}'
-        searchPlaceholder="{{ searchPlaceholder|default(placeholder) }}"
-        placeholder="{{ placeholder }}"
-        hasSearch="{{ hasSearch|default(true) }}"
-        apiDataPart="{{ apiDataPart|default('results') }}"
-        apiIconTag='{{ apiIconTag|raw }}'
-        toggleTag='{{ toggleTag|raw }}'
-        apiQuery="{{ apiQuery }}"  
-        toggleClasses="{{ toggleClasses|default('advance-select-toggle select-disabled:pointer-events-none select-disabled:opacity-40') }}"
-        dropdownClasses="{{ dropdownClasses }}"
-
-        {{ (multiple == true) ? 'multiple' : '' }}
-        class="--prevent-on-load-init hidden {{ size }} {{ theme.form.input }}"
-      
-        data-select='{
-            "apiUrl": "{{ DOMAIN }}{{ BASE_PATH }}/api/users/admin/list/uuid/",         
-            "apiFieldsMap": {              
-                "value": "value",
+{% set extraMarkup = extraMarkup|default("") %}
+<div class="join w-full">    
+    <div        
+        class="{{ class|default('w-full') }}">           
+        <select    
+            {{ (multiple == true) ? 'multiple' : '' }}   
+            id="{{ component_id }}"
+            name="{{ name }}"
+            rule="{{ rule }}"
+            optionTemplate='{{ optionTemplate|raw }}'
+            apiSearchQueryKey="{{ apiSearchQueryKey|default('query') }}"
+            searchPlaceholder="{{ searchPlaceholder|default(placeholder) }}"
+            placeholder="{{ placeholder }}"
+            hasSearch="{{ hasSearch|default(true) }}"
+            apiDataPart="{{ apiDataPart|default('results') }}"
+            apiIconTag='{{ apiIconTag|raw }}'
+            toggleTag='{{ toggleTag|raw }}'
+            apiQuery="{{ apiQuery }}"  
+            toggleClasses="{{ toggleClasses }} {{ size }}"
+            dropdownClasses="{{ dropdownClasses }}"
+            optionClasses="{{ optionClasses }}"
+            extraMarkup="{{ extraMarkup|raw }}"
+            isSearchDirectMatch="{{ isSearchDirectMatch|default('false') }}"
+            class="join-item shrink-0 --prevent-on-load-init flex-grow"
+            apiSelectedValues="{{ selected }}"
+            apiUrl="{{ apiUrl }}"
+            apiFieldsMap='{      
+                "id": "value",        
+                "val": "value",
                 "title": "name"
-            },                      
-            "optionClasses": "advance-select-option selected:select-active",           
-            "extraMarkup": "<span id=\"select-icon\" class=\"icon-[tabler--caret-up-down] shrink-0 size-4 text-base-content absolute top-1/2 end-3 -translate-y-1/2 \"></span>"
-        }'>
-        <option value="">{{ labels.select }}</option>       
-    </select>
+            }'
+            data-hs-select='{          
+                "apiOptions": {
+                    "query": "query"
+                }    
+            }'>   
+            <option value="">{{ labels.all }}</option>         
+        </select>       
+    </div>    
+    {% if clear_button == true %}
+        <button 
+            id="{{ component_id }}_clear_button"
+            class="join-item clear-button btn btn-icon btn-outline {{ button_class }}">
+            {{ component('icons~close',theme.icons.delete,'svg') }}
+        </button>
+    {% endif %}
 </div>
 
 {% endautoescape %}

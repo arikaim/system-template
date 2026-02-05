@@ -36,7 +36,8 @@
         "js": [
             "form.js",
             "control-panel.js",
-            "flyonui.js"
+            "_flyonui.js",
+            "preline.js"
         ],
         "components": [
             "system:users"         
@@ -44,7 +45,7 @@
         "library": [
             "jquery",
             "arikaim:admin",
-            "arikaim-ui",      
+            "arikaim-ui:source",      
             "arikaim-ui:view",           
             "highlight:github",
             "filepond",

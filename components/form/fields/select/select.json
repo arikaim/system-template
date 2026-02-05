@@ -1,6 +1,7 @@
 {
     "placeholder": "Search ...",
-    "labels": {
+    "labels": {    
+        "all": "All",
         "select": "Select"
     }
 }

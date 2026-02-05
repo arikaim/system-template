@@ -2,27 +2,31 @@
 
 arikaim.component.onLoaded(function(component) {
 
+    component.close = function() {
+        $(component.getElement()).removeClass('opacity-100');
+        $(component.getElement()).addClass('opacity-0');
+
+        setTimeout(function() {
+            if (component.get('parent') == 'show') {
+                // add hidden class to parent
+                $(component.getElement()).parent().addClass('hidden');
+            }
+
+            $(component.getElement()).remove();  
+        },500); 
+
+        component.set('status','close');
+
+        arikaim.events.emit('panel.close',{
+            type: component.get('type'),
+            uuid: component.get('uuid')
+        });          
+    };
+
     component.init = function() {
+        
         arikaim.ui.button($(component.getElement()).find('.panel-close-button'),function(element) {  
-
-            $(component.getElement()).removeClass('opacity-100');
-            $(component.getElement()).addClass('opacity-0');
-
-            setTimeout(function() {
-                if (component.get('parent') == 'show') {
-                    // add hidden class to parent
-                    $(component.getElement()).parent().addClass('hidden');
-                }
-
-                $(component.getElement()).remove();  
-            },500); 
-
-            component.set('status','close');
-
-            arikaim.events.emit('panel.close',{
-                type: component.get('type'),
-                uuid: component.get('uuid')
-            });                  
+            component.close();
         });
 
         setTimeout(function() {           
