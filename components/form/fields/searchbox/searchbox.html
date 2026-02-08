@@ -1,0 +1,57 @@
+ <div        
+    class="{{ class|default('w-full') }}">  
+        <div 
+            id="{{ component_id }}"
+            apiSearchQueryKey="{{ apiSearchQueryKey|default('query') }}"
+            searchPlaceholder="{{ searchPlaceholder|default(placeholder) }}"
+            searchClasses="{{ searchClasses|default(theme.form.input) }}"
+            placeholder="{{ placeholder }}"
+            hasSearch="{{ hasSearch|default(true) }}"
+            apiDataPart="{{ apiDataPart|default('results') }}"
+            apiIconTag='{{ apiIconTag|raw }}'
+            toggleTag='{{ toggleTag|raw }}'
+            apiQuery="{{ apiQuery }}"  
+            toggleClasses="{{ toggleClasses }} {{ size }}"
+            dropdownClasses="{{ dropdownClasses }}"
+            optionClasses="{{ optionClasses }}"
+            extraMarkup="{{ extraMarkup|raw }}"
+            isSearchDirectMatch="{{ isSearchDirectMatch|default('false') }}"
+            class="join-item shrink-0 --prevent-on-load-init"
+            apiSelectedValues="{{ selected }}"
+            apiUrl="{{ apiUrl }}"
+            apiFieldsMap='{      
+                "id": "value",        
+                "val": "value",
+                "title": "name"
+            }'
+            class="relative" 
+            data-hs-combo-box='{
+            "groupingType": "default",
+            "isOpenOnFocus": true,
+        
+            "apiGroupField": "category",
+            "outputItemTemplate": "&lt;div data-hs-combo-box-output-item class=\"rounded-lg hover:bg-select-item-hover focus:outline-hidden focus:bg-select-item-focus\"&gt;&lt;span class=\"flex items-center cursor-pointer py-2 px-4 w-full text-sm text-select-item-foreground rounded-lg\"&gt;&lt;div class=\"flex items-center w-full\"&gt;&lt;div class=\"flex items-center justify-center rounded-full bg-surface-1 size-6 overflow-hidden me-2.5\"&gt;&lt;img class=\"shrink-0\" data-hs-combo-box-output-item-attr=&apos;[{\"valueFrom\": \"image\", \"attr\": \"src\"}, {\"valueFrom\": \"name\", \"attr\": \"alt\"}]&apos; /&gt;&lt;/div&gt;&lt;div data-hs-combo-box-output-item-field=\"name\" data-hs-combo-box-value&gt;&lt;/div&gt;&lt;div class=\"hidden\" data-hs-combo-box-output-item-field=&apos;[\"name\", \"category\"]&apos; data-hs-combo-box-search-text&gt;&lt;/div&gt;&lt;/div&gt;&lt;span class=\"hidden hs-combo-box-selected:block\"&gt;&lt;svg class=\"shrink-0 size-3.5 text-primary\" xmlns=\"http:.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"&gt;&lt;polyline points=\"20 6 9 17 4 12\"&gt;&lt;/polyline&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;",
+            "groupingTitleTemplate": "&lt;div class=\"text-xs uppercase text-muted-foreground-1 m-3 mb-1\"&gt;&lt;/div&gt;"
+        }'>
+        
+        <div
+            style="border:1px solid red" 
+            class="relative">
+            <input 
+                class="{{ theme.form.input }} bg-layer" 
+                type="text" 
+                role="combobox" 
+                aria-expanded="false" 
+                placeholder="{{ placeholder}}" 
+                value="{{ selected }}" 
+                data-hs-combo-box-input="">
+        </div>
+    
+        <!-- SearchBox Dropdown -->
+        <div class="absolute z-50 w-full bg-select border border-select-line rounded-lg shadow-xl p-2" style="display: none;" data-hs-combo-box-output="">
+            <div 
+                class="max-h-72 rounded-b-lg overflow-hidden overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-none [&::-webkit-scrollbar-track]:bg-scrollbar-track [&::-webkit-scrollbar-thumb]:bg-scrollbar-thumb" 
+                data-hs-combo-box-output-items-wrapper=""></div>
+        </div>
+        <!-- End SearchBox Dropdown -->
+</div>

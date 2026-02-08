@@ -1,7 +1,7 @@
 {% autoescape false %}
 
 {% set dropdownClasses = dropdownClasses|default("advance-select-menu") %}
-{% set optionTemplate = optionTemplate|default("<div class=\"flex flex-grow justify-between items-center w-full\"><span data-title></span><span class=\"icon-[tabler--check] shrink-0  text-primary hidden selected:block \"></span></div>") %}
+{% set optionTemplate = optionTemplate|default("<div class=\"flex flex-grow justify-between items-center w-full\"><span data-title></span></div>") %}
 {% set toggleClasses = toggleClasses|default('advance-select-toggle select-disabled:pointer-events-none select-disabled:opacity-40') %}
 {% set optionClasses = optionClasses|default("advance-select-option selected:select-active") %}
 {% set toggleTag = toggleTag|default("<button type=\"button\" aria-expanded=\"false\"></button>") %}
@@ -17,6 +17,7 @@
             optionTemplate='{{ optionTemplate|raw }}'
             apiSearchQueryKey="{{ apiSearchQueryKey|default('query') }}"
             searchPlaceholder="{{ searchPlaceholder|default(placeholder) }}"
+            searchClasses="{{ searchClasses|default(theme.form.input) }}"
             placeholder="{{ placeholder }}"
             hasSearch="{{ hasSearch|default(true) }}"
             apiDataPart="{{ apiDataPart|default('results') }}"
@@ -36,7 +37,8 @@
                 "val": "value",
                 "title": "name"
             }'
-            data-hs-select='{          
+            data-hs-select='{      
+                "mode": "default",
                 "apiOptions": {
                     "query": "query"
                 }    

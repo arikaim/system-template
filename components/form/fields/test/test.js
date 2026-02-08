@@ -7,12 +7,13 @@ arikaim.component.onLoaded(function(component) {
       select.setValue(val);
     };
 
-    component.destroy = function() {      
+    component.destroy = function() {
+      console.log('des');
       select.destroy();
     };
 
     component.getValue = function() {  
-      return select.value;
+      return select.getValue();
     };
 
     component.clear = function() {
@@ -48,26 +49,9 @@ arikaim.component.onLoaded(function(component) {
         apiFieldsMap = JSON.parse(apiFieldsMap);
       }
     
-      select = new HSSelect(el,{       
-        apiUrl: component.get('apiUrl'),
-        apiFieldsMap: apiFieldsMap,
-        optionTemplate: component.get('optionTemplate'),
-        searchPlaceholder: component.get('searchPlaceholder'),
-        searchClasses: component.get('searchClasses'),
-        placeholder: component.get('placeholder'),
-        hasSearch: component.get('hasSearch'),
-        apiDataPart: component.get('apiDataPart'),
-        apiIconTag: component.get('apiIconTag'),
-        apiQuery: component.get('apiQuery'),
-        apiSearchQueryKey: component.get('apiSearchQueryKey'),
-        toggleClasses: component.get('toggleClasses'),
-        dropdownClasses: component.get('dropdownClasses'),
-        optionClasses: component.get('optionClasses'),
-        extraMarkup: component.get('extraMarkup'),
-        isSearchDirectMatch: component.get('isSearchDirectMatch'),
-        toggleTag: component.get('toggleTag'),
-        apiSelectedValues: [selected]
-      });
+      select = new HSSelect(el);
+
+      console.log(select);
     };
     
     component.init();

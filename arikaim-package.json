@@ -35,8 +35,7 @@
         ],
         "js": [
             "form.js",
-            "control-panel.js",
-            "_flyonui.js",
+            "control-panel.js",         
             "preline.js"
         ],
         "components": [
