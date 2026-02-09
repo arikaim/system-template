@@ -1,11 +1,17 @@
 {% autoescape false %}
 
+{% if size == 'sm' %} 
+    {% set button_size = 'btn-sm' %}
+    {% set select_size = 'advance-select-sm' %}
+{% endif %}
+
 {% set dropdownClasses = dropdownClasses|default("advance-select-menu") %}
 {% set optionTemplate = optionTemplate|default("<div class=\"flex flex-grow justify-between items-center w-full\"><span data-title></span></div>") %}
 {% set toggleClasses = toggleClasses|default('advance-select-toggle select-disabled:pointer-events-none select-disabled:opacity-40') %}
 {% set optionClasses = optionClasses|default("advance-select-option selected:select-active") %}
 {% set toggleTag = toggleTag|default("<button type=\"button\" aria-expanded=\"false\"></button>") %}
 {% set extraMarkup = extraMarkup|default("") %}
+
 <div class="join w-full">    
     <div        
         class="{{ class|default('w-full') }}">           
@@ -24,7 +30,7 @@
             apiIconTag='{{ apiIconTag|raw }}'
             toggleTag='{{ toggleTag|raw }}'
             apiQuery="{{ apiQuery }}"  
-            toggleClasses="{{ toggleClasses }} {{ size }}"
+            toggleClasses="{{ toggleClasses }} {{ select_size }}"
             dropdownClasses="{{ dropdownClasses }}"
             optionClasses="{{ optionClasses }}"
             extraMarkup="{{ extraMarkup|raw }}"
@@ -49,7 +55,7 @@
     {% if clear_button == true %}
         <button 
             id="{{ component_id }}_clear_button"
-            class="join-item clear-button btn btn-icon btn-outline {{ button_class }}">
+            class="{{ button_size }} join-item clear-button btn btn-icon btn-outline {{ button_class }}">
             {{ component('icons~close',theme.icons.delete,'svg') }}
         </button>
     {% endif %}

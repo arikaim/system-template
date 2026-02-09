@@ -71,8 +71,6 @@ arikaim.component.onLoaded(function(component) {
     };
     
     component.init();
-
-    console.log(component);
-    
+ 
     return component;
 });
