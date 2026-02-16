@@ -1,0 +1,24 @@
+<div 
+    class="hs-accordion {{ (item.active == true) ? 'active' : '' }}" 
+    id="{{ item.id }}">
+    <button 
+        class="{{ item_heading_class }} hs-accordion-toggle hs-accordion-active:text-primary-active inline-flex items-center gap-x-3 w-full font-semibold text-start text-foreground hover:text-muted-foreground-1 focus:outline-hidden focus:text-muted-foreground-1 rounded-lg disabled:opacity-50 disabled:pointer-events-none" 
+        aria-expanded="false" 
+        aria-controls="{{ item.id ~ '_content' }}">      
+        {{ component('icons~plus',theme.icons.gray,'svg') }}
+        <span>
+            {{ item.title }}
+        </span>           
+    </button>
+    <div 
+        id="{{ item.id ~ '_content' }}" 
+        class="{{ item_class|default('pl-4') }} hs-accordion-content hidden overflow-hidden transition-[height] duration-300" 
+        role="region" 
+        aria-labelledby="{{ item.id }}">
+        <div class="px-4">
+            <p class="text-foreground">                  
+                {{ item.text }}
+            </p>
+        </div>                
+    </div>
+</div>

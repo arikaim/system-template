@@ -3,11 +3,15 @@
 @import "tailwindcss/preflight.css" layer(base);
 @import "tailwindcss/utilities.css" layer(utilities);
 
+/* Preline UI */
+@source "../node_modules/preline/dist/*.js";
+@import "../node_modules/preline/variants.css";
+
 @plugin "flyonui" {
     themes: light --default, dark --prefersdark, soft;
 }
+
 @import "../node_modules/flyonui/variants.css";
-@source "../node_modules/flyonui/dist/index.js";
 @config "../tailwind.config.mjs";
 
 .active-button {

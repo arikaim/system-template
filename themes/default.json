@@ -155,6 +155,5 @@
             "color": "text-gray-400"
         }
     },
-    "include_accordion": "accordion accordion-content accordion-heading accordion-item accordion-item-active tree-view-space",
-    "include_classes": "tems-stretch flex-1 advance-select-xs advance-select-sm border-l-2 border-gray-200 select-sm min-w-32 min-w-64 w-64 w-32 mr-4 min-w-1/2 min-w-3/4 text-green-500 input-sm min-w-auto radio-sm radio-xs radio-primary w-1/2 w-1/3 min-w-full min-w-1/2 min-w-1/3"
+    "include_classes": "w-1/2 tems-stretch flex-1 advance-select-xs advance-select-sm border-l-2 border-gray-200 select-sm min-w-32 min-w-64 w-64 w-32 mr-4 min-w-1/2 min-w-3/4 text-green-500 input-sm min-w-auto radio-sm radio-xs radio-primary w-1/2 w-1/3 min-w-full min-w-1/2 min-w-1/3"
 }

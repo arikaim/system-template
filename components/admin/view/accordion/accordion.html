@@ -1,0 +1,9 @@
+
+<div 
+    id="{{ component_id }}"    
+    class="--prevent-on-load-init hs-accordion-group {{ class }}">
+    {% for item in items %}   
+        {{ component('system:admin.view.accordion.item',{ item: item }) }}
+    {% endfor %}
+</div>
+
