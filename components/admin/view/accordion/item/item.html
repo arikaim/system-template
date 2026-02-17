@@ -5,8 +5,20 @@
         class="{{ item_heading_class }} hs-accordion-toggle hs-accordion-active:text-primary-active inline-flex items-center gap-x-3 w-full font-semibold text-start text-foreground hover:text-muted-foreground-1 focus:outline-hidden focus:text-muted-foreground-1 rounded-lg disabled:opacity-50 disabled:pointer-events-none" 
         aria-expanded="false" 
         aria-controls="{{ item.id ~ '_content' }}">      
-        {{ component('icons~plus',theme.icons.gray,'svg') }}
-        <span>
+        {{  component('icons~plus',{ 
+                size: 'h-5 w-5', 
+                color: 'text-gray-500',
+                class: 'hs-accordion-active:hidden block'
+            },'svg') 
+        }} 
+        
+        {{  component('icons~minus',{ 
+                size: 'h-5 w-5', 
+                color: 'text-gray-500',
+                class: 'hs-accordion-active:block hidden'
+            },'svg') 
+        }}   
+        <span> 
             {{ item.title }}
         </span>           
     </button>

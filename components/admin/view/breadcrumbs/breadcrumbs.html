@@ -1,0 +1,14 @@
+{% set separator_icon = separator_icon|default('icons~chevron.right') %}
+
+<div class="breadcrumbs {{ class }}"> 
+    <ul>
+    {% for item in items %}
+        <li>
+            {{ item }}
+        </li>
+        <li class="breadcrumbs-separator">
+            {{ component(separator_icon,theme.icons.gray,'svg') }}
+        </li>    
+    {% endfor %}
+    </ul>    
+</div>

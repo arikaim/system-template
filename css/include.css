@@ -8,10 +8,10 @@
 @import "../node_modules/preline/variants.css";
 
 @plugin "flyonui" {
-    themes: light --default, dark --prefersdark, soft;
+    themes: light --default, dark --prefersdark;
 }
 
-@import "../node_modules/flyonui/variants.css";
+@import "../node_modules/flyonui/variants.css"; 
 @config "../tailwind.config.mjs";
 
 .active-button {

@@ -1,9 +1,9 @@
-<table class="ui compact borderless basic table">
+<table class="{{ theme.table.details }}">
     <thead>
         <tr>
-            <th class="collapsing">{{ labels.remove }}</th>           
-            <th class="one column">{{ labels.type }}</th>
-            <th class="two column">{{ labels.relation }}</th>
+            <th class="">{{ labels.remove }}</th>           
+            <th class="">{{ labels.type }}</th>
+            <th class="">{{ labels.relation }}</th>
         </tr>
     </thead>
     <tbody id="relation_rows" 
@@ -23,5 +23,5 @@
     </tbody>
 </table>
 <div id="paginator">      
-    {{ component("semantic~paginator",{ namespace: 'relations' }) }}
+    {{ component("system:admin.paginator",{ namespace: 'relations' }) }}
 </div>
