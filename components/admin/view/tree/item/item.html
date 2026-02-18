@@ -1,13 +1,11 @@
-
-
 <div 
-    id="{{ item.id }}"
+    id="tree_item_{{ item.id }}"
     class="hs-accordion" 
     role="treeitem" 
     aria-expanded="true" 
     data-hs-tree-view-item='{
-        "value": "{{ item.value }}",
-        "isDir": {{ item.isDir }}
+        "value": "{{ item.uuid }}",
+        "isDir": {{ (item.items|length > 0) ? 'true' : 'false' }}
     }'>
         <div 
             class="hs-accordion-heading py-0.5 rounded-md flex items-center gap-x-0.5 w-full hs-tree-view-selected:bg-gray-100 dark:hs-tree-view-selected:bg-neutral-700">
@@ -15,12 +13,16 @@
                 class="hs-accordion-toggle size-6 flex justify-center items-center hover:bg-gray-100 rounded-md focus:outline-hidden focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:hover:bg-neutral-700 dark:focus:bg-neutral-700" 
                 aria-expanded="true" 
                 aria-controls="asset_content">
-                {{ component('icons~plus',theme.icons.gray,'svg') }}
+                {% if (item.items|length > 0) %}
+                    {{ component('icons~plus',theme.icons.gray,'svg') }}
+                {% else %}
+                   
+                {% endif %}
             </button>
             <div 
                 class="grow hs-tree-view-selected:bg-gray-100 dark:hs-tree-view-selected:bg-neutral-700 px-1.5 rounded-md cursor-pointer">
                 <div class="flex items-center gap-x-3">
-                    {{ component('icons~folder',theme.icons.gray,'svg') }}
+                    {{ component(icon,theme.icons.gray,'svg') }}
                     <div class="grow">
                         <span class="text-sm text-gray-800 dark:text-neutral-200">
                         {{ item.title }}
@@ -29,13 +31,18 @@
                 </div>
             </div>
         </div>
-        {% if item.isDir == true %}
-        <div 
-            id="asset_content" 
-            class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300" 
-            role="group" 
-            aria-labelledby="{{ item.id }}">
-            {{ item.title }}
-        </div>
+        {% if item.items|length > 0 %}
+            <div 
+                id="asset_content" 
+                class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300" 
+                role="group" 
+                aria-labelledby="tree_item_{{ item.id }}">                       
+                {{  component('system:admin.view.tree.items',{ 
+                        items: item.items,
+                        icon: icon 
+                    }) 
+                }}                                   
+            </div>
         {% endif %}
+      
 </div>

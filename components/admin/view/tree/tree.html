@@ -1,11 +1,12 @@
 <div 
     id="{{ component_id }}"    
-    class="rounded-sm p-4" 
+    class="rounded-sm p-4 hs-accordion-treeview-root" 
     role="tree" 
     aria-orientation="vertical" 
     data-hs-tree-view >
-
-    {% for item in items %}
-        {{ component('system:admin.view.tree.item',{ item: item }) }}
-    {% endfor %}
+    {{  component('system:admin.view.tree.items',{ 
+            items: items,
+            icon: icon|default('icons~folder')
+        }) 
+    }}
 </div>

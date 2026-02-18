@@ -1,0 +1,14 @@
+{
+    "links": [
+        {
+            "title": "Profile",
+            "component": "system:admin.system",
+            "icon": "icons~user"
+        },
+        {
+            "title": "Log out",
+            "component": "system:users.logout",
+            "icon": "icons~logout"
+        }
+    ]
+}

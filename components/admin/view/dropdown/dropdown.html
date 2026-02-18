@@ -1,0 +1,32 @@
+<div
+    id="{{ component_id }}"
+    class="hs-dropdown {{ class }}">
+    <button 
+        id="dropdown_avatar" 
+        type="button" 
+        class="hs-dropdown-toggle flex self-center" 
+        aria-haspopup="menu" 
+        aria-expanded="false" 
+        aria-label="User menu">
+        <div class="{{ styles.avatar.ring }}">   
+            {{ title }}
+        </div>       
+    </button>    
+    <ul 
+        class="dark:bg-gray-800 hs-dropdown-menu hs-dropdown-open:opacity-100 hidden min-w-60 shadow" 
+        role="menu" 
+        aria-orientation="vertical"> 
+        {% for item in items %}
+            <li 
+                mountTo="{{ item.mountTo }}"
+                component="{{ item.component }}"
+                params="{{ item.params }}"
+                class="hs-dropdown-item {{ styles.avatar.menu }}">
+                {{ component(item.icon,theme.icons.menu,'svg') }}
+                <div class="mx-2">
+                    {{ item.title }}
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+</div>

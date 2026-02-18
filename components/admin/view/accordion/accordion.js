@@ -1,8 +1,7 @@
 'use strict';
 
 arikaim.component.onLoaded(function(component) {
-    var accordion;
-
+   
     component.destroy = function() {      
     };
 

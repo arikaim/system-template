@@ -2,7 +2,6 @@
   "type": "module",
   "dependencies": {
     "@tailwindcss/cli": "^4.1.3",
-    "@tailwindcss/typography": "^0.5.16",
     "flatpickr": "^4.6.13",
     "flyonui": "^2.4.0",
     "preline": "^4.0.0",

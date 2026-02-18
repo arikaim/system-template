@@ -1,0 +1,12 @@
+<div 
+    class="ps-7 relative before:absolute before:top-0 before:start-3 before:-ms-px before:h-full " 
+    role="group" 
+    data-hs-accordion-always-open>
+    {% for item in items %}
+        {{  component('system:admin.view.tree.item',{ 
+                item: item,
+                icon: icon
+            }) 
+        }}
+    {% endfor %}
+ </div>
