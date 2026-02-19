@@ -5,6 +5,7 @@
     {% for item in items %}
         {{  component('system:admin.view.tree.item',{ 
                 item: item,
+                data_field: data_field,
                 icon: icon
             }) 
         }}

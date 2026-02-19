@@ -3,8 +3,9 @@
     class="hs-accordion" 
     role="treeitem" 
     aria-expanded="true" 
-    data-hs-tree-view-item='{
-        "value": "{{ item.uuid }}",
+    data-value="{{ item[data_field] }}"
+    data-hs-tree-view-item='{        
+        "value": "{{ item.title }}",
         "isDir": {{ (item.items|length > 0) ? 'true' : 'false' }}
     }'>
         <div 
@@ -39,10 +40,10 @@
                 aria-labelledby="tree_item_{{ item.id }}">                       
                 {{  component('system:admin.view.tree.items',{ 
                         items: item.items,
+                        data_field: data_field,
                         icon: icon 
                     }) 
                 }}                                   
             </div>
         {% endif %}
-      
 </div>

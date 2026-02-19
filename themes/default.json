@@ -156,5 +156,5 @@
         }
     },
     "accordion": "hs-accordion-active:hidden hs-accordion-active:block hidden block", 
-    "include_classes": "w-1/2 tems-stretch flex-1 advance-select-xs advance-select-sm border-l-2 border-gray-200 select-sm min-w-32 min-w-64 w-64 w-32 mr-4 min-w-1/2 min-w-3/4 text-green-500 input-sm min-w-auto radio-sm radio-xs radio-primary w-1/2 w-1/3 min-w-full min-w-1/2 min-w-1/3"
+    "include_classes": "pt-1.5 border-gray-100 border-gray-200 hs-selected:font-semibold hs-selected:bg-select-item-active pointer-events-none w-1/2 tems-stretch flex-1 advance-select-xs advance-select-sm border-l-2 border-gray-200 select-sm min-w-32 min-w-64 w-64 w-32 mr-4 min-w-1/2 min-w-3/4 text-green-500 input-sm min-w-auto radio-sm radio-xs radio-primary w-1/2 w-1/3 min-w-full min-w-1/2 min-w-1/3"
 }

@@ -1,11 +1,12 @@
 <div 
     id="{{ component_id }}"    
-    class="rounded-sm p-4 hs-accordion-treeview-root" 
+    class="rounded-sm hs-accordion-treeview-root {{ class }}" 
     role="tree" 
     aria-orientation="vertical" 
     data-hs-tree-view >
     {{  component('system:admin.view.tree.items',{ 
             items: items,
+            data_field: data_field|default('id'),
             icon: icon|default('icons~folder')
         }) 
     }}
