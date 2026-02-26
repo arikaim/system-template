@@ -9,23 +9,8 @@
 function RelationsView() {
     var self = this;  
   
-    this.init = function() {
-        this.setMessagesComponent('system:admin.orm.relations.view');
-
-        var extension = $('#relation_rows').attr('extension');
-        var model = $('#relation_rows').attr('model');
-        var relationId = $('#relation_rows').attr('relation-id');
-        
-        /*
-        paginator.init('relation_rows',{ 
-            name: 'system:admin.orm.relations.view.rows',
-            params: {  
-                extension: extension,
-                model: model,
-                relation_id: relationId
-            } 
-        },'relations');  
-        */
+    this.init = function() {      
+        this.loadMessages('system:admin.orm.relations.view');
     };
 
     this.initRows = function() {
@@ -33,14 +18,15 @@ function RelationsView() {
             var uuid = $(element).attr('uuid');
             var title = $(element).attr('data-title');
             var type = $(element).attr('type');
+            var extension = $(element).attr('extension');
 
-            modal.alert({
+            arikaim.ui.getComponent('modal_info').open({
                 title: title,
-                icon: 'database',
                 component: {
                     name: 'system:admin.orm.model',
                     params: { 
                         uuid: uuid, 
+                        extension: extension,
                         type: type 
                     }
                 }
@@ -54,15 +40,13 @@ function RelationsView() {
             var extension = $(element).attr('extension');
             var message = arikaim.ui.template.render(self.getMessage('remove.description'),{ title: title });
            
-            modal.confirmDelete({ 
-                title: self.getMessage('remove.title'),
-                description: message
-            },function() {
+            arikaim.ui.getComponent('confirm_delete_relation').open(
+            function() {
                 relations.delete(model,extension,uuid,
                 function(result) {
                     arikaim.ui.table.removeRow('#' + uuid);        
                 });
-            });
+            },message);
         });
     };
 }

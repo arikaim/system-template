@@ -15,7 +15,7 @@
                 <td class="right aligned">{{ property.title }}</td>
                 <td>
                     {% if property.type == 11 %}
-                        {{ component('semantic~language.label',{ class: 'basic label', language: property.value }) }}
+                        {{ component('system:admin.language.label',{ class: 'basic label', language: property.value }) }}
                     {% else %}                       
                         {{ property.value|string }}  
                     {% endif %} 

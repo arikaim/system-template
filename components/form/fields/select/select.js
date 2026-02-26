@@ -1,7 +1,7 @@
 'use strict';
 
 arikaim.component.onLoaded(function(component) {
-    var select;
+    var select = null;
 
     component.setValue = function(val) {
       select.setValue(val);
@@ -48,6 +48,10 @@ arikaim.component.onLoaded(function(component) {
         apiFieldsMap = JSON.parse(apiFieldsMap);
       }
     
+      if (isEmpty(select) == false) {
+        return;
+      }
+      
       select = new HSSelect(el,{       
         apiUrl: component.get('apiUrl'),
         apiFieldsMap: apiFieldsMap,

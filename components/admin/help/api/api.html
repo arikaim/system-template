@@ -30,7 +30,10 @@
                 {{ component('system:admin.help.api.items',{ extension_name: extension_name }) }}
             </div>
             <div id="paginator">
-                {{ component("semantic~paginator",{ namespace: 'help.api' }) }}
+                {{  component("system:admin.paginator",{ 
+                        namespace: 'help.api' 
+                    }) 
+                }}
             </div>
         </div>
         <div class="column" id="api_details_content">

@@ -1,11 +1,16 @@
-{% set image_src = (model.hasImage() == false) ? '/api/image/svg/view/icons~image' : model.image.thumbnail(64,64).src %}
+{% if image is empty %}
+    {% set image_src = (model.hasImage() == false) ? '/api/image/svg/view/icons~image' : model.image.thumbnail(64,64).src %}
+{% else %}
+    {% set image_src = image.thumbnail(64,64).src %}
+{% endif %}
+
 <div class="p-2 {{ class }}"> 
-    {% if hide_title != true %}
+    {% if title is not empty %}
         <h4 class="font-bold">
             {{ title }} 
         </h4>
     {% endif %}
     <img       
-        class="h-20 w-20" 
+        class="h-20 w-20 {{ iamge_class|default('rounded') }}" 
         src="{{ url(image_src) }}?t={{ today() }}">   
 </div>

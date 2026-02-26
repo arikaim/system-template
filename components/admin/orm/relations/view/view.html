@@ -1,27 +1,43 @@
 <table class="{{ theme.table.details }}">
     <thead>
         <tr>
-            <th class="">{{ labels.remove }}</th>           
-            <th class="">{{ labels.type }}</th>
-            <th class="">{{ labels.relation }}</th>
+            <th class="w-8"></th>           
+            <th class="w-full">{{ labels.type }}</th>
+            <th>{{ labels.relation }}</th>
         </tr>
     </thead>
-    <tbody id="relation_rows" 
-        component="system:admin.orm.relations.view.rows" 
-        namespace="relations" 
-        model="{{ model }}" 
-        extension="{{ extension }}" 
-        uuid="{{ uuid }}" 
-        relation-id="{{ id }}">     
+    <tbody id="relation_rows">     
         {{  component('system:admin.orm.relations.view.rows',{ 
                 model : model,
                 extension: extension,
                 uuid: uuid,
-                relation_id: id 
+                relation_id: id
             }) 
         }}
     </tbody>
 </table>
-<div id="paginator">      
-    {{ component("system:admin.paginator",{ namespace: 'relations' }) }}
+<div id="paginator">     
+    {{  component("system:admin.paginator",{ 
+            id: 'relations_paginator',
+            namespace: 'relations',
+            params: {
+                model : model,
+                extension: extension,
+                uuid: uuid,
+                relation_id: id 
+            },                
+            rows_selector: 'relation_rows',
+            component:"system:admin.orm.relations.view.rows" 
+        })  
+    }}     
 </div>
+
+{{  component("system:admin.modal.info",{ 
+        id: 'modal_info',
+    })
+}}
+
+{{  component('system:admin.modal.confirm',{
+        id: 'confirm_delete_relation'       
+    }) 
+}}

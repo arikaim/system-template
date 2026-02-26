@@ -12,7 +12,7 @@
     title="{{ hint }}"
     escape-content="{{ escape }}">
     {% if hide_icon != true %}
-        <i class="icon {{ icon }}"></i>
+        {{ component('icons~clipboard.copy',theme.icons.menu,'svg') }}           
     {% endif %}
     {{ title }}
 </a>

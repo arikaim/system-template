@@ -8,7 +8,7 @@ arikaim.component.onLoaded(function(component) {
         var previewValue = $(element).attr('preview-value');
 
         arikaim.ui.loadComponent({
-            name: 'semantic~properties.items.key.edit',
+            name: 'system:admin.properties.items.key.edit',
             mountTo: 'key_field_' + group + '_' + fieldName,
             params: {
                 field_name: fieldName,

@@ -4,8 +4,8 @@
     "package-type": "template",
     "description": "Arikaim CMS Control Panel",
     "repository": "https://github.com/arikaim/system-template.git",
-    "version": "1.11.10",
-    "icon": "sliders horizontals",
+    "version": "2.0.0",
+    "svg_icon": "icons~options",
     "image": {
         "src": "",
         "alt": ""
@@ -44,8 +44,7 @@
         "library": [
             "jquery",
             "arikaim:admin",
-            "arikaim-ui:source",      
-            "arikaim-ui:view",           
+            "arikaim-ui",             
             "highlight:github",
             "filepond",
             "calendar:flatpickr",

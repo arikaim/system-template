@@ -3,30 +3,34 @@
     {% set relations = service('db').getRelationsMap() %}
     {% set model_name = relations[type] %}
 {% endif %}
-{% set model = createModel(model_name,extension).findById(uuid) %}
+{% set model = createModel(model_name,'*').findById(uuid) %}
 {% if model is empty %}
-<div class="ui error message">
-    {{ error }}
-</div>
+    {{ component('system:admin.alert.error',{ message: error }) }}
 {% else %}
-<div>    
+<div>  
     <h4 class="bg-gray-300 p-4">{{ model_name|baseClass }}</h4>
     <table class="{{ theme.table.details }}">
         {% for key,value in model.toArray() %}     
         <tr>
-            <td class="right aligned font-bold collapsing">{{ key|titleCase }}</td>
-            <td class="collapsing">{{ value|string|sliceLabel(30,'...') }}</td>
+            <td class="font-bold">{{ key|titleCase }}</td>
+            <td class="px-2">
+                {% if value is iterable %}
+                    {{ value|dump }}
+                {% else %}
+                    {{ value|string|sliceLabel(30,'...') }}
+                {% endif %}
+            </td>
         </tr>         
         {% endfor %}     
     </table>       
     <table class="{{ theme.table.details }}">            
         <tr>
-            <td class="right aligned font-bold collapsing">{{ labels.class }}</td>
-            <td class="collapsing">{{ model_name }}</td>
+            <td class="w-1/2">{{ labels.class }}</td>
+            <td class="w-1/2">{{ model_name }}</td>
         </tr>   
         <tr>
-            <td class="right aligned font-bold collapsing">{{ labels.relation }}</td>
-            <td class="collapsing">{{ type }}</td>
+            <td class="w-1/2">{{ labels.relation }}</td>
+            <td class="w-1/2">{{ type }}</td>
         </tr>                          
     </table>          
 </div>

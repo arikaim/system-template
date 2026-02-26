@@ -7,8 +7,10 @@
 {% endif %}
 {% for row in paginator.getItems() %}
     <tr>
-        <td class="collapsing">{{ row.timestamp|dateFormat }} {{ row.timestamp|timeFormat }}</td>
-        <td class="center aligned collapsing">{{ component('semantic~labels.log',{ name: row.level_name }) }}</td>
+        <td class="">{{ row.timestamp|dateFormat }} {{ row.timestamp|timeFormat }}</td>
+        <td class="text-center">
+            {{ component('system:amdin.labels.log',{ name: row.level_name }) }}
+        </td>
         <td>{{ row.message }}</td>           
         <td class="">{{ row.extra.details }}</td>           
     </tr>

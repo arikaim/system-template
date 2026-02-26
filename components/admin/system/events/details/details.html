@@ -30,7 +30,7 @@
                 <tr>
                     <td class="">{{ labels.status }}</td>
                     <td>
-                        {{ component('semantic~status.label',{ status: event.status }) }}
+                        {{ component('system:admin.status.label',{ status: event.status }) }}
                     </td>
                 </tr>
                 <tr>
@@ -49,7 +49,7 @@
                 {{ labels.properties }}
             </h5>
             <div>
-                {{ component('semantic~properties.details',{ properties: event.properties }) }}
+                {{ component('system:admin.properties.details',{ properties: event.properties }) }}
             </div>
         {% endif %}
         <h4 class="font-bold mt-4">          

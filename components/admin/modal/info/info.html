@@ -1,0 +1,33 @@
+<div 
+    id="{{ component_id }}"
+    class="overlay modal overlay-open:opacity-100 overlay-open:duration-300 modal-middle hidden" 
+    role="dialog" 
+    tabindex="-1">
+    <div class="modal-dialog overlay-open:opacity-100 overlay-open:duration-300">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title text-lg">
+                    {{ title }}
+                </h4>
+                <button 
+                    type="button" 
+                    class="btn btn-text btn-circle btn-sm absolute end-3 top-3" 
+                    aria-label="Close" 
+                    data-overlay="#{{ component_id }}">
+                    {{ component('icons~close',{ size: 'w-4 h-4' },'svg') }}
+                </button>
+            </div>
+            <div class="modal-body">
+                {{ content }}
+            </div>
+            <div class="modal-footer">
+                <button 
+                    type="button" 
+                    class="btn btn-outline btn-sm btn-secondary modal-close-button" 
+                    data-overlay="#{{ component_id }}">
+                    {{ buttons.close }}
+                </button>               
+            </div>
+        </div>
+    </div>
+</div>

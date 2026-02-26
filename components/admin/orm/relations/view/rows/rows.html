@@ -32,7 +32,7 @@
             </button>
         </td>
         <td>{{ item.relation_type }}</td>
-        <td>
+        <td class="flex flex-row items-center">
             <button 
                 class="{{ theme.butotns.icon }} model-info" 
                 extension="{{ extension }}" 
@@ -41,7 +41,9 @@
                 data-title="{{ relation_name|striptags }}">
                 {{ component('icons~info',theme.icons.menu,'svg') }}  
             </button>  
-            {{ relation_name }}                
+            <div class="px-2">
+                {{ relation_name }}                
+            </div>
         </td>
     </tr>
 {% endfor %}
