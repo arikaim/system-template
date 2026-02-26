@@ -1,5 +1,4 @@
 {% set user_id = service('access').getId() %}
-{% set user_details = createModel('UserDetails','users').findByColumn(user_id,'user_id') %}   
 <div class="hs-dropdown dropdown-end">
     <button 
         id="dropdown_avatar" 
@@ -8,15 +7,8 @@
         aria-haspopup="menu" 
         aria-expanded="false" 
         aria-label="User menu">
-        <div class="{{ styles.avatar.ring }}">   
-            {% if user_details.avatar is not empty %}                            
-                <img 
-                    class="w-6 h-6"
-                    alt="Avatar" 
-                    src="{{ url(service('users').getViewAvatarUrl(),true) }}" />            
-            {% else %}  
-                {{ component('icons~user',{ size: 'h-6 w-6' },'svg') }}  
-            {% endif %}
+        <div class="{{ styles.avatar.ring }}">  
+            {{ component('icons~user',theme.icons.menu,'svg') }}  
         </div>       
     </button>    
     <ul 

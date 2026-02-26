@@ -49,7 +49,7 @@ function Users() {
     this.login = function(formId, onSuccess, onError) {
         var formId = getDefaultValue(formId,'#login_form'); 
        
-        return arikaim.post('/api/users/login',formId,onSuccess,function(errors) {
+        return arikaim.post('/core/api/user/login',formId,onSuccess,function(errors) {
             loginAttempts++;
             callFunction(onError,errors);
         });
@@ -57,7 +57,7 @@ function Users() {
 
     this.logout = function(onSuccess, onError) {
         loginAttempts = 0;
-        return arikaim.get('/api/users/logout',onSuccess,onError);
+        return arikaim.get('/core/api/user/logout',onSuccess,onError);
     };
 
     this.getLoginAttempts = function() {
