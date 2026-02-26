@@ -1,0 +1,24 @@
+<div class="{{ size|default('w-52') }}">
+    {% if title is not empty %}
+    <div class="mb-1 flex items-end justify-between">
+        <p class="text-base-content text-xs font-medium">
+            {{ title }}
+        </p>
+        {% if value is not empty %}
+        <span class="text-base-content text-xs font-light">{{ value }}%</span>
+        {% endif %}
+    </div>
+    {% endif %}
+    <div 
+        id="{{ component_id }}"
+        class="progress {{ class }}" 
+        role="progressbar" 
+        aria-label="{{ label }}" 
+        aria-valuenow="{{ value }}" 
+        aria-valuemin="{{ min|default(0) }}" 
+        aria-valuemax="{{ max|default(100) }}">
+        <div
+            style="width: {{ value }}%" 
+            class="progress-bar {{ bar_class|defaault('progress-success') }} "></div>
+    </div>
+</div>

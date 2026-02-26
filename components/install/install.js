@@ -35,14 +35,14 @@ function Install() {
     };
 
     this.installModules = function(onSuccess, onError) {
-        $('#install_progress').progress('reset');
+        //$('#install_progress').progress('reset');
      
         return this.modules(
             function(result) {
-                $('#install_progress').progress('increment');
-                $('#install_progress').progress('set label',result.message);
+                //$('#install_progress').progress('increment');
+                //$('#install_progress').progress('set label',result.message);
             },function(result) {            
-                $('#install_progress').progress('complete',true);
+                //$('#install_progress').progress('complete',true);
                 callFunction(onSuccess,result);
             },function(error) {
                 callFunction(onError,error);
@@ -51,14 +51,14 @@ function Install() {
     };
 
     this.installCore = function(formId, onSuccess, onError) {
-        $('#install_progress').progress('reset');
+        //$('#install_progress').progress('reset');
       
         return this.install(formId,
             function(result) {
-                $('#install_progress').progress('increment');
-                $('#install_progress').progress('set label',result.message);
+                //$('#install_progress').progress('increment');
+                //$('#install_progress').progress('set label',result.message);
             },function(result) {            
-                $('#install_progress').progress('complete',true);
+                //$('#install_progress').progress('complete',true);
                 callFunction(onSuccess,result);
             },function(error) {               
                 callFunction(onError,error);
@@ -67,14 +67,14 @@ function Install() {
     };
 
     this.installExtensions = function(onSuccess, onError) {
-        $('#install_progress').progress('reset');
+        //$('#install_progress').progress('reset');
       
         return this.extensions(
             function(result) {
-                $('#install_progress').progress('increment');
-                $('#install_progress').progress('set label',result.message);
+               // $('#install_progress').progress('increment');
+               // $('#install_progress').progress('set label',result.message);
             },function(result) {            
-                $('#install_progress').progress('complete',true);
+               // $('#install_progress').progress('complete',true);
                 callFunction(onSuccess,result);
             },function(error) {
                 callFunction(onError,error);
@@ -83,14 +83,14 @@ function Install() {
     };
 
     this.postInstallActions = function(onSuccess, onError) {
-        $('#install_progress').progress('reset');
+       // $('#install_progress').progress('reset');
       
         return this.actions(
             function(result) {
-                $('#install_progress').progress('increment');
-                $('#install_progress').progress('set label',result.message);
+                //$('#install_progress').progress('increment');
+                //$('#install_progress').progress('set label',result.message);
             },function(result) {            
-                $('#install_progress').progress('complete',true);               
+                //$('#install_progress').progress('complete',true);               
                 callFunction(onSuccess,result);
             },function(error) {
                 callFunction(onError,error);
@@ -138,7 +138,7 @@ function Install() {
         $('.install-button').show();
         error = (isArray(error) == true) ? error[0] : error;
      
-        $('#install_progress').progress('set error',error);      
+       // $('#install_progress').progress('set error',error);      
     }
 
     this.showComplete = function() {

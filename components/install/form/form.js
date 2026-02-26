@@ -8,6 +8,7 @@ arikaim.component.onLoaded(function() {
         $('#host').removeClass('disabled');
     });
 
+    /*
     $('#main_progress').progress({
         duration : 600,
         total    : 4
@@ -17,12 +18,13 @@ arikaim.component.onLoaded(function() {
         duration : 200,
         total    : 100
     });
+    */
 
     var submitButton = arikaim.ui.form.findSubmitButton('#install_form');
 
     arikaim.ui.form.onSubmit('#install_form',function(element) {                    
         $('#progress_content').show();
-        $('#install_progress').progress('remove error');         
+        //$('#install_progress').progress('remove error');         
         arikaim.ui.disableButton(submitButton);   
         
         install.prepare('#install_form',function(result) {
@@ -30,20 +32,20 @@ arikaim.component.onLoaded(function() {
 
             return install.installCore('#install_form',
                 function(result) {            
-                    $('#main_progress').progress('increment');
-                    $('#main_progress').progress('set label','Installing Modules');
+                    //$('#main_progress').progress('increment');
+                   // $('#main_progress').progress('set label','Installing Modules');
                     arikaim.ui.disableButton(submitButton);   
 
-                    $('#install_progress').progress('complete',true);
+                 //   $('#install_progress').progress('complete',true);
                     install.installModules(
                         function(result) {      
-                            $('#main_progress').progress('increment');
-                            $('#main_progress').progress('set label','Installing Extensions');     
+                          //  $('#main_progress').progress('increment');
+                          //  $('#main_progress').progress('set label','Installing Extensions');     
                             arikaim.ui.disableButton(submitButton);   
 
                             install.installExtensions(function(result) {
-                                $('#main_progress').progress('increment');
-                                $('#main_progress').progress('set label','Post install actions');      
+                               // $('#main_progress').progress('increment');
+                               // $('#main_progress').progress('set label','Post install actions');      
                                 arikaim.ui.disableButton(submitButton);   
 
                                 install.postInstallActions(function(result) {

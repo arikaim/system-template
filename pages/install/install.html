@@ -1,8 +1,4 @@
-{% component "system:layout" %}
-    {% set hide_title = true %}
-    <div class="flex w-full justify-center h-full">
-        <div class="flex-shrink-0 justify-center self-center w-1/2">
-            {{ component("system:install",{ system: system }) }}
-        </div>        
-    </div>
+{% component "system:layout.install" %}
+    {% set hide_title = true %}   
+    {{ component("system:install",{ system: system }) }}        
 {% endcomponent %}

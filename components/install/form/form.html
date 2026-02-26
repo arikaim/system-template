@@ -5,38 +5,64 @@
 {% set db_driver = getConfigOption('db/driver') %}
 
 {% if disabled == false %}
-    <form class="ui segment form" id='install_form'>
-        <div class="two fields">
-            <div class="field">
-                <label>{{ fields.host.label }}</label>
-                <div class="ui action input disabled" id="host_input">
-                    <input type="text" id="host" name="host" value="{{ db_host }}">
-                    <a class="ui basic right icon button edit-host-button">
-                        <i class="edit blue icon"></i>                 
-                    </a>
-                </div>          
+    <form class="form" id='install_form'>
+        <div class="{{ theme.form.fields }}">
+            <div class="{{ theme.form.field }}">
+                <label class="{{ theme.form.label }}">
+                    {{ fields.host.label }}
+                </label>              
+                <input 
+                    disabled
+                    class="{{ theme.form.input }}"
+                    type="text" 
+                    id="host" 
+                    name="host" 
+                    value="{{ db_host }}">                           
             </div>
-            <div class="field">
-                <label>{{ fields.type.label }}</label>
-                <div class="ui basic big label">
+            <div class="{{ theme.form.field }}">
+                <label class="{{ theme.form.label }}">
+                    {{ fields.type.label }}
+                </label>
+                <div class="badge badge-outline">
                     {{ db_driver }}
                 </div>
             </div>
         </div>
-        <div class="two fields">
-            <div class="required field">
-                <label>{{ fields.database.label }}</label>
-                <input type="text" name="database" id="database" value="{{ db_name }}">
+        <div class="{{ theme.form.fields }}">
+            <div class="required {{ theme.form.field }}">
+                <label class="{{ theme.form.label }}">
+                    {{ fields.database.label }}
+                </label>
+                <input 
+                    class="{{ theme.form.input }}"
+                    type="text" 
+                    name="database" 
+                    id="database" 
+                    value="{{ db_name }}">
             </div>        
         </div>  
-        <div class="two fields">
-            <div class="required field">
-                <label>{{ fields.user.label }}</label>
-                <input type="text" name="username" id="username" value="">
+        <div class="{{ theme.form.fields }}">
+            <div class="required {{ theme.form.field }}">
+                <label class="{{ theme.form.label }}">
+                    {{ fields.user.label }}
+                </label>
+                <input 
+                    class="{{ theme.form.input }}"
+                    type="text" 
+                    name="username" 
+                    id="username" 
+                    value="">
             </div>
-            <div class="required field">
-                <label>{{ fields.password.label }}</label>
-                <input type="text" name="password" id="password" value="">
+            <div class="required {{ theme.form.field }}">
+                <label class="{{ theme.form.label }}">
+                    {{ fields.password.label }}
+                </label>
+                <input 
+                    class="{{ theme.form.input }}"
+                    type="text" 
+                    name="password" 
+                    id="password" 
+                    value="">
             </div>
         </div>      
         {{  component('system:form.footer',{ 
@@ -57,8 +83,8 @@
             <div class="label"></div>
         </div> 
     </div>
-{% else %}
-    <div class="ui warning message">
+{% else %}   
+    <div class="alert alert-warning">
         {{ labels.disabled }}
     </div>
 {% endif %}

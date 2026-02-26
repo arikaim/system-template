@@ -1,19 +1,21 @@
-<div class="{{ theme.panel }}">  
+<div class="mt-2">  
     <div class="font-bold">       
         {{ labels.requirements }}
     </div>
     <div class=" ml-2">
-        <div class="ui list">
+        <div class="{{ theme.list.flush }}">
         {% for item in requirements.items %}
-            <div class="item">
-            {% if item.status == 1 %}              
-                {{ component('icons~check',theme.icons.green,'svg') }}   
-            {% elseif item.status == 0 %}
-               {{ component('icons~alert',theme.icons.delete,'svg') }}   
-            {% elseif item.status == 2 %}
-               {{ component('icons~alert',theme.icons.delete,'svg') }}   
-            {% endif %}
-                {{ item.message }}
+            <div class="flex flex-row items-center">
+                {% if item.status == 1 %}              
+                    {{ component('icons~check',theme.icons.green,'svg') }}   
+                {% elseif item.status == 0 %}
+                    {{ component('icons~alert',theme.icons.delete,'svg') }}   
+                {% elseif item.status == 2 %}
+                    {{ component('icons~alert',theme.icons.delete,'svg') }}   
+                {% endif %}
+                <div class="ml-2">
+                    {{ item.message }}
+                </div>                   
             </div>
         {% endfor %}
         </div>
