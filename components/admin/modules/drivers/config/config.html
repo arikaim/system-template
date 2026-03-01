@@ -4,6 +4,7 @@
 {% set title = (driver is empty) ? title : driver.title %}
 
 {% component 'system:admin.panel' %}
+    {% set id = 'driver_config_panel' %}
     {% if driver_name is empty %}
         <div class="mt-4">
             <h4 class="font-bold">
@@ -11,13 +12,13 @@
             </h4>
             {{  component('system:admin.drivers.dropdown',{ 
                     selected: driver_name, 
-                    class: 'fluid',
+                    class: '',
                     category: category 
                 }) 
             }}
         </div>           
     {% endif %}
-    <div id="driver_config" class="mt-8">    
+    <div id="driver_config" class="mt-8"> 
         {% if driver_name is not empty %}
             {{  component('system:admin.modules.drivers.config.form',{ 
                     driver_name: driver_name, 

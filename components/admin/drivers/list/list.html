@@ -1,0 +1,56 @@
+{% set drivers = service('driver').getList(category) %}
+
+<div class="mt-2 {{ theme.list.flush }} w-full">    
+    {% if drivers is empty %}      
+        <div class="px-2">
+            {{ empty|default(label.empty) }}
+        </div>   
+    {% endif %}
+
+    {% for driver in drivers %}
+        <div class="flex flex-row items-center">        
+                {% if editable == true %}
+                    <input 
+                        driver-name="{{ driver.name }}"
+                        type="checkbox"
+                        value="1"
+                        {{ (driver.status == 1) ? 'checked' : '' }}
+                        class="switch switch-xs switch-success status-switch">                              
+                {% else %}
+                    {% if (driver.status == 1) %}
+                        {{ component('icons~check',theme.icons.green,'svg') }}                   
+                    {% endif %}  
+                {% endif %}
+                {% if hide_config != true %}
+                    <a 
+                        class="{{ theme.buttons.icon }} driver-config" 
+                        title="{{ label.settings }}" 
+                        driver-name="{{ driver.name }}">
+                        {{ component('icons~cog',theme.icons.menu,'svg') }}  
+                    </a>
+                {% endif %}
+                {% for button in buttons %}
+                    <a 
+                        class="{{ theme.buttons.icon }} {{ button.class }}" 
+                        title="{{ button.title }}" 
+                        driver-name="{{ driver.name }}">
+                        {{ component('icons~cog',theme.icons.menu,'svg') }}  
+                    </a>  
+                {% endfor %}
+                {% if driver.name == current %}
+                    <div class="mx-2 badge badge-sm badge-success badge-outline">
+                        {{ label.current }}
+                    </div>
+                {% endif %}
+         
+            <div class="ml-2">
+                <div class="font-bold">
+                    {{ driver.title }}
+                </div>
+                <div class="text-sm">
+                    {{ driver.description }}
+                </div>
+            </div>      
+        </div>
+    {% endfor %}
+</div>
