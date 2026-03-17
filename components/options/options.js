@@ -1,30 +1,20 @@
-/**
- *  Arikaim
- *  @copyright  Copyright (c) Konstantin Atanasov <info@arikaim.com>
- *  @license    http://www.arikaim.com/license
- *  http://www.arikaim.com
- */
 'use strict';
 
 function Options() {
 
-    this.save = function(name, value, onSuccess, onError) {
-        var params = { 
+    this.save = function(name, value, onSuccess, onError) { 
+        return arikaim.put('/core/api/options/',{ 
             key: name,
             value: value 
-        };
-        
-        return arikaim.put('/core/api/options/',params,onSuccess,onError);
+        },onSuccess,onError);
     };
 
-    this.saveConfigOption = function(name, value, onSuccess, onError) {
-        var params = { 
+    this.saveConfigOption = function(name, value, onSuccess, onError) { 
+        return arikaim.put('/core/api/settings/update/option',{ 
             key: name,
             type: typeof(value),
             value: value 
-        };
-        
-        return arikaim.put('/core/api/settings/update/option',params,onSuccess,onError);
+        },onSuccess,onError);
     };
 
     this.saveAll = function(formId, onSuccess, onError) {

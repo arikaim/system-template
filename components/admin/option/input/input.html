@@ -4,17 +4,17 @@
     validator-rule="{{ rule }}"
     id="{{ component_id }}">
     <button 
-        class="ui basic icon left button clear-option-button" 
+        class="{{ theme.buttons.menu }} clear-option-button mr-2" 
         title="{{ labels.clear }}">
-        <i class="icon eraser"></i>
+        {{ component('icons~close',theme.icons.delete,'svg') }}
     </button>
     <input 
         {{ rule|attr('rule') }}
         name="{{ name }}"
         value="{{ value }}"
         type="text" 
-        placeholder="{{ placeholder }}">        
-    <button class="ui green right button disabled save-option-button">
+        placeholder="{{ placeholder }}">      
+    <button class="btn btn-xs my-auto btn-success save-option-button">
         {{ labels.save }}
     </button>
 </div>
