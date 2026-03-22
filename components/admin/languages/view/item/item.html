@@ -8,6 +8,7 @@
 {% if uuid is not empty %}
     {% set item = createModel('Language').findById(uuid) %}
 {% endif %}
+{% set package = package('components') %}
 
 <div 
     id="row_{{ item.uuid }}"
@@ -19,13 +20,12 @@
             {{ component('icons~check',theme.icons.green,'svg') }}
         </div>
         {% endif %}       
-        <div class="flex flex-row items-center flex-grow pl-4">
-            <div>
-                <span class="flag {{ item.country_code }}">
-
-                </span> 
-            </div>                    
-            <div class="font-bold">                          
+        <div class="flex flex-row items-center flex-grow ml-2">          
+            {% if service('page').hasComponent('flag-icons~' ~ item.country_code) == true %}
+                {{ component('flag-icons~' ~ item.country_code,{ size: 'h-5 w-5'},'svg') }}                
+            {% endif %}                                
+            <div 
+                class="font-bold ml-2 pt-1">                          
                 {{ item.title }}                                        
             </div>  
         </div>                 

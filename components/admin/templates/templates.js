@@ -16,7 +16,6 @@ function Templates() {
             params: { 
                 template_name: name 
             }
-        },function(result) {            
         });
     };
 }

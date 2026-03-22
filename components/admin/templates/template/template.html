@@ -4,6 +4,8 @@
 {% set show_requires = show_requires|default(false) %}
 {% set show_buttons = show_buttons|default(true) %}
 {% set primary_templ = primary_templ|default(getConfigOption('settings/primaryTemplate')) %}
+{% set currentTemplateLanguage = getConfigOption('language/' ~ template_name,'en') %}
+
 
 <div 
     class="h-full {{ theme.card.default }} {{ class }}">       
@@ -65,6 +67,14 @@
                 title="{{ buttons.details.content }}">
                 {{ buttons.details.content }}                         
             </button>
+            <div class="w-16 place-content-end self-end">
+                {{  component('system:admin.templates.template.details.languages',{
+                        template_name: template_name,
+                        selected: currentTemplateLanguage,
+                        class: 'ml-2 select-sm'
+                    }) 
+                }}
+            </div>          
         </div>
     {% endif %}
 </div>      

@@ -47,7 +47,7 @@
             "title": "Languages",
             "svg_icon": "icons~mail",
             "component": "system:admin.templates.template.details.list",
-            "params": "template_name:{{template_name}},key:mail,icon:icons~mail"
+            "params": "template_name:{{template_name}},key:languages,icon:icons~language"
         }
     },
     "labels": {

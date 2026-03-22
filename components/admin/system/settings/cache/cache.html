@@ -15,11 +15,10 @@
                 }}               
             </div>    
             <div class="mt-4">
-                {{  component('system:admin.option.switch',{                         
+                {{  component('system:form.fields.switch',{                         
                         label: labels.enable,
                         id: 'cahce_switch',
-                        name: 'cache_enable',
-                        type: 'config',
+                        name: 'cache_enable',                      
                         value: status
                     })
                 }}    

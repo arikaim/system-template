@@ -2,11 +2,10 @@
 <div class="grid grid-cols-3 gap-4">
     {% component 'system:admin.panel' %}  
         <div class="mt-2 {{ theme.form.field }}">
-            {{  component('system:admin.option.switch',{                         
+            {{  component('system:form.fields.switch',{                         
                     label: labels.disable,
                     id: 'install_page_toggle',
-                    name: 'install_page',
-                    type: 'config',
+                    name: 'install_page',                 
                     value: disable_install_page
                 })
             }} 

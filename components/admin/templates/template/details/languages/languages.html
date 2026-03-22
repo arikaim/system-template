@@ -1,17 +1,14 @@
-{% if languages is iterable %}
-    {% set model = createModel('Language') %}
-    <div class="{{ theme.list.default }}">
-        {% for code in languages %}
-        <div class="px-1">
-            {{  component('system:admin.language.label',{ 
-                    model: model, 
-                    language: code, 
-                    class: '' 
-                }) 
-            }}
-        </div>
-        {% endfor %}
-    </div>
-{% else %}
-    <div>..</div>
-{% endif %}
+{% set template = package('template').getPackageProperties(template_name,true) %}
+{% set languages = template.toArray()['languages']|default(['en']) %}
+<select    
+    template="{{ template_name }}"
+    name="{{ name|default('languages') }}"
+    class="languages-select {{ theme.form.select }} {{ class }}">
+    {% for code in languages %}
+        <option 
+            {{ (selected == code) ? 'selected' : '' }}
+            value="{{ code }}">
+            {{ code }}
+        </option>
+    {% endfor %}
+</select>

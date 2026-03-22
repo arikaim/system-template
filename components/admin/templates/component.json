@@ -1,10 +1,11 @@
 {
     "include": {
         "js": [
-            "system:admin.upload",          
+            "system:admin.upload", 
+            "system:options",         
             "system:admin.packages"
         ]   
-    },
+    },    
     "access": {
         "auth": "session",
         "redirect": "/admin",
