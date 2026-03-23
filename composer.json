@@ -16,7 +16,8 @@
         "arikaim/jquery-library": "^3.0.0",
         "arikaim/filepond-library": "^4.0.0",
         "arikaim/foundation-emails-library": "^2.0.0",
-        "arikaim/highlight-library": "*"
+        "arikaim/highlight-library": "*",
+        "arikaim/flag-icons": "*"
     },
     "extra": {
         "path": "system"

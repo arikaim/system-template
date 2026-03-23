@@ -14,10 +14,12 @@
     {% if show_label == true %}
         {{ (show_title == true) ? title : '' }}
         {% set conuntry_code = (model.country_code is not empty) ? model.country_code : language %}
-        <span class="font-bold">           
-            <i class="flag {{ conuntry_code|lower }}"></i>
-            <span class="{{ text_class }}">{{ language }}</span>
-        </span>
+        <div class="font-bold" flex flex-roiw items-center>          
+            {% if service('page').hasComponent('flag-icons~' ~ item.country_code) == true %}
+                {{ component('flag-icons~' ~ item.country_code,{ size: 'h-5 w-5'},'svg') }}                
+            {% endif %}      
+            <div class="ml-1 {{ text_class }}">{{ language }}</div>
+        </div>
     {% else %}
         <span class="{{ text_class }}">{{ language }}</span>
     {% endif %}
