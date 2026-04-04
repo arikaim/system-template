@@ -2,7 +2,7 @@
     <div class="flex flex-row items-center">
         <button 
             loading-class="{{ loading_class|default('loading') }}"
-            class="submit-button {{ styles.submit }}" 
+            class="submit-button {{ theme.buttons.submit }}" 
             {{ tooltip|attr('title') }}>
             {{ button_title|default(buttons.save.title) }}
         </button>      
