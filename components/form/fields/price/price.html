@@ -7,14 +7,19 @@
         {{ label|default(price.label) }}
     </label>   
     <div class="join">
-        <div class="join {{ theme.form.input }}">       
+        <div class="join {{ theme.form.input }} {{ input_class }}">       
             <div class="label-text my-auto me-3 p-0 join-item">
                {{ currency_code }}
             </div>        
             <input 
+                {{ pattern|attr('pattern') }}               
+                rule="number"
+                min="0.00"
+                {{ max|default(100000.00)|attr('max') }}
+                {{ step|default(0.01)|attr('step') }}
                 class="join-item"
                 {{ rule|attr('rule') }} 
-                type="text" 
+                type="number" 
                 placeholder="{{ placeholder }}" 
                 name="{{ name }}" 
                 id="{{ id }}" 

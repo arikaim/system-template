@@ -1,0 +1,49 @@
+{% if uuid is not empty %}
+    {% set model = createModel(model_name,extension).findById(uuid) %}
+{% endif %}
+
+ <table class="{{ theme.table.details }}">
+    <thead>
+        <tr>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="{{ theme.table.field.label }}">{{ labels.id }}</td>
+            <td>
+                {{ component('system:admin.view.id',{ model: model }) }}                    
+            </td>
+        </tr>
+        {% for key, item in columns %}
+            {% if item.type == 'status' %}
+            <tr>
+                <td class="{{ theme.table.field.label }}">{{ item.label }}</td>
+                <td>
+                    {{ component('system:admin.status.label',{ status: model[key] }) }}                   
+                </td>
+            </tr>
+            {% elseif item.type == 'map' %}
+            <tr>
+                <td class="{{ theme.table.field.label }}">{{ labels.location }}</td>
+                <td>
+                    <div>{{ model[item.latitude] }}</div>
+                    <div>{{ model[item.longitude] }}</div>             
+                </td>
+            </tr>
+            {% else %}
+            <tr>
+                <td class="{{ theme.table.field.label }}">{{ item.label }}</td>
+                <td>
+                    {% if item.type == 'relation' %}                    
+                        {{ model[item.relation.key][item.relation.field] }}      
+                    {% else %}         
+                        {{ model[key] }}
+                    {% endif %}
+                </td>
+            </tr>
+            {% endif %}
+        {% endfor %}                        
+    </tbody>  
+</table>     
