@@ -32,14 +32,23 @@
                     <div>{{ model[item.longitude] }}</div>             
                 </td>
             </tr>
+            {% elseif item.type == 'options' %}
+              <tr>               
+                <td colspan="2">
+                    {{  component('system:admin.options',{ 
+                            options: model[key]
+                        }) 
+                    }}                         
+                </td>
+              </tr>
             {% else %}
             <tr>
                 <td class="{{ theme.table.field.label }}">{{ item.label }}</td>
-                <td>
+                <td style="text-wrap: wrap;">
                     {% if item.type == 'relation' %}                    
                         {{ model[item.relation.key][item.relation.field] }}      
-                    {% else %}         
-                        {{ model[key] }}
+                    {% else %}                            
+                        {{ model[key] }}                    
                     {% endif %}
                 </td>
             </tr>

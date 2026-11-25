@@ -17,3 +17,10 @@
 .active-button {
     @apply bg-stone-200;
 }
+
+.input {
+    @apply hover:border-green-500 focus-visible:border-none outline-green-500 focus:border-none focus-within:outline-green-500;
+}
+.select {
+    @apply hover:border-green-500 focus-visible:border-none outline-green-500 focus:border-none focus-within:outline-green-500;
+}

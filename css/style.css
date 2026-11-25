@@ -8,6 +8,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wdth,wght@0,75..100,300..800;1,75..100,300..800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;900&display=swap');
 
+.pdf-page-a4 {
+    box-sizing: border-box;   
+    page-break-after: always;
+    height: 297mm;
+    width: 210mm;
+    padding: 8px 8px 8px 8px;  
+}
+
+.pdf-table {
+  table-layout: auto;
+}
+
+.pdf-table th {
+  border-bottom:1px solid black;
+}
+
 .page-title {
   font-family: 'Monoton' !important;
   font-weight: 200!important;

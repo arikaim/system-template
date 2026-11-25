@@ -115,6 +115,7 @@ arikaim.component.onLoaded(function(component) {
                 // set current page                                                    
                 arikaim.events.emit('paginator.load.page',result);                                                      
                 component.loadRows();  
+                component.reload();
             }); 
         },function() {
             component.initButtons();
